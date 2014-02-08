@@ -193,27 +193,22 @@
 					</section>
 					<section>
 						<section>
-							<h1>why performance</h1>
-						</section>
-					</section>
-
-					
-					<section>
-						<section>
-							<h1>JavaScript</h1>
+							<h1>why performance</h1>							
 						</section>
 						<section>
+							<h2>add images and build a story</h2>
 							<img src="images/longRun3.jpg" alt="">
 							<img class="fragment" src="images/longRun.png" alt="">
 
 						</section>
-
+					</section>
+					<section>
 						<section>
-							<h1 class="upholdHeader">JS try to Avoid</h1>
+							<h1>Caching</h1>
 						</section>
 						<section>
-							<h2 class="lineThrough">Access Same Variable</h2>						
-							<pre><code contenteditable>
+							<h2>Access DOM</h2>
+							<pre><code>
 var blah = document.getElementById('myID');
 var blah2 = document.getElementById('myID2');
 var blah3 = document.getElementById('myID3');
@@ -222,44 +217,47 @@ var blah3 = document.getElementById('myID3');
 var blah = document.getElementById('myID'),
     blah2 = document.getElementById('myID2'),
     blah3 = document.getElementById('myID3');
-							</code></pre>		
+							</code></pre>							
 						</section>
 						<section>
-							<h2>Localize variable</h2>						
-							<pre><code contenteditable>
+							<h2>cache or localize</h2>
+							<pre><code>
 var doc = document,
     blah = doc.getElementById('myID'),
     blah2 = doc.getElementById('myID2'),
     blah3 = doc.getElementById('myID3');
-
-							</code></pre>		
+							</code></pre>
+							<a href="http://jsperf.com/caching-document-with-var-vs-without/2">jsPerf:caching</a>
 						</section>
 						<section>
-							<h2 class="lineThrough">My For Loop</h2>						
+							<h2>My For Loop</h2>						
 							<pre><code contenteditable>
-for(var i = 0; i < someArray.length; i++) {  
-   
+for(var i = 0; i < someArray.length; i++) {
    var container = document.getElementById('container');  
    container.innerHtml += 'my number: ' + i;  
    console.log(i);  
-} 
-
+}
 							</code></pre>		
 						</section>
 						<section>
 							<h2>Cache outside of loop</h2>						
 							<pre><code contenteditable>
-
 var container = document.getElementById('container');  
 
-for(var i = 0; i < someArray.length; i++) {     
-   
+for(var i = 0; i < someArray.length; i++) {
    container.innerHtml += 'my number: ' + i;  
    console.log(i);  
 } 
 
 							</code></pre>		
 						</section>
+					</section>
+
+					
+					<section>
+						<section>
+							<h1>JavaScript</h1>
+						</section>						
 						<section>
 							<h2>Little More!!!</h2>						
 							<pre><code contenteditable>
