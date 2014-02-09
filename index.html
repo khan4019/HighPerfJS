@@ -327,10 +327,11 @@ for(var i =0; i&lt myArr.length; i++){
 for(var i =0, len = myArr.length; i&lt;len; i++){
   console.log(myArr[i]);
 }
-							</code></pre>		
+							</code></pre>							
 						</section>
 						<section>
 							<h2>Even Better</h2>
+							<p>todo: add hoisting part in later</p>
 							<pre><code>
 var i,
   length = 100;
@@ -347,58 +348,19 @@ for ( ; i < length; i++ ) {
   // statements
 }
 							</code></pre>
-							<pre class="fragment"><code>
+						</section>
+						<section>
+							
+							<pre><code>
+							//what the heck is this	
 for (var i = 0, item; item = someArray[i++];) {
     // Do something with item
 }
 							</code></pre>
 							<a href="https://github.com/rwaldron/idiomatic.js#table-of-contents">Idiomatic JS</a>
 						</section>
-						<section>
-							<h2 class="upholdHeader">Use === than ==</h2>
-
-							<pre><code contenteditable>
-0 == ''; // true
-0 === false; //false
-							</code></pre>
-							<pre class="fragment"><code contenteditable>
-if (( x === null) || (x === undefined)){ ... }
-
-if(x == null) { ... }
-							</code></pre>
-							<p class="fragment"> When you don't actually know whether they are same type</p>
-							<pre class="fragment"><code contenteditable>
-typeof thing == 'function'; //always be string
-myArray.length == 0;  //will always be number
-mySting.indexOf('x') == 0;
-							</code></pre>
-							
-							<a href="http://www.youtube.com/watch?v=MFtijdklZDo">bReaK aLL thE RuleZ</a>		
-						</section>
-						<section>
-							<h2>Initialize if Undefined</h2>						
-							<pre><code contenteditable>
-if ( !MyNamespace ) {
-  var MyNamespace = { };
-}
-
-//or
-var myNamespace = myNamespace || {};
-
-//or http://jsperf.com/conditional-assignment
-// myNamespace || ( myNamespace = {} );
-
-
-//or
-if ( typeof MyNamespace == ’undefined’ ) {
-  var MyNamespace = { };
-}
-							</code></pre>		
-							<a href="http://developer.nokia.com/Community/Wiki/JavaScript_Performance_Best_Practices">Nokia: JS Best Practice</a>
-						</section>
+						
 					</section>
-
-
 					<section>
 						<section>
 							<h1 class="upholdHeader">JavaScript: String</h1>
@@ -622,6 +584,53 @@ o.x; // undefined
 							
 						</section>
 
+					</section>
+					<section>
+						<section>
+							<h2>equality overkill</h2>
+						</section>
+						<section>
+							<h2 class="upholdHeader">Use === than ==</h2>
+
+							<pre><code contenteditable>
+0 == ''; // true
+0 === false; //false
+							</code></pre>
+							<pre class="fragment"><code contenteditable>
+if (( x === null) || (x === undefined)){ ... }
+
+if(x == null) { ... }
+							</code></pre>
+							<p class="fragment"> When you don't actually know whether they are same type</p>
+							<pre class="fragment"><code contenteditable>
+typeof thing == 'function'; //always be string
+myArray.length == 0;  //will always be number
+mySting.indexOf('x') == 0;
+							</code></pre>
+							
+							<a href="http://www.youtube.com/watch?v=MFtijdklZDo">bReaK aLL thE RuleZ</a>		
+						</section>
+						<section>
+							<h2>Initialize if Undefined</h2>						
+							<pre><code contenteditable>
+if ( !MyNamespace ) {
+  var MyNamespace = { };
+}
+
+//or
+var myNamespace = myNamespace || {};
+
+//or http://jsperf.com/conditional-assignment
+// myNamespace || ( myNamespace = {} );
+
+
+//or
+if ( typeof MyNamespace == ’undefined’ ) {
+  var MyNamespace = { };
+}
+							</code></pre>		
+							<a href="http://developer.nokia.com/Community/Wiki/JavaScript_Performance_Best_Practices">Nokia: JS Best Practice</a>
+						</section>
 					</section>
 					<section>
 						<section>
