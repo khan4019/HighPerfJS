@@ -143,22 +143,14 @@
 						<li><a href="http://jsperf.com/caching-id-lookups-or-not">jquery: caching id lookup or not</a></li>
 						<li><a href="http://jsperf.com/simple-jquery-selector-caching">simple jQuery selector caching</a></li>
 						<li><a href="http://jsperf.com/caching-queryselector">caching query selector</a></li>
+						<li><a href="http://jsperf.com/caching-object-member">for loop length chaching</a></li>
 					</section>
 					<section>
 						<h3>another js perf (loop spcial)</h3>
-							<li><a href="http://jsperf.com/caching-object-member">for loop length chaching</a></li>
-							<li><a href="http://jsperf.com/loop-length-caching/3">loop lenght caching</a></li>	
-							<li><a href="http://jsperf.com/loops-perf">loop perf</a></li>
-							<li><a href="http://jsperf.com/for-count-inside-and-outside">length inside vs outside</a></li>		
-							<li><a href="http://jsperf.com/loop-it-test/2">another length</a></li>	
-							<li><a href="http://jsperf.com/loopssydlkjfd">may be another length</a></li>
-							<li><a href="http://jsperf.com/for-loop-variation">where to put ++</a></li>
+							<li><a href="http://jsperf.com/loops-perf">compare different loop perf</a></li>
 							<li><a href="http://jsperf.com/loops4">some extra loop</a></li>
-							<li><a href="http://jsperf.com/variable-declaration-inside-loop">variable declare inside or outside</a></li>
 							<li><a href="http://jsperf.com/angular-foreach-vs-for-loop">angular foreach vs native for</a></li>
-							<li><a href="http://jsperf.com/loopin-over-the-arrays">for vs while over array</a></li>
 							<li><a href="http://jsperf.com/object-keys-vs-loop">Object.keys vs loop</a></li>
-							<li><a href="http://jsperf.com/for-vs-string-indexof">some idea for string looping</a></li>	
 					</section>
 					<section>
 						<h3>loop part 2</h3>
@@ -372,6 +364,7 @@ for(;;i++){
 }
 							</code></pre>
 							<pre><code>
+//TODO: put it in the right flow
 var myArr = [1, 2, 3, 4, 5], 
     i = myArr.length;
 for (var sum = 0; i-- || console.log(sum); sum += myArr[i]);
