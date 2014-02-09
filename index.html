@@ -343,9 +343,28 @@ for ( ; i &lt; len; i++ ) {
 							</code></pre>
 						</section>
 						<section>
-							
+							<h2>iteratingCondition</h2>
 							<pre><code>
-							//what the heck is this	
+var myArr = [1, 2, 3, 4, 5],
+    len = myArr.length;
+
+for(var i =0; i&lt;len && i&lt;3; i++){
+  console.log(myArr[i]);  
+}
+							</code></pre>
+							<pre class="fragment"><code>
+//skip condition
+var i=5;
+for(;;i--){
+  console.log(i);
+  if(!i) break;
+}
+							</code></pre>
+						</section>
+						<section>
+							<h2>read the link</h2>
+							<pre><code>
+//what the heck is this	
 for (var i = 0, item; item = someArray[i++];) {
     // Do something with item
 }
