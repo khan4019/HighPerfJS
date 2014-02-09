@@ -313,7 +313,7 @@ for(initiation; iteratingCondition; repeatingExpression){
 						</section>						
 						<section>
 							<h2>initiation;</h2>						
-							<h4>would be executed only once</h4>
+							<p>would be executed only once</p>
 							<pre><code contenteditable>
 var myArr = [1, 2, 3, 4, 5];
 
@@ -330,22 +330,15 @@ for(var i =0, len = myArr.length; i&lt;len; i++){
 							</code></pre>							
 						</section>
 						<section>
-							<h2>Even Better</h2>
-							<p>todo: add hoisting part in later</p>
+							<h2>skip initiation</h2>
+							<p>(indicate hoisting)</p>
 							<pre><code>
-var i,
-  length = 100;
+var myArr = [1, 2, 3, 4, 5],
+    i = 0,
+    len = myArr.length;
 
-for ( i = 0; i < length; i++ ) {
-  // statements
-}
-
-// Or...
-var i = 0,
-  length = 100;
-
-for ( ; i < length; i++ ) {
-  // statements
+for ( ; i &lt; len; i++ ) {
+  console.log(myArr[i]);
 }
 							</code></pre>
 						</section>
