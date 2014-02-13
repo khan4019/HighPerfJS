@@ -480,6 +480,45 @@ for (var i = 0, item; item = someArray[i++];) {
 					</section>
 					<section>
 						<section>
+							<h1>For in </h1>
+						</section>
+						<section>
+							<h2>What is the sum?</h2>
+								<pre><code>
+var numbers = [10, 20, 30];
+var sum = 0;
+for(var num in numbers){
+	sum+=num;	
+}
+
+console.log(sum); //?
+								</code></pre>
+								<pre class="fragment"><code>
+console.log(sum); //0012				
+								</code></pre>
+							<ul class="fragment">
+								<li>Always enumerates the keys</li>
+								<li>Keys always string</li>
+							</ul>
+							<a href="http://javascriptweblog.wordpress.com/2011/01/04/exploring-javascript-for-in-loops/#more-1897">Angus Croll: add couple example</a>
+						</section>
+						<section>							
+							<li>Enumerates object's inherited properties as well</li>
+							<li>Dont modify object while enumerting it by using for in loop</li>
+							<li>in such case use while loop</li>
+							<li>Might have different order of enumeration in different environment</li>
+							<p>add example as well: effective JS p-113q</p>
+						</section>
+						<section>
+							<h2></h2>
+							<ul>
+								<li>use for loop</li>
+								<li>forEach</li>
+							</ul>
+						</section>
+					</section>
+					<section>
+						<section>
 							<h1 class="upholdHeader">JavaScript: String</h1>
 						</section>
 						<section>
