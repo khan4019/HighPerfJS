@@ -97,7 +97,7 @@
 						<li><a href="http://jsperf.com/jquery-vs-javascript-performance-comparison/30">jQuery vs JavaScript performance comparision</a></li>
 						<li><a href="http://jsperf.com/function-prototype-bind">lo dash</a></li>
 						<li><a href="http://jsperf.com/equalityinnit">quality</a></li>
-						<li><a href="http://uxmag.com/articles/when-design-best-practices-become-performance-worst-practices">anonymous function IIFE	</a></li>
+						
 					</section>
 					<section>
 						<h3>some other imporatnat</h3>
@@ -749,7 +749,32 @@ o.x; // undefined
 					</section>
 					<section>
 						<section>
-							<h2>equality overkill</h2>
+							<h1>== or ===</h1>
+							<h3>equality overkill</h3>
+						</section>
+						<section>							
+							<h2>How == works?</h2>
+							<li>don't check type</li>
+							<li>force coercion of one or both</li>
+							<pre><code>
+[0] == true; 
+
+//convert boolean using toNumber
+[0] == 1;
+
+//convert object using toPrimitive
+//[0].valueOf() is not a primitive so use...
+//[0].toString() -> "0"
+"0" == 1; 
+
+//convert string using toNumber
+0 == 1; //false!
+							</code></pre>
+							<a href="http://javascriptweblog.wordpress.com/2011/02/07/truth-equality-and-javascript/">Angus Croll: truth equality</a>
+							<br>
+							<a href="http://www.jshint.com/docs/options/">js hint options</a>
+							<br>
+							<a href="http://jsperf.com/equalityinnit">equallity perf test</a>
 						</section>
 						<section>
 							<h2 class="upholdHeader">Use === than ==</h2>
@@ -791,7 +816,7 @@ if ( typeof MyNamespace == ’undefined’ ) {
   var MyNamespace = { };
 }
 							</code></pre>		
-							<a href="http://developer.nokia.com/Community/Wiki/JavaScript_Performance_Best_Practices">Nokia: JS Best Practice</a>
+							<a href="http://developer.nokia.com/Community/Wiki/JavaScript_Performance_Best_Practices">Some so called Best Practices</a>
 						</section>
 					</section>
 					<section>
