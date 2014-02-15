@@ -405,7 +405,7 @@ for(var i =0, len = myArr.length; i&lt;len; i++){
 						</section>
 						<section>
 							<h2>skip initiation</h2>
-							<p>(indicate hoisting)</p>
+							<p>(hoisting)</p>
 							<pre><code>
 var myArr = [1, 2, 3, 4, 5],
     i = 0,
@@ -463,7 +463,25 @@ for (var i = 0, item; item = someArray[i++];) {
 							</code></pre>
 							<a href="https://github.com/rwaldron/idiomatic.js#table-of-contents">Idiomatic JS</a>
 						</section>
-						
+					</section>
+					<section>
+						<section>
+							<h2>function in for loop</h2>
+							<pre><code>
+var arr = [];
+for (var i = 0; i &lt; 1000; i++) {
+  arr.push([1, 2, 3].map(function (x) { return x * x; }));
+}
+							</code></pre>
+							<pre class="fragment"><code>
+var arr = [];
+var sq = function (x) { return x * x; };
+for (var i = 0; i &lt; 1000; i++) {
+  arr.push([1, 2, 3].map(sq));
+}
+							</code></pre>
+							<a href="http://jsperf.com/function-in-the-loop">function caching for loop</a>
+						</section>
 					</section>
 					<section>
 						<section>
