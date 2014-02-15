@@ -750,24 +750,22 @@ o.x; // undefined
 					<section>
 						<section>
 							<h1>== or ===</h1>
-							<h3>equality overkill</h3>
+							<h3>equal or not</h3>
+							<h1>!= or !==</h1>							
 						</section>
 						<section>
-							<h2>JS: good parts</h2>
+							<h2>What the difference?</h2>
 							<br>
-							<p><strong>jshint#eqeqeq: </strong> prohibits the use of == and != in favor of === and !==.</p>
+							<p>== and != try to coerce values before comparing (can lead to unexpected results)</p>
+							<p>=== and !== don't do any coercion (generally safer)</p>
 							<br>
-							<p>The former try to coerce values before comparing them which can lead to some unexpected results. </p>
-							<br>
-							<p>The latter don't do any coercion so they are generally safer.</p>
-							<a href="http://www.jshint.com/docs/options/">js hint options</a>
-							<br>
-							<a href="http://jsperf.com/equalityinnit">equallity perf test</a>
+							<p class="fragment"><strong>jshint#eqeqeq: </strong> prohibits the use of == and != in favor of === and !==.</p>							
+							<p class="fragment">older browsers === and !== was faster (not in modern browser)</p>
+							<a href="http://www.jshint.com/docs/options/">js hint options</a>, <a href="http://jsperf.com/equalityinnit">equallity perf test</a>
 						</section>
 						<section>							
-							<h2>How == works?</h2>
-							<li>don't check type</li>
-							<li>force coercion of one or both</li>
+							<h2>How == works?</h2>							
+							<li>force coercion (change type) of one or both</li>
 							<pre><code>
 [0] == true; 
 
@@ -787,7 +785,7 @@ o.x; // undefined
 						<section>		
 							<pre><code>
 "potato" == false; //false
- "potato" == true; //false
+"potato" == true; //false
 							</code></pre>					
 							<pre class="fragment"><code>
 "potato" == true; 
@@ -809,7 +807,7 @@ NaN == 0; //false!
 							</code></pre>
 						</section>
 						<section>
-							<h2 class="upholdHeader">Use === than ==</h2>
+							<h2 class="upholdHeader">Which one? === or ==</h2>
 
 							<pre><code contenteditable>
 0 == ''; // true
@@ -828,28 +826,7 @@ mySting.indexOf('x') == 0;
 							</code></pre>
 							
 							<a href="http://www.youtube.com/watch?v=MFtijdklZDo">bReaK aLL thE RuleZ</a>		
-						</section>
-						<section>
-							<h2>Initialize if Undefined</h2>						
-							<pre><code contenteditable>
-if ( !MyNamespace ) {
-  var MyNamespace = { };
-}
-
-//or
-var myNamespace = myNamespace || {};
-
-//or http://jsperf.com/conditional-assignment
-// myNamespace || ( myNamespace = {} );
-
-
-//or
-if ( typeof MyNamespace == ’undefined’ ) {
-  var MyNamespace = { };
-}
-							</code></pre>		
-							<a href="http://developer.nokia.com/Community/Wiki/JavaScript_Performance_Best_Practices">Some so called Best Practices</a>
-						</section>
+						</section>						
 					</section>
 					<section>
 						<section>
