@@ -882,6 +882,38 @@ var all = inpArr.concat(butArr);
 							</code></pre>
 							<a href="http://jsperf.com/concat-vs-queryselectorall">concat vs querySelectorAll</a>
 						</section>
+						<section>
+							<h3>select by attribute value</h3>
+							<pre><code>&lt;div&gt;<br/>  &lt;span data-control=&quot;true&quot;&gt;Something, Darkside&lt;/span&gt;<br/>&lt;/div&gt;</code></pre>
+							<pre class="fragment"><code>
+document.querySelectorAll('[data-control]');								
+							</code></pre>
+							<pre class="fragment"><code>
+getElementByAttributeValue('data-control');
+
+function getElementByAttributeValue(attribute)
+    {
+      var allElements = document.getElementsByTagName('*');
+      for (var i = 0; i &lt; allElements.length; i++)
+       {
+        if (allElements[i].getAttribute(attribute))
+        {
+          return allElements[i];
+        }
+      }
+    }
+							</code></pre>							
+						</section>
+						<section>
+								<h2>why not a class</h2>
+								<pre><code>
+&lt;div&gt;<br/>  &lt;span class=&quot;data-control&quot; data-control=&quot;true&quot;&gt;Something, something, something, Darkside&lt;/span&gt;<br/>&lt;/div&gt;
+							</code></pre>
+							<pre class="fragment"><code>
+document.getElementsByClassName('data-control');
+							</code></pre>
+							<a href="http://jsperf.com/class-vs-attribute-selector-performance/4">select by attribute value</a>
+							</section>
 					</section>
 					<section>
 						<section>
