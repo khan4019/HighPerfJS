@@ -92,7 +92,7 @@
 						<li><a href="https://github.com/stevekwan/best-practices/blob/master/javascript/best-practices.md">some random best practic</a></li>
 						<li>event bubble, <a href="http://jsperf.com/events-vanilla-and-jquery/17">js perf delegate</a></li>
 						<li>Event delegation</li>
-						<li><a href="http://gregfranko.com/blog/javascript-performance-tips/">clue: animation, DOM manipulation, infinite scrolling</a></li>
+						<li><a href="http://daneden.github.io/animate.css/">animate.css</a></li>						
 						<li>free caveats from js confusing parts</li>
 						<li>inhertiance problem</li>
 						<li><a href="http://net.tutsplus.com/tutorials/javascript-ajax/stop-nesting-functions-but-not-all-of-them/"></a>anonymous and prototype</li>
@@ -891,15 +891,35 @@ function getElementByAttributeValue(attribute)
 							</code></pre>							
 						</section>
 						<section>
-								<h2>why not a class</h2>
-								<pre><code>
+							<h2>why not a class</h2>
+							<pre><code>
 &lt;div&gt;<br/>  &lt;span class=&quot;data-control&quot; data-control=&quot;true&quot;&gt;Something, something, something, Darkside&lt;/span&gt;<br/>&lt;/div&gt;
 							</code></pre>
 							<pre class="fragment"><code>
 document.getElementsByClassName('data-control');
 							</code></pre>
 							<a href="http://jsperf.com/class-vs-attribute-selector-performance/4">select by attribute value</a>
-							</section>
+						</section>
+						<section>
+							<h2>removeNode</h2>
+							<h4>prefer removeNode() over innherHTML = ''</h4>
+							<p>TODO: why this is happen???</p>
+							<pre><code>
+el.innerHTML = '';
+//or
+el.innerHTML = null;
+							</code></pre>
+							<pre><code>
+//prefer
+function emptyDOM(el) {
+    var child;
+    while (child = el.lastChild) {
+      el.removeChild(child);
+    }
+  }
+							</code></pre>
+							<a href="http://jsperf.com/jquery-html-vs-empty-vs-innerhtml/18">removeNode</a>
+						</section>
 					</section>
 					<section>
 						<section>
@@ -1292,6 +1312,10 @@ $( "#list" ).on( "click", "a", function( event ) {
 							<a href="http://coding.smashingmagazine.com/2012/08/17/javascript-events-responding-user/">JS Events</a>	
 							<br>
 							<a href="http://learn.jquery.com/events/event-delegation/">JQuery Event Delegation</a>
+						</section>
+						<section>
+							<h2>simultaneous ajax</h2>
+							<a href="http://css-tricks.com/multiple-simultaneous-ajax-requests-one-callback-jquery/">multiple ajax</a>
 						</section>
 						<section>
 							<h1 class="upholdHeader">Jquery Also !</h1>
