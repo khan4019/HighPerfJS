@@ -752,6 +752,18 @@ o.x; // undefined
 							<h1>== or ===</h1>
 							<h3>equality overkill</h3>
 						</section>
+						<section>
+							<h2>JS: good parts</h2>
+							<br>
+							<p><strong>jshint#eqeqeq: </strong> prohibits the use of == and != in favor of === and !==.</p>
+							<br>
+							<p>The former try to coerce values before comparing them which can lead to some unexpected results. </p>
+							<br>
+							<p>The latter don't do any coercion so they are generally safer.</p>
+							<a href="http://www.jshint.com/docs/options/">js hint options</a>
+							<br>
+							<a href="http://jsperf.com/equalityinnit">equallity perf test</a>
+						</section>
 						<section>							
 							<h2>How == works?</h2>
 							<li>don't check type</li>
@@ -770,11 +782,31 @@ o.x; // undefined
 //convert string using toNumber
 0 == 1; //false!
 							</code></pre>
-							<a href="http://javascriptweblog.wordpress.com/2011/02/07/truth-equality-and-javascript/">Angus Croll: truth equality</a>
-							<br>
-							<a href="http://www.jshint.com/docs/options/">js hint options</a>
-							<br>
-							<a href="http://jsperf.com/equalityinnit">equallity perf test</a>
+							<a href="http://javascriptweblog.wordpress.com/2011/02/07/truth-equality-and-javascript/">Angus Croll: truth equality</a>							
+						</section>
+						<section>		
+							<pre><code>
+"potato" == false; //false
+ "potato" == true; //false
+							</code></pre>					
+							<pre class="fragment"><code>
+"potato" == true; 
+
+//convert boolean using toNumber
+"potato" == 1;
+
+//convert string using toNumber
+NaN == 1; //false!
+							</code></pre>
+							<pre class="fragment"><code>
+"potato" == false; 
+
+//convert boolean using toNumber
+"potato" == 0;
+
+//convert string using toNumber
+NaN == 0; //false!
+							</code></pre>
 						</section>
 						<section>
 							<h2 class="upholdHeader">Use === than ==</h2>
