@@ -137,19 +137,7 @@
 						<li><a href="http://jsperf.com/simple-jquery-selector-caching">simple jQuery selector caching</a></li>
 						<li><a href="http://jsperf.com/caching-queryselector">caching query selector</a></li>
 						<li><a href="http://jsperf.com/caching-object-member">for loop length chaching</a></li>
-					</section>
-					<section>
-						<h3>another js perf (loop spcial)</h3>
-							<li><a href="http://jsperf.com/loops-perf">compare different loop perf</a></li>
-							<li><a href="http://jsperf.com/loops4/2">some extra loop</a></li>
-							<li><a href="http://jsperf.com/loops-perf/3">for loop with while and jquery</a></li>
-							<li><a href="http://jsperf.com/object-keys-vs-loop">Object.keys vs loop</a></li>
-							<li><a href="http://jsperf.com/array-filter-vs-simple-loop">array filter vs simple for loop</a></li>
-							<li><a href="http://jsperf.com/if-loop-vs-while-loop">some lopping comparision</a></li>
-							very nice
-							<li><a href="http://jsperf.com/function-in-the-loop"> very good: function in for looop</a></li>
-							
-					</section>					
+					</section>										
 					<section>
 						<h3>js perf</h3>
 						<li><a href="http://jsperf.com/reduce-vs-while-pluck">reduce vs while</a></li>
@@ -466,6 +454,9 @@ for (var i = 0, item; item = someArray[i++];) {
 					</section>
 					<section>
 						<section>
+							<h1>for loop extra</h1>
+						</section>
+						<section>
 							<h2>function in for loop</h2>
 							<pre><code>
 var arr = [];
@@ -481,6 +472,11 @@ for (var i = 0; i &lt; 1000; i++) {
 }
 							</code></pre>
 							<a href="http://jsperf.com/function-in-the-loop">function caching for loop</a>
+						</section>
+						<section>
+							<h2>array.fiter vs if condition</h2>
+							<a href="http://jsperf.com/array-filter-vs-simple-loop">filter vs simple loop</a>
+							<h3>TODO: why filter is slow</h3>
 						</section>
 					</section>
 					<section>
@@ -499,7 +495,7 @@ for (var i = 0; i &lt; 1000; i++) {
 					</section>
 					<section>
 						<section>
-							<h1>For in </h1>
+							<h1>For in </h1>							
 						</section>
 						<section>
 							<h2>What is the sum?</h2>
@@ -527,6 +523,10 @@ console.log(sum); //0012
 							<li>in such case use while loop</li>
 							<li>Might have different order of enumeration in different environment</li>
 							<p>add example as well: effective JS p-113q</p>
+						</section>
+						<section>
+							<h2>loop object keys</h2>
+							<a href="http://jsperf.com/object-keys-vs-loop">modify this little bit</a>
 						</section>
 						<section>
 							<h2></h2>
