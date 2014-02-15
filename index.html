@@ -87,7 +87,7 @@
 						<h2>Under construction</h2>
 					</section>					
 					<section>
-						<h3>some other imporatnat</h3>
+						<h3>TODO</h3>
 						<li><a href="https://github.com/getify/You-Dont-Know-JS">u dont know js</a></li>
 						<li><a href="https://github.com/stevekwan/best-practices/blob/master/javascript/best-practices.md">some random best practic</a></li>
 						<li>nokia js best practice</li>
@@ -488,6 +488,8 @@ for (var i = 0; i &lt; 1000; i++) {
 							<p>reverse while</p>							
 							<a href="http://jsperf.com/fastest-array-loops-in-javascript/121">all different types</a>
 							<a href="http://jsperf.com/fastest-array-loops-in-javascript/32">another revision</a>
+							<br>
+							<a href="http://jsperf.com/if-loop-vs-while-loop">FYI: just check</a>
 						</section>
 						<section>
 							
@@ -840,6 +842,35 @@ mySting.indexOf('x') == 0;
 							
 							<a href="http://www.youtube.com/watch?v=MFtijdklZDo">bReaK aLL thE RuleZ</a>		
 						</section>						
+					</section>
+					<section>
+						<section>
+							<h1>DOM</h1>
+						</section>
+						<section>
+							<h2>DOM query</h2>
+							<li>what is the fastest of query</li>
+							<li>descendant</li>
+						</section>
+						<section>
+							<h2>querySelectorAll</h2>
+							<pre><code>
+document.querySelectorAll('input, button');
+							</code></pre>
+							<pre class="fragment"><code>
+// get the elements
+var inp = document.getElementsByTagName('input');
+var but = document.getElementsByTagName('button');
+
+// change the NodeList to array
+var inpArr = Array.prototype.slice.call(inp);
+var butArr = Array.prototype.slice.call(but);
+
+// Join the arrays
+var all = inpArr.concat(butArr);
+							</code></pre>
+							<a href="http://jsperf.com/concat-vs-queryselectorall">concat vs querySelectorAll</a>
+						</section>
 					</section>
 					<section>
 						<section>
