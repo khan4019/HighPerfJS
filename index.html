@@ -99,8 +99,7 @@
 						<li><a href="http://moduscreate.com/javascript-performance-tips-tricks/">optimizing events: at bottom</a></li>
 					</section>
 					<section>
-						<h3>more TODO</h3>						
-						<li><a href="http://blog.adtile.me/2014/01/16/a-dive-into-plain-javascript/">a drive into plain JS</a></li>
+						<h3>more TODO</h3>												
 						<li><a href="http://html5index.org/">html5 js api index</a></li>
 						<li><a href="http://developer.nokia.com/community/wiki/JavaScript_Performance_Best_Practices">Nokia: Might have something</a></li>
 						<li>from eloquent JS</li>
@@ -959,6 +958,25 @@ $('&lt;div class=&#x201d;imAMoron&#x201d;&gt;&lt;span&gt;derp&lt;/span&gt;&lt;/s
 						</section>
 						<section>
 							<h2>documentFragment</h2>
+							<pre><code>
+var list = ['foo', 'bar', 'baz'],
+    elem, contents;
+for (var i = 0; i &lt; list.length; i++) {
+    elem = document.createElement('div');
+    content = document.createTextNode(list[i]);
+    elem.appendChild(content);
+    document.body.appendChild(elem);
+}</code></pre>
+							<pre class="fragment"><code>
+var fragment = document.createDocumentFragment(),
+    list = ['foo', 'bar', 'baz'],
+    elem, contents;
+for (var i = 0; i &lt; list.length; i++) {
+    elem = document.createElement('div');
+    content = document.createTextNode(list[i]);
+    fragment.appendChild(content);
+}
+document.body.appendChild(fragment);</code></pre>
 							<a href="https://developer.mozilla.org/en-US/docs/Web/API/document.createDocumentFragment">createDocumentFragment</a>
 						</section>
 					</section>
