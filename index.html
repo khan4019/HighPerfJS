@@ -28,6 +28,11 @@
 					width: 100%;
 					height: 90%;
 				}
+				.halfScreenImage
+				{
+					width: 80%;
+					height: 60%;
+				}
 				.reveal h1.upholdHeader{
 				  margin-top: -50px;
 				  margin-left: -15%;
@@ -49,8 +54,8 @@
 					text-decoration: line-through;					
 				}
 				.redBoldText{
-					font-weight: bold;
-					color: red;
+					font-weight: bold !important;
+					color: red !important;
 				}
 				.purpleBold{
 					font-weight: bold;
@@ -246,10 +251,17 @@
 								<li>gain maximum</li>								
 							</ul>
 						</section>
+						<section>
+							<img src="images/nakedTruth.jpg" alt="">
+						</section>
+						<section>
+							<img src="images/useOnlyWhatYouNeed.jpg" alt="">
+						</section>
 					</section>
 					<section>
 						<section>
 							<h1>Caching</h1>
+							<img src="images/cache.png" alt="">
 						</section>
 						<section>
 							<h2>Access DOM</h2>
@@ -263,10 +275,7 @@ var blah = document.getElementById('myID'),
     blah2 = document.getElementById('myID2'),
     blah3 = document.getElementById('myID3');
 							</code></pre>							
-						</section>
-						<section>
-							<h2>cache or localize</h2>
-							<pre><code>
+							<pre class="fragment"><code>
 var doc = document,
     blah = doc.getElementById('myID'),
     blah2 = doc.getElementById('myID2'),
@@ -288,67 +297,63 @@ var h3 = awesome.querySelector('.inner-3');
 							<a href="http://jsperf.com/caching-queryselector">cache query selector</a>
 						</section>
 						<section>
-							<h2>My For Loop</h2>						
-							<pre><code contenteditable>
-for(var i = 0; i < someArray.length; i++) {
+							<h2>cache outside for loop</h2>						
+							<pre><code>
+for(var i = 0; i &lt; someArray.length; i++) {
 
    var container = document.getElementById('container');  
-
    container.innerHtml += 'my number: ' + i;  
    console.log(i);  
 }
 							</code></pre>		
-						</section>
-						<section>
-							<h2>Cache outside of loop</h2>						
-							<h4>when value doesnt change</h4>
-							<pre><code contenteditable>
+							<h4 class="fragment">when value doesnt change</h4>
+							<pre class="fragment"><code>
 var container = document.getElementById('container');  
 
-for(var i = 0; i < someArray.length; i++) {
+for(var i = 0; i &lt; someArray.length; i++) {
 
    container.innerHtml += 'my number: ' + i;  
    console.log(i);  
 } 
 							</code></pre>
-							<a href="http://jsperf.com/property-access-vs-variable-caching">peroperty access vs variable cache</a>		
+							<a href="http://jsperf.com/property-access-vs-variable-caching">property access vs variable cache</a>
 						</section>
 						<section>
 							<h2>access object property</h2>
 							<pre><code>
-var a = [{ z: 1 }, {z:2}]
-	s1 = 0, s2 = 0, s3 = 0, s4 = 0, s5 = 0,
-	el;
+var a = [{ z: 1 }, { z: 2 }],
+   sum = 0,
+   el;
 
-for(var i =0; i < 1000; i++){
-	el = a[i%2];
-	s1 += el.z;
-	s2 += el.z;
-	s3 += el.z;
-	s4 += el.z;
-	s5 += el.z;	
+for(var i =0; i &lt; 1000; i++){
+   el = a[i%2];
+   sum += el.z;
+   sum += el.z;
+   sum += el.z;
+   sum += el.z;
+   sum += el.z;	
 }
 							</code></pre>							
 						</section>
 						<section>
 							<h2>cache properties</h2>
 							<pre><code>
-var a = [{ z: 1 }, {z:2}]
-	s1 = 0, s2 = 0, s3 = 0, s4 = 0, s5 = 0,
-	val;
+var a = [{ z: 1 }, { z: 2 }],
+   sum = 0,
+   val;
 
-for(var i =0; i < 1000; i++){
-	val = a[i%2].z;
-	s1 += val;
-	s2 += val;
-	s3 += val;
-	s4 += val;
-	s5 += val;	
+for(var i =0; i &lt; 1000; i++){
+   val = a[i%2].z;
+   sum += val;
+   sum += val;
+   sum += val;
+   sum += val;
+   sum += val;	
 }
 							</code></pre>
-							<a href="http://jsperf.com/caching-of-properties">cahcing object properties</a>
+							<a href="http://jsperf.com/caching-of-properties">caching object properties</a>
 							<br>
-							<a href="http://jsperf.com/getters-vs-getters-with-caching">getter cahcing</a>
+							<a href="http://jsperf.com/getters-vs-getters-with-caching">getter caching</a>
 						</section>
 					</section>
 
@@ -356,12 +361,19 @@ for(var i =0; i < 1000; i++){
 					
 					<section>
 						<section>
-							<h1>for-loop</h1>							
+							<h1>loop</h1>
+							<img class="halfScreenImage" src="images/loop3.jpg" alt="">							
 						</section>			
 						<section>
-							<h2>mostly useful</h2>
+							<img class="fullScreenImage" src="images/loop1.jpg" alt="">
+						</section>
+						<section>
+							<img class="fullScreenImage" src="images/loop2.jpg" alt="">
+						</section>						
+						<section>
+							<h2>for loop (mostly used)</h2>
 							<pre><code>
-for(var i = 0; i &lt 5; i++){
+for(var i = 0; i &lt; 5; i++){
   console.log(i);
 }
 							</code></pre>
@@ -379,7 +391,7 @@ for(initiation; iteratingCondition; repeatingExpression){
 							<pre><code contenteditable>
 var myArr = [1, 2, 3, 4, 5];
 
-for(var i =0; i&lt myArr.length; i++){
+for(var i =0; i&lt; myArr.length; i++){
   console.log(myArr[i]);
 }
 							</code></pre>
@@ -415,7 +427,7 @@ for(var i =0; i&lt;len && i&lt;3; i++){
 }
 							</code></pre>
 							<pre class="fragment"><code>
-//asign variable
+//assign variable
 //TODO: this doesnt work. modify it
 var myArr = [1, 2, 3, 4, 5];
 
@@ -455,9 +467,30 @@ for (var i = 0, item; item = someArray[i++];) {
 					<section>
 						<section>
 							<h1>for loop extra</h1>
+							<img src="images/loop5.png" alt="">
 						</section>
 						<section>
-							<h2>function in for loop</h2>
+							<h2>forward or backward</h2>
+							<pre><code>
+var myArr = [0,1,2,3,4,5 ...];
+
+//forward
+for(var j = 0; j&lt;1000; j++){
+  console.log(myArr[j]);
+}
+
+//backward
+for(var k = 1000; k>=0; k--){
+  console.log(myArr[k]);
+}
+							</code></pre>
+							<p>dont worry about it for a smaller array</p>
+							<a href="http://jsperf.com/for-loop-backward-perf">js perf: backward test</a>
+							<br>
+							<a href="http://stackoverflow.com/a/13136778/1535443">for loop backward</a>
+						</section>
+						<section>
+							<h2>cache function</h2>
 							<pre><code>
 var arr = [];
 for (var i = 0; i &lt; 1000; i++) {
@@ -467,6 +500,7 @@ for (var i = 0; i &lt; 1000; i++) {
 							<pre class="fragment"><code>
 var arr = [];
 var sq = function (x) { return x * x; };
+
 for (var i = 0; i &lt; 1000; i++) {
   arr.push([1, 2, 3].map(sq));
 }
@@ -474,30 +508,114 @@ for (var i = 0; i &lt; 1000; i++) {
 							<a href="http://jsperf.com/function-in-the-loop">function caching for loop</a>
 						</section>
 						<section>
-							<h2>array.fiter vs if condition</h2>
-							<a href="http://jsperf.com/array-filter-vs-simple-loop">filter vs simple loop</a>
-							<h3>TODO: why filter is slow</h3>
+							<h2>filter vs if</h2>
+							<pre><code>
+var myArray = [{"number":1,"name":"Fred"},{"number":2,"name":"John"},{"number":3,"name":"Toni"},{"number":4,"name":"Sarah"}];
+
+function byFilter(myArr, num){
+    return myArr.filter(function (el) {
+        return el.number === num;
+    });
+}</code></pre>
+							<pre class="fragment"><code>
+function byForLoop(myArr, num){
+    var i, l;
+    for (i = 0, l = myArr.length; i &lt; l; i += 1) {
+        if (myArr[i].number === num) {
+            return [myArr[i]];
+        }
+     }
+     return [];
+}</code></pre>
+							<a href="http://jsperf.com/array-filter-vs-simple-loop/2">filter vs simple loop</a>
+							<h3 class="redBoldText">TODO: why filter is slow</h3>
 						</section>
 					</section>
 					<section>
 						<section>
-							<h1>Other looping</h1>
+							<h1>For in </h1>
+							<img src="images/loop4.jpg" alt="">							
+						</section>						
+						<section>
+							<h5>"Iterates over the enumerable properties of an object, in arbitrary order" - MDN</h5>
+							<pre><code>
+for (var variable in objectExpression) {statement}
+							</code></pre>
+							<ul class="fragment">
+								<li>statement is optional</li>
+								<li>var can be declared outside</li>							
+							</ul>
+							<pre class="fragment"><code>
+var myObj = {a:1, b:2, c:3};
+
+for(var key in myObj){
+  console.log(myObj[key]);
+}
+// 1, 2, 3
+							</code></pre>							
+							<a href="http://javascriptweblog.wordpress.com/2011/01/04/exploring-javascript-for-in-loops/">Angus Croll: for-in loops</a>
 						</section>
 						<section>
-							<h3>while, do while, forEach, every, for in</h3>
-							<p>reverse while</p>							
-							<a href="http://jsperf.com/fastest-array-loops-in-javascript/121">all different types</a>
-							<a href="http://jsperf.com/fastest-array-loops-in-javascript/32">another revision</a>
-							<br>
-							<a href="http://jsperf.com/if-loop-vs-while-loop">FYI: just check</a>
+							<h2>enumerates inherited properties</h2>
+							<pre class="fragment"><code>
+var myObj = {a:1, b:2, c:3};
+var mySon = Object.create(myObj);
+mySon.d = 4;
+mySon.e = 5;
+
+for(var key in mySon){
+  console.log(mySon[key]);
+}
+// 4, 5, 1, 2, 3</code></pre>
+								<pre class="fragment"><code>
+for(var key in mySon){
+  if(mySon.hasOwnProperty(key)){  
+     console.log(mySon[key]);
+  }
+}
+//4, 5
+								</code></pre>
 						</section>
 						<section>
-							
+							<h2>cache hasOwnProperty</h2>
+							<pre><code>
+ var i,
+    obj = {},
+    hasOwn = Object.prototype.hasOwnProperty;
+
+for(var j = 0; j&lt;10000; j++){
+  obj[j] = j;
+}
+							</code></pre>
+							<pre class="fragment"><code>
+for (i in obj) {
+    if (hasOwn.call(obj, i)) {
+         console.log(i, ":", obj[i]);
+    }
+}
+							</code></pre>
+							<p>not a performance gain for modern browsers</p>
+							<a href="http://jsperf.com/for-in-loop-caching-hasownproperty/3">cache hasOwnProperty</a>
 						</section>
-					</section>
-					<section>
 						<section>
-							<h1>For in </h1>							
+							<h2>coerce to object</h2>
+							<pre><code>
+var myArr = [10, 20, 30];
+
+for(var idx in myArr){
+   console.log(myArr[idx])	
+}
+//10, 20, 30
+							</code></pre>
+							<pre class="fragment"><code>
+var foo = 'bar';
+
+for(var idx in foo){
+   console.log(foo[idx])	
+}
+//b, a, r
+							</code></pre>
+							<a href="http://javascriptweblog.wordpress.com/2011/01/04/exploring-javascript-for-in-loops/">explore for-in</a>
 						</section>
 						<section>
 							<h2>What is the sum?</h2>
@@ -505,7 +623,7 @@ for (var i = 0; i &lt; 1000; i++) {
 var numbers = [10, 20, 30];
 var sum = 0;
 for(var num in numbers){
-	sum+=num;	
+	sum += num;	
 }
 
 console.log(sum); //?
@@ -518,30 +636,82 @@ console.log(sum); //0012
 								<li>Keys always string</li>
 							</ul>
 							<a href="http://javascriptweblog.wordpress.com/2011/01/04/exploring-javascript-for-in-loops/#more-1897">Angus Croll: add couple example</a>
-						</section>
-						<section>							
-							<li>Enumerates object's inherited properties as well</li>
-							<li>Dont modify object while enumerting it by using for in loop</li>
-							<li>in such case use while loop</li>
-							<li>Might have different order of enumeration in different environment</li>
-							<p>add example as well: effective JS p-113q</p>
-						</section>
+						</section>						
 						<section>
-							<h2>loop object keys</h2>
-							<a href="http://jsperf.com/object-keys-vs-loop">modify this little bit</a>
-						</section>
-						<section>
-							<h2>cache hasOwnProperty</h2>
-							<a href="http://jsperf.com/for-in-loop-caching-hasownproperty">cache hasOwnProperty</a>
-						</section>
+							<h2>for vs for-in</h2>							
+							<pre><code>
+var myArr = [1, 2, 3, 4, 5, ... ];
+
+//faster
+for(var i =0; i&lt;1000; i++){
+ console.log(myArr[i]);
+}
+
+//than
+for(var j in myArr){
+  console.log(myArr[j]);
+}
+							</code></pre>
+							<p>dont use for-in while traversing on an array</p>
+							<a href="http://jsperf.com/for-vs-forintest">for vs for-in</a>
+						</section>						
 					</section>
 					<section>
 						<section>
-							<h1 class="">String</h1>
+							<h1 class="upholdHeader">Other looping</h1>
+							<img class="halfScreenImage"  src="images/loop.jpg" alt="">
 						</section>
 						<section>
-							<img src="images/concat.jpg" alt="">
+							<h3>while, do while</h3>
+							<pre><code>
+var myArr = [1,2,3,4,5,6,7,8,9], 
+    len = myArr.length,
+    i =0;
+
+while (i++ &lt; len) {
+  console.log(myArr[i]);
+}
+							</code></pre>							
+							<pre class="fragment"><code>
+var i = myArr.length -1;
+
+do {
+  someFn(arr[i]);
+} while (i--);
+							</code></pre>
 						</section>
+						<section>
+							<h2>reverse while</h2>
+							<pre><code>
+var l = arr.length;
+
+while(l--) {
+  someFn(arr[l]);
+}
+							</code></pre>
+							<ul>
+								<li>Even faster than reverse for loop</li>
+							</ul>
+							<a href="http://jsperf.com/fastest-array-loops-in-javascript/32">fastest way to traverse array</a>
+							<br>
+							<a href="https://blogs.oracle.com/greimer/resource/loop-test.html">different looping</a>
+						</section>
+						<section>
+							<h2>summary of looping</h2>
+							<ol>
+								<li>don't measure length in every iteration</li>
+								<li>cache object properties, function used in repeatingCode</li>
+								<li>backward for loop is faster than forward</li>
+								<li class="fragment">for-in only when iterating over object</li>
+								<li class="fragment">on array, reverse while is the fastest</li>
+							</ol>
+						</section>
+					</section>					
+					<section>
+						<section>
+							<h1 class="">String</h1>
+							<img src="images/concat.jpg" alt="">
+						</section>						
 						<section>
 							<h2 class="lineThrough">String Concatenation</h2>						
 							<pre><code contenteditable>
@@ -718,7 +888,7 @@ var fibonacciStr = strBuilder.join(' ');
 							<pre><code contenteditable>
 // Don't do this:
 a = []; // executor knows nothing
-for(var i = 1; i <= 4; i++) {
+for(var i = 1; i &lt;= 4; i++) {
 	 a.push(i);
 }
 
@@ -794,7 +964,7 @@ o.x; // undefined
 							<br>
 							<p class="fragment"><strong>jshint#eqeqeq: </strong> prohibits the use of == and != in favor of === and !==.</p>							
 							<p class="fragment">older browsers === and !== was faster (not in modern browser)</p>
-							<a href="http://www.jshint.com/docs/options/">js hint options</a>, <a href="http://jsperf.com/equalityinnit">equallity perf test</a>
+							<a href="http://www.jshint.com/docs/options/">js hint options</a>, <a href="http://jsperf.com/equalityinnit">equality perf test</a>
 						</section>
 						<section>							
 							<h2>How == works?</h2>							
@@ -959,14 +1129,14 @@ function emptyDOM(el) {
 							<h2>ways to create DOM</h2>
 							<a href="http://jsperf.com/performance-comparisons-of-ways-of-creating-html-object">do little more research</a>
 							<br>
-							<a href="https://github.com/joestelmach/laconic">iaconic</a>, <a href="https://github.com/KoryNunn/crel">crel</a>
+							<a href="https://github.com/joestelmach/laconic">laconic</a>, <a href="https://github.com/KoryNunn/crel">crel</a>
 						</section>
 						<section>
 							<pre><code>
 $('&lt;div class=&#x201d;imAMoron&#x201d;&gt;&lt;span&gt;derp&lt;/span&gt;&lt;/span&gt;');
 							</code></pre>
 							<p>vs document.createElement</p>
-							<a href="http://jsperf.com/dom-creation-libs">DOM creation libraries comparision</a>
+							<a href="http://jsperf.com/dom-creation-libs">DOM creation libraries comparison</a>
 						</section>
 						<section>
 							<h2>text node</h2>
