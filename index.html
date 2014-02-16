@@ -540,12 +540,32 @@ for (i in obj) {
 							<a href="http://jsperf.com/for-in-loop-caching-hasownproperty/3">cache hasOwnProperty</a>
 						</section>
 						<section>
+							<h2>coerce to object</h2>
+							<pre><code>
+var myArr = [10, 20, 30];
+
+for(var idx in myArr){
+   console.log(myArr[idx])	
+}
+//10, 20, 30
+							</code></pre>
+							<pre class="fragment"><code>
+var foo = 'bar';
+
+for(var idx in foo){
+   console.log(foo[idx])	
+}
+//b, a, r
+							</code></pre>
+							<a href="http://javascriptweblog.wordpress.com/2011/01/04/exploring-javascript-for-in-loops/">explore for-in</a>
+						</section>
+						<section>
 							<h2>What is the sum?</h2>
 								<pre><code>
 var numbers = [10, 20, 30];
 var sum = 0;
 for(var num in numbers){
-	sum+=num;	
+	sum += num;	
 }
 
 console.log(sum); //?
@@ -560,8 +580,7 @@ console.log(sum); //0012
 							<a href="http://javascriptweblog.wordpress.com/2011/01/04/exploring-javascript-for-in-loops/#more-1897">Angus Croll: add couple example</a>
 						</section>						
 						<section>
-							<h2>loop object keys</h2>
-							<a href="http://jsperf.com/object-keys-vs-loop">modify this little bit</a>
+							<h2>compare for in performance with for</h2>							
 						</section>						
 					</section>
 					<section>
