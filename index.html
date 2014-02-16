@@ -480,24 +480,26 @@ for (var i = 0; i &lt; 1000; i++) {
 						</section>
 						<section>
 							<h5>"Iterates over the enumerable properties of an object, in arbitrary order" - MDN</h5>
-							<pre><code>
-var myObj = {a:1, b:2, c:3};
+							<pre><code>var myObj = {a:1, b:2, c:3};
 
 for(var key in myObj){
   console.log(myObj[key]);
 }
-// 1, 2, 3
-							</code></pre>
-							<pre class="fragment"><code>
-var mySon = Object.create(myObj);
+// 1, 2, 3</code></pre>
+							<pre class="fragment"><code>var mySon = Object.create(myObj);
 mySon.d = 4;
-mySon.e = 5;
 
 for(var key in mySon){
   console.log(mySon[key]);
 }
-// 4, 5, 1, 2, 3
-							</code></pre>
+// 4, 1, 2, 3</code></pre>
+								<pre class="fragment"><code>
+for(var key in mySon){
+  if(mySon.hasOwnProperty(key)){  
+     console.log(mySon[key]);
+  }
+}
+//4</code></pre>
 						</section>
 						<section>
 							<h2>What is the sum?</h2>
