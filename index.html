@@ -1067,6 +1067,23 @@ Elements to be animated should be set as position: absolute or position: fixed i
 							<a href="http://jsperf.com/events-vanilla-and-jquery/17">js perf delegate</a>
 						</section>
 						<section>
+							<h2>event delegate (demo)</h2>
+							<ul id="listToDestroy">
+				              <li><a href="#">first item</a></li>
+				              <li><a href="#">second item</a></li>
+				              <li><a href="#">third item</a></li>
+				              <li><a href="#">forth item</a></li>
+				              <li><a href="#">Fifth item</a></li>
+				            </ul>
+				            <script type="text/javascript"> 
+							 document.getElementById('listToDestroy').addEventListener('click', function (e) { 
+							    var elm = e.target.parentNode; 
+							    elm.parentNode.removeChild(elm);
+							    e.preventDefault();
+							 });
+							</script>
+						</section>
+						<section>
 							<a href="http://www.w3.org/TR/DOM-Level-3-Events/#event-types">list of dom events</a>
 							<a href=""></a>
 						</section>
