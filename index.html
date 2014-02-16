@@ -1004,11 +1004,22 @@ original.parentNode.replaceChild(clone, original);
 						</section>
 						<section>
 							<h2>repaint reflow</h2>
+							Determining dimensions or location of elements via getComputedStyle, offsetWidth, scrollWidth and clientWidth properties will force reflow.
+If you take the measurements repeatedly, consider taking them only once.
 						</section>
 					</section>
 					<section>
 						<section>
 							<h1>Style manipulation</h1>
+						</section>
+						<section>
+							<p>Make multiple predefined style changes at once using className</p>
+							<p>Make multiple dynamic style changes at once using setAttribute</p>
+							<pre><code>
+var elem = document.getElementById('styled');
+elemStyle = 'background: blue; color: white;';
+elem.setAttribute('style', elemStyle);
+							</code></pre>
 						</section>
 						<section>
 							<h2>animation</h2>
