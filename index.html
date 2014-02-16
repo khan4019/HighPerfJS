@@ -309,34 +309,34 @@ for(var i = 0; i < someArray.length; i++) {
 						<section>
 							<h2>access object property</h2>
 							<pre><code>
-var a = [{ z: 1 }, {z:2}]
-	s1 = 0, s2 = 0, s3 = 0, s4 = 0, s5 = 0,
-	el;
+var a = [{ z: 1 }, {z:2}],
+   sum = 0,
+   el;
 
-for(var i =0; i < 1000; i++){
-	el = a[i%2];
-	s1 += el.z;
-	s2 += el.z;
-	s3 += el.z;
-	s4 += el.z;
-	s5 += el.z;	
+for(var i =0; i &lt; 1000; i++){
+   el = a[i%2];
+   sum += el.z;
+   sum += el.z;
+   sum += el.z;
+   sum += el.z;
+   sum += el.z;	
 }
 							</code></pre>							
 						</section>
 						<section>
 							<h2>cache properties</h2>
 							<pre><code>
-var a = [{ z: 1 }, {z:2}]
-	s1 = 0, s2 = 0, s3 = 0, s4 = 0, s5 = 0,
-	val;
+var a = [{ z: 1 }, {z:2}],
+   sum = 0,
+   val;
 
 for(var i =0; i < 1000; i++){
-	val = a[i%2].z;
-	s1 += val;
-	s2 += val;
-	s3 += val;
-	s4 += val;
-	s5 += val;	
+   val = a[i%2].z;
+   sum += val;
+   sum += val;
+   sum += val;
+   sum += val;
+   sum += val;	
 }
 							</code></pre>
 							<a href="http://jsperf.com/caching-of-properties">cahcing object properties</a>
