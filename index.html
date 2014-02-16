@@ -250,6 +250,7 @@
 					<section>
 						<section>
 							<h1>Caching</h1>
+							<img src="images/cache.png" alt="">
 						</section>
 						<section>
 							<h2>Access DOM</h2>
@@ -285,8 +286,8 @@ var h3 = awesome.querySelector('.inner-3');
 							<a href="http://jsperf.com/caching-queryselector">cache query selector</a>
 						</section>
 						<section>
-							<h2>My For Loop</h2>						
-							<pre><code contenteditable>
+							<h2>cache outside for loop</h2>						
+							<pre><code>
 for(var i = 0; i < someArray.length; i++) {
 
    var container = document.getElementById('container');  
@@ -295,7 +296,7 @@ for(var i = 0; i < someArray.length; i++) {
 }
 							</code></pre>		
 							<h4 class="fragment">when value doesnt change</h4>
-							<pre class="fragment"><code contenteditable>
+							<pre class="fragment"><code>
 var container = document.getElementById('container');  
 
 for(var i = 0; i < someArray.length; i++) {
