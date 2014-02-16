@@ -479,6 +479,27 @@ for (var i = 0; i &lt; 1000; i++) {
 							<h1>For in </h1>							
 						</section>
 						<section>
+							<h5>"Iterates over the enumerable properties of an object, in arbitrary order" - MDN</h5>
+							<pre><code>
+var myObj = {a:1, b:2, c:3};
+
+for(var key in myObj){
+  console.log(myObj[key]);
+}
+// 1, 2, 3
+							</code></pre>
+							<pre class="fragment"><code>
+var mySon = Object.create(myObj);
+mySon.d = 4;
+mySon.e = 5;
+
+for(var key in mySon){
+  console.log(mySon[key]);
+}
+// 4, 5, 1, 2, 3
+							</code></pre>
+						</section>
+						<section>
 							<h2>What is the sum?</h2>
 								<pre><code>
 var numbers = [10, 20, 30];
@@ -516,7 +537,7 @@ console.log(sum); //0012
 					</section>
 					<section>
 						<section>
-							<h1>Other looping</h1>
+							<h1 class="upholdHeader">Other looping</h1>
 						</section>
 						<section>
 							<h3>while, do while, forEach, every, for in</h3>
