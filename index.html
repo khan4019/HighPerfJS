@@ -1016,6 +1016,8 @@ original.parentNode.replaceChild(clone, original);
 							<h2>repaint reflow</h2>
 							Determining dimensions or location of elements via getComputedStyle, offsetWidth, scrollWidth and clientWidth properties will force reflow.
 If you take the measurements repeatedly, consider taking them only once.
+<br>
+<a href="http://www.stubbornella.org/content/2009/03/27/reflows-repaints-css-performance-making-your-javascript-slow/#comment-13157">reflow and repaint</a>
 						</section>
 					</section>
 					<section>
@@ -1034,6 +1036,25 @@ elem.setAttribute('style', elemStyle);
 						<section>
 							<h2>animation</h2>
 							<a href="http://daneden.github.io/animate.css/">animate.css</a>
+						</section>
+						<section>
+							<h2>scrollTO</h2>
+							<pre><code>
+//ggl JavaScript scrollTo and learn about it
+							</code></pre>
+						</section>
+						<section>
+							<h2>multiple timers</h2>
+							<p>If multiple elements are animated at the same time, the best frame rate is achieved by iterating across all animated elements inside a single loop. Using multiple timers makes animation less efficient and consistent, presumably due to timer invocation overhead.</p>
+
+						</section>
+						<section>
+							<h2>animations</h2>
+							By default elements have style property position: static and animating such elements causes reflowing of the layout and is expensive.
+Elements to be animated should be set as position: absolute or position: fixed if reflowing is not mandatory for smoother animation and lesser CPU load. Such elements do not affect other elements layout, so they will only cause a repaint rather than a full reflow with a nice performance boost.
+<br>
+<h2>talk about animation basics</h2>
+<a href="http://www.schillmania.com/content/projects/javascript-animation-1/">animation basics part-1</a>, <a href="http://www.schillmania.com/content/projects/javascript-animation-2/">part-2</a>
 						</section>
 						<section>
 							<h2>requestFrame</h2>
