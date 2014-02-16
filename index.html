@@ -288,7 +288,7 @@ var h3 = awesome.querySelector('.inner-3');
 						<section>
 							<h2>cache outside for loop</h2>						
 							<pre><code>
-for(var i = 0; i < someArray.length; i++) {
+for(var i = 0; i &lt; someArray.length; i++) {
 
    var container = document.getElementById('container');  
    container.innerHtml += 'my number: ' + i;  
@@ -299,18 +299,18 @@ for(var i = 0; i < someArray.length; i++) {
 							<pre class="fragment"><code>
 var container = document.getElementById('container');  
 
-for(var i = 0; i < someArray.length; i++) {
+for(var i = 0; i &lt; someArray.length; i++) {
 
    container.innerHtml += 'my number: ' + i;  
    console.log(i);  
 } 
 							</code></pre>
-							<a href="http://jsperf.com/property-access-vs-variable-caching">peroperty access vs variable cache</a>
+							<a href="http://jsperf.com/property-access-vs-variable-caching">property access vs variable cache</a>
 						</section>
 						<section>
 							<h2>access object property</h2>
 							<pre><code>
-var a = [{ z: 1 }, {z:2}],
+var a = [{ z: 1 }, { z: 2 }],
    sum = 0,
    el;
 
@@ -327,11 +327,11 @@ for(var i =0; i &lt; 1000; i++){
 						<section>
 							<h2>cache properties</h2>
 							<pre><code>
-var a = [{ z: 1 }, {z:2}],
+var a = [{ z: 1 }, { z: 2 }],
    sum = 0,
    val;
 
-for(var i =0; i < 1000; i++){
+for(var i =0; i &lt; 1000; i++){
    val = a[i%2].z;
    sum += val;
    sum += val;
@@ -340,9 +340,9 @@ for(var i =0; i < 1000; i++){
    sum += val;	
 }
 							</code></pre>
-							<a href="http://jsperf.com/caching-of-properties">cahcing object properties</a>
+							<a href="http://jsperf.com/caching-of-properties">caching object properties</a>
 							<br>
-							<a href="http://jsperf.com/getters-vs-getters-with-caching">getter cahcing</a>
+							<a href="http://jsperf.com/getters-vs-getters-with-caching">getter caching</a>
 						</section>
 					</section>
 
@@ -356,7 +356,7 @@ for(var i =0; i < 1000; i++){
 						<section>
 							<h2>mostly useful</h2>
 							<pre><code>
-for(var i = 0; i &lt 5; i++){
+for(var i = 0; i &lt; 5; i++){
   console.log(i);
 }
 							</code></pre>
@@ -374,7 +374,7 @@ for(initiation; iteratingCondition; repeatingExpression){
 							<pre><code contenteditable>
 var myArr = [1, 2, 3, 4, 5];
 
-for(var i =0; i&lt myArr.length; i++){
+for(var i =0; i&lt; myArr.length; i++){
   console.log(myArr[i]);
 }
 							</code></pre>
@@ -410,7 +410,7 @@ for(var i =0; i&lt;len && i&lt;3; i++){
 }
 							</code></pre>
 							<pre class="fragment"><code>
-//asign variable
+//assign variable
 //TODO: this doesnt work. modify it
 var myArr = [1, 2, 3, 4, 5];
 
@@ -469,25 +469,9 @@ for (var i = 0; i &lt; 1000; i++) {
 							<a href="http://jsperf.com/function-in-the-loop">function caching for loop</a>
 						</section>
 						<section>
-							<h2>array.fiter vs if condition</h2>
+							<h2>array.filter vs if condition</h2>
 							<a href="http://jsperf.com/array-filter-vs-simple-loop">filter vs simple loop</a>
 							<h3>TODO: why filter is slow</h3>
-						</section>
-					</section>
-					<section>
-						<section>
-							<h1>Other looping</h1>
-						</section>
-						<section>
-							<h3>while, do while, forEach, every, for in</h3>
-							<p>reverse while</p>							
-							<a href="http://jsperf.com/fastest-array-loops-in-javascript/121">all different types</a>
-							<a href="http://jsperf.com/fastest-array-loops-in-javascript/32">another revision</a>
-							<br>
-							<a href="http://jsperf.com/if-loop-vs-while-loop">FYI: just check</a>
-						</section>
-						<section>
-							
 						</section>
 					</section>
 					<section>
@@ -530,6 +514,22 @@ console.log(sum); //0012
 							<a href="http://jsperf.com/for-in-loop-caching-hasownproperty">cache hasOwnProperty</a>
 						</section>
 					</section>
+					<section>
+						<section>
+							<h1>Other looping</h1>
+						</section>
+						<section>
+							<h3>while, do while, forEach, every, for in</h3>
+							<p>reverse while</p>							
+							<a href="http://jsperf.com/fastest-array-loops-in-javascript/121">all different types</a>
+							<a href="http://jsperf.com/fastest-array-loops-in-javascript/32">another revision</a>
+							<br>
+							<a href="http://jsperf.com/if-loop-vs-while-loop">FYI: just check</a>
+						</section>
+						<section>
+							
+						</section>
+					</section>					
 					<section>
 						<section>
 							<h1 class="">String</h1>
@@ -713,7 +713,7 @@ var fibonacciStr = strBuilder.join(' ');
 							<pre><code contenteditable>
 // Don't do this:
 a = []; // executor knows nothing
-for(var i = 1; i <= 4; i++) {
+for(var i = 1; i &lt;= 4; i++) {
 	 a.push(i);
 }
 
@@ -789,7 +789,7 @@ o.x; // undefined
 							<br>
 							<p class="fragment"><strong>jshint#eqeqeq: </strong> prohibits the use of == and != in favor of === and !==.</p>							
 							<p class="fragment">older browsers === and !== was faster (not in modern browser)</p>
-							<a href="http://www.jshint.com/docs/options/">js hint options</a>, <a href="http://jsperf.com/equalityinnit">equallity perf test</a>
+							<a href="http://www.jshint.com/docs/options/">js hint options</a>, <a href="http://jsperf.com/equalityinnit">equality perf test</a>
 						</section>
 						<section>							
 							<h2>How == works?</h2>							
@@ -954,14 +954,14 @@ function emptyDOM(el) {
 							<h2>ways to create DOM</h2>
 							<a href="http://jsperf.com/performance-comparisons-of-ways-of-creating-html-object">do little more research</a>
 							<br>
-							<a href="https://github.com/joestelmach/laconic">iaconic</a>, <a href="https://github.com/KoryNunn/crel">crel</a>
+							<a href="https://github.com/joestelmach/laconic">laconic</a>, <a href="https://github.com/KoryNunn/crel">crel</a>
 						</section>
 						<section>
 							<pre><code>
 $('&lt;div class=&#x201d;imAMoron&#x201d;&gt;&lt;span&gt;derp&lt;/span&gt;&lt;/span&gt;');
 							</code></pre>
 							<p>vs document.createElement</p>
-							<a href="http://jsperf.com/dom-creation-libs">DOM creation libraries comparision</a>
+							<a href="http://jsperf.com/dom-creation-libs">DOM creation libraries comparison</a>
 						</section>
 						<section>
 							<h2>text node</h2>
