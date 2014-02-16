@@ -662,14 +662,23 @@ for(var j in myArr){
 							<img class="halfScreenImage"  src="images/loop.jpg" alt="">
 						</section>
 						<section>
-							<h3>while, do while, forEach, every, for in</h3>
-							<p>reverse while</p>							
-							<a href="http://jsperf.com/fastest-array-loops-in-javascript/121">all different types</a>
-							<a href="http://jsperf.com/fastest-array-loops-in-javascript/32">another revision</a>
-							<br>
-							<a href="http://jsperf.com/if-loop-vs-while-loop">FYI: just check</a>
-							<br>
-							<a href="https://blogs.oracle.com/greimer/resource/loop-test.html">different looping</a>
+							<h3>while, do while</h3>
+							<pre><code>
+var myArr = [1,2,3,4,5,6,7,8,9], 
+    len = myArr.length,
+    i =0;
+
+while (i++ &lt; len) {
+  console.log(myArr[i]);
+}
+							</code></pre>							
+							<pre class="fragment"><code>
+var i = myArr.length -1;
+
+do {
+  someFn(arr[i]);
+} while (i--);
+							</code></pre>							
 						</section>
 						<section>
 							
