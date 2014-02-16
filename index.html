@@ -761,6 +761,23 @@ for (var i = 0; i &lt; 20; i++) {
 return strBuilder.join(' ');
 							</code></pre>
 						</section>
+						<section>
+							<h2>primitive vs Object</h2>
+							<pre><code>
+var strPrimitive = 'Hello'; 
+var strObject = new String('Hello');
+							</code></pre>
+							<h2 class="fragment">primitive is faster</h2>
+							<ol class="fragment">
+								<li>length</li>
+								<li>charAt()</li>
+								<li>indexOf()</li>
+								<li>toUpperCase()</li>
+								<li>concatenate</li>
+							</ol>
+							<br>
+							<a href="https://hacks.mozilla.org/2012/12/performance-with-javascript-string-objects/">MDN: performance of JS String Object</a>
+						</section>
 <!-- commented out prototype and set time out stuff -->
 <!--
 						 <section>
