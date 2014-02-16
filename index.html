@@ -469,6 +469,26 @@ for (var i = 0, item; item = someArray[i++];) {
 							<h1>for loop extra</h1>
 						</section>
 						<section>
+							<h2>forward or backward</h2>
+							<pre><code>
+var myArr = [0,1,2,3,4,5 ...];
+
+//forward
+for(var j = 0; j&lt;1000; j++){
+  console.log(myArr[j]);
+}
+
+//backward
+for(var k = 1000; k>=0; k--){
+  console.log(myArr[k]);
+}
+							</code></pre>
+							<p>dont worry about it for a smaller array</p>
+							<a href="http://jsperf.com/for-loop-backward-perf">js perf: backward test</a>
+							<br>
+							<a href="http://stackoverflow.com/a/13136778/1535443">for loop backward</a>
+						</section>
+						<section>
 							<h2>function in for loop</h2>
 							<pre><code>
 var arr = [];
@@ -613,6 +633,8 @@ console.log(sum); //0012
 							<a href="http://jsperf.com/fastest-array-loops-in-javascript/32">another revision</a>
 							<br>
 							<a href="http://jsperf.com/if-loop-vs-while-loop">FYI: just check</a>
+							<br>
+							<a href="https://blogs.oracle.com/greimer/resource/loop-test.html">different looping</a>
 						</section>
 						<section>
 							
