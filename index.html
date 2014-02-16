@@ -638,7 +638,22 @@ console.log(sum); //0012
 							<a href="http://javascriptweblog.wordpress.com/2011/01/04/exploring-javascript-for-in-loops/#more-1897">Angus Croll: add couple example</a>
 						</section>						
 						<section>
-							<h2>compare for in performance with for</h2>							
+							<h2>for vs for-in</h2>							
+							<pre><code>
+var myArr = [1, 2, 3, 4, 5, ... ];
+
+//faster
+for(var i =0; i&lt;1000; i++){
+ console.log(myArr[i]);
+}
+
+//than
+for(var j in myArr){
+  console.log(myArr[j]);
+}
+							</code></pre>
+							<p>dont use for-in while traversing on an array</p>
+							<a href="http://jsperf.com/for-vs-forintest">for vs for-in</a>
 						</section>						
 					</section>
 					<section>
