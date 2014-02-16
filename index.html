@@ -748,26 +748,17 @@ var tinyMessage = ['Trust me, i started one line',
 							<br/>
 							<a href="http://stackoverflow.com/questions/9538678/fastest-way-to-build-this-string">fastest-way-to-build-this-string</a>						
 						</section>
-						<!-- <section>
-							<h2>Insted</h2>
-							<pre><code contenteditable>
-var fibonacciStr = 'First 20 Fibonacci Numbers';
-	
-for (var i = 0; i < 20; i++) {
-	fibonacciStr += i + ' = ' + fibonacci(i) + ' ';
-}
-							</code></pre>
-						</section> -->
+						
 						<section>
-							<h2>Your Own String Builder</h2>
+							<h2>StringBuilder</h2>
 							<pre><code contenteditable>
-var strBuilder = ['First 20 fibonacci numbers:'];
+var strBuilder = [];
 
-for (var i = 0; i < 20; i++) {
+for (var i = 0; i &lt; 20; i++) {
   strBuilder.push( i, '=', fibonacci(i));
 }
 
-var fibonacciStr = strBuilder.join(' ');
+return strBuilder.join(' ');
 							</code></pre>
 						</section>
 <!-- commented out prototype and set time out stuff -->
