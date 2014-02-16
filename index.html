@@ -678,10 +678,23 @@ var i = myArr.length -1;
 do {
   someFn(arr[i]);
 } while (i--);
-							</code></pre>							
+							</code></pre>
 						</section>
 						<section>
-							
+							<h2>reverse while</h2>
+							<pre><code>
+var l = arr.length;
+
+while(l--) {
+  someFn(arr[l]);
+}
+							</code></pre>
+							<ul>
+								<li>Even faster than reverse for loop</li>
+							</ul>
+							<a href="http://jsperf.com/fastest-array-loops-in-javascript/32">fastest way to traverse array</a>
+							<br>
+							<a href="https://blogs.oracle.com/greimer/resource/loop-test.html">different looping</a>
 						</section>
 					</section>					
 					<section>
