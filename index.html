@@ -477,29 +477,44 @@ for (var i = 0; i &lt; 1000; i++) {
 					<section>
 						<section>
 							<h1>For in </h1>							
-						</section>
+						</section>						
 						<section>
 							<h5>"Iterates over the enumerable properties of an object, in arbitrary order" - MDN</h5>
-							<pre><code>var myObj = {a:1, b:2, c:3};
+							<pre><code>
+for (var variable in objectExpression) {statement}
+							</code></pre>
+							<ul class="fragment">
+								<li>statement is optional</li>
+								<li>var can be declared outside</li>							
+							</ul>
+							<pre class="fragment"><code>
+var myObj = {a:1, b:2, c:3};
 
 for(var key in myObj){
   console.log(myObj[key]);
 }
-// 1, 2, 3</code></pre>
-							<pre class="fragment"><code>var mySon = Object.create(myObj);
+// 1, 2, 3
+							</code></pre>							
+							<a href="http://javascriptweblog.wordpress.com/2011/01/04/exploring-javascript-for-in-loops/">Angus Croll: for-in loops</a>
+						</section>
+						<section>
+							<h2>enumerates inherited properties</h2>
+							<pre class="fragment"><code>
+var mySon = Object.create(myObj);
 mySon.d = 4;
+mySon.e = 5;
 
 for(var key in mySon){
   console.log(mySon[key]);
 }
-// 4, 1, 2, 3</code></pre>
+// 4, 5, 1, 2, 3</code></pre>
 								<pre class="fragment"><code>
 for(var key in mySon){
   if(mySon.hasOwnProperty(key)){  
      console.log(mySon[key]);
   }
 }
-//4</code></pre>
+								</code></pre>
 						</section>
 						<section>
 							<h2>What is the sum?</h2>
@@ -520,14 +535,7 @@ console.log(sum); //0012
 								<li>Keys always string</li>
 							</ul>
 							<a href="http://javascriptweblog.wordpress.com/2011/01/04/exploring-javascript-for-in-loops/#more-1897">Angus Croll: add couple example</a>
-						</section>
-						<section>							
-							<li>Enumerates object's inherited properties as well</li>
-							<li>Dont modify object while enumerting it by using for in loop</li>
-							<li>in such case use while loop</li>
-							<li>Might have different order of enumeration in different environment</li>
-							<p>add example as well: effective JS p-113q</p>
-						</section>
+						</section>						
 						<section>
 							<h2>loop object keys</h2>
 							<a href="http://jsperf.com/object-keys-vs-loop">modify this little bit</a>
