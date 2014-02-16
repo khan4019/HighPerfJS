@@ -931,6 +931,7 @@ function emptyDOM(el) {
 						<section>
 							<h1 class="upholdHeader">Create DOM</h1>
 							<br>
+							<p>(as small as possible)</p>
 							<br>
 							<br>
 							<a href="http://blog.korynunn.com/javascript/the-dom-isnt-slow-you-are/">Dom isnt slow you are</a>
@@ -957,7 +958,7 @@ $('&lt;div class=&#x201d;imAMoron&#x201d;&gt;&lt;span&gt;derp&lt;/span&gt;&lt;/s
 							<a href="http://jsperf.com/empty-node-if-needed">empty node</a>
 						</section>
 						<section>
-							<h2>documentFragment</h2>
+							<h2>createDocumentFragment</h2>
 							<pre><code>
 var list = ['foo', 'bar', 'baz'],
     elem, contents;
@@ -978,6 +979,31 @@ for (var i = 0; i &lt; list.length; i++) {
 }
 document.body.appendChild(fragment);</code></pre>
 							<a href="https://developer.mozilla.org/en-US/docs/Web/API/document.createDocumentFragment">createDocumentFragment</a>
+						</section>
+						<section>
+							<h2>cloneNode</h2>
+							<p>if no event handler or form element</p>
+							<pre><code>
+var orig = document.getElementById('container'),
+    clone = orig.cloneNode(true),
+    list = ['foo', 'bar', 'baz'],
+    elem, contents;
+
+clone.setAttribute('width', '50%');
+
+for (var i = 0; i &lt; list.length; i++) {
+    elem = document.createElement('div');
+    content = document.createTextNode(list[i]);
+    elem.appendChild(content);
+    clone.appendChild(elem);
+}
+
+original.parentNode.replaceChild(clone, original);
+							</code></pre>
+							<a href="http://developer.nokia.com/community/wiki/JavaScript_Performance_Best_Practices">cloneNode</a>
+						</section>
+						<section>
+							<h2>repaint reflow</h2>
 						</section>
 					</section>
 					<section>
