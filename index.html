@@ -1652,24 +1652,40 @@ console.log(start - end +'ms');
 							<h3>decide what works for you and your team</h3>
 						</section>
 						<section>
-							<h2>combined var</h2>
+							<h2>combined var !</h2>
 							<pre><code>
 var foo,
-    fooed,
-    fooded, 
+    fooed,     
     fooled;
 							</code></pre>
 							<pre class="fragment"><code>
-var foo,
-    fooed,
-    fooded 
-    fooled;
+var foo = 'bar';
+//after something
+var fooed = 'inside the bar';   
+//after something else  
+var fooled = 'by the smart guy';
 							</code></pre>
 							<ul class="fragment">								
 								<li>u decide: micro save or readable</li>
 								<li>es6: <code>let</code></li>
 							</ul>
 							<a href="http://james.padolsey.com/javascript/js-adolescence/">js adolescence</a>
+						</section>
+						<section>
+							<h2>risk of combined var</h2>
+							<pre><code>
+var foo,
+    fooed    
+    fooled;
+							</code></pre>
+							<pre class="fragment"><code>
+var a = 7, 
+    b = c = 6;
+							</code></pre>
+						</section>
+						<section>
+							<h2>When optimizing</h2>
+							<li>focus on the big things (first)</li>							
 						</section>
 					</section>
 					<section>
