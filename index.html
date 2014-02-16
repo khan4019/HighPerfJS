@@ -263,10 +263,7 @@ var blah = document.getElementById('myID'),
     blah2 = document.getElementById('myID2'),
     blah3 = document.getElementById('myID3');
 							</code></pre>							
-						</section>
-						<section>
-							<h2>cache or localize</h2>
-							<pre><code>
+							<pre class="fragment"><code>
 var doc = document,
     blah = doc.getElementById('myID'),
     blah2 = doc.getElementById('myID2'),
@@ -293,16 +290,12 @@ var h3 = awesome.querySelector('.inner-3');
 for(var i = 0; i < someArray.length; i++) {
 
    var container = document.getElementById('container');  
-
    container.innerHtml += 'my number: ' + i;  
    console.log(i);  
 }
 							</code></pre>		
-						</section>
-						<section>
-							<h2>Cache outside of loop</h2>						
-							<h4>when value doesnt change</h4>
-							<pre><code contenteditable>
+							<h4 class="fragment">when value doesnt change</h4>
+							<pre class="fragment"><code contenteditable>
 var container = document.getElementById('container');  
 
 for(var i = 0; i < someArray.length; i++) {
@@ -311,7 +304,7 @@ for(var i = 0; i < someArray.length; i++) {
    console.log(i);  
 } 
 							</code></pre>
-							<a href="http://jsperf.com/property-access-vs-variable-caching">peroperty access vs variable cache</a>		
+							<a href="http://jsperf.com/property-access-vs-variable-caching">peroperty access vs variable cache</a>
 						</section>
 						<section>
 							<h2>access object property</h2>
