@@ -500,6 +500,7 @@ for(var key in myObj){
 						<section>
 							<h2>enumerates inherited properties</h2>
 							<pre class="fragment"><code>
+var myObj = {a:1, b:2, c:3};
 var mySon = Object.create(myObj);
 mySon.d = 4;
 mySon.e = 5;
@@ -514,7 +515,29 @@ for(var key in mySon){
      console.log(mySon[key]);
   }
 }
+//4, 5
 								</code></pre>
+						</section>
+						<section>
+							<h2>cache hasOwnProperty</h2>
+							<pre><code>
+ var i,
+    obj = {},
+    hasOwn = Object.prototype.hasOwnProperty;
+
+for(var j = 0; j&lt;10000; j++){
+  obj[j] = j;
+}
+							</code></pre>
+							<pre class="fragment"><code>
+for (i in obj) {
+    if (hasOwn.call(obj, i)) {
+         console.log(i, ":", obj[i]);
+    }
+}
+							</code></pre>
+							<p>not a performance gain for modern browsers</p>
+							<a href="http://jsperf.com/for-in-loop-caching-hasownproperty/3">cache hasOwnProperty</a>
 						</section>
 						<section>
 							<h2>What is the sum?</h2>
@@ -539,11 +562,7 @@ console.log(sum); //0012
 						<section>
 							<h2>loop object keys</h2>
 							<a href="http://jsperf.com/object-keys-vs-loop">modify this little bit</a>
-						</section>
-						<section>
-							<h2>cache hasOwnProperty</h2>
-							<a href="http://jsperf.com/for-in-loop-caching-hasownproperty">cache hasOwnProperty</a>
-						</section>
+						</section>						
 					</section>
 					<section>
 						<section>
