@@ -54,8 +54,8 @@
 					text-decoration: line-through;					
 				}
 				.redBoldText{
-					font-weight: bold;
-					color: red;
+					font-weight: bold !important;
+					color: red !important;
 				}
 				.purpleBold{
 					font-weight: bold;
@@ -467,6 +467,7 @@ for (var i = 0, item; item = someArray[i++];) {
 					<section>
 						<section>
 							<h1>for loop extra</h1>
+							<img src="images/loop5.png" alt="">
 						</section>
 						<section>
 							<h2>forward or backward</h2>
@@ -499,6 +500,7 @@ for (var i = 0; i &lt; 1000; i++) {
 							<pre class="fragment"><code>
 var arr = [];
 var sq = function (x) { return x * x; };
+
 for (var i = 0; i &lt; 1000; i++) {
   arr.push([1, 2, 3].map(sq));
 }
@@ -506,9 +508,27 @@ for (var i = 0; i &lt; 1000; i++) {
 							<a href="http://jsperf.com/function-in-the-loop">function caching for loop</a>
 						</section>
 						<section>
-							<h2>array.filter vs if condition</h2>
-							<a href="http://jsperf.com/array-filter-vs-simple-loop">filter vs simple loop</a>
-							<h3>TODO: why filter is slow</h3>
+							<h2>filter vs if</h2>
+							<pre><code>
+var myArray = [{"number":1,"name":"Fred"},{"number":2,"name":"John"},{"number":3,"name":"Toni"},{"number":4,"name":"Sarah"}];
+
+function byFilter(myArr, num){
+    return myArr.filter(function (el) {
+        return el.number === num;
+    });
+}</code></pre>
+							<pre class="fragment"><code>
+function byForLoop(myArr, num){
+    var i, l;
+    for (i = 0, l = myArr.length; i &lt; l; i += 1) {
+        if (myArr[i].number === num) {
+            return [myArr[i]];
+        }
+     }
+     return [];
+}</code></pre>
+							<a href="http://jsperf.com/array-filter-vs-simple-loop/2">filter vs simple loop</a>
+							<h3 class="redBoldText">TODO: why filter is slow</h3>
 						</section>
 					</section>
 					<section>
