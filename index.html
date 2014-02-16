@@ -1003,6 +1003,16 @@ original.parentNode.replaceChild(clone, original);
 							<a href="http://developer.nokia.com/community/wiki/JavaScript_Performance_Best_Practices">cloneNode</a>
 						</section>
 						<section>
+							<h2>DOM vs innerHTML</h2>
+								<h4>Templating JS vs Mustache</h4>
+								<pre><code>
+//add code example here
+								</code></pre>
+								<a href="http://jsperf.com/dom-vs-innerhtml-based-templating">JSPerf: Dom vs innerhtml based templating</a>
+								<br/>
+								<a href="http://mustache.github.io/mustache.5.html">Mustache Manual</a>
+						</section>
+						<section>
 							<h2>repaint reflow</h2>
 							Determining dimensions or location of elements via getComputedStyle, offsetWidth, scrollWidth and clientWidth properties will force reflow.
 If you take the measurements repeatedly, consider taking them only once.
@@ -1276,17 +1286,28 @@ myNameSpace.init();
 							<a href="http://ejohn.org/blog/ecmascript-5-strict-mode-json-and-more/">John Resig: Strict Mode</a>							
 						</section>
 						<section>
-								<h2>DOM vs innerHTML</h2>
-								<h4>Templating JS vs Mustache</h4>
-								<pre><code>
-//add code example here
-								</code></pre>
-								<a href="http://jsperf.com/dom-vs-innerhtml-based-templating">JSPerf: Dom vs innerhtml based templating</a>
-								<br/>
-								<a href="http://mustache.github.io/mustache.5.html">Mustache Manual</a>
-							</section>	
+							<h2>timeout for ajax call</h2>		
+							<pre><code>
+var xhr = new XMLHttpRequest ();
+xhr.open('GET', url, false);
+xhr.onreadystatechange = function () {
+    if (this.readyState == 4) {                    
+        clearTimeout(timeout);
+        // do something with response data
+    }
+}
+var timeout = setTimeout( 
+    function () {
+        xhr.abort();
+        // call error callback
+    },
+    60*1000 // timeout after a minute
+);
+xhr.send();
+							</code></pre>
+						</section>	
 						<section>
-							<h2 class="upholdHeader">Know Javascript Engine</h2>							
+							<h2 class="upholdHeader">Know JavaScript Engine</h2>							
 							<ul>
 								<li>Know V8</li>
 								<li>Hidden Class</li>
