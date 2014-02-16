@@ -88,24 +88,21 @@
 					</section>
 					<section>
 						<h3>TODO</h3>
-						<li><a href="https://github.com/getify/You-Dont-Know-JS">u dont know js</a></li>
-						<li><a href="https://github.com/stevekwan/best-practices/blob/master/javascript/best-practices.md">some random best practic</a></li>
-						<li>free caveats from js confusing parts</li>
-						<li>inhertiance problem</li>
+						<li>kyle: <a href="https://github.com/getify/You-Dont-Know-JS">u dont know js</a></li>
+						<li>ben Alman: <a href="http://benalman.com/news/2012/09/partial-application-in-javascript/">partial application</a></li>						
+						<li>inhertiance problem: create vs prototype</li>
 						<li><a href="http://net.tutsplus.com/tutorials/javascript-ajax/stop-nesting-functions-but-not-all-of-them/"></a>anonymous and prototype</li>
-						<li><a href="http://net.tutsplus.com/tutorials/javascript-ajax/closures-front-to-back/comment-page-1/#comment-413269">closure</a></li>						
+						<li><a href="http://net.tutsplus.com/tutorials/javascript-ajax/closures-front-to-back/comment-page-1/#comment-413269">closure</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript?redirectlocale=en-US&redirectslug=JavaScript%2FA_re-introduction_to_JavaScript#Memory_leaks">closure: memory leaks</a></li>						
 						<li><a href="http://html5index.org/">html5 js api index</a></li>						
 						<li>book: eloquent JS, ninja</li>						
-						<li>take advantage of associated array. from js1 file</li>
 						<li>source code: jquery, angular or backbone</li>						
-						<li>memory leak</li>
-						<li>garbase collector</li>
+						<li>memory leak</li>						
 					</section>					
 					<section>
-						<h3>little more</h3>
+						<h3>little more</h3>						
 						<li>queue and limit <a href="http://www.slideshare.net/nzakas/high-performance-javascript-capitoljs-2011">slide 22</a></li>
 						<li>runaway script timer limit <a href="http://www.slideshare.net/nzakas/high-performance-javascript-capitoljs-2011">slide 41</a></li>						
-						<li>script yield</li>
+						<li>debounce  throttle</li>
 						<li>web workers</li>
 						<li><a href="http://jsperf.com/fibonacci-numbers">fibonacci</a></li>
 						<li><a href="http://jsperf.com/a-b-vs-a-a-b/2">addition</a></li>
@@ -129,13 +126,33 @@
 					</section>
 					<section>
 						<section>
+							<h1>How you get a website</h1>
+						</section>						
+						<section>
 							<h1>Websites</h1>
 							<img src="images/clientServer.png" alt="">
+						</section>
+						<section>
+							<img class="fullScreenImage" src="images/internet2.jpg" alt="">
+						</section>
+						<section>
+							<img class="fullScreenImage" src="images/internet5.png" alt="">
+						</section>						
+						<section>							
+							<h2>High Perf Network</h2>
+							<img class="fullScreenImage" src="images/lifeOfARequest.png" alt="">
 						</section>
 						<section>							
 							<h2>High Perf Network</h2>
 							<img class="fullScreenImage" src="images/lifeOfARequestParts.png" alt="">
 						</section>
+					</section>
+					<section>
+						<section>
+							<h1>Mega Performance</h1>
+							<h2>boost</h2>
+							<img src="images/perf.jpg" alt="">
+						</section>						
 						<section>
 							<h2>Small is Big</h2>
 							<img src="images/smallIsFaster.jpg" alt="">
@@ -144,20 +161,9 @@
 						</section>
 						<section>
 							<h1>Minify</h1>
-								<a href="http://closure-compiler.appspot.com/home">ggl closure (demo)</a>
-								<br/>
-								<a href="http://jscompress.com/">JS Compress</a>
-								<br/>
-								<a href="http://marijnhaverbeke.nl/uglifyjs">Uglify</a>
-								<br/>
-								<a href="http://crockford.com/javascript/jsmin">JS Min</a>
-								<br/>
-								<br/>
-								<a href="http://csstidy.sourceforge.net/">CSS Tidy</a>
-								<br/>
-								<a href="http://www.minifycss.com/css-compressor/">Minify CSS</a>	
-								<br/>
-								<a href="http://cssminifier.com/">CSS Minifier</a>
+								<a href="">free with building tools</a>
+								<br>
+								<a href="http://jscompress.com/">JS Compress</a>, <a href="http://marijnhaverbeke.nl/uglifyjs">Uglify</a>, <a href="http://crockford.com/javascript/jsmin">JS Min</a>								
 						</section>
 						<section>
 							<h1>Combine</h1>
@@ -176,10 +182,7 @@
 							<h1 class="upholdHeader">Order Matters</h1>
 							<h3 class="slide"> Style on Top</h3>
 							<h3 class="slide"> Script on bottom</h3>
-							<br/>
-							<a href="http://www.youtube.com/watch?v=AWF7ZzPyagE&feature=youtu.be&t=58s">Cuzillion demo (youtube)</a>
-							<br/>
-							<br/>
+							<br/>							
 							<a href="https://developers.google.com/speed/articles/include-scripts-properly">Properly include style and scripts</a>
 						</section>
 						<section>
@@ -216,7 +219,8 @@
 							<h1>Tiny stuffs</h1>
 						</section>
 						<section>
-							<h2>dont fall in the trap of performance improvement</h2>
+							<h2>Performance trap</h2>
+							<img src="images/trap.jpg" alt="">
 						</section>
 					</section>
 					<section>
@@ -1002,6 +1006,8 @@ original.parentNode.replaceChild(clone, original);
 								<a href="http://jsperf.com/dom-vs-innerhtml-based-templating">JSPerf: Dom vs innerhtml based templating</a>
 								<br/>
 								<a href="http://mustache.github.io/mustache.5.html">Mustache Manual</a>
+								<br>
+								<a href="http://jsperf.com/dom-vs-innerhtml-based-templating/473">JS templating shootoff: important</a>
 						</section>
 						<section>
 							<h2>repaint reflow</h2>
@@ -1054,14 +1060,65 @@ Elements to be animated should be set as position: absolute or position: fixed i
 					</section>
 					<section>
 						<section>
-							<h1>Events</h1>
+							<h1>Events</h1>							
 						</section>
-						<section>
-							<h2>event bubbles</h2>
+						<section>							
+							<img src="images/eventflow.png" alt="">
+							<br>
+							<a href="http://jsbin.com/exezex/4/edit">Bubble demo</a>, 
+							<a href="http://www.w3.org/TR/DOM-Level-3-Events/#event-flow">w3: event flow (image)</a>
 						</section>
 						<section>
 							<h2>event delegate</h2>
+							<pre><code>
+&lt;ul id=&quot;listToDestroy&quot;&gt;<br/>    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;first item&lt;/a&gt;&lt;/li&gt;<br/>    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;second item&lt;/a&gt;&lt;/li&gt;<br/>    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;third item&lt;/a&gt;&lt;/li&gt;<br/>    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;forth item&lt;/a&gt;&lt;/li&gt;<br/>    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Fifth item&lt;/a&gt;&lt;/li&gt;<br/>&lt;/ul&gt;<br/><br/>&lt;script type=&quot;text/javascript&quot;&gt; <br/> document.getElementById('listToDestroy').addEventListener('click', function (e) { <br/>    var elm = e.target.parentNode; <br/>    elm.parentNode.removeChild(elm);<br/>    e.preventDefault();<br/> });<br/>&lt;/script&gt;
+							</code></pre>
 							<a href="http://jsperf.com/events-vanilla-and-jquery/17">js perf delegate</a>
+						</section>
+						<section>
+							<h2>event delegate (demo)</h2>
+							<ul id="listToDestroy">
+				              <li><a href="#">first item</a></li>
+				              <li><a href="#">second item</a></li>
+				              <li><a href="#">third item</a></li>
+				              <li><a href="#">forth item</a></li>
+				              <li><a href="#">Fifth item</a></li>
+				            </ul>
+				            <script type="text/javascript"> 
+							 document.getElementById('listToDestroy').addEventListener('click', function (e) { 
+							    var elm = e.target.parentNode; 
+							    elm.parentNode.removeChild(elm);
+							    e.preventDefault();
+							 });
+							</script>
+						</section>
+						<section>
+							<h2>event object</h2>
+							<ul>
+								<li>target</li>
+								<li>preventDefault</li>
+								<li>stropPropagation</li>
+								<li>stopImmediatePropagation</li>
+								<li>timestamp</li>
+								<li>clientX, clientY</li>
+							</ul>
+							<br>
+							<a href="http://coding.smashingmagazine.com/2013/11/12/an-introduction-to-dom-events/">intro to DOM event: The Event Object</a>
+						</section>
+						<section>
+							<h2>unbind eventhandler: memory leak</h2>
+						</section>
+						<section>
+							<a href="http://www.w3.org/TR/DOM-Level-3-Events/#event-types">list of dom events</a>
+							<a href=""></a>
+						</section>
+						<section>
+							<h2>flight.js</h2>
+							<a href="http://twitter.github.io/flight/">flight.js</a>
+						</section>
+						<section>
+							<h2>dev tool: binded events to a dom</h2>
+							<p>watch all the three videos and pick stuff</p>
 						</section>
 					</section>
 					<section>
@@ -1562,8 +1619,19 @@ window.onscroll = function(e) {
 							<br/>
 							<a href="http://jhankarmahbub.com/presentations/debounce.html">Debounce: Example</a>
 						</section>
-					</section>	
-
+					</section>
+					<section>
+						<section>
+							<h1>get a section title</h1>
+						</section>
+						<section>
+							<h2>scroll problem</h2>
+						</section>
+						<section>
+							<h2>scroll spy</h2>
+							<p>infinite scroll</p>
+						</section>
+					</section>
 					<section>
 						<section>
 							<h1 class="upholdHeader">Performance Debug</h1>
@@ -1646,7 +1714,52 @@ console.log(start - end +'ms');
 							<a href="http://www.html5rocks.com/en/tutorials/games/abouttracing/">Tracing Flag</a>
 						</section>
 					</section>
-
+					<section>
+						<section>
+							<h1>don't shoot urself</h1>
+							<h3>decide what works for you and your team</h3>
+						</section>
+						<section>
+							<h2>combined var !</h2>
+							<pre><code>
+var foo,
+    fooed,     
+    fooled;
+							</code></pre>
+							<pre class="fragment"><code>
+var foo = 'bar';
+//after something
+var fooed = 'inside the bar';   
+//after something else  
+var fooled = 'by the smart guy';
+							</code></pre>
+							<ul class="fragment">								
+								<li>u decide: micro save or readable</li>
+								<li>es6: <code>let</code></li>
+							</ul>
+							<a href="http://james.padolsey.com/javascript/js-adolescence/">js adolescence</a>
+						</section>
+						<section>
+							<h2>risk of combined var</h2>
+							<pre><code>
+var foo,
+    fooed    
+    fooled;
+							</code></pre>
+							<pre class="fragment"><code>
+var a = 7, 
+    b = c = 6;
+							</code></pre>
+						</section>
+						<section>
+							<h2>When optimizing</h2>
+							<li>focus on the big things (first)</li>							
+						</section>
+						<section>
+							<h2>walk through a requirement</h2>
+							<a href="http://coding.smashingmagazine.com/2012/11/05/writing-fast-memory-efficient-javascript/">table event handler example</a>
+						</section>
+					</section>
 					<section>
 						<h1 class="upholdHeader">Break Everything</h1>
 						<br/>
@@ -1658,8 +1771,7 @@ console.log(start - end +'ms');
 
 						<br/><br/>
 						<a href="http://www.youtube.com/watch?v=MFtijdklZDo">Break All the Rules</a><br/>	
-					</section>
-
+					</section>					
 					<section>
 						<h1>Review Your Code</h1>
 						<a href="https://groups.google.com/forum/?fromgroups#!forum/jsmentors">JSMentors</a><br/>
