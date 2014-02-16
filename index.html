@@ -490,7 +490,7 @@ for(var k = 1000; k>=0; k--){
 							<a href="http://stackoverflow.com/a/13136778/1535443">for loop backward</a>
 						</section>
 						<section>
-							<h2>function in for loop</h2>
+							<h2>cache function</h2>
 							<pre><code>
 var arr = [];
 for (var i = 0; i &lt; 1000; i++) {
@@ -695,6 +695,16 @@ while(l--) {
 							<a href="http://jsperf.com/fastest-array-loops-in-javascript/32">fastest way to traverse array</a>
 							<br>
 							<a href="https://blogs.oracle.com/greimer/resource/loop-test.html">different looping</a>
+						</section>
+						<section>
+							<h2>summary of looping</h2>
+							<ol>
+								<li>don't measure length in every iteration</li>
+								<li>cache object properties, function used in repeatingCode</li>
+								<li>backward for loop is faster than forward</li>
+								<li class="fragment">for-in only when iterating over object</li>
+								<li class="fragment">on array, reverse while is the fastest</li>
+							</ol>
 						</section>
 					</section>					
 					<section>
