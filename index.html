@@ -921,6 +921,26 @@ for (var j = 0; j&lt;1000; j++){
 							<a href="http://jsperf.com/zero-filled-array-creation">test: push vs assign</a>
 						</section>
 						<section>
+							<h2>be careful with assign</h2>
+							<pre><code>
+var myArr = [1, 2, 3, 4];
+
+myArr[68] = 69;
+myArr.length; //69
+myArr; //[1, 2, 3, 4, undefined × 64, 69]
+							</code></pre>
+							<pre class="fragment"><code>
+var myArr = [1,2,3,4];
+myArr[-7] = -7;
+myArr[2.5] = 3.5;
+myArr['myDude'] = 'thatJSDude';
+
+myArr.length;//4
+myArr; //[1, 2, 3, 4]  
+							</code></pre>
+							<h4 class="fragment">these becomes property of myArr</h4>
+						</section>
+						<section>
 							<h2>reduce vs while</h2>
 							<a href="http://jsperf.com/reduce-vs-while-pluck">try to understand the problem</a>
 						</section>
