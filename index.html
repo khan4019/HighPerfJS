@@ -1059,6 +1059,13 @@ mySting.indexOf('x') == 0;
 						</section>
 						<section>
 							<h2>querySelectorAll</h2>
+							<p>returns NodeList of elements using depth-first pre-order traversal</p>
+							<li>cant use forEach, map on NodeList</li>
+							<li>for-in have some issues, for-of will solve that</li>
+							<a href="https://developer.mozilla.org/en-US/docs/Web/API/NodeList">MDN: NodeList</a>, <a href="http://www.w3.org/TR/selectors-api/">W3: selectors-api</a>, <a href="http://www.w3.org/TR/selectors-api2">DOM API level 2</a>
+						</section>
+						<section>
+							<h2>querySelectorAll</h2>
 							<pre><code>
 document.querySelectorAll('input, button');
 							</code></pre>
@@ -1074,7 +1081,7 @@ var butArr = Array.prototype.slice.call(but);
 // Join the arrays
 var all = inpArr.concat(butArr);
 							</code></pre>
-							<a href="http://jsperf.com/concat-vs-queryselectorall">concat vs querySelectorAll</a>
+							<a href="http://jsperf.com/concat-vs-queryselectorall/2">concat vs querySelectorAll</a>
 						</section>
 						<section>
 							<h3>select by attribute value</h3>
