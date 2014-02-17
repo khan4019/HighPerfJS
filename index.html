@@ -882,6 +882,25 @@ var strObject = new String('Hello');
 							<a href="http://www.thatjsdude.com/jsConcepts/concepts/array.html">that js dude</a>
 						</section>
 						<section>
+							<h2>How to Create Array</h2>
+							<pre><code>
+var a = []; // empty
+var b = new Array(); //empty
+
+var c = [1,2]; 
+
+var d = new Array(5); // array of size 5
+var e = new Array(5, 10); //array of two element
+							</code></pre>
+							<ol class="fragment">
+								<li>literal will always produce array: just execute</li>
+								<li>constructor is a function call plus execution, argument check</li>
+							</ol>
+							<a href="http://stackoverflow.com/questions/7375120/why-is-arr-faster-than-arr-new-array">why [] faster than new Array</a>
+							<br>
+							<a href="http://jsperf.com/literal-vs-new-23/2">literal vs new</a>
+						</section>
+						<section>
 							<h2>compare array.push or array[array.length]</h2>
 							<a href="http://developer.nokia.com/community/wiki/JavaScript_Performance_Best_Practices#Primitive_operations_can_be_faster_than_function_calls">idea from</a>
 						</section>
