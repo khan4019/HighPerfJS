@@ -1862,6 +1862,35 @@ document.onreadystatechange = function () {
 							<li><a href="http://jsperf.com/jquery-vs-javascript-performance-comparison/30">jQuery vs JavaScript performance comparision</a></li>
 							<a href="http://jsperf.com/id-vs-class-vs-tag-selectors/2">jquery id</a>
 						</section>
+						<section>
+							<h2>deal with class</h2>
+							<pre><code>
+//IE8+
+$(el).addClass('hide');
+el.classList.add('hide');
+
+$(el).removeClass('hide');
+el.classList.remove('hide');
+
+//IE9+
+$(el).toggleClass('hide');
+el.classList.toggle('hide');
+
+//IE8+
+$(el).hasClass('hide');
+el.classList.contains(className);
+							</code></pre>
+							<a href="https://developer.mozilla.org/en-US/docs/Web/API/Element.classList">MDN: classList</a>
+						</section>
+						<section>
+							<pre><code>
+$(el).hide();
+el.style.display = 'none';
+
+$(el).show();
+el.style.display='';
+							</code></pre>
+						</section>
 					</section>		
 					<section>
 						<section>
