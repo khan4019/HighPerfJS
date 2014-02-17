@@ -89,30 +89,33 @@
 						</p>
 					</section>
 					<section>
-						<h2>Under construction</h2>
-					</section>
-					<section>
-						<h3>TODO</h3>
-						<li>kyle: <a href="https://github.com/getify/You-Dont-Know-JS">u dont know js</a></li>
-						<li>ben Alman: <a href="http://benalman.com/news/2012/09/partial-application-in-javascript/">partial application</a></li>						
-						<li>inhertiance problem: create vs prototype</li>
-						<li><a href="http://net.tutsplus.com/tutorials/javascript-ajax/stop-nesting-functions-but-not-all-of-them/"></a>anonymous and prototype</li>
-						<li><a href="http://net.tutsplus.com/tutorials/javascript-ajax/closures-front-to-back/comment-page-1/#comment-413269">closure</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript?redirectlocale=en-US&redirectslug=JavaScript%2FA_re-introduction_to_JavaScript#Memory_leaks">closure: memory leaks</a></li>						
-						<li><a href="http://html5index.org/">html5 js api index</a></li>						
-						<li>book: eloquent JS, ninja</li>						
-						<li>source code: jquery, angular or backbone</li>						
-						<li>memory leak</li>						
-					</section>					
-					<section>
-						<h3>little more</h3>						
-						<li>queue and limit <a href="http://www.slideshare.net/nzakas/high-performance-javascript-capitoljs-2011">slide 22</a></li>
-						<li>runaway script timer limit <a href="http://www.slideshare.net/nzakas/high-performance-javascript-capitoljs-2011">slide 41</a></li>						
-						<li>debounce  throttle</li>
-						<li>web workers</li>
-						<li><a href="http://jsperf.com/fibonacci-numbers">fibonacci</a></li>
-						<li><a href="http://jsperf.com/a-b-vs-a-a-b/2">addition</a></li>
-						<li>es6</li>						
-					</section>
+						<section>
+							<h2>Under construction</h2>
+							<img src="images/underConstruction3.jpg" alt="">
+						</section>
+						<section>
+							<h3>TODO</h3>
+							<li>kyle: <a href="https://github.com/getify/You-Dont-Know-JS">u dont know js</a></li>
+							<li>ben Alman: <a href="http://benalman.com/news/2012/09/partial-application-in-javascript/">partial application</a></li>						
+							<li>inhertiance problem: create vs prototype</li>
+							<li><a href="http://net.tutsplus.com/tutorials/javascript-ajax/stop-nesting-functions-but-not-all-of-them/"></a>anonymous and prototype</li>
+							<li><a href="http://net.tutsplus.com/tutorials/javascript-ajax/closures-front-to-back/comment-page-1/#comment-413269">closure</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript?redirectlocale=en-US&redirectslug=JavaScript%2FA_re-introduction_to_JavaScript#Memory_leaks">closure: memory leaks</a></li>						
+							<li><a href="http://html5index.org/">html5 js api index</a></li>						
+							<li>book: eloquent JS, ninja</li>						
+							<li>source code: jquery, angular or backbone</li>						
+							<li>memory leak</li>						
+						</section>					
+						<section>
+							<h3>little more</h3>						
+							<li>queue and limit <a href="http://www.slideshare.net/nzakas/high-performance-javascript-capitoljs-2011">slide 22</a></li>
+							<li>runaway script timer limit <a href="http://www.slideshare.net/nzakas/high-performance-javascript-capitoljs-2011">slide 41</a></li>						
+							<li>debounce  throttle</li>
+							<li>web workers</li>
+							<li><a href="http://jsperf.com/fibonacci-numbers">fibonacci</a></li>
+							<li><a href="http://jsperf.com/a-b-vs-a-a-b/2">addition</a></li>
+							<li>es6</li>						
+						</section>
+					</section>	
 					<section>
 						<section>
 							<h1>why performance</h1>							
@@ -127,8 +130,8 @@
 						</section>
 						<section>
 							<img class="fullScreenImage" src="images/turtle.jpg" alt="">
-						</section>
-					</section>
+						</section>						
+					</section>					
 					<section>
 						<section>
 							<h1>How you get a website</h1>
@@ -141,7 +144,7 @@
 							<img class="fullScreenImage" src="images/internet2.jpg" alt="">
 						</section>
 						<section>
-							<img class="fullScreenImage" src="images/internet5.png" alt="">
+							<img class="fullScreenImage" src="images/bathroom1.jpg" alt="">
 						</section>						
 						<section>							
 							<h2>High Perf Network</h2>
@@ -244,12 +247,13 @@
 						</section>
 						<section>
 							<h2>performance improvement strategy</h2>
-							<ul>
-								<li>situation based</li>
-								<li>noting comes from GOD</li>
-								<li>analysis</li>
-								<li>gain maximum</li>								
-							</ul>
+							<ol>
+								<li class="fragment">Understand the situation/ use case</li>
+								<li class="fragment">Is it a performance/ design problem?</li>
+								<li class="fragment">Don't blindly go for blog/ talk/ boss</li>
+								<li class="fragment">Measure it (before, after)</li>
+								<li class="fragment">Make sure u understand after 6 months</li>								
+							</0l>
 						</section>
 						<section>
 							<img src="images/nakedTruth.jpg" alt="">
@@ -260,41 +264,35 @@
 					</section>
 					<section>
 						<section>
-							<h1>Caching</h1>
-							<img src="images/cache.png" alt="">
+							<h1 class="upholdHeader">local Variable</h1>							
+							<p>Store out-of-scope variables in local variables.</p>
 						</section>
 						<section>
-							<h2>Access DOM</h2>
-							<pre><code>
-var blah = document.getElementById('myID');
-var blah2 = document.getElementById('myID2');
-var blah3 = document.getElementById('myID3');
-
-
-var blah = document.getElementById('myID'),
-    blah2 = document.getElementById('myID2'),
-    blah3 = document.getElementById('myID3');
-							</code></pre>							
-							<pre class="fragment"><code>
-var doc = document,
-    blah = doc.getElementById('myID'),
-    blah2 = doc.getElementById('myID2'),
-    blah3 = doc.getElementById('myID3');
-							</code></pre>
-							<a href="http://jsperf.com/caching-document-with-var-vs-without/2">jsPerf:caching</a>
+							<h2>get something from David Sharif. about execution context</h2>
+							<ol>
+								<li>When a function is executed an execution context is created and an activation object containing all local variables is pushed to the front of the context's scope chain.</li>
+								<li>Further in the chain, the slower the identifier resolution is, which means local variables are fastest.</li>
+								<li>By storing local references to frequently used out-of-scope variables reading and writing to variables is significantly faster. This is visible especially with global variables and other deep searches for identifier resolution.</li>
+								<li>Also in-scope variables (<tt style="font-family:monospace;">var myVar</tt>) are faster than object property access (<tt style="font-family:monospace;">this.myVar</tt>). </li>
+							</ol>
 						</section>
 						<section>
-							<h2>cache querySelector</h2>
+							<h2>store out of scope variable</h2>
 							<pre><code>
-&lt;div class=&quot;awesome-selector&quot;&gt;<br/>  &lt;div class=&quot;inner-1&quot;&gt;&lt;/div&gt;<br/>  &lt;div class=&quot;inner-2&quot;&gt;&lt;/div&gt;<br/>  &lt;div class=&quot;inner-3&quot;&gt;&lt;/div&gt;<br/>&lt;/div&gt;
+var myArr = [0, 1, 2,3 4, 5 ...];
+
+function useGlobal() {
+    for (j = 0; j &lt; 1000; j++)
+        console.log(myArr[j]);
+}
+
+function useLocal() {
+    var localArr = myArr;
+    for (var k = 0; k &lt; 1000; k++)
+        console.log(localArr[k]);
+}
 							</code></pre>
-							<pre class="fragment"><code>
-var awesome = document.querySelector('.awesome-selector');
-var h1 = awesome.querySelector('.inner-1');
-var h2 = awesome.querySelector('.inner-2');
-var h3 = awesome.querySelector('.inner-3');
-							</code></pre>
-							<a href="http://jsperf.com/caching-queryselector">cache query selector</a>
+							<a href="http://jsperf.com/global/17">local vs global variable</a>
 						</section>
 						<section>
 							<h2>cache outside for loop</h2>						
@@ -452,6 +450,10 @@ var myArr = [1, 2, 3, 4, 5],
 for (var sum = 0; i-- || console.log(sum); sum += myArr[i]);
 //15
 							</code></pre>
+						</section>
+						<section>
+							<h2>do as little as possible in each loop</h2>
+							<a href="http://james.padolsey.com/javascript/zakas-javascript-performance-tips/">number 2 might help</a>
 						</section>
 						<section>
 							<h2>read the link</h2>
@@ -748,27 +750,35 @@ var tinyMessage = ['Trust me, i started one line',
 							<br/>
 							<a href="http://stackoverflow.com/questions/9538678/fastest-way-to-build-this-string">fastest-way-to-build-this-string</a>						
 						</section>
-						<!-- <section>
-							<h2>Insted</h2>
-							<pre><code contenteditable>
-var fibonacciStr = 'First 20 Fibonacci Numbers';
-	
-for (var i = 0; i < 20; i++) {
-	fibonacciStr += i + ' = ' + fibonacci(i) + ' ';
-}
-							</code></pre>
-						</section> -->
+						
 						<section>
-							<h2>Your Own String Builder</h2>
+							<h2>StringBuilder</h2>
 							<pre><code contenteditable>
-var strBuilder = ['First 20 fibonacci numbers:'];
+var strBuilder = [];
 
-for (var i = 0; i < 20; i++) {
+for (var i = 0; i &lt; 20; i++) {
   strBuilder.push( i, '=', fibonacci(i));
 }
 
-var fibonacciStr = strBuilder.join(' ');
+return strBuilder.join(' ');
 							</code></pre>
+						</section>
+						<section>
+							<h2>primitive vs Object</h2>
+							<pre><code>
+var strPrimitive = 'Hello'; 
+var strObject = new String('Hello');
+							</code></pre>
+							<h2 class="fragment">primitive is faster</h2>
+							<ol class="fragment">
+								<li>length</li>
+								<li>charAt()</li>
+								<li>indexOf()</li>
+								<li>toUpperCase()</li>
+								<li>concatenate</li>
+							</ol>
+							<br>
+							<a href="https://hacks.mozilla.org/2012/12/performance-with-javascript-string-objects/">MDN: performance of JS String Object</a>
 						</section>
 <!-- commented out prototype and set time out stuff -->
 <!--
@@ -868,25 +878,49 @@ var fibonacciStr = strBuilder.join(' ');
 					</section>
 					<section>
 						<section>
-							<h1 class="upholdHeader">Object Vs Array</h1>
+							<h1>Array</h1>							
 						</section>
 						<section>
-							<h1 class="upholdHeader">Array </h1>
-							<h3 class="fragment">Same Type </h3>			
-							<h3 class="fragment">Use Full Array</h3>			
-							<h3 class="fragment">Avoid Pre-allocate</h3>
-							<h3 class="fragment">Grow as you Go</h3>			
-							
+							<h2>when to use Array</h2>							
+							<ul>
+								<li>Same Type</li>
+								<li>Use Full Array</li>
+								<li>Avoid Pre-allocate</li>
+								<li>Grow as you Go</li>
+							</ul>
 							<br/>
-							<a href="http://jsperf.com/type-inference-performance/2">Type Inference Performance</a>	<br/>
-							<a href ="http://jsperf.com/sparse-arrays-vs-full-arrays">Sparse vs Full Arrays</a><br/>
+							<br>
+							<br>
+							<a href="http://jsperf.com/type-inference-performance/2">Type Inference Performance</a>, 
+							<a href ="http://jsperf.com/sparse-arrays-vs-full-arrays">Sparse vs Full Arrays</a>, 
 							<a href="http://jsperf.com/pre-allocated-arrays">Pre-allocated Arrays</a>
 
-						</section>						
+						</section>
 						<section>
-							<h2 class="lineThrough"></h2>						
-							<pre><code contenteditable>
-// Don't do this:
+							<h2>How to Create Array</h2>
+							<pre><code>
+var a = []; // empty
+var b = new Array(); //empty
+
+var c = [1,2]; 
+
+var d = new Array(5); // array of size 5
+var e = new Array(5, 10); //array of two element
+							</code></pre>
+							<ol class="fragment">
+								<li>literal will always produce array: just execute</li>
+								<li>constructor is a function call plus execution, argument check</li>								
+							</ol>
+							<ul  class="fragment">
+								<li>create with elements if you know</li>
+							</ul>
+							<a href="http://stackoverflow.com/questions/7375120/why-is-arr-faster-than-arr-new-array">why [] faster than new Array</a>
+							<br>
+							<a href="http://jsperf.com/literal-vs-new-23/2">literal vs new</a>
+						</section>
+						<section>
+							<h2>array initialize</h2>
+							<pre><code>
 a = []; // executor knows nothing
 for(var i = 1; i &lt;= 4; i++) {
 	 a.push(i);
@@ -894,11 +928,8 @@ for(var i = 1; i &lt;= 4; i++) {
 
 // just do it:
 var a = [1, 2, 3, 4];
-							</code></pre>		
-						</section>
-						<section>
-							<h2 class="lineThrough">Delete is not delete</h2>
-							<pre><code contenteditable>
+							</code></pre>
+							<pre class="fragment"><code>
 var myArray = [1, 2, 3, 4, 5, 6]; //myArray.length = 6
 
 delete myArray[2]; 
@@ -910,46 +941,97 @@ console.log(myArray[2]); // undefined
 							</code></pre>
 						</section>
 						<section>
-							<h2 class="lineThrough">Array.splice </h2>						
-							<pre><code contenteditable>
-myArray.splice(2,1);
-							</code></pre>		
+							<h2>push vs assign</h2>
+							<pre><code>
+var a = [], b = [];
+
+//push
+for (var i = 0; i&lt;1000; i++){
+   a.push(i);	
+}
+
+//assign by index
+for (var j = 0; j&lt;1000; j++){
+   b[j] = j;	
+}
+							</code></pre>
+							<a href="http://jsperf.com/zero-filled-array-creation">test: push vs assign</a>
 						</section>
 						<section>
-							<h1 class="upholdHeader">Objects </h1>
-							<br/>
-							<h3 class="fragment">Varying types properties </h3>			
-							<br/>
-							<h3 class="fragment">Integer-indexed Objects is always faster</h3>			
-							<br/>
-							<h3 class="fragment">Use Object.Create()</h3>			
-							<br/>		
-							<a href="http://jsperf.com/object-create-vs-constructor-vs-object-literal/7">Object.create() vs. constructor vs. object literal</a>
+							<h2>be careful with assign</h2>
+							<pre><code>
+var myArr = [1, 2, 3, 4];
+
+myArr[68] = 69;
+myArr.length; //69
+myArr; //[1, 2, 3, 4, undefined × 64, 69]
+							</code></pre>
+							<pre class="fragment"><code>
+var myArr = [1,2,3,4];
+myArr[-7] = -7;
+myArr[2.5] = 3.5;
+myArr['myDude'] = 'thatJSDude';
+
+myArr.length;//4
+myArr; //[1, 2, 3, 4]  
+							</code></pre>
+							<h4 class="fragment">these becomes property of myArr</h4>
+							<a href="http://www.thatjsdude.com/jsConcepts/concepts/array.html">Array: that js dude</a>
 						</section>
 						<section>
-							<h2 class="lineThrough">Delete is not delete</h2>						
-							<pre><code contenteditable>
-var o = { x: 1 }; 
-delete o.x; // true 
-o.x; // undefined
-							</code></pre>		
-							<br/>							
+							<h2>push multiple</h2>
+							<pre><code>
+var a = [1, 2];
+a.push(3, 4, 5); 
+a; // [1, 2, 3, 4, 5]
+
+a.unshift(0); 
+a.unshift(-2, -1);
+a; //[-2, -1, 0, 1, 2, 3, 4, 5]
+							</code></pre>
+							<pre class="fragment"><code>
+var b = [1, 2, 3, 4, 5, ...];
+
+b.indexOf(669);
+b.indexOf(669, 500);
+
+b.lastIndexOf(303);
+b.lastIndexOf(303, 500);
+							</code></pre>
+							<a href="http://jsperf.com/indexof-fromindex">test: fromIndex</a>
 						</section>
+						<section>
+							<h2>Array summary</h2>
+							<ul>
+								<li>[] is faster than new Array()</li>
+								<li>a[index] is faster a.push</li>
+								<li>push, unshift multiple</li>
+								<li>fromIndex of indexOf</li>
+							</ul>
+							<ul class="fragment">
+								<li>prefer new array over many splice</li>								
+							</ul>
+						</section>						
 					</section>
 					<section>
 						<section>
-							<h1>Array Performance</h1>
-							<a href="http://www.thatjsdude.com/jsConcepts/concepts/array.html">that js dude</a>
-						</section>
+							<h1>Object</h1>
+						</section>						
 						<section>
-							<h2>reduce vs while</h2>
-							<a href="http://jsperf.com/reduce-vs-while-pluck">try to understand the problem</a>
-						</section>
+							<h2>When to use Object</h2>
+							<ul>
+								<li>Varying types properties </li>
+								<li>Integer-indexed Objects is always faster</li>
+								<li>Use Object.Create()</li>
+							</ul>
+							<br/>									
+							<br/>		
+							<a href="http://jsperf.com/object-create-vs-constructor-vs-object-literal/7">Object.create() vs. constructor vs. object literal</a>
+						</section>						
 						<section>
-							<h2>splice perf</h2>
-							<a href="http://jsperf.com/spliceperformance">simplify this</a>
+							<h2>Add more object related perf</h2>
 						</section>
-					</section>
+					</section>					
 					<section>
 						<section>
 							<h1>== or ===</h1>
@@ -1039,10 +1121,55 @@ mySting.indexOf('x') == 0;
 						</section>
 						<section>
 							<h2>DOM query</h2>
+							<ul>
+								<li>getElementById</li>
+								<li>getElementsByClassname</li>
+								<li>getElementsByName</li>
+								<li>getElementsbyTagName</li>
+								<li>getElementByTagNameNS</li>
+								<li>querySelector</li>
+								<li>querySelectorAll</li>
+							</ul>							
+						</section>
+						<section>
+							<h2>Access DOM</h2>
 							<pre><code>
+var blah = document.getElementById('myID');
+var blah2 = document.getElementById('myID2');
+var blah3 = document.getElementById('myID3');
 
+
+var blah = document.getElementById('myID'),
+    blah2 = document.getElementById('myID2'),
+    blah3 = document.getElementById('myID3');
+							</code></pre>							
+							<pre class="fragment"><code>
+var doc = document,
+    blah = doc.getElementById('myID'),
+    blah2 = doc.getElementById('myID2'),
+    blah3 = doc.getElementById('myID3');
 							</code></pre>
-							<a href="http://jsperf.com/selector-performance-1231">get something better than this</a>
+							<a href="http://jsperf.com/caching-document-with-var-vs-without/2">jsPerf:caching</a>
+						</section>
+						<section>
+							<h2>cache querySelector</h2>
+							<pre><code>
+&lt;div class=&quot;awesome-selector&quot;&gt;<br/>  &lt;div class=&quot;inner-1&quot;&gt;&lt;/div&gt;<br/>  &lt;div class=&quot;inner-2&quot;&gt;&lt;/div&gt;<br/>  &lt;div class=&quot;inner-3&quot;&gt;&lt;/div&gt;<br/>&lt;/div&gt;
+							</code></pre>
+							<pre class="fragment"><code>
+var awesome = document.querySelector('.awesome-selector');
+var h1 = awesome.querySelector('.inner-1');
+var h2 = awesome.querySelector('.inner-2');
+var h3 = awesome.querySelector('.inner-3');
+							</code></pre>
+							<a href="http://jsperf.com/caching-queryselector">cache query selector</a>
+						</section>
+						<section>
+							<h2>querySelectorAll</h2>
+							<p>returns NodeList of elements using depth-first pre-order traversal</p>
+							<li>cant use forEach, map on NodeList</li>
+							<li>for-in have some issues, for-of will solve that</li>
+							<a href="https://developer.mozilla.org/en-US/docs/Web/API/NodeList">MDN: NodeList</a>, <a href="http://www.w3.org/TR/selectors-api/">W3: selectors-api</a>, <a href="http://www.w3.org/TR/selectors-api2">DOM API level 2</a>
 						</section>
 						<section>
 							<h2>querySelectorAll</h2>
@@ -1061,7 +1188,7 @@ var butArr = Array.prototype.slice.call(but);
 // Join the arrays
 var all = inpArr.concat(butArr);
 							</code></pre>
-							<a href="http://jsperf.com/concat-vs-queryselectorall">concat vs querySelectorAll</a>
+							<a href="http://jsperf.com/concat-vs-queryselectorall/2">concat vs querySelectorAll</a>
 						</section>
 						<section>
 							<h3>select by attribute value</h3>
@@ -1475,13 +1602,22 @@ memoFooBar(2); // whilst this will need to be calculated
 							<a href="https://github.com/addyosmani/memoize.js/blob/master/memoize.js">Addy Osmani: Optimized Memoization Library</a>
 						</section>
 					</section>
-		
+					<section>
+						<section>
+							<h1>caching</h1>
+							<img src="images/cache.png">
+						</section>
+						<section>
+							<h2>localStorage</h2>
+							<a href="http://stackoverflow.com/a/14266748/1535443">something to start with</a>
+						</section>
+					</section>		
 					<section>
 						<section>
 							<h1 class="upholdHeader"> JavaScript Others</h1>
 						</section>						
 						<section>
-							<h1 class="upholdHeader">Reduce Global</h1>
+							<h2>Reduce Global</h2>
 							<pre><code>
 var current = null;
 function init(){...}
