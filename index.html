@@ -956,16 +956,23 @@ var b = [1, 2, 3, 4, 5, ...];
 
 b.indexOf(669);
 b.indexOf(669, 500);
+
+b.lastIndexOf(303);
+b.lastIndexOf(303, 500);
 							</code></pre>
 							<a href="http://jsperf.com/indexof-fromindex">test: fromIndex</a>
 						</section>
 						<section>
-							<h2>reduce vs while</h2>
-							<a href="http://jsperf.com/reduce-vs-while-pluck">try to understand the problem</a>
-						</section>
-						<section>
-							<h2>splice perf</h2>
-							<a href="http://jsperf.com/spliceperformance">simplify this</a>
+							<h2>Array summary</h2>
+							<ul>
+								<li>[] is faster than new Array()</li>
+								<li>a[index] is faster a.push</li>
+								<li>push, unshift multiple</li>
+								<li>fromIndex of indexOf</li>
+							</ul>
+							<ul class="fragment">
+								<li>prefer new array over many splice</li>								
+							</ul>
 						</section>						
 					</section>
 					<section>
