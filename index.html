@@ -277,6 +277,24 @@
 							</ol>
 						</section>
 						<section>
+							<h2>store out of scope variable</h2>
+							<pre><code>
+var myArr = [0, 1, 2,3 4, 5 ...];
+
+function useGlobal() {
+    for (j = 0; j &lt; 1000; j++)
+        console.log(myArr[j]);
+}
+
+function useLocal() {
+    var localArr = myArr;
+    for (var k = 0; k &lt; 1000; k++)
+        console.log(localArr[k]);
+}
+							</code></pre>
+							<a href="http://jsperf.com/global/17">local vs global variable</a>
+						</section>
+						<section>
 							<h2>do normal variable caching</h2>
 						</section>
 						<section>
