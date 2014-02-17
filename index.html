@@ -881,6 +881,22 @@ var strObject = new String('Hello');
 							<h1>Array</h1>							
 						</section>
 						<section>
+							<h2>when to use Array</h2>							
+							<ul>
+								<li>Same Type</li>
+								<li>Use Full Array</li>
+								<li>Avoid Pre-allocate</li>
+								<li>Grow as you Go</li>
+							</ul>
+							<br/>
+							<br>
+							<br>
+							<a href="http://jsperf.com/type-inference-performance/2">Type Inference Performance</a>, 
+							<a href ="http://jsperf.com/sparse-arrays-vs-full-arrays">Sparse vs Full Arrays</a>, 
+							<a href="http://jsperf.com/pre-allocated-arrays">Pre-allocated Arrays</a>
+
+						</section>
+						<section>
 							<h2>How to Create Array</h2>
 							<pre><code>
 var a = []; // empty
@@ -999,21 +1015,8 @@ b.lastIndexOf(303, 500);
 					</section>
 					<section>
 						<section>
-							<h1 class="upholdHeader">Object Vs Array</h1>
-						</section>
-						<section>
-							<h1 class="upholdHeader">Array </h1>
-							<h3 class="fragment">Same Type </h3>			
-							<h3 class="fragment">Use Full Array</h3>			
-							<h3 class="fragment">Avoid Pre-allocate</h3>
-							<h3 class="fragment">Grow as you Go</h3>			
-							
-							<br/>
-							<a href="http://jsperf.com/type-inference-performance/2">Type Inference Performance</a>	<br/>
-							<a href ="http://jsperf.com/sparse-arrays-vs-full-arrays">Sparse vs Full Arrays</a><br/>
-							<a href="http://jsperf.com/pre-allocated-arrays">Pre-allocated Arrays</a>
-
-						</section>
+							<h1 class="upholdHeader">Object</h1>
+						</section>						
 						<section>
 							<h1 class="upholdHeader">Objects </h1>
 							<br/>
@@ -1024,16 +1027,7 @@ b.lastIndexOf(303, 500);
 							<h3 class="fragment">Use Object.Create()</h3>			
 							<br/>		
 							<a href="http://jsperf.com/object-create-vs-constructor-vs-object-literal/7">Object.create() vs. constructor vs. object literal</a>
-						</section>
-						<section>
-							<h2 class="lineThrough">Delete is not delete</h2>						
-							<pre><code contenteditable>
-var o = { x: 1 }; 
-delete o.x; // true 
-o.x; // undefined
-							</code></pre>		
-							<br/>							
-						</section>
+						</section>						
 					</section>					
 					<section>
 						<section>
