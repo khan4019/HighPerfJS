@@ -295,9 +295,6 @@ function useLocal() {
 							<a href="http://jsperf.com/global/17">local vs global variable</a>
 						</section>
 						<section>
-							<h2>do normal variable caching</h2>
-						</section>
-						<section>
 							<h2>cache outside for loop</h2>						
 							<pre><code>
 for(var i = 0; i &lt; someArray.length; i++) {
@@ -881,6 +878,24 @@ var strObject = new String('Hello');
 					</section>
 					<section>
 						<section>
+							<h1>Array</h1>
+							<a href="http://www.thatjsdude.com/jsConcepts/concepts/array.html">that js dude</a>
+						</section>
+						<section>
+							<h2>compare array.push or array[array.length]</h2>
+							<a href="http://developer.nokia.com/community/wiki/JavaScript_Performance_Best_Practices#Primitive_operations_can_be_faster_than_function_calls">idea from</a>
+						</section>
+						<section>
+							<h2>reduce vs while</h2>
+							<a href="http://jsperf.com/reduce-vs-while-pluck">try to understand the problem</a>
+						</section>
+						<section>
+							<h2>splice perf</h2>
+							<a href="http://jsperf.com/spliceperformance">simplify this</a>
+						</section>						
+					</section>
+					<section>
+						<section>
 							<h1 class="upholdHeader">Object Vs Array</h1>
 						</section>
 						<section>
@@ -948,25 +963,7 @@ o.x; // undefined
 							</code></pre>		
 							<br/>							
 						</section>
-					</section>
-					<section>
-						<section>
-							<h1>Array Performance</h1>
-							<a href="http://www.thatjsdude.com/jsConcepts/concepts/array.html">that js dude</a>
-						</section>
-						<section>
-							<h2>compare array.push or array[array.length]</h2>
-							<a href="http://developer.nokia.com/community/wiki/JavaScript_Performance_Best_Practices#Primitive_operations_can_be_faster_than_function_calls">idea from</a>
-						</section>
-						<section>
-							<h2>reduce vs while</h2>
-							<a href="http://jsperf.com/reduce-vs-while-pluck">try to understand the problem</a>
-						</section>
-						<section>
-							<h2>splice perf</h2>
-							<a href="http://jsperf.com/spliceperformance">simplify this</a>
-						</section>						
-					</section>
+					</section>					
 					<section>
 						<section>
 							<h1>== or ===</h1>
@@ -1552,7 +1549,7 @@ memoFooBar(2); // whilst this will need to be calculated
 							<h1 class="upholdHeader"> JavaScript Others</h1>
 						</section>						
 						<section>
-							<h1 class="upholdHeader">Reduce Global</h1>
+							<h2>Reduce Global</h2>
 							<pre><code>
 var current = null;
 function init(){...}
