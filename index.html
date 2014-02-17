@@ -109,8 +109,7 @@
 							<h3>little more</h3>						
 							<li>queue and limit <a href="http://www.slideshare.net/nzakas/high-performance-javascript-capitoljs-2011">slide 22</a></li>
 							<li>runaway script timer limit <a href="http://www.slideshare.net/nzakas/high-performance-javascript-capitoljs-2011">slide 41</a></li>						
-							<li>debounce  throttle</li>
-							<li>web workers</li>
+							<li>debounce  throttle</li>							
 							<li><a href="http://jsperf.com/fibonacci-numbers">fibonacci</a></li>
 							<li><a href="http://jsperf.com/a-b-vs-a-a-b/2">addition</a></li>
 							<li>es6</li>						
@@ -1773,15 +1772,14 @@ $('#myText').addClass('myClass').text("Text changed!");
 							</code></pre>
 							<pre class="fragment"><code>
 $( "ul.nav li:eq(1)" ).css( "backgroundColor", "#ff0" );
+
 //better								
 $( "ul.nav" ).each(function( index ) {
   $( this ).find( "li:eq(1)" ).css( "backgroundColor", "#ff0" );
-});
-							</code></pre>
-							<p class="fragment">Remember :=&gt; JQuery is not Database</p>
+});</code></pre>							
 							<a href="http://www.artzstudio.com/2009/04/jquery-performance-rules/">jquery-performance-rules</a>
 							<br/>
-							<a href="http://tutorialzine.com/2011/06/15-powerful-jquery-tips-and-tricks-for-developers/">15-powerful-jquery-tips-and-tricks</a>
+							<a href="http://tutorialzine.com/2011/06/15-powerful-jquery-tips-and-tricks-for-developers/">15-powerful-jquery-tips</a>
 						</section>
 						<section>
 							<pre><code>
@@ -1805,11 +1803,7 @@ $( "#list" ).on( "click", "a", function( event ) {
 							<a href="http://coding.smashingmagazine.com/2012/08/17/javascript-events-responding-user/">JS Events</a>	
 							<br>
 							<a href="http://learn.jquery.com/events/event-delegation/">JQuery Event Delegation</a>
-						</section>
-						<section>
-							<h2>first</h2>
-							<a href="http://jsperf.com/jquery-first-vs-first2/10">first</a>
-						</section>
+						</section>						
 						<section>
 							<h2>simultaneous ajax</h2>
 							<a href="http://css-tricks.com/multiple-simultaneous-ajax-requests-one-callback-jquery/">multiple ajax</a>
@@ -1961,6 +1955,17 @@ window.onscroll = function(e) {
 							<h2>Defer</h2>
 							<br/>
 							<a href="http://jhankarmahbub.com/presentations/debounce.html">Debounce: Example</a>
+						</section>
+					</section>
+					<section>
+						<section>
+							<h1>multi threaded JavaScript</h1>
+						</section>
+						<section>
+							<h2>web worker</h2>
+						</section>
+						<section>
+							<h2>talk about other libraries</h2>
 						</section>
 					</section>					
 					<section>
