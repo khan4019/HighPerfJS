@@ -1890,13 +1890,26 @@ el.classList.contains('hide');
 							<a href="https://developer.mozilla.org/en-US/docs/Web/API/Element.classList">MDN: classList</a>
 						</section>
 						<section>
+							<h2>jQuery helpers</h2>
 							<pre><code>
 $(el).hide();
 el.style.display = 'none';
 
 $(el).show();
-el.style.display='';
-							</code></pre>
+el.style.display='';</code></pre>
+						<pre class="fragment"><code>
+$(el).html();
+el.innerHTML;
+
+$(el).html(setString);
+el.innerHTML = setString;
+
+$(el).empty();
+el.innerHTML = '';</code></pre>
+						<pre class="fragment"><code>
+$(el).text();
+el.textContent;</code></pre>
+							<a href="http://youmightnotneedjquery.com/">you might not need jQuery</a>
 						</section>
 					</section>		
 					<section>
