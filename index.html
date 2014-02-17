@@ -268,6 +268,15 @@
 							<p>Store out-of-scope variables in local variables.</p>
 						</section>
 						<section>
+							<h2>get something from David Sharif. about execution context</h2>
+							<ol>
+								<li>When a function is executed an execution context is created and an activation object containing all local variables is pushed to the front of the context's scope chain.</li>
+								<li>Further in the chain, the slower the identifier resolution is, which means local variables are fastest.</li>
+								<li>By storing local references to frequently used out-of-scope variables reading and writing to variables is significantly faster. This is visible especially with global variables and other deep searches for identifier resolution.</li>
+								<li>Also in-scope variables (<tt style="font-family:monospace;">var myVar</tt>) are faster than object property access (<tt style="font-family:monospace;">this.myVar</tt>). </li>
+							</ol>
+						</section>
+						<section>
 							<h2>do normal variable caching</h2>
 						</section>
 						<section>
