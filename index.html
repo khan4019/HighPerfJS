@@ -1121,13 +1121,24 @@ mySting.indexOf('x') == 0;
 							<h2>DOM query</h2>
 							<ul>
 								<li>getElementById</li>
-								<li>getElementsByClassname</li>
+								<li>getElementsByClassName</li>
 								<li>getElementsByName</li>
 								<li>getElementsbyTagName</li>
 								<li>getElementByTagNameNS</li>
 								<li>querySelector</li>
 								<li>querySelectorAll</li>
 							</ul>							
+						</section>
+						<section>
+							<h2>use wisely</h2>
+							<pre><code>
+&lt;div&gt;<br/>    &lt;article&gt;<br/>        &lt;p&gt;&lt;/p&gt;<br/>    &lt;/article&gt;<br/>    &lt;article &gt;<br/>        &lt;span id=&quot;myId&quot; class=&quot;myClass&quot;&gt;my text&lt;/span&gt;<br/>    &lt;/article&gt;<br/>&lt;/div&gt;
+							</code></pre>							
+							<ul>
+								<li>id is the fastest</li>
+								<li>querySelectorAll()[0] is the slowest</li>
+							</ul>
+							<a href="http://jsperf.com/queryselectorall-vs-others-selectors">selector api comparison</a>
 						</section>
 						<section>
 							<h2>Access DOM</h2>
@@ -1850,13 +1861,9 @@ document.onreadystatechange = function () {
 							<a href="http://youmightnotneedjquery.com/">not need jquery</a>
 							<br>
 							<a href="https://docs.google.com/document/d/1LPaPA30bLUB_publLIMF0RlhdnPx_ePXm7oW02iiT6o/edit#">jquery browser bugs work around</a>
-							TODO: 
-							<li>Ready</li>
 							<li>Add Event listener</li>
 							<li>trim</li>
-							<li>get style</li>
-							<li>classList: add remove has</li>
-							<li>show hide</li>
+							<li>get style</li>							
 							<li>query selector</li>
 							<li>DOM: next, parent, remove append prepend</li>
 							<li><a href="http://jsperf.com/jquery-vs-javascript-performance-comparison/30">jQuery vs JavaScript performance comparision</a></li>
@@ -1878,7 +1885,7 @@ el.classList.toggle('hide');
 
 //IE8+
 $(el).hasClass('hide');
-el.classList.contains(className);
+el.classList.contains('hide');
 							</code></pre>
 							<a href="https://developer.mozilla.org/en-US/docs/Web/API/Element.classList">MDN: classList</a>
 						</section>
