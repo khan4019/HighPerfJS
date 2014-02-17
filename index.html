@@ -941,6 +941,25 @@ myArr; //[1, 2, 3, 4]
 							<h4 class="fragment">these becomes property of myArr</h4>
 						</section>
 						<section>
+							<h2>push multiple</h2>
+							<pre><code>
+var a = [1, 2];
+a.push(3, 4, 5); 
+a; // [1, 2, 3, 4, 5]
+
+a.unshift(0); 
+a.unshift(-2, -1);
+a; //[-2, -1, 0, 1, 2, 3, 4, 5]
+							</code></pre>
+							<pre class="fragment"><code>
+var b = [1, 2, 3, 4, 5, ...];
+
+b.indexOf(669);
+b.indexOf(669, 500);
+							</code></pre>
+							<a href="http://jsperf.com/indexof-fromindex">test: fromIndex</a>
+						</section>
+						<section>
 							<h2>reduce vs while</h2>
 							<a href="http://jsperf.com/reduce-vs-while-pluck">try to understand the problem</a>
 						</section>
