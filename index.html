@@ -1922,25 +1922,30 @@ el.removeEventListener(eventName, eventHandler);
 							</code></pre>
 						</section>
 						<section>
-							<h2>DOM: next, parent, remove, append, prepend</h2>
+							<h2>DOM manipulation</h2>
 							<pre><code>
 $(el).parent();
-el.parentNode;
-
 $(el).children();
-el.children;
-
-$(el).clone();
-el.cloneNode(true);
 
 $(el).next();
-el.nextElementSibling;
+$(el).prev();
 
 $(parent).append(el);
-parent.appendChild(el);
-
 $(el).remove();
+
+$(el).clone();
+							</code></pre>
+							<pre class="fragment"><code>
+el.parentNode;
+el.children;
+
+el.nextElementSibling;
+el.previousElementSibling
+
+parent.appendChild(el);
 el.parentNode.removeChild(el);
+
+el.cloneNode(true);
 							</code></pre>
 						</section>
 						<section>
