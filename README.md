@@ -1,7 +1,7 @@
-HighPerfJS
+High Performance JavaScript
 ==========
 
-[Live slides](http://khan4019.github.io/HighPerfJS/#/)
+[Slides](http://khan4019.github.io/HighPerfJS/#/)
 
 JavaScript meetup Chicago, february 25, 2014
 
