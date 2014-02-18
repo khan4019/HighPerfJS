@@ -1843,14 +1843,18 @@ $( "#list" ).on( "click", "a", function( event ) {
 							<h2>Are you ready?</h2>
 							<pre><code>
 $(document).ready(function () {
-   alert('document is ready. I can sleep now');            
+   console.log('document is ready. I can sleep now');            
 });</code></pre>
 							<h3 class="fragment">Script as Last Tag of body</h3>							
 							<pre class="fragment"><code>
-document.onreadystatechange = function () {
-  //docuemnt ready. dont work for older browser or IE
+document.addEventListener('DOMContentLoaded', function(){
+   console.log('document is ready. I can sleep now'); 
+});
+							</code></pre>
+							<pre class="fragment"><code>
+document.onreadystatechange = function () {  
   if (document.readyState == "complete") {
-      alert('document is ready. I can sleep now');
+    console.log('document is ready. I can sleep now');
   }
 }</code></pre>
 							<h4 class="fragment">Copy ready: function from JQuery</h4>
@@ -1959,7 +1963,9 @@ el.cloneNode(true);
 								<li>lazy (dont want to larn new framework)</li>
 								<li>legacy code</li>
 							</ol>
-							
+							<br>
+							<br>
+							<h3 class="fragment">Decide based on your situation</h3>
 						</section>						
 					</section>		
 					<section>
