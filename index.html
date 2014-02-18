@@ -1897,15 +1897,31 @@ el.innerHTML = '';</code></pre>
 $(el).text();
 el.textContent;</code></pre>
 							<a href="http://youmightnotneedjquery.com/">you might not need jQuery</a>
-						</section>
-						<section>
-							<h2>get style</h2>
-						</section>
+						</section>						
 						<section>
 							<h2>event listener</h2>
 						</section>
 						<section>
 							<h2>DOM: next, parent, remove, append, prepend</h2>
+							<pre><code>
+$(el).parent();
+el.parentNode;
+
+$(el).children();
+el.children;
+
+$(el).clone();
+el.cloneNode(true);
+
+$(el).next();
+el.nextElementSibling;
+
+$(parent).append(el);
+parent.appendChild(el);
+
+$(el).remove();
+el.parentNode.removeChild(el);
+							</code></pre>
 						</section>
 						<section>
 							<h2>Don't forget older browsers</h2>
