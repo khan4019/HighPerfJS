@@ -94,25 +94,41 @@
 							<img src="images/underConstruction3.jpg" alt="">
 						</section>
 						<section>
-							<h3>TODO</h3>
-							<li>kyle: <a href="https://github.com/getify/You-Dont-Know-JS">u dont know js</a></li>
-							<li>ben Alman: <a href="http://benalman.com/news/2012/09/partial-application-in-javascript/">partial application</a></li>						
-							<li>inhertiance problem: create vs prototype</li>
-							<li><a href="http://net.tutsplus.com/tutorials/javascript-ajax/stop-nesting-functions-but-not-all-of-them/"></a>anonymous and prototype</li>
-							<li><a href="http://net.tutsplus.com/tutorials/javascript-ajax/closures-front-to-back/comment-page-1/#comment-413269">closure</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript?redirectlocale=en-US&redirectslug=JavaScript%2FA_re-introduction_to_JavaScript#Memory_leaks">closure: memory leaks</a></li>						
-							<li><a href="http://html5index.org/">html5 js api index</a></li>						
-							<li>book: eloquent JS, ninja</li>						
-							<li>source code: jquery, angular or backbone</li>						
-							<li>memory leak</li>						
-						</section>					
+							<h2>started: but incomplete</h2>
+							<ol>
+								<li>local variable: how function is get executed <a href="file:///C:/Personal/github/HighPerfJS/index.html#/6/1">1</a>, <a href="http://davidshariff.com/blog/">2</a>, <a href="http://toddmotto.com/everything-you-wanted-to-know-about-javascript-scope/">3</a></li>
+								<li>why filter slow, also forEach, every, some, any</li>
+								<li>parseInt, and any other number related perf</li>
+								<li>search for object/method related performance</li>
+								<li>DOM: why removeNode is faster than innerHTML</li>
+								<li>Create DOM</li>
+								<li>repaint flow, example: might borrow from HMTL tree</li>
+								<li>style manipulaton: request animationFrame, etc</li>
+								<li>unbind event: memoryleak, flight.js, devTool event</li>
+								<li>more about garbase collection</li>
+								<li>localStorage and persistance</li>
+								<li>Scroll</li>
+								<li>multi threader JS</li>
+								<li>profile and memory leak debug</li>
+							</ol>
+						</section>
 						<section>
-							<h3>little more</h3>						
-							<li>queue and limit <a href="http://www.slideshare.net/nzakas/high-performance-javascript-capitoljs-2011">slide 22</a></li>
-							<li>runaway script timer limit <a href="http://www.slideshare.net/nzakas/high-performance-javascript-capitoljs-2011">slide 41</a></li>						
-							<li>debounce  throttle</li>							
-							<li><a href="http://jsperf.com/fibonacci-numbers">fibonacci</a></li>
-							<li><a href="http://jsperf.com/a-b-vs-a-a-b/2">addition</a></li>
-							<li>es6</li>						
+							<h3>Need to start: TODO</h3>
+							<ol>
+								<li>kyle: <a href="https://github.com/getify/You-Dont-Know-JS">u dont know js</a></li>
+								<li>ben Alman: <a href="http://benalman.com/news/2012/09/partial-application-in-javascript/">partial application</a></li>						
+								<li>inhertiance problem: create vs prototype</li>
+								<li><a href="http://net.tutsplus.com/tutorials/javascript-ajax/stop-nesting-functions-but-not-all-of-them/"></a>anonymous and prototype</li>
+								<li><a href="http://net.tutsplus.com/tutorials/javascript-ajax/closures-front-to-back/comment-page-1/#comment-413269">closure</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript?redirectlocale=en-US&redirectslug=JavaScript%2FA_re-introduction_to_JavaScript#Memory_leaks">closure: memory leaks</a></li>						
+								<li><a href="http://html5index.org/">html5 js api index</a></li>						
+								<li>book: eloquent JS, ninja</li>						
+								<li>source code: jquery, angular or backbone</li>						
+								<li>memory leak</li>						
+								<li>queue and limit <a href="http://www.slideshare.net/nzakas/high-performance-javascript-capitoljs-2011">slide 22</a></li>
+								<li>runaway script timer limit <a href="http://www.slideshare.net/nzakas/high-performance-javascript-capitoljs-2011">slide 41</a></li>
+								<li><a href="http://jsperf.com/fibonacci-numbers">fibonacci</a></li>
+								<li><a href="http://jsperf.com/a-b-vs-a-a-b/2">addition</a></li>
+							</ol>
 						</section>
 					</section>	
 					<section>
@@ -451,18 +467,11 @@ for (var sum = 0; i-- || console.log(sum); sum += myArr[i]);
 						</section>
 						<section>
 							<h2>do as little as possible in each loop</h2>
-							<a href="http://james.padolsey.com/javascript/zakas-javascript-performance-tips/">number 2 might help</a>
-						</section>
-						<section>
-							<h2>read the link</h2>
 							<pre><code>
-//what the heck is this	
-for (var i = 0, item; item = someArray[i++];) {
-    // Do something with item
-}
+//add an example for this
 							</code></pre>
-							<a href="https://github.com/rwaldron/idiomatic.js#table-of-contents">Idiomatic JS</a>
-						</section>
+							<a href="http://james.padolsey.com/javascript/zakas-javascript-performance-tips/">number 2 might help</a>
+						</section>						
 					</section>
 					<section>
 						<section>
@@ -529,6 +538,9 @@ function byForLoop(myArr, num){
 }</code></pre>
 							<a href="http://jsperf.com/array-filter-vs-simple-loop/2">filter vs simple loop</a>
 							<h3 class="redBoldText">TODO: why filter is slow</h3>
+						</section>
+						<section>
+							<h2>check forEach, some, every, any</h2>
 						</section>
 					</section>
 					<section>
@@ -1843,14 +1855,18 @@ $( "#list" ).on( "click", "a", function( event ) {
 							<h2>Are you ready?</h2>
 							<pre><code>
 $(document).ready(function () {
-   alert('document is ready. I can sleep now');            
+   console.log('document is ready. I can sleep now');            
 });</code></pre>
 							<h3 class="fragment">Script as Last Tag of body</h3>							
 							<pre class="fragment"><code>
-document.onreadystatechange = function () {
-  //docuemnt ready. dont work for older browser or IE
+document.addEventListener('DOMContentLoaded', function(){
+   console.log('document is ready. I can sleep now'); 
+});
+							</code></pre>
+							<pre class="fragment"><code>
+document.onreadystatechange = function () {  
   if (document.readyState == "complete") {
-      alert('document is ready. I can sleep now');
+    console.log('document is ready. I can sleep now');
   }
 }</code></pre>
 							<h4 class="fragment">Copy ready: function from JQuery</h4>
@@ -1859,19 +1875,19 @@ document.onreadystatechange = function () {
 						<section>
 							<h2>deal with class</h2>
 							<pre><code>
-//IE8+
 $(el).addClass('hide');
-el.classList.add('hide');
 
 $(el).removeClass('hide');
-el.classList.remove('hide');
 
-//IE9+
 $(el).toggleClass('hide');
-el.classList.toggle('hide');
 
-//IE8+
 $(el).hasClass('hide');
+							</code></pre>
+							<pre class="fragment"><code>
+//IE9+
+el.classList.add('hide');
+el.classList.remove('hide');
+el.classList.toggle('hide'); 
 el.classList.contains('hide');
 							</code></pre>
 							<a href="https://developer.mozilla.org/en-US/docs/Web/API/Element.classList">MDN: classList</a>
@@ -1897,19 +1913,71 @@ el.innerHTML = '';</code></pre>
 $(el).text();
 el.textContent;</code></pre>
 							<a href="http://youmightnotneedjquery.com/">you might not need jQuery</a>
-						</section>
-						<section>
-							<h2>get style</h2>
-						</section>
+						</section>											
 						<section>
 							<h2>event listener</h2>
+							<pre><code>
+$(el).on(eventName, eventHandler);
+
+$(el).on('click', function(e){
+	console.log(e.target);	
+})
+
+//remove event
+$(el).off(eventName, eventHandler);
+							</code></pre>
+							<pre class="fragment"><code>
+//IE9+
+el.addEventListener(eventName, eventHandler);
+
+el.addEventListener('click', function(e){
+	console.log(e.target);
+});
+
+el.removeEventListener(eventName, eventHandler);
+							</code></pre>
 						</section>
 						<section>
-							<h2>DOM: next, parent, remove, append, prepend</h2>
+							<h2>DOM manipulation</h2>
+							<pre><code>
+$(el).parent();
+$(el).children();
+
+$(el).next();
+$(el).prev();
+
+$(parent).append(el);
+$(el).remove();
+
+$(el).clone();
+							</code></pre>
+							<pre class="fragment"><code>
+el.parentNode;
+el.children;
+
+el.nextElementSibling;
+el.previousElementSibling
+
+parent.appendChild(el);
+el.parentNode.removeChild(el);
+
+el.cloneNode(true);
+							</code></pre>
 						</section>
 						<section>
-							<h2>Don't forget older browsers</h2>
-							<a href="https://docs.google.com/document/d/1LPaPA30bLUB_publLIMF0RlhdnPx_ePXm7oW02iiT6o/edit#">jquery browser bugs work around</a>
+							<h2>Is JQuery is Dead?</h2>
+							<ol class="fragment">
+								<li>Older Browser</li>
+								<li><a href="https://docs.google.com/document/d/1LPaPA30bLUB_publLIMF0RlhdnPx_ePXm7oW02iiT6o/edit#">Browser Bugs</a></li>
+								<li>use modular (sizzling)</li>
+								<li>querySelctorAll dont have map, each, filter</li>
+								<li>Angular, Backbone uses Jquery</li>
+								<li>lazy (dont want to larn new framework)</li>
+								<li>legacy code</li>
+							</ol>
+							<br>
+							<br>
+							<h3 class="fragment">Decide based on your situation</h3>
 						</section>						
 					</section>		
 					<section>
