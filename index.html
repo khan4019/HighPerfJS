@@ -1900,6 +1900,26 @@ el.textContent;</code></pre>
 						</section>											
 						<section>
 							<h2>event listener</h2>
+							<pre><code>
+$(el).on(eventName, eventHandler);
+
+$(el).on('click', function(e){
+	console.log(e.target);	
+})
+
+//remove event
+$(el).off(eventName, eventHandler);
+							</code></pre>
+							<pre class="fragment"><code>
+//IE9+
+el.addEventListener(eventName, eventHandler);
+
+el.addEventListener('click', function(e){
+	console.log(e.target);
+});
+
+el.removeEventListener(eventName, eventHandler);
+							</code></pre>
 						</section>
 						<section>
 							<h2>DOM: next, parent, remove, append, prepend</h2>
