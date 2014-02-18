@@ -18,3 +18,5 @@ In this talk, Md Khan will be talking about the common area of performance holes
 
 Finally, “The fastest development is not the fastest application” and “Don’t trust a rule, trust your tool”.
 
+--------
+#####It's the time to imporve your JavaScript 
