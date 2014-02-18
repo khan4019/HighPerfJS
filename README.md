@@ -7,9 +7,6 @@ JavaScript meetup Chicago, february 25, 2014
 
 ----------
 ### Boost JS Performance
-There are so many wasy you can improve performance of your javascript
-
-###Talk Description
 -------
 If you have to write much more than several lines of JavaScript in a script tag. And you have burned by “long running script” warning or “your page sucks, fix it or leave the job” or get a mini heart-attack every time you see HR walking towards your desk at 4.30 pm. Or you bought, “High Performance JavaScript” book but that improved your credit score only. Then let’s talk about the ways to improve performance of JavaScript code.
 
