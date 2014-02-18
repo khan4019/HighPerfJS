@@ -128,6 +128,7 @@
 								<li>runaway script timer limit <a href="http://www.slideshare.net/nzakas/high-performance-javascript-capitoljs-2011">slide 41</a></li>
 								<li><a href="http://jsperf.com/fibonacci-numbers">fibonacci</a></li>
 								<li><a href="http://jsperf.com/a-b-vs-a-a-b/2">addition</a></li>
+								<li>module pattern: <a href="http://stackoverflow.com/questions/13366708/js-module-pattern-caching-better-performance">1</a>, <a href="http://javascriptweblog.wordpress.com/2011/05/31/a-fresh-look-at-javascript-mixins/">mixin</a>, <a href="http://www.macwright.org/2013/01/22/javascript-module-pattern-memory-and-closures.html">3</a>, <a href="http://jsperf.com/prototypal-performance/67">4</a></li>
 							</ol>
 						</section>
 					</section>	
@@ -1266,13 +1267,8 @@ function emptyDOM(el) {
 					</section>
 					<section>
 						<section>
-							<h1 class="upholdHeader">Create DOM</h1>
-							<br>
-							<p>(as small as possible)</p>
-							<br>
-							<br>
-							<a href="http://blog.korynunn.com/javascript/the-dom-isnt-slow-you-are/">Dom isnt slow you are</a>
-						</section>
+							<h1 class="">Create DOM</h1>							
+						</section>						
 						<section>
 							<h2>ways to create DOM</h2>
 							<a href="http://jsperf.com/performance-comparisons-of-ways-of-creating-html-object">do little more research</a>
@@ -1357,6 +1353,18 @@ original.parentNode.replaceChild(clone, original);
 If you take the measurements repeatedly, consider taking them only once.
 <br>
 <a href="http://www.stubbornella.org/content/2009/03/27/reflows-repaints-css-performance-making-your-javascript-slow/#comment-13157">reflow and repaint</a>
+						</section>
+						<section>
+							<h2>Summary</h2>
+							<ul>
+								<li>Minimize the size of DOM</li>
+								<li>avoid modifying while traversing</li>
+								<li>Dont ask for size while changing</li>
+								<li>Clone Node and dereference aftr clone</li>
+								<li>Minimize reflow and repaint</li>
+								<li>css class vs style attribute</li>
+							</ul>
+							<a href="http://blog.korynunn.com/javascript/the-dom-isnt-slow-you-are/">Dom isnt slow you are</a>
 						</section>
 					</section>
 					<section>
