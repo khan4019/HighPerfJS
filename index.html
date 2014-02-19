@@ -184,7 +184,24 @@
 							<h3>Every byte will bite!</h3>
 						</section>
 						<section>
-							<h1>1. Minify</h1>
+							<h2>1. Minify</h2>
+								<pre class="fragment"><code>
+//205 bytes
+//When I wrote this, only God and I understood what I was doing
+//Now, God only knows
+var myFancyObject = {aaaa:1, bbbb:2, cccc:3}
+
+function logTable(obj) {
+console.table(obj);
+}
+
+logTable(myFancyObject);</code></pre>
+								<pre class="fragment"><code>
+ //103 bytes
+ var myFancyObject={aaaa:1,bbbb:2,cccc:3};function logTable(a){console.table(a)}logTable(myFancyObject);</code></pre>
+								<pre class="fragment"><code>
+//23 bytes
+console.table({a:1,b:2,c:3});</code></pre>
 								<a href="">free with building tools</a>
 								<br>
 								<a href="http://jscompress.com/">JS Compress</a>, <a href="http://marijnhaverbeke.nl/uglifyjs">Uglify</a>, <a href="http://crockford.com/javascript/jsmin">JS Min</a>								
