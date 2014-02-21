@@ -1767,9 +1767,22 @@ Elements to be animated should be set as position: absolute or position: fixed i
 							<a href="http://www.w3.org/TR/DOM-Level-3-Events/#event-types">list of dom events</a>
 						</section>
 						<section>
-							<h2>dev tool: binded events to a dom</h2>
-							<h4>(live demo)</h4>
-							<a href="http://www.youtube.com/watch?v=2zmUSoVMyRU">master dev tool console</a>
+							<h2>events attached to a dom</h2>							
+							<pre><code>
+//log all the event listener attached to el
+getEventListeners(el);
+
+//monitor every single event
+monitorEvents(el);
+
+//monitor some events
+monitorEvents(el, 'click');
+monitorEvents(el, ['click', 'focus', 'keyup']);
+
+//unmonitor
+unmonitorEvents(el);
+							</code></pre>	
+							<a href="#">create demo</a>, <a href="http://youtu.be/2zmUSoVMyRU?t=3m9s">master dev tool console</a>
 						</section>
 						<section>
 							<h2>unbind eventhandler: memory leak</h2>
