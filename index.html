@@ -95,9 +95,7 @@
 						</section>
 						<section>
 							<h2>started: but incomplete</h2>
-							<ol>
-								<li>local variable: how function is get executed <a href="file:///C:/Personal/github/HighPerfJS/index.html#/6/1">1</a>, <a href="http://davidshariff.com/blog/">2</a>, <a href="http://toddmotto.com/everything-you-wanted-to-know-about-javascript-scope/">3</a></li>
-								<li>why filter slow, also forEach, every, some, any</li>
+							<ol>															
 								<li>parseInt, and any other number related perf</li>
 								<li>search for object/method related performance</li>
 								<li>DOM: why removeNode is faster than innerHTML</li>
@@ -117,18 +115,30 @@
 							<ol>
 								<li>kyle: <a href="https://github.com/getify/You-Dont-Know-JS">u dont know js</a></li>
 								<li>ben Alman: <a href="http://benalman.com/news/2012/09/partial-application-in-javascript/">partial application</a></li>						
-								<li>inhertiance problem: create vs prototype</li>
-								<li><a href="http://net.tutsplus.com/tutorials/javascript-ajax/stop-nesting-functions-but-not-all-of-them/"></a>anonymous and prototype</li>
+								<li>inhertiance problem: create vs prototype: <a href="http://www.broofa.com/2009/02/javascript-inheritance-performance/">1</a> </li>
+								<li><a href="http://net.tutsplus.com/tutorials/javascript-ajax/stop-nesting-functions-but-not-all-of-them/">nesting function</a></li>
 								<li><a href="http://net.tutsplus.com/tutorials/javascript-ajax/closures-front-to-back/comment-page-1/#comment-413269">closure</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript?redirectlocale=en-US&redirectslug=JavaScript%2FA_re-introduction_to_JavaScript#Memory_leaks">closure: memory leaks</a></li>						
 								<li><a href="http://html5index.org/">html5 js api index</a></li>						
-								<li>book: eloquent JS, ninja</li>						
-								<li>source code: jquery, angular or backbone</li>						
-								<li>memory leak</li>						
+								<li>book: eloquent JS, ninja</li>														
 								<li>queue and limit <a href="http://www.slideshare.net/nzakas/high-performance-javascript-capitoljs-2011">slide 22</a></li>
 								<li>runaway script timer limit <a href="http://www.slideshare.net/nzakas/high-performance-javascript-capitoljs-2011">slide 41</a></li>
 								<li><a href="http://jsperf.com/fibonacci-numbers">fibonacci</a></li>
 								<li><a href="http://jsperf.com/a-b-vs-a-a-b/2">addition</a></li>
+								<li>module pattern: <a href="http://stackoverflow.com/questions/13366708/js-module-pattern-caching-better-performance">1</a>, <a href="http://javascriptweblog.wordpress.com/2011/05/31/a-fresh-look-at-javascript-mixins/">mixin</a>, <a href="http://www.macwright.org/2013/01/22/javascript-module-pattern-memory-and-closures.html">3</a>, <a href="http://jsperf.com/prototypal-performance/67">4</a></li>								
 							</ol>
+						</section>
+						<section>
+							<h2>before we start</h2>
+							<h4>(i hope u didnt have enough beer)</h4>
+							<ul>
+								<li class="fragment">browsers are changing, everyday</li>
+								<li class="fragment">Standard spec are changing</li>
+								<li class="fragment">I didnt tested everything i am saying</li>
+								<li class="fragment">My test case could vary than your use case</li>
+								<li class="fragment">Don't accept, "Don't Do this"</li>
+								<li class="fragment">Ask, Why i should not do it</li>
+								<li class="fragment">Then verify it in your use case</li>
+							</ul>
 						</section>
 					</section>	
 					<section>
@@ -172,28 +182,182 @@
 					</section>
 					<section>
 						<section>
-							<h1>Mega Performance</h1>
-							<h2>boost</h2>
-							<img src="images/perf.jpg" alt="">
-						</section>						
+							<h1>HTML</h1>
+						</section>
 						<section>
-							<h2>Small is Big</h2>
-							<img src="images/smallIsFaster.jpg" alt="">
-							<p>Every byte counts</p>
+						<h2>Your Html</h2>
+						<pre><code contenteditable>
+1.  &lt;html&gt;
+2.      &lt;body&gt;
+3.         &lt;p&gt;
+4.            Hello World
+5.        &lt;/p&gt;
+6.        &lt;div&gt; 
+7.           &lt;img src=&quot;example.png&quot;/&gt;
+8.        &lt;/div&gt;
+9.     &lt;/body&gt;
+10. &lt;/html&gt;
+
+						</code></pre>
+						<a href="http://www.html5rocks.com/en/tutorials/internals/howbrowserswork/">How Browser Works</a>						
+					</section>
+
+					<section>
+						<img  class="fullScreenImage"  src="images/domTreeWithHTML.png">
+					</section>			
+					<section>
+							<h2>Style</h2>						
+							<pre><code contenteditable>
+p,div{
+  margin-top:3px;
+}
+
+.error {
+  color:red;
+}
+						</code></pre>
+						
+						</section>
+						<section>
+							<img  class="fullScreenImage"  src="images/parsingCSS.png">
+						</section>
+						
+						<section>
+							<h1 class="noUppercase">Render Tree</h1>
+							<img src="images/renderTree.png">
+						</section>
+						<section>
+							<h1 class="upholdHeader">So far</h1>
+							<img class="fullScreenImage" src="images/uptoRenderTree.png">
+						</section>
+						<section>
+							<h1 class="upholdHeader">Layout</h1>
+							<img class="fullScreenImage" src="images/layout.png">
+							<a href="http://en.wikipedia.org/wiki/Comparison_of_layout_engines_(Cascading_Style_Sheets)">CSS Layout Engines</a>
+						</section>
+						<section>
+							<h1 class="noUppercase">Paint</h1>
+							<img src="images/painting.png">
+						</section>
+					</section>
+					<section>
+						<section>
+							<h1>JavaScript</h1>
+						</section>
+						<section>
+						<h2>Html</h2>
+						<pre><code>
+1.  &lt;html&gt;
+2.      &lt;body&gt;
+3.         &lt;p&gt;
+4.            Hello World
+5.        &lt;/p&gt;
+6.        &lt;div&gt; 
+7.           &lt;script src=&quot;1.js&quot;&lt;/script&gt;
+8.           &lt;img src=&quot;example.png&quot;/&gt;
+9.        &lt;/div&gt;
+10.     &lt;/body&gt;
+11. &lt;/html&gt;
+
+							</code></pre>							
+						</section>
+						<section>
+							<h2>script in html</h2>
+							<img  class="fullScreenImage"  src="images/domTreeWithHTML2.png">
+							<a href="http://www.html5rocks.com/en/tutorials/internals/howbrowserswork/">How Browser Works</a>						
+						</section>
+						<section>
+							<h2>how u add JavaScript</h2>
+							<pre><code>
+&lt;script src=&quot;1.js&quot;&gt;&lt;/script&gt;<br/>&lt;script src=&quot;2.js&quot;&gt;&lt;/script&gt;
+							</code></pre>
+							<ol class="fragment">
+								<li>Starts to download 1.js first</li>
+								<li>will start download 2.js (if possible)</li>
+								<li>browser have 6 connection per hostname</li>
+								<li class="fragment">will not start parsing and executing 2.js before 1.js is downloaded, parsed and executed</li>
+								<li class="fragment">because browser has to maintain code dependency</li>
+							</ol>
+							<br>
+							<br>
+							<a href="http://www.browserscope.org/?category=network&v=top">browserscope:Network</a>
+							<br>
+							<a href="http://www.html5rocks.com/en/tutorials/speed/script-loading/">html5rocks: script-loading</a>
+						</section>
+					</section>
+					<section>
+						<section>
+							<h1>Ways to</h1>														
+							<h1>Improve</h1>
+							<h2>Performance</h2>
+						</section>		
+						<section>
+							<img src="images/redbull.jpg" alt="">
+						</section>
+						<section>
+							<img src="images/redBullWings.jpeg" alt="">
+						</section>
+						<section>
+							<img  class="fullScreenImage"  src="images/developerSecret.jpg">
+						</section>
+						<section>
+							<img  class="fullScreenImage"  src="images/coffeePot.jpg">
+						</section>
+						<section>
+							<img  class="fullScreenImage"  src="images/pizzaSlice.jpg">
+						</section>
+						<section>
+							<img class="fullScreenImage" src="images/badBoss.jpg">
+						</section>
+						<section><img src="images/manageDeveloper.jpg" alt="" class="fullScreenImage"></section>
+					</section>
+					</section>
+					<section>	
+						<section>
+							<h1>Network</h1>
+						</section>					
+						<section>
+							<h2>Every byte counts</h2>
+							<img src="images/smallIsFaster.jpg" alt="">							
 							<h3>Every byte will bite!</h3>
 						</section>
 						<section>
-							<h1>1. Minify</h1>
+							<h2>1. Minify</h2>
+								<pre class="fragment"><code>
+//205 bytes
+//When I wrote this, only God and I understood what I was doing
+//Now, God only knows
+var myFancyObject = {aaaa:1, bbbb:2, cccc:3}
+
+function logTable(obj) {
+console.table(obj);
+}
+
+logTable(myFancyObject);</code></pre>
+								<pre class="fragment"><code>
+ //103 bytes
+ var myFancyObject={aaaa:1,bbbb:2,cccc:3};function logTable(a){console.table(a)}logTable(myFancyObject);</code></pre>
+								<pre class="fragment"><code>
+//23 bytes
+console.table({a:1,b:2,c:3});</code></pre>
 								<a href="">free with building tools</a>
 								<br>
 								<a href="http://jscompress.com/">JS Compress</a>, <a href="http://marijnhaverbeke.nl/uglifyjs">Uglify</a>, <a href="http://crockford.com/javascript/jsmin">JS Min</a>								
 						</section>
 						<section>
-							<h1>2. Combine</h1>
-
+							<h2>2. Combine</h2>
+							<pre><code>
+&lt;script src=&quot;underscore.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt; <br/>&lt;script src=&quot;jquery.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt; <br/>&lt;script src=&quot;backbone.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;<br/>&lt;script src=&quot;upperscore.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;<br/>&lt;script src=&quot;frontbone.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;</code></pre>							
+							<div class="fragment">
+								<img src="images/begger.jpg" alt="">
+								<img src="images/begger.jpg" alt="">
+								<img src="images/begger.jpg" alt="">
+								<img src="images/begger.jpg" alt="">
+								<img src="images/begger.jpg" alt="">
+							</div>
+							<pre class="fragment"><code>&lt;script src=&quot;allScripts.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;</code></pre>
 							<h3>CommonJS, Require JS</h3>
-							<h3>Give the load to Grunt!</h3>
-							<br>
+							<h3>Give the load to Grunt!</h3>							
 							<a href="http://yeoman.io/">http://yeoman.io</a>
 						</section>
 						<section>
@@ -211,14 +375,18 @@
 							</code></pre>
 							<img class="slide" src="images/asyncVsDefer.jpg">
 							<br/>
+							<a href="http://www.html5rocks.com/en/tutorials/speed/script-loading/#toc-quick-reference">html5rocks: load-script</a><br>
 							<a class=" refName" href="http://peter.sh/experiments/asynchronous-and-deferred-javascript-execution-explained/">Async Vs Defer</a>
 						</section>
 						<section>
 							<h1>Small in line</h1>							
-							<h4>Good for Mobile device</h4>
+							<h4>Quick render: Good for Mobile device</h4>
 						</section>
 						<section>							
-							<h1 class="upholdHeader">4. Right Order</h1>
+							<h2 class="upholdHeader">4. Right Order</h2>
+							<pre><code>	
+&lt;!doctype html&gt;<br/>&lt;html&gt;<br/>  &lt;head&gt;<br/>     &lt;link rel=&quot;stylesheet&quot; href=&quot;reveal.css&quot;&gt;<br/>  &lt;head&gt;<br/>  &lt;body&gt;<br/>    &lt;div class=&quot;awesomeDiv&quot;&gt;<br/>       &lt;h2&gt;unnecessary title&lt;/h2&gt;<br/>       &lt;div&gt;<br/>          &lt;p&gt;unnecessary content&lt;/p&gt;<br/>       &lt;/div&gt;<br/>    &lt;/div&gt;<br/>    &lt;script src=&quot;allScripts.js&quot;&gt;<br/>  &lt;/body&gt;<br/>&lt;html&gt;
+							</code></pre>
 							<h3 class="slide"> Style on Top</h3>
 							<h3 class="slide"> Script on bottom</h3>
 							<br/>							
@@ -234,6 +402,17 @@
 							<img src="images/gzip.jpg" alt="">
 							<br>
 							<a href="http://www.7-zip.org/">7-zip</a>
+						</section>
+						<section>
+							<h1>Summary</h1>
+							<ul>
+								<li>Minify</li>
+								<li>Combine</li>
+								<li>Load less</li>
+								<li>Right order</li>
+								<li>Cache</li>
+								<li>gZip</li>
+							</ul>
 						</section>
 					</section>
 					<section>
@@ -279,16 +458,61 @@
 					</section>
 					<section>
 						<section>
-							<h1>local Variable</h1>
+							<h1>JavaScript execution</h1>
 						</section>
 						<section>
-							<h2>get something from David Sharif. about execution context</h2>
+							<h2>javaScript execution</h2>
+							<ul>
+								<li>Single threaded.</li>
+								<li>Synchronous execution</li>
+								<li>1 Global context</li>
+								<li>Infinite function contexts</li>								
+							</ul>
+							<br>
+							<br>
+							<p class="fragment">Each function call creates a new execution context, even a call to itself.</p>
+						</section>						
+					</section>
+					<section>
+						<section>
+							<h1>local variable</h1>
+						</section>
+						<section>
+							<h2>Variable and function</h2>
+							<pre><code>var b = 5;
+
+function foo(){	
+   b = 55;      
+   var a = 7; 
+   function c(){
+      console.log('loo');
+   }
+}</code></pre>				
+							<pre class="fragment"><code>var global = 5;
+
+function foo(){	 
+
+  function c(){	
+    console.log('loo');
+  }
+
+   var a;
+   b = 55;      
+   a = 7;    
+}</code></pre>
+							<a href="http://davidshariff.com/blog/what-is-the-execution-context-in-javascript/">executiuon context</a>
+						</section>
+						<section>
+							<h2>execution context</h2>
 							<ol>
-								<li>When a function is executed an execution context is created and an activation object containing all local variables is pushed to the front of the context's scope chain.</li>
-								<li>Further in the chain, the slower the identifier resolution is, which means local variables are fastest.</li>
-								<li>By storing local references to frequently used out-of-scope variables reading and writing to variables is significantly faster. This is visible especially with global variables and other deep searches for identifier resolution.</li>
-								<li>Also in-scope variables (<tt style="font-family:monospace;">var myVar</tt>) are faster than object property access (<tt style="font-family:monospace;">this.myVar</tt>). </li>
+								<li>When you call a function, an execution context is created (before running any code) </li>
+								<li class="fragment">In the context,  first thing created is the scope chain</li>								
+								<li class="fragment">All local variables is pushed to the front of the context's scope chain.</li>
+								<li class="fragment">And then, create variable, arguments, determine the value of this</li>
+								<li class="fragment">So, Further in the chain, the slower the identifier resolution is, which means local variables are fastest.</li>							
 							</ol>
+							<a href="http://davidshariff.com/blog/javascript-scope-chain-and-closures/">JS scope chain</a>, 
+							<a href="http://toddmotto.com/everything-you-wanted-to-know-about-javascript-scope/">Everything you wanted to know about scope</a>
 						</section>
 						<section>
 							<h2>store out of scope variable</h2>
@@ -307,6 +531,7 @@ function useLocal() {
 }
 							</code></pre>
 							<a href="http://jsperf.com/global/17">local vs global variable</a>
+							<p class="fragment"> (just for remembering)By storing local references to frequently used out-of-scope variables reading and writing to variables is significantly faster. This is visible especially with global variables and other deep searches for identifier resolution.</p>
 						</section>
 						<section>
 							<h2>cache outside for loop</h2>						
@@ -536,11 +761,47 @@ function byForLoop(myArr, num){
      }
      return [];
 }</code></pre>
-							<a href="http://jsperf.com/array-filter-vs-simple-loop/2">filter vs simple loop</a>
-							<h3 class="redBoldText">TODO: why filter is slow</h3>
+							<a href="http://jsperf.com/array-filter-vs-simple-loop/2">filter vs simple loop</a>							
 						</section>
 						<section>
-							<h2>check forEach, some, every, any</h2>
+							<h2>apple to apple</h2>
+							<pre><code>
+function filter(array, fn) {
+  var results = [];
+  var item;
+  for (var i = 0, len = array.length; i &lt; len; i++) {
+    item = array[i];
+    if (fn(item)) results.push(item);
+  }
+  return results;
+}
+							</code></pre>
+							<ol class="fragment">
+								<li>range of elements is set before the first call</li>
+								<li>new elements will not be visited</li>
+								<li>if elements are changed or deleted, their value would be original</li>
+								<li class="fragment"> robustness comes with the expense of overhead</li>
+							</ol>													
+							<a href="http://monkeyandcrow.com/blog/why_javascripts_filter_is_slow/">why native filter method is slow</a>
+						</section>
+						<section>
+							<h2>Other array method</h2>
+							<ul>
+								<li>map, forEach, every</li>
+								<li>some, any</li>	
+								<li>reduce, reduceRight</li>							
+							</ul>
+							<br>							
+							<br>
+							<ol class="fragment">
+								<li>for trusted data</li>
+								<li>not to have deleted values</li>
+								<li>well behaved callbackfn</li>
+							</ol>
+							<br>
+							<br>
+							<h3 class="fragment">consider for loop</h3>
+							<a href="http://www.ecma-international.org/ecma-262/5.1/#sec-15.4.4.20">spec: filter</a>
 						</section>
 					</section>
 					<section>
@@ -883,7 +1144,11 @@ var strObject = new String('Hello');
 						</section>
 						<section>
 							<h2>parseInt</h2>
+							<p>(candidate to be removed)</p>
 							<a href="http://jsperf.com/number-vs-parseint-vs-plus/26">use parseInt</a>
+						</section>
+						<section>
+							<h2>find more</h2>
 						</section>
 					</section>
 					<section>
@@ -1125,6 +1390,31 @@ mySting.indexOf('x') == 0;
 					</section>
 					<section>
 						<section>
+							<h1>Inheritance</h1>
+						</section>
+						<section>
+							<h2>ways to create inheritance</h2>
+							<a href="http://www.broofa.com/2009/02/javascript-inheritance-performance/">four different wasy</a>
+							<br>
+							<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Inheritance_and_the_prototype_chain">MDN: perf at bottom</a>
+						</section>
+						<section>
+							<h2>js perf</h2>
+							<a href="http://jsperf.com/js-inheritance-performance/38">inheritance perf</a>
+						</section>
+						<section>
+							<h1>might get something</h1>
+							<a href="http://stackoverflow.com/questions/5545770/is-javascript-function-call-faster-through-prototype-or-direct-reference">function call</a>
+							<br>
+							<a href="http://stackoverflow.com/questions/2510342/improving-simple-javascript-inheritance">simple</a>
+							<br>
+							<a href="http://julien.richard-foy.fr/blog/2011/10/30/functional-inheritance-vs-prototypal-inheritance/">function prototypal </a>
+							<br>
+							<a href="http://davidshariff.com/blog/javascript-inheritance-patterns/">sharif: inheritance</a>
+						</section>
+					</section>
+					<section>
+						<section>
 							<h1>DOM query</h1>
 							<li>what is the fastest of query</li>
 							<li>descendant</li>
@@ -1266,13 +1556,8 @@ function emptyDOM(el) {
 					</section>
 					<section>
 						<section>
-							<h1 class="upholdHeader">Create DOM</h1>
-							<br>
-							<p>(as small as possible)</p>
-							<br>
-							<br>
-							<a href="http://blog.korynunn.com/javascript/the-dom-isnt-slow-you-are/">Dom isnt slow you are</a>
-						</section>
+							<h1 class="">Create DOM</h1>							
+						</section>						
 						<section>
 							<h2>ways to create DOM</h2>
 							<a href="http://jsperf.com/performance-comparisons-of-ways-of-creating-html-object">do little more research</a>
@@ -1358,6 +1643,18 @@ If you take the measurements repeatedly, consider taking them only once.
 <br>
 <a href="http://www.stubbornella.org/content/2009/03/27/reflows-repaints-css-performance-making-your-javascript-slow/#comment-13157">reflow and repaint</a>
 						</section>
+						<section>
+							<h2>Summary</h2>
+							<ul>
+								<li>Minimize the size of DOM</li>
+								<li>avoid modifying while traversing</li>
+								<li>Dont ask for size while changing</li>
+								<li>Clone Node and dereference aftr clone</li>
+								<li>Minimize reflow and repaint</li>
+								<li>css class vs style attribute</li>
+							</ul>
+							<a href="http://blog.korynunn.com/javascript/the-dom-isnt-slow-you-are/">Dom isnt slow you are</a>
+						</section>
 					</section>
 					<section>
 						<section>
@@ -1375,6 +1672,8 @@ elem.setAttribute('style', elemStyle);
 						<section>
 							<h2>animation</h2>
 							<a href="http://daneden.github.io/animate.css/">animate.css</a>
+							<br>
+							<a href="http://alistapart.com/article/web-animation-at-work?utm_source=html5weekly&utm_medium=email">has some decent performance</a>
 						</section>
 						<section>
 							<h2>scrollTO</h2>
@@ -1413,8 +1712,7 @@ Elements to be animated should be set as position: absolute or position: fixed i
 						<section>
 							<h2>event delegate</h2>
 							<pre><code>
-&lt;ul id=&quot;listToDestroy&quot;&gt;<br/>    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;first item&lt;/a&gt;&lt;/li&gt;<br/>    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;second item&lt;/a&gt;&lt;/li&gt;<br/>    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;third item&lt;/a&gt;&lt;/li&gt;<br/>    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;forth item&lt;/a&gt;&lt;/li&gt;<br/>    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Fifth item&lt;/a&gt;&lt;/li&gt;<br/>&lt;/ul&gt;<br/><br/>&lt;script type=&quot;text/javascript&quot;&gt; <br/> document.getElementById('listToDestroy').addEventListener('click', function (e) { <br/>    var elm = e.target.parentNode; <br/>    elm.parentNode.removeChild(elm);<br/>    e.preventDefault();<br/> });<br/>&lt;/script&gt;
-							</code></pre>
+&lt;ul id=&quot;listToDestroy&quot;&gt;<br/>    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;first item&lt;/a&gt;&lt;/li&gt;<br/>    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;second item&lt;/a&gt;&lt;/li&gt;<br/>    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;third item&lt;/a&gt;&lt;/li&gt;<br/>    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;forth item&lt;/a&gt;&lt;/li&gt;<br/>    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Fifth item&lt;/a&gt;&lt;/li&gt;<br/>&lt;/ul&gt;<br/><br/>&lt;script type=&quot;text/javascript&quot;&gt; <br/> document.getElementById('listToDestroy').addEventListener('click', function (e) { <br/>    var elm = e.target.parentNode; <br/>    elm.parentNode.removeChild(elm);<br/>    e.preventDefault();<br/> });<br/>&lt;/script&gt;</code></pre>
 							<a href="http://jsperf.com/events-vanilla-and-jquery/17">js perf delegate</a>
 						</section>
 						<section>
@@ -1426,10 +1724,28 @@ Elements to be animated should be set as position: absolute or position: fixed i
 				              <li><a href="#">forth item</a></li>
 				              <li><a href="#">Fifth item</a></li>
 				            </ul>
+				            <button id="addItem">add item</button>
 				            <script type="text/javascript"> 
 							 document.getElementById('listToDestroy').addEventListener('click', function (e) { 
 							    var elm = e.target.parentNode; 
 							    elm.parentNode.removeChild(elm);
+							    e.preventDefault();
+							 });
+							 document.getElementById('addItem').addEventListener('click', function (e) { 
+							    var list = document.getElementById('listToDestroy'); 
+							    var li = document.createElement('li');
+							    var a = document.createElement('a');
+							    a.setAttribute('href', '#');
+							    a.classList.add('roll');
+
+							    var span = document.createElement('span');
+							    span.setAttribute('data-title', 'New Item');
+							    var text = document.createTextNode('New Item');
+							    span.appendChild(text);
+							    a.appendChild(span);
+							    li.appendChild(a);
+							    list.appendChild(li);
+							    
 							    e.preventDefault();
 							 });
 							</script>
@@ -1446,22 +1762,34 @@ Elements to be animated should be set as position: absolute or position: fixed i
 							</ul>
 							<br>
 							<a href="http://coding.smashingmagazine.com/2013/11/12/an-introduction-to-dom-events/">intro to DOM event: The Event Object</a>
+							<br>
+							<a href="http://www.w3.org/TR/DOM-Level-3-Events/#event-types">list of dom events</a>
+						</section>
+						<section>
+							<h2>events attached to a dom</h2>							
+							<pre><code>
+//log all the event listener attached to el
+getEventListeners(el);
+
+//monitor every single event
+monitorEvents(el);
+
+//monitor some events
+monitorEvents(el, 'click');
+monitorEvents(el, ['click', 'focus', 'keyup']);
+
+//unmonitor
+unmonitorEvents(el);
+							</code></pre>	
+							<a href="#">create demo</a>, <a href="http://youtu.be/2zmUSoVMyRU?t=3m9s">master dev tool console</a>
 						</section>
 						<section>
 							<h2>unbind eventhandler: memory leak</h2>
-						</section>
-						<section>
-							<a href="http://www.w3.org/TR/DOM-Level-3-Events/#event-types">list of dom events</a>
-							<a href=""></a>
-						</section>
+						</section>						
 						<section>
 							<h2>flight.js</h2>
 							<a href="http://twitter.github.io/flight/">flight.js</a>
-						</section>
-						<section>
-							<h2>dev tool: binded events to a dom</h2>
-							<p>watch all the three videos and pick stuff</p>
-						</section>
+						</section>						
 					</section>
 					<section>
 						<section>
