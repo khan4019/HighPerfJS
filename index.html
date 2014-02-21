@@ -478,31 +478,27 @@ console.table({a:1,b:2,c:3});</code></pre>
 							<p class="fragment">Each function call creates a new execution context, even a call to itself.</p>
 						</section>
 						<section>
+							<h2>execution context</h2>
+							<pre><code>var b = 5;
 
-							<h2>execution context</h2>							
-							<h2>crap. more it somewhere else</h2>
-							<pre><code>function foo(){	
-   fooed();   
-   var loo = function(){
-     console.log('loo');
-   }
+function foo(){	
+   b = 55;      
    var a = 7; 
-   function fooed(){
-	   console.log('fooed');
+   function c(){
+      console.log('loo');
    }
 }</code></pre>				
-							<pre class="fragment"><code>function foo(){	
- function fooed(){
-   console.log('fooed');
-   }
-   fooed();   
-   var loo = function(){
-     console.log('loo');
-   }
-   var a = 7; 
-   function fooed(){
-	   console.log('fooed');
-   }
+							<pre class="fragment"><code>var global = 5;
+
+function foo(){	 
+
+  function c(){	
+    console.log('loo');
+  }
+
+   var a;
+   b = 55;      
+   a = 7;    
 }</code></pre>
 							<a href="http://davidshariff.com/blog/what-is-the-execution-context-in-javascript/">executiuon context</a>
 						</section>
