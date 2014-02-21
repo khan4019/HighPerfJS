@@ -1310,7 +1310,10 @@ b.lastIndexOf(303, 500);
 							<br/>									
 							<br/>		
 							<a href="http://jsperf.com/object-create-vs-constructor-vs-object-literal/7">Object.create() vs. constructor vs. object literal</a>
-						</section>						
+						</section>	
+						<section>
+							<h2>best way to create object</h2>
+						</section>					
 						<section>
 							<h2>Add more object related perf</h2>
 						</section>
@@ -1400,24 +1403,36 @@ mySting.indexOf('x') == 0;
 						<section>
 							<h1>Inheritance</h1>
 						</section>
-						<section>
-							<h2>access properties</h2>
+						<section>							
 							<img src="images/inheritance.png" alt="">
 							<ol>
 								<li class="fragment">iterate every properties in a level then go to next</li>
 								<li class="fragment">Higher lookup time for higher level properties</li>								
 								<li class="fragment">nonexistent properties traverse full chain</li>								
+								<br>
+								<li class="fragment">dont check undefined. use <code>hasOwnProperty</code></li>
 							</ol>
+							<br>
+							<br>
 							<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Inheritance_and_the_prototype_chain">access property chain</a>							
 						</section>
 						<section>
 							<h2>ways to create inheritance</h2>
+							<pre><code>
+//constructor
+							</code></pre>
 							<a href="http://www.broofa.com/2009/02/javascript-inheritance-performance/">four different wasy</a>
 							<br>
 							<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Inheritance_and_the_prototype_chain">MDN: perf at bottom</a>
 						</section>
 						<section>
-							<h2>js perf</h2>
+							<h2>using prototype chaing</h2>
+						</section>
+						<section>
+							<h2>Object.create</h2>
+						</section>
+						<section>
+							<h2>best way to inheritance</h2>
 							<a href="http://jsperf.com/js-inheritance-performance/38">inheritance perf</a>
 						</section>
 						<section>
