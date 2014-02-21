@@ -463,6 +463,52 @@ console.table({a:1,b:2,c:3});</code></pre>
 					</section>
 					<section>
 						<section>
+							<h1>function execution</h1>
+						</section>
+						<section>
+							<h2>javaScript execution</h2>
+							<ul>
+								<li>Single threaded.</li>
+								<li>Synchronous execution</li>
+								<li>1 Global context</li>
+								<li>Infinite function contexts</li>								
+							</ul>
+							<br>
+							<br>
+							<p class="fragment">Each function call creates a new execution context, even a call to itself.</p>
+						</section>
+						<section>
+
+							<h2>execution context</h2>							
+							<h2>crap. more it somewhere else</h2>
+							<pre><code>function foo(){	
+   fooed();   
+   var loo = function(){
+     console.log('loo');
+   }
+   var a = 7; 
+   function fooed(){
+	   console.log('fooed');
+   }
+}</code></pre>				
+							<pre class="fragment"><code>function foo(){	
+ function fooed(){
+   console.log('fooed');
+   }
+   fooed();   
+   var loo = function(){
+     console.log('loo');
+   }
+   var a = 7; 
+   function fooed(){
+	   console.log('fooed');
+   }
+}</code></pre>
+							<a href="http://davidshariff.com/blog/what-is-the-execution-context-in-javascript/">executiuon context</a>
+						</section>
+					</section>
+					<section>
+						<section>
 							<h1>local Variable</h1>
 						</section>
 						<section>
