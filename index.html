@@ -95,9 +95,7 @@
 						</section>
 						<section>
 							<h2>started: but incomplete</h2>
-							<ol>
-								<li>local variable: how function is get executed <a href="file:///C:/Personal/github/HighPerfJS/index.html#/6/1">1</a>, <a href="http://davidshariff.com/blog/">2</a>, <a href="http://toddmotto.com/everything-you-wanted-to-know-about-javascript-scope/">3</a></li>
-								<li>why filter slow, also forEach, every, some, any</li>
+							<ol>															
 								<li>parseInt, and any other number related perf</li>
 								<li>search for object/method related performance</li>
 								<li>DOM: why removeNode is faster than innerHTML</li>
@@ -516,6 +514,8 @@ function foo(){
 								<li class="fragment">And then, create variable, arguments, determine the value of this</li>
 								<li class="fragment">So, Further in the chain, the slower the identifier resolution is, which means local variables are fastest.</li>							
 							</ol>
+							<a href="http://davidshariff.com/blog/javascript-scope-chain-and-closures/">JS scope chain</a>, 
+							<a href="http://toddmotto.com/everything-you-wanted-to-know-about-javascript-scope/">Everything you wanted to know about scope</a>
 						</section>
 						<section>
 							<h2>store out of scope variable</h2>
@@ -764,11 +764,46 @@ function byForLoop(myArr, num){
      }
      return [];
 }</code></pre>
-							<a href="http://jsperf.com/array-filter-vs-simple-loop/2">filter vs simple loop</a>
-							<h3 class="redBoldText">TODO: why filter is slow</h3>
+							<a href="http://jsperf.com/array-filter-vs-simple-loop/2">filter vs simple loop</a>							
 						</section>
 						<section>
-							<h2>check forEach, some, every, any</h2>
+							<h2>apple to apple</h2>
+							<pre><code>
+function filter(array, fn) {
+  var results = [];
+  var item;
+  for (var i = 0, len = array.length; i &lt; len; i++) {
+    item = array[i];
+    if (fn(item)) results.push(item);
+  }
+  return results;
+}
+							</code></pre>
+							<ol class="fragment">
+								<li>range of elements is set before the first call</li>
+								<li>new elements will not be visited</li>
+								<li>if elements are changed or deleted, their value would be original</li>
+								<li class="fragment"> robustness comes with the expense of overhead</li>
+							</ol>													
+							<a href="http://monkeyandcrow.com/blog/why_javascripts_filter_is_slow/">why native filter method is slow</a>
+						</section>
+						<section>
+							<h2>Other array method</h2>
+							<ul>
+								<li>map, forEach, every</li>
+								<li>some, any</li>	
+								<li>reduce, reduceRight</li>							
+							</ul>
+							<br>							
+							<br>
+							<ol class="fragment">
+								<li>for trusted data</li>
+								<li>not to have deleted values</li>
+								<li>well behaved callbackfn</li>
+							</ol>
+							<br>
+							<h3 class="fragment">consider for loop</h3>
+							<a href="http://www.ecma-international.org/ecma-262/5.1/#sec-15.4.4.20">spec: filter</a>
 						</section>
 					</section>
 					<section>
