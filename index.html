@@ -802,6 +802,7 @@ function filter(array, fn) {
 								<li>well behaved callbackfn</li>
 							</ol>
 							<br>
+							<br>
 							<h3 class="fragment">consider for loop</h3>
 							<a href="http://www.ecma-international.org/ecma-262/5.1/#sec-15.4.4.20">spec: filter</a>
 						</section>
@@ -1146,7 +1147,11 @@ var strObject = new String('Hello');
 						</section>
 						<section>
 							<h2>parseInt</h2>
+							<p>(candidate to be removed)</p>
 							<a href="http://jsperf.com/number-vs-parseint-vs-plus/26">use parseInt</a>
+						</section>
+						<section>
+							<h2>find more</h2>
 						</section>
 					</section>
 					<section>
@@ -1407,6 +1412,8 @@ mySting.indexOf('x') == 0;
 							<a href="http://stackoverflow.com/questions/2510342/improving-simple-javascript-inheritance">simple</a>
 							<br>
 							<a href="http://julien.richard-foy.fr/blog/2011/10/30/functional-inheritance-vs-prototypal-inheritance/">function prototypal </a>
+							<br>
+							<a href="http://davidshariff.com/blog/javascript-inheritance-patterns/">sharif: inheritance</a>
 						</section>
 					</section>
 					<section>
@@ -1719,10 +1726,28 @@ Elements to be animated should be set as position: absolute or position: fixed i
 				              <li><a href="#">forth item</a></li>
 				              <li><a href="#">Fifth item</a></li>
 				            </ul>
+				            <button id="addItem">add item</button>
 				            <script type="text/javascript"> 
 							 document.getElementById('listToDestroy').addEventListener('click', function (e) { 
 							    var elm = e.target.parentNode; 
 							    elm.parentNode.removeChild(elm);
+							    e.preventDefault();
+							 });
+							 document.getElementById('addItem').addEventListener('click', function (e) { 
+							    var list = document.getElementById('listToDestroy'); 
+							    var li = document.createElement('li');
+							    var a = document.createElement('a');
+							    a.setAttribute('href', '#');
+							    a.classList.add('roll');
+
+							    var span = document.createElement('span');
+							    span.setAttribute('data-title', 'New Item');
+							    var text = document.createTextNode('New Item');
+							    span.appendChild(text);
+							    a.appendChild(span);
+							    li.appendChild(a);
+							    list.appendChild(li);
+							    
 							    e.preventDefault();
 							 });
 							</script>
