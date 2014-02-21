@@ -1417,12 +1417,29 @@ mySting.indexOf('x') == 0;
 							<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Inheritance_and_the_prototype_chain">access property chain</a>							
 						</section>
 						<section>
-							<h2>ways to create inheritance</h2>
+							<h2>functional</h2>
 							<pre><code>
-//constructor
-							</code></pre>
-							<a href="http://www.broofa.com/2009/02/javascript-inheritance-performance/">four different wasy</a>
-							<br>
+//not sure this the best
+//read read and experiment
+function employee(name) {
+    var that = {};
+    that.name = name;    
+    that.getName = function(){
+    	return that.name;
+    }
+    return that;
+}
+
+function developer(name) {
+    var that = employee(name);
+    that.doesCodeSucks = function() {
+        return 'Yes. ' + that.name +' code sucks.';
+    };
+    return that;
+}
+
+var dev1 = developer('JS dude');
+							</code></pre>							
 							<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Inheritance_and_the_prototype_chain">MDN: perf at bottom</a>
 						</section>
 						<section>
