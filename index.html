@@ -1421,32 +1421,57 @@ mySting.indexOf('x') == 0;
 							<pre><code>function employee(name) {
     var that = {};
     that.name = name;
+    that.getName = function() {
+        return that.name;
+    };
     return that;
 }
 
 function developer(name) {
-    var that = employee(name);
-    that.doesCodeSucks = function() {
-        return 'Yes. ' + that.name +' code sucks.';
-    };
+    var that = employee(name);    
     return that;
 }
 
 var dev1 = developer('JS dude');</code></pre>							
 							<li class="fragment">allow encapsulation</li>	
-							<li class="fragment">Each function call creates new object</li>								
-							<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Inheritance_and_the_prototype_chain">MDN: perf at bottom</a>
+							<li class="fragment">Each function call creates new object</li>
 						</section>						
 						<section>
 							<h2>prototype chaining</h2>
 							<pre><code>
-//assign directly to the prototype
-//Pseudoclassical
+
+//incomplete
+function Employee(name) {
+    this.name = spec.name;
+}
+
+Employee.prototype.getName = function () {
+    return this.name;
+};
+
+function Developer(name) {
+    
+}
+
+var dev1 = new Developer('JS Dude');
 							</code></pre>
-							<a href="http://davidshariff.com/blog/javascript-inheritance-patterns/">sharif: inheritance</a>
+							<a href="http://davidshariff.com/blog/javascript-inheritance-patterns/">inheritance patterns</a>
 						</section>
 						<section>
 							<h2>Object.create</h2>
+							<pre><code>
+var a = {a: 1}; 
+// a ---> Object.prototype ---> null
+
+var b = Object.create(a);
+// b ---> a ---> Object.prototype ---> null
+
+
+var c = Object.create(b);
+// c ---> b ---> a ---> Object.prototype ---> null
+							</code></pre>							
+							<li class="fragment">properties that are high up on prototype chain -ve impact on performance</li>
+							<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Inheritance_and_the_prototype_chain">MDN: perf at bottom</a>
 						</section>
 						<section>
 							<h2>best way to inheritance</h2>
@@ -1455,6 +1480,7 @@ var dev1 = developer('JS dude');</code></pre>
 						<section>
 							<h1>might get something</h1>							
 							<br>
+							<p>It is essential to understand the prototypal inheritance model before writing complex code that makes use of it. Also, be aware of the length of the prototype chains in your code and break them up if necessary to avoid possible performance problems. Further, the native prototypes should never be extended unless it is for the sake of compatibility with newer JavaScript features.</p>
 							<a href="http://stackoverflow.com/questions/2510342/improving-simple-javascript-inheritance">JS for Ninja Example</a>
 							<br>
 							<a href="http://julien.richard-foy.fr/blog/2011/10/30/functional-inheritance-vs-prototypal-inheritance/">function prototypal </a>
