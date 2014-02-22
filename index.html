@@ -1405,57 +1405,48 @@ mySting.indexOf('x') == 0;
 						</section>
 						<section>							
 							<img src="images/inheritance.png" alt="">
-							<ol>
-								<li class="fragment">iterate every properties in a level then go to next</li>
-								<li class="fragment">Higher lookup time for higher level properties</li>								
-								<li class="fragment">nonexistent properties traverse full chain</li>								
-								<br>
-								<li class="fragment">dont check undefined. use <code>hasOwnProperty</code></li>
-							</ol>
+							
 							<br>
 							<br>
 							<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Inheritance_and_the_prototype_chain">access property chain</a>							
 						</section>
 						<section>
-							<h2>functional pattern</h2>
-							<pre><code>function employee(name) {
-    var that = {};
-    that.name = name;
-    that.getName = function() {
-        return that.name;
-    };
-    return that;
+							<h2>Implement Inheritance</h2>
+							<ul>
+								<li class="">Functional Pattern: <a href="http://javascript.crockford.com/inheritance.html">Crockford</a></li>
+								<li class="fragment">Constructor: <a href="http://www.klauskomenda.com/code/javascript-inheritance-by-example/"> example</a></li>
+								<li class="fragment">Prototype: <a href="http://javascriptweblog.wordpress.com/2010/06/07/understanding-javascript-prototypes/">Angus prototype</a></li>
+								<li class="fragment">Object.create: <a href="http://css.dzone.com/articles/javascript-inheritance-example">example</a></li>
+								<li class="fragment">es6: class <a href="http://wiki.ecmascript.org/doku.php?id=harmony:classes">harmony: classes</a></li>
+								<li class="fragment">Libraries: prototype.js, base.js</li>
+							</ul>							
+						</section>
+						<section>
+							<h2>functional Pattern</h2>
+							<pre><code>
+function Parent(args){
+   //create new object
+   //set properties, method
+   //retrn new object	
 }
-
-function developer(name) {
-    var that = employee(name);    
-    return that;
+							</code></pre>
+							<pre class="fragment"><code>
+function Child(args){
+   //call parent, pass parameters
+   //set child properties, on the returned object from Parent
+   //return the parent
 }
-
-var dev1 = developer('JS dude');</code></pre>							
-							<li class="fragment">allow encapsulation</li>	
+							</code></pre>
+							<li class="fragment">simple and allow encapsulation</li>	
 							<li class="fragment">Each function call creates new object</li>
 						</section>						
 						<section>
 							<h2>prototype chaining</h2>
 							<pre><code>
-
-//incomplete
-function Employee(name) {
-    this.name = spec.name;
-}
-
-Employee.prototype.getName = function () {
-    return this.name;
-};
-
-function Developer(name) {
-    
-}
-
-var dev1 = new Developer('JS Dude');
+//create an image of prototype chain
+//and talk how that works
 							</code></pre>
-							<a href="http://davidshariff.com/blog/javascript-inheritance-patterns/">inheritance patterns</a>
+							<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Introduction_to_Object-Oriented_JavaScript">MDN: OOP in JS</a>
 						</section>
 						<section>
 							<h2>Object.create</h2>
@@ -1470,21 +1461,36 @@ var b = Object.create(a);
 var c = Object.create(b);
 // c ---> b ---> a ---> Object.prototype ---> null
 							</code></pre>							
-							<li class="fragment">properties that are high up on prototype chain -ve impact on performance</li>
+							<ol>
+								<li class="fragment">object creation is faster than function</li>
+								<li class="fragment">new method in prototype is available to all</li>
+								<li class="fragment">iterate every properties in a level then go to next</li>
+								<li class="fragment">Higher lookup time for higher level properties</li>								
+								<li class="fragment">nonexistent properties traverse full chain</li>								
+								<br>
+								<li class="fragment">dont check undefined. use <code>hasOwnProperty</code></li>
+							</ol>							
 							<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Inheritance_and_the_prototype_chain">MDN: perf at bottom</a>
 						</section>
 						<section>
 							<h2>best way to inheritance</h2>
-							<a href="http://jsperf.com/js-inheritance-performance/38">inheritance perf</a>
-						</section>
-						<section>
-							<h1>might get something</h1>							
+							<ol>
+								<li>It depends.</li>
+								<li class="fragment">prototypal inheritance performs better</li>
+								<li class="fragment">But dont make it crazy long</li>
+							</ol>
+							<br><br>
+							<ul class="fragment">
+								<li>Choice is yours</li>
+								<li>depending on you project, team</li>
+							</ul>
 							<br>
-							<p>It is essential to understand the prototypal inheritance model before writing complex code that makes use of it. Also, be aware of the length of the prototype chains in your code and break them up if necessary to avoid possible performance problems. Further, the native prototypes should never be extended unless it is for the sake of compatibility with newer JavaScript features.</p>
-							<a href="http://stackoverflow.com/questions/2510342/improving-simple-javascript-inheritance">JS for Ninja Example</a>
 							<br>
-							<a href="http://julien.richard-foy.fr/blog/2011/10/30/functional-inheritance-vs-prototypal-inheritance/">function prototypal </a>
-						</section>
+							<br>
+							<a href="http://julien.richard-foy.fr/blog/2011/10/30/functional-inheritance-vs-prototypal-inheritance/">function vs prototypal </a>, <a href="http://jsperf.com/js-inheritance-performance/38">perf test</a>
+							<br>
+							<a href="http://erik.eae.net/archives/2009/11/09/21.12.16/">inheritance antipattern</a>
+						</section>						
 					</section>
 					<section>
 						<section>
