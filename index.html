@@ -1695,9 +1695,23 @@ function emptyDOM(el) {
 						</section>						
 						<section>
 							<h2>ways to create DOM</h2>
-							<a href="http://jsperf.com/performance-comparisons-of-ways-of-creating-html-object">do little more research</a>
+							<pre><code>
+//innerHTML
+var ul = document.getElementById('myList');
+
+el.innerHTML = '&lt;li&gt;Only one item&lt;/li&gt;';
+							</code></pre>							
+							<li class="fragment">remove all elements, parses the string, assign as children</li>
+							<pre class="fragment"><code>
+var li = document.createElement("li");
+var text = document.createTextNode('Only one Item');
+
+li.appendChild(text);
+ul.appendChild(li);
+							</code></pre>
+							<a href="http://glowfilter.com/blog/javascript-performance-testing-innerhtml-vs-appendchild/">innerHTML vs appendChild</a>
+							<a href="http://jsperf.com/realistic-innerhtml-vs-appendchild/15">innerHTML vs. appendChild vs jQuery.append()</a>
 							<br>
-							<a href="https://github.com/joestelmach/laconic">laconic</a>, <a href="https://github.com/KoryNunn/crel">crel</a>
 						</section>
 						<section>
 							<pre><code>
