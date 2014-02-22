@@ -1143,15 +1143,30 @@ var strObject = new String('Hello');
 							<h1>Number</h1>
 						</section>
 						<section>
-							<h2>parseInt</h2>
-							<p>(candidate to be removed)</p>
+							<h2>string to number</h2>							
+							<pre><code>
+//constructor
+Number("13268");
+
+//parseInt
+parseInt("13268");
+
+//unary +
++"13268";
+
+//parseInt with base
+parseInt("13268", 10);
+
+//bitwise >> (right shift)
+"13268" >> 0;
+							</code></pre>
 							<a href="http://jsperf.com/number-vs-parseint-vs-plus/26">use parseInt</a>
 						</section>
 						<section>
 							<h2>add and set to itself</h2>
 							<pre><code>
 var a = 2, 
-   b =3;
+   b = 3;
 
 //option-1
 a += b;
