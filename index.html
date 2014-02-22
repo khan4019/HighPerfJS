@@ -1503,9 +1503,8 @@ var c = Object.create(b);
 					</section>
 					<section>
 						<section>
-							<h1>DOM query</h1>
-							<li>what is the fastest of query</li>
-							<li>descendant</li>
+							<h1>DOM query</h1>							
+							<li>descendant (add it somewhere)</li>
 						</section>
 						<section>
 							<h2>DOM query</h2>
@@ -1519,6 +1518,23 @@ var c = Object.create(b);
 									<li>querySelectorAll</li>
 								</div>
 							</ul>							
+						</section>
+						<section>
+							<h2>querySelectorAll</h2>
+							<li>returns non-live NodeList (not array)</li>
+							<li> using depth-first pre-order traversal</li>
+							<li class="fragment">cant use forEach, map on NodeList</li>
+							<pre class="fragment"><code>
+myArray --> Array.prototype --> Object.prototype --> null
+
+myNodeList --> NodeList.prototype --> Object.prototype --> null
+							</code></pre>
+							<pre class="fragment"><code>
+//loop and put them in a array
+// or go to the MDN: NdeList link below
+//or
+var nodesArray = Array.prototype.slice.call(myNodeList);</code></pre>
+							<a href="https://developer.mozilla.org/en-US/docs/Web/API/NodeList">MDN: NodeList</a>, <a href="http://www.w3.org/TR/selectors-api/">W3: selectors-api</a>, <a href="http://www.w3.org/TR/selectors-api2">DOM API level 2</a>
 						</section>
 						<section>
 							<h2>What to use</h2>
@@ -1535,7 +1551,7 @@ var c = Object.create(b);
 							<a href="http://jsperf.com/queryselectorall-vs-others-selectors">selector api comparison</a>
 						</section>
 						<section>
-							<h2>Access DOM</h2>
+							<h2>Cache</h2>
 							<pre><code>
 var blah = document.getElementById('myID');
 var blah2 = document.getElementById('myID2');
@@ -1566,14 +1582,7 @@ var h2 = awesome.querySelector('.inner-2');
 var h3 = awesome.querySelector('.inner-3');
 							</code></pre>
 							<a href="http://jsperf.com/caching-queryselector">cache query selector</a>
-						</section>
-						<section>
-							<h2>querySelectorAll</h2>
-							<p>returns NodeList of elements using depth-first pre-order traversal</p>
-							<li>cant use forEach, map on NodeList</li>
-							<li>for-in have some issues, for-of will solve that</li>
-							<a href="https://developer.mozilla.org/en-US/docs/Web/API/NodeList">MDN: NodeList</a>, <a href="http://www.w3.org/TR/selectors-api/">W3: selectors-api</a>, <a href="http://www.w3.org/TR/selectors-api2">DOM API level 2</a>
-						</section>
+						</section>						
 						<section>
 							<h2>querySelectorAll</h2>
 							<pre><code>
