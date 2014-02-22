@@ -1417,16 +1417,10 @@ mySting.indexOf('x') == 0;
 							<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Inheritance_and_the_prototype_chain">access property chain</a>							
 						</section>
 						<section>
-							<h2>functional</h2>
-							<pre><code>
-//not sure this the best
-//read read and experiment
-function employee(name) {
+							<h2>functional pattern</h2>
+							<pre><code>function employee(name) {
     var that = {};
-    that.name = name;    
-    that.getName = function(){
-    	return that.name;
-    }
+    that.name = name;
     return that;
 }
 
@@ -1438,10 +1432,11 @@ function developer(name) {
     return that;
 }
 
-var dev1 = developer('JS dude');
-							</code></pre>							
+var dev1 = developer('JS dude');</code></pre>							
+							<li class="fragment">allow encapsulation</li>	
+							<li class="fragment">Each function call creates new object</li>								
 							<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Inheritance_and_the_prototype_chain">MDN: perf at bottom</a>
-						</section>
+						</section>						
 						<section>
 							<h2>prototype chaining</h2>
 							<pre><code>
