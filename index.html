@@ -1794,7 +1794,7 @@ clone.setAttribute('id', 'newChild');
 //.replaceChild(newChild, oldChild);
 target.parentNode.replaceChild(clone, target);
 							</code></pre>
-							<li class="fragment">Don't duplicate ID</li>
+							<li class="fragment">Be careful if source has ID (don't duplicate)</li>
 							<li class="fragment">AddEventListener isn't cloned but $.clone does</li>
 							<a href="http://developer.nokia.com/community/wiki/JavaScript_Performance_Best_Practices">cloneNode</a>
 						</section>
@@ -1822,15 +1822,15 @@ elem.setAttribute('style', elemStyle);
 						</section>
 						<section>
 							<h2>Summary</h2>
-							<h2>work on this</h2>
-							<ul>
+							<p>(work on this)</p>
+							<ol>
 								<li>Minimize the size of DOM</li>
 								<li>avoid modifying while traversing</li>
 								<li>Dont ask for size while changing</li>
 								<li>Clone Node and dereference aftr clone</li>
 								<li>Minimize reflow and repaint</li>
 								<li>css class vs style attribute</li>
-							</ul>
+							</ol>
 							<a href="http://blog.korynunn.com/javascript/the-dom-isnt-slow-you-are/">Dom isnt slow you are</a>
 						</section>
 					</section>					
@@ -1840,6 +1840,8 @@ elem.setAttribute('style', elemStyle);
 						</section>						
 						<section>
 							<h2>animation</h2>
+							<a href="http://www.html5rocks.com/en/tutorials/speed/high-performance-animations/">high perf animation</a>
+							<br>
 							<a href="http://daneden.github.io/animate.css/">animate.css</a>
 							<br>
 							<a href="http://alistapart.com/article/web-animation-at-work?utm_source=html5weekly&utm_medium=email">has some decent performance</a>
@@ -1954,6 +1956,7 @@ unmonitorEvents(el);
 						</section>
 						<section>
 							<h2>unbind eventhandler: memory leak</h2>
+							<p>(may go to memory leak section)</p>
 						</section>						
 						<section>
 							<h2>flight.js</h2>
@@ -2126,9 +2129,20 @@ memoFooBar(2); // whilst this will need to be calculated
 							<img src="images/cache.png">
 						</section>
 						<section>
-							<h2>localStorage</h2>
-							<a href="http://stackoverflow.com/a/14266748/1535443">something to start with</a>
-						</section>
+							<h2>If you need, read</h2>
+							<p>(could be part of common section)</p>
+							<ul>
+								<li>cookies</li>
+								<li>localStorage</li>
+								<li>sessionStorage</li>
+								<li>indexedDB</li>																
+							</ul>							
+							<br>
+							<br>
+							<br>
+							<a href="http://dev.w3.org/html5/webstorage/">spec: Web Storage</a>, <a href="http://www.w3.org/TR/IndexedDB/">spec: Indexed DB</a>
+							<a href="http://html5doctor.com/storing-data-the-simple-html5-way-and-a-few-tricks-you-might-not-have-known/">Remy Sharp: storing Data</a>
+						</section>						
 					</section>		
 					<section>
 						<section>
