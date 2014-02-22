@@ -1603,6 +1603,33 @@ var all = inpArr.concat(butArr);
 							<a href="http://jsperf.com/concat-vs-queryselectorall/2">concat vs querySelectorAll</a>
 						</section>
 						<section>
+							<h2>selector render speed</h2>
+							<img src="images/ambulence.jpg">
+						</section>
+						<section>
+							<h2>render speed (desc)</h2>
+							<ul>
+								<li>ID - #myID</li>
+								<li class="fragment">Class – .myClass</li>
+								<li class="fragment">Tag – div</li>
+								<li class="fragment">Sibling – div + p, div ~ p</li>
+								<li class="fragment">Child – div > p</li>
+							</ul>							
+							<a href="http://realityonweb.com/cascading-style-sheet-css/performance-improvement-by-writing-efficient-css-selector/">Efficient CSS Selector</a>	
+						</section>
+						<section>
+							<h2>Speed getting slower</h2>
+							<ul>
+								<li>Descendant – div p</li>
+								<li class="fragment">Universal – *</li>
+								<li class="fragment">Attribute – input[type="checkbox"]</li>
+								<li class="fragment">Pseudo – p:first-child</li>
+							</ul>
+							<li class="fragment">think again about crazy long selector</li>
+							<br/>
+							<a href="http://www.youtube.com/watch?v=a2_6bGNZ7bA">Faster HTML and CSS</a>
+						</section>
+						<section>
 							<h3>select by attribute value</h3>
 							<pre><code>&lt;div&gt;<br/>  &lt;span data-control=&quot;true&quot;&gt;Something, Darkside&lt;/span&gt;<br/>&lt;/div&gt;</code></pre>
 							<pre class="fragment"><code>
