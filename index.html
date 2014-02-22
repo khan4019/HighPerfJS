@@ -95,9 +95,7 @@
 						</section>
 						<section>
 							<h2>started: but incomplete</h2>
-							<ol>															
-								<li>parseInt, and any other number related perf</li>
-								<li>search for object/method related performance</li>
+							<ol>								
 								<li>DOM: why removeNode is faster than innerHTML</li>
 								<li>style manipulation</li>
 								<li>animation</li>
@@ -1176,10 +1174,7 @@ a = a + b
 
 							</code></pre>
 							<a href="http://jsperf.com/a-b-vs-a-a-b/2">addition</a>
-						</section>
-						<section>
-							<h2>find more</h2>
-						</section>
+						</section>						
 					</section>
 					<section>
 						<section>
@@ -1334,10 +1329,20 @@ b.lastIndexOf(303, 500);
 							<a href="http://jsperf.com/object-create-vs-constructor-vs-object-literal/7">Object.create() vs. constructor vs. object literal</a>
 						</section>	
 						<section>
-							<h2>best way to create object</h2>
-						</section>					
-						<section>
-							<h2>Add more object related perf</h2>
+							<h2>create object</h2>
+							<pre><code>
+var myObj1 = {};
+
+var myObj2 = new Object();
+							</code></pre>
+							<pre class="fragment"><code>
+function MyObj(){
+	
+}
+
+var myObj3 = new MyObj();
+							</code></pre>
+							<a href="http://jsperf.com/object-create-vs-constructor-vs-object-literal/86"></a>
 						</section>
 					</section>					
 					<section>
