@@ -1148,8 +1148,19 @@ var strObject = new String('Hello');
 							<a href="http://jsperf.com/number-vs-parseint-vs-plus/26">use parseInt</a>
 						</section>
 						<section>
-							<h2>+</h2>
-							<li><a href="http://jsperf.com/a-b-vs-a-a-b/2">addition</a></li>
+							<h2>add and set to itself</h2>
+							<pre><code>
+var a = 2, 
+   b =3;
+
+//option-1
+a += b;
+
+//option-2
+a = a + b
+
+							</code></pre>
+							<a href="http://jsperf.com/a-b-vs-a-a-b/2">addition</a>
 						</section>
 						<section>
 							<h2>find more</h2>
