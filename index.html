@@ -114,8 +114,7 @@
 							<h3>Need to start: TODO</h3>
 							<ol>
 								<li>kyle: <a href="https://github.com/getify/You-Dont-Know-JS">u dont know js</a></li>
-								<li>ben Alman: <a href="http://benalman.com/news/2012/09/partial-application-in-javascript/">partial application</a></li>						
-								<li>inhertiance problem: create vs prototype: <a href="http://www.broofa.com/2009/02/javascript-inheritance-performance/">1</a> </li>
+								<li>ben Alman: <a href="http://benalman.com/news/2012/09/partial-application-in-javascript/">partial application</a></li>														
 								<li><a href="http://net.tutsplus.com/tutorials/javascript-ajax/stop-nesting-functions-but-not-all-of-them/">nesting function</a></li>
 								<li><a href="http://net.tutsplus.com/tutorials/javascript-ajax/closures-front-to-back/comment-page-1/#comment-413269">closure</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript?redirectlocale=en-US&redirectslug=JavaScript%2FA_re-introduction_to_JavaScript#Memory_leaks">closure: memory leaks</a></li>						
 								<li><a href="http://html5index.org/">html5 js api index</a></li>						
@@ -1493,6 +1492,16 @@ var c = Object.create(b);
 						</section>						
 					</section>
 					<section>
+						<h2>so far, any question?</h2>	
+						<img src="images/question5.jpg" alt="">					
+					</section>
+					<section>
+						<section>
+							<h1>DOM</h1>
+							<img src="images/htmlTree.png" alt="">
+						</section>						
+					</section>
+					<section>
 						<section>
 							<h1>DOM query</h1>
 							<li>what is the fastest of query</li>
@@ -1502,23 +1511,27 @@ var c = Object.create(b);
 							<h2>DOM query</h2>
 							<ul>
 								<li>getElementById</li>
-								<li>getElementsByClassName</li>
-								<li>getElementsByName</li>
+								<li>getElementsByClassName</li>								
 								<li>getElementsbyTagName</li>
-								<li>getElementByTagNameNS</li>
-								<li>querySelector</li>
-								<li>querySelectorAll</li>
+								<br>								
+								<div class="fragment">
+									<li>querySelector</li>
+									<li>querySelectorAll</li>
+								</div>
 							</ul>							
 						</section>
 						<section>
-							<h2>use wisely</h2>
+							<h2>What to use</h2>
 							<pre><code>
 &lt;div&gt;<br/>    &lt;article&gt;<br/>        &lt;p&gt;&lt;/p&gt;<br/>    &lt;/article&gt;<br/>    &lt;article &gt;<br/>        &lt;span id=&quot;myId&quot; class=&quot;myClass&quot;&gt;my text&lt;/span&gt;<br/>    &lt;/article&gt;<br/>&lt;/div&gt;
 							</code></pre>							
-							<ul>
-								<li>id is the fastest</li>
-								<li>querySelectorAll()[0] is the slowest</li>
-							</ul>
+							<br>
+							<ol class="fragment">
+								<li>getElementById('myId') is the fastest</li>
+								<li>querySelectorAll('#myId')[0] is the slowest</li>
+							</ol>
+							<br>
+							<br>
 							<a href="http://jsperf.com/queryselectorall-vs-others-selectors">selector api comparison</a>
 						</section>
 						<section>
