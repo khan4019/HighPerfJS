@@ -1695,13 +1695,10 @@ function emptyDOM(el) {
 						</section>						
 						<section>
 							<h2>ways to create DOM</h2>
-							<pre><code>
-//innerHTML
-var ul = document.getElementById('myList');
+							<pre><code>var ul = document.getElementById('myList');
 
-el.innerHTML = '&lt;li&gt;Only one item&lt;/li&gt;';
-							</code></pre>							
-							<li class="fragment">remove all elements, parses the string, assign as children</li>
+el.innerHTML = '&lt;li&gt;Only one item&lt;/li&gt;';</code></pre>							
+							<h6 class="fragment">remove all elements, parse string, assign as children</h5>
 							<pre class="fragment"><code>
 var li = document.createElement("li");
 var text = document.createTextNode('Only one Item');
@@ -1709,25 +1706,12 @@ var text = document.createTextNode('Only one Item');
 li.appendChild(text);
 ul.appendChild(li);
 							</code></pre>
-							<a href="http://glowfilter.com/blog/javascript-performance-testing-innerhtml-vs-appendchild/">innerHTML vs appendChild</a>
-							<a href="http://jsperf.com/realistic-innerhtml-vs-appendchild/15">innerHTML vs. appendChild vs jQuery.append()</a>
-							<br>
-						</section>
-						<section>
-							<pre><code>
-$('&lt;div class=&#x201d;imAMoron&#x201d;&gt;&lt;span&gt;derp&lt;/span&gt;&lt;/span&gt;');
+							<li class="fragment">createTextNode faster than setting innerHTML</li>
+							<pre class="fragment"><code>
+$('#myList').append($('&lt;li&gt;').text('Only one Item'));
 							</code></pre>
-							<p>vs document.createElement</p>
-							<a href="http://jsperf.com/dom-creation-libs">DOM creation libraries comparison</a>
-						</section>
-						<section>
-							<h2>text node</h2>
-							<a href="http://jsperf.com/creating-text-node/3">text node</a>
-						</section>
-						<section>
-							<h2>empty node</h2>
-							<a href="http://jsperf.com/empty-node-if-needed">empty node</a>
-						</section>
+							<a href="http://glowfilter.com/blog/javascript-performance-testing-innerhtml-vs-appendchild/">createElement</a>, <a href="http://jsperf.com/creating-text-node/3">TextNode</a>, <a href="http://jsperf.com/realistic-innerhtml-vs-appendchild/15">$.append</a>							
+						</section>						
 						<section>
 							<h2>createDocumentFragment</h2>
 							<pre><code>
