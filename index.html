@@ -99,11 +99,10 @@
 								<li>parseInt, and any other number related perf</li>
 								<li>search for object/method related performance</li>
 								<li>DOM: why removeNode is faster than innerHTML</li>
-								<li>Create DOM</li>
-								<li>repaint flow, example: might borrow from HMTL tree</li>
-								<li>style manipulaton: request animationFrame, etc</li>
-								<li>unbind event: memoryleak, flight.js, devTool event</li>
-								<li>more about garbase collection</li>
+								<li>style manipulation</li>
+								<li>animation</li>
+								<li>unbind event: memory leak</li>
+								<li>more about garbage collection</li>
 								<li>localStorage and persistance</li>
 								<li>Scroll</li>
 								<li>multi threader JS</li>
@@ -1812,7 +1811,18 @@ target.parentNode.replaceChild(clone, target);
 								<a href="http://jsperf.com/dom-vs-innerhtml-based-templating/473">JS templating shootoff: important</a>
 						</section>
 						<section>
+							<h2>style changes</h2>
+							<p>Make multiple predefined style changes at once using className</p>
+							<p>Make multiple dynamic style changes at once using setAttribute</p>
+							<pre><code>
+var elem = document.getElementById('styled');
+elemStyle = 'background: blue; color: white;';
+elem.setAttribute('style', elemStyle);
+							</code></pre>
+						</section>
+						<section>
 							<h2>Summary</h2>
+							<h2>work on this</h2>
 							<ul>
 								<li>Minimize the size of DOM</li>
 								<li>avoid modifying while traversing</li>
@@ -1826,17 +1836,8 @@ target.parentNode.replaceChild(clone, target);
 					</section>					
 					<section>
 						<section>
-							<h1>Style manipulation</h1>
-						</section>
-						<section>
-							<p>Make multiple predefined style changes at once using className</p>
-							<p>Make multiple dynamic style changes at once using setAttribute</p>
-							<pre><code>
-var elem = document.getElementById('styled');
-elemStyle = 'background: blue; color: white;';
-elem.setAttribute('style', elemStyle);
-							</code></pre>
-						</section>
+							<h1>animation</h1>
+						</section>						
 						<section>
 							<h2>animation</h2>
 							<a href="http://daneden.github.io/animate.css/">animate.css</a>
