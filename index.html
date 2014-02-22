@@ -1667,27 +1667,7 @@ function getElementByAttributeValue(attribute)
 document.getElementsByClassName('data-control');
 							</code></pre>
 							<a href="http://jsperf.com/class-vs-attribute-selector-performance/4">select by attribute value</a>
-						</section>
-						<section>
-							<h2>removeNode</h2>
-							<h4>prefer removeNode() over innherHTML = ''</h4>
-							<p>TODO: why this is happen???</p>
-							<pre><code>
-el.innerHTML = '';
-//or
-el.innerHTML = null;
-							</code></pre>
-							<pre><code>
-//prefer
-function emptyDOM(el) {
-    var child;
-    while (child = el.lastChild) {
-      el.removeChild(child);
-    }
-  }
-							</code></pre>
-							<a href="http://jsperf.com/jquery-html-vs-empty-vs-innerhtml/18">removeNode</a>
-						</section>
+						</section>						
 					</section>
 					<section>
 						<section>
@@ -1712,6 +1692,26 @@ $('#myList').append($('&lt;li&gt;').text('Only one Item'));
 							</code></pre>
 							<a href="http://glowfilter.com/blog/javascript-performance-testing-innerhtml-vs-appendchild/">createElement</a>, <a href="http://jsperf.com/creating-text-node/3">TextNode</a>, <a href="http://jsperf.com/realistic-innerhtml-vs-appendchild/15">$.append</a>							
 						</section>						
+						<section>
+							<h2>removeNode</h2>
+							<h4>prefer removeNode() over innherHTML = ''</h4>
+							<p>TODO: why this is happen???</p>
+							<pre><code>
+el.innerHTML = '';
+//or
+el.innerHTML = null;
+							</code></pre>
+							<pre><code>
+//prefer
+function emptyDOM(el) {
+    var child;
+    while (child = el.lastChild) {
+      el.removeChild(child);
+    }
+  }
+							</code></pre>
+							<a href="http://jsperf.com/jquery-html-vs-empty-vs-innerhtml/18">removeNode</a>
+						</section>
 						<section>
 							<h2>createDocumentFragment</h2>
 							<pre><code>
