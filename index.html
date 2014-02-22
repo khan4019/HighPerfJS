@@ -1671,7 +1671,7 @@ document.getElementsByClassName('data-control');
 					</section>
 					<section>
 						<section>
-							<h1>change DOM</h1>
+							<h1>Manipulate DOM</h1>
 						</section>
 						<section>
 							<h2 >Avoid Change</h2>
@@ -1716,9 +1716,11 @@ document.getElementsByClassName('data-control');
 						</section>						
 						<section>
 							<h2>ways to create DOM</h2>
-							<pre><code>var ul = document.getElementById('myList');
+							<pre><code>
+var ul = document.getElementById('myList');
 
-el.innerHTML = '&lt;li&gt;Only one item&lt;/li&gt;';</code></pre>							
+el.innerHTML = '&lt;li&gt;Only one item&lt;/li&gt;';
+							</code></pre>							
 							<h6 class="fragment">remove all elements, parse string, assign as children</h5>
 							<pre class="fragment"><code>
 var li = document.createElement("li");
@@ -1728,9 +1730,7 @@ li.appendChild(text);
 ul.appendChild(li);
 							</code></pre>
 							<li class="fragment">createTextNode faster than setting innerHTML</li>
-							<pre class="fragment"><code>
-$('#myList').append($('&lt;li&gt;').text('Only one Item'));
-							</code></pre>
+							<li class="fragment">if ref passed will move from current parent</li>
 							<a href="http://glowfilter.com/blog/javascript-performance-testing-innerhtml-vs-appendchild/">createElement</a>, <a href="http://jsperf.com/creating-text-node/3">TextNode</a>, <a href="http://jsperf.com/realistic-innerhtml-vs-appendchild/15">$.append</a>							
 						</section>						
 						<section>
@@ -1754,48 +1754,49 @@ function emptyDOM(el) {
 							<a href="http://jsperf.com/jquery-html-vs-empty-vs-innerhtml/18">removeNode</a>
 						</section>
 						<section>
-							<h2>createDocumentFragment</h2>
+							<h2>more changes</h2>
 							<pre><code>
 var list = ['foo', 'bar', 'baz'],
-    elem, contents;
+    el, text;
 for (var i = 0; i &lt; list.length; i++) {
-    elem = document.createElement('div');
-    content = document.createTextNode(list[i]);
-    elem.appendChild(content);
-    document.body.appendChild(elem);
+    el = document.createElement('li');
+    text = document.createTextNode(list[i]);
+    el.appendChild(text);
+    document.body.appendChild(el);
 }</code></pre>
 							<pre class="fragment"><code>
 var fragment = document.createDocumentFragment(),
     list = ['foo', 'bar', 'baz'],
-    elem, contents;
+    el, text;
 for (var i = 0; i &lt; list.length; i++) {
-    elem = document.createElement('div');
-    content = document.createTextNode(list[i]);
-    fragment.appendChild(content);
+    el = document.createElement('li');
+    text = document.createTextNode(list[i]);
+    el.appendChild(text);
+    fragment.appendChild(el);
 }
 document.body.appendChild(fragment);</code></pre>
 							<a href="https://developer.mozilla.org/en-US/docs/Web/API/document.createDocumentFragment">createDocumentFragment</a>
 						</section>
 						<section>
-							<h2>cloneNode</h2>
-							<p>if no event handler or form element</p>
-							<pre><code>
-var orig = document.getElementById('container'),
+							<h2>cloneNode</h2>	
+							<pre><code>&lt;div&gt;
+  &lt;span id=&quot;childSpan&quot;&gt;original child&lt;/span&gt;
+&lt;/div&gt;
+&lt;div&gt;
+  &lt;span id=&quot;fakeSpan&quot;&gt;foo bar&lt;/span&gt;
+&lt;/div&gt;</code></pre>						
+							<pre class="fragment"><code>
+var orig = document.getElementById('childSpan'),
     clone = orig.cloneNode(true),
-    list = ['foo', 'bar', 'baz'],
-    elem, contents;
+    target = document.getElementById('fakeSpan');
 
-clone.setAttribute('width', '50%');
+clone.setAttribute('id', 'newChild');
 
-for (var i = 0; i &lt; list.length; i++) {
-    elem = document.createElement('div');
-    content = document.createTextNode(list[i]);
-    elem.appendChild(content);
-    clone.appendChild(elem);
-}
-
-original.parentNode.replaceChild(clone, original);
+//.replaceChild(newChild, oldChild);
+target.parentNode.replaceChild(clone, target);
 							</code></pre>
+							<li class="fragment">Don't duplicate ID</li>
+							<li class="fragment">AddEventListener isn't cloned but $.clone does</li>
 							<a href="http://developer.nokia.com/community/wiki/JavaScript_Performance_Best_Practices">cloneNode</a>
 						</section>
 						<section>
@@ -1811,13 +1812,6 @@ original.parentNode.replaceChild(clone, original);
 								<a href="http://jsperf.com/dom-vs-innerhtml-based-templating/473">JS templating shootoff: important</a>
 						</section>
 						<section>
-							<h2>repaint reflow</h2>
-							Determining dimensions or location of elements via getComputedStyle, offsetWidth, scrollWidth and clientWidth properties will force reflow.
-If you take the measurements repeatedly, consider taking them only once.
-<br>
-<a href="http://www.stubbornella.org/content/2009/03/27/reflows-repaints-css-performance-making-your-javascript-slow/#comment-13157">reflow and repaint</a>
-						</section>
-						<section>
 							<h2>Summary</h2>
 							<ul>
 								<li>Minimize the size of DOM</li>
@@ -1829,12 +1823,7 @@ If you take the measurements repeatedly, consider taking them only once.
 							</ul>
 							<a href="http://blog.korynunn.com/javascript/the-dom-isnt-slow-you-are/">Dom isnt slow you are</a>
 						</section>
-					</section>
-					<section>
-						<section>
-							<h1>repaint reflow</h1>
-						</section>
-					</section>
+					</section>					
 					<section>
 						<section>
 							<h1>Style manipulation</h1>
