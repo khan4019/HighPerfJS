@@ -2620,7 +2620,7 @@ el.cloneNode(true);
 							<h1>animation</h1>
 						</section>						
 						<section>
-							<h2>animations</h2>							
+							<h2>animations perf</h2>							
 							<ol>
 								<li>elements have position: static (by default)</li>
 								<li>animation cause reflow (expensive)</li>
@@ -2631,14 +2631,14 @@ el.cloneNode(true);
 								</div>
 								<br>
 								<li class="fragment">repaint not reflow</li>
-							</ol>							
-						</section>
-						<section>
-							<h2>multiple timers</h2>
-							<h6>(todo: talk about animation related perf issues)</h6>
-							<p>If multiple elements are animated at the same time, the best frame rate is achieved by iterating across all animated elements inside a single loop. Using multiple timers makes animation less efficient and consistent, presumably due to timer invocation overhead.</p>
+								<br>
+								<li class="fragment">put multiple animation in same timer (same loop)</li>
+							</ol>		
+							<br>
+							<br>					
 							<a href="https://docs.google.com/presentation/d/19R_E5B__kdE55L1bTpS6IFKbYbHq-PQKKky4do5Yc6A/preview?sle=true#slide=id.g105c64d69_170">performance tooling</a>, <a href="http://www.html5rocks.com/en/tutorials/speed/high-performance-animations/">high perf animation</a>
-						</section>
+
+						</section>						
 						<section>
 							<h2>requestAnimationFrame</h2>
 							<ol>
@@ -2663,6 +2663,8 @@ el.cloneNode(true);
 							<br>
 							<br>
 							<a href="http://jankfree.org/">Jank Free</a>
+							<br>
+							<a href="http://css-tricks.com/myth-busting-css-animations-vs-javascript/">css vs js animation</a>
 							<br>
 							<a href="http://www.youtube.com/watch?v=mSK70FwUz2A">paul irish: Debugging and Fixing Jank</a>
 						</section>
