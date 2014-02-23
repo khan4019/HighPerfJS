@@ -2123,7 +2123,26 @@ memoFooBar(2); // calculate and cache
 					<section>
 						<section>
 							<h1>Garbage</h1>
-							<img src="images/garbage.jpg">							
+							<img src="images/garbage.jpg">		
+						</section>
+						<section>
+							<h2>reference</h2>
+							<pre><code>
+function test(){
+   var myString = 'a new string';
+}
+test();
+							</code></pre>
+							<pre class="fragment"><code>
+var another;
+
+function test(){
+   var myString = 'a new string';
+   another = myString;
+}
+test();
+							</code></pre>
+							<a href="http://buildnewgames.com/garbage-collector-friendly-code/">Garbage collector friendly code</a>
 						</section>
 						<section>
 							<h2>memory hold by object</h2>
@@ -2133,6 +2152,17 @@ memoFooBar(2); // calculate and cache
 							</ol>
 							<br>
 							<img src="images/objectTree.png" alt="" class="fragment">
+							<br>
+							<a href="https://developers.google.com/chrome-developer-tools/docs/javascript-memory-profiling">JS memory</a>
+						</section>
+						<section>
+							<h2>JS: Garbage collection</h2>
+							<ol>
+								<li>GC pulse: garbage significant inactive object</li>
+								<li>memory churn: creating/freeing object frequently</li>
+								<li></li>
+								<li></li>
+							</ol>
 						</section>
 						<section>
 							<h2>Holding references</h2>						
