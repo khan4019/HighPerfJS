@@ -619,26 +619,26 @@ var strObject = new String('Hello');
 						</section>
 						<section>
 							<h2>Variable and function</h2>
-							<pre><code>var b = 5;
+							<pre><code>
+var a = 2;
 
-function foo(){	
-   b = 55;      
-   var a = 7; 
-   function c(){
-      console.log('loo');
-   }
-}</code></pre>				
+function b(){	
+   console.log(a);
+}
+
+function c(){	
+   console.log(a);
+}
+</code></pre>				
 							<pre class="fragment"><code>var global = 5;
 
 function foo(){	 
+  var d = 21;
 
-  function c(){	
-    console.log('loo');
+  function dog(){	
+    console.log(dog);
   }
 
-   var a;
-   b = 55;      
-   a = 7;    
 }</code></pre>
 							<a href="http://davidshariff.com/blog/what-is-the-execution-context-in-javascript/">executiuon context</a>
 						</section>
@@ -648,7 +648,7 @@ function foo(){
 function b(){
    console.log(a);
 }							</code></pre>
-							<img class="halfScreenImage" src="images/globalScope.png" alt="">
+							<img class="fragment" src="images/globalScope.png" alt="">
 						</section>
 						<section>
 							<h4>local scope</h4>
@@ -657,7 +657,8 @@ function b(){
    console.log(a);
 }
 b();							</code></pre>
-							<img src="images/localScope.png" alt="">
+							<img class="fragment" src="images/localScope.png" alt="">
+							<br>
 							<a href="http://davidshariff.com/blog/javascript-scope-chain-and-closures/">JS scope chain</a>, 
 						</section>
 						<section>
@@ -667,7 +668,7 @@ function b(){ console.log(a); }
 function c(){ console.log(a); }
 b();						
 c();</code></pre>
-							<img src="images/multiScope.png" alt="">
+							<img class="fragment" src="images/multiScope.png" alt="">
 							<a href="http://toddmotto.com/everything-you-wanted-to-know-about-javascript-scope/">Everything you wanted to know about scope</a>
 						</section>
 						<section>
