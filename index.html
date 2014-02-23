@@ -2600,64 +2600,50 @@ el.cloneNode(true);
 var current = null;
 function init(){...}
 function change(){...}
-function verify(){...}
 							</code></pre>
 							<pre class="fragment"><code>
 var myNameSpace = {
   current:null,
   init:function(){...},
-  change:function(){...},
-  verify:function(){...}
+  change:function(){...}  
 }
-
-myNameSpace.init();
-
 							</code></pre>
+							<pre class="fragment"><code>
+(function(){
+  var current = null;
+  function init(){...}
+  function change(){...}
+})();							
+							</code></pre>
+
 							<a href="http://www.w3.org/wiki/JavaScript_best_practices">W3.org JS best practice</a>
 							<br/>
 							<a href="http://thanpol.as/javascript/development-using-namespaces/">Develop with Namespace</a>
 						</section>
 						<section>
-							<h2>Self executing</h2>
+							<h4>combined var</h4>
 							<pre><code>
-(function(){
-  var current = null;
-  function init(){...}
-  function change(){...}
-  function verify(){...}
-})();							
-							</code></pre>
+var foo,
+    fooed    
+    fooled;</code></pre>
+    						<pre class="fragment"><code>
+var p = 9,
+    q = 10;
+    r = 11;</code></pre>
 							<pre class="fragment"><code>
-(function( skillet, $, undefined ) {
-    //Private Property
-    var amountOfGrease = "1 Cup";
-
-    //Public Method
-    skillet.toString = function() {
-        console.log( skillet.quantity + " " + 
-                     skillet.ingredient + " & " + 
-                     amountOfGrease + " of Grease" );
-        console.log( isHot ? "Hot" : "Cold" );
-    };    
-}( window.skillet = window.skillet || {}, jQuery ));								
-							</code></pre>	
-						</section>
-						<section>
-							<h2>Use Strict Mode</h2>
-							<pre><code>
-// Non-strict code...
- 
-(function(){
-  "use strict";
- 
-  // Define your library strictly...
-})();
- 
-// Non-strict code...
+var a = 7, 
+    b = c = 6;
 							</code></pre>
-							
-							<a href="http://ejohn.org/blog/ecmascript-5-strict-mode-json-and-more/">John Resig: Strict Mode</a>							
-						</section>
+							<pre class="fragment"><code>// Non-strict code... 
+(function(){
+  "use strict"; 
+  var a = 7, 
+    b = c = 6;
+})();
+ReferenceError: c is not defined 
+							</code></pre>
+							<a href="http://ejohn.org/blog/ecmascript-5-strict-mode-json-and-more/">Strict Mode</a>, <a href="http://james.padolsey.com/javascript/js-adolescence/">JS adolescence</a>								
+						</section>												
 					</section>
 					<section>
 						<section>
@@ -2900,39 +2886,7 @@ console.log(start - end +'ms');
 						<section>
 							<h1>don't shoot urself</h1>
 							<h3>decide what works for you and your team</h3>
-						</section>
-						<section>
-							<h2>combined var !</h2>
-							<pre><code>
-var foo,
-    fooed,     
-    fooled;
-							</code></pre>
-							<pre class="fragment"><code>
-var foo = 'bar';
-//after something
-var fooed = 'inside the bar';   
-//after something else  
-var fooled = 'by the smart guy';
-							</code></pre>
-							<ul class="fragment">								
-								<li>u decide: micro save or readable</li>
-								<li>es6: <code>let</code></li>
-							</ul>
-							<a href="http://james.padolsey.com/javascript/js-adolescence/">js adolescence</a>
-						</section>
-						<section>
-							<h2>risk of combined var</h2>
-							<pre><code>
-var foo,
-    fooed    
-    fooled;
-							</code></pre>
-							<pre class="fragment"><code>
-var a = 7, 
-    b = c = 6;
-							</code></pre>
-						</section>
+						</section>						
 						<section>
 							<h2>When optimizing</h2>
 							<li>focus on the big things (first)</li>							
