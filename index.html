@@ -473,11 +473,14 @@ console.table({a:1,b:2,c:3});</code></pre>
 						</section>
 						<section>
 							<h2>performance improvement strategy</h2>
+							<br>
 							<ol>
 								<li class="fragment">Understand the situation/ use case</li>
 								<li class="fragment">Is it a performance/ design problem?</li>
+								<br>
 								<li class="fragment">Don't blindly go for blog/ talk/ boss</li>
 								<li class="fragment">Measure it (before, after)</li>
+								<br>
 								<li class="fragment">Make sure u understand after 6 months</li>								
 							</0l>
 						</section>
@@ -597,6 +600,8 @@ var strObject = new String('Hello');
 								<li>toUpperCase()</li>
 								<li>concatenate</li>
 							</ol>
+							<br>
+							<br>
 							<br>
 							<a href="https://hacks.mozilla.org/2012/12/performance-with-javascript-string-objects/">MDN: performance of JS String Object</a>
 						</section>
@@ -836,15 +841,15 @@ var c = [1,2];
 var d = new Array(5); // array of size 5
 var e = new Array(5, 10); //array of two element
 							</code></pre>
+							<br>
 							<ol class="fragment">
 								<li>literal will always produce array: just execute</li>
 								<li>constructor is a function call plus execution, argument check</li>								
 							</ol>
-							<ul  class="fragment">
-								<li>create with elements if you know</li>
-							</ul>
-							<a href="http://stackoverflow.com/questions/7375120/why-is-arr-faster-than-arr-new-array">why [] faster than new Array</a>
 							<br>
+							<br>							
+							<a href="http://stackoverflow.com/questions/7375120/why-is-arr-faster-than-arr-new-array">why [] faster than new Array</a>
+							<br>							
 							<a href="http://jsperf.com/literal-vs-new-23/2">literal vs new</a>
 						</section>
 						<section>
@@ -858,6 +863,7 @@ for(var i = 1; i &lt;= 4; i++) {
 // just do it:
 var a = [1, 2, 3, 4];
 							</code></pre>
+							<li class="fragment">create with elements if you know</li>
 							<pre class="fragment"><code>
 var myArray = [1, 2, 3, 4, 5, 6]; //myArray.length = 6
 
