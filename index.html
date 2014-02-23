@@ -658,15 +658,17 @@ function b(){
 }
 b();							</code></pre>
 							<img src="images/localScope.png" alt="">
+							<a href="http://davidshariff.com/blog/javascript-scope-chain-and-closures/">JS scope chain</a>, 
 						</section>
 						<section>
-							<h4>multi local scope</h4>
+							<h4>multi execution context</h4>
 							<pre><code>var a = 2; 
 function b(){ console.log(a); }
 function c(){ console.log(a); }
 b();						
 c();</code></pre>
 							<img src="images/multiScope.png" alt="">
+							<a href="http://toddmotto.com/everything-you-wanted-to-know-about-javascript-scope/">Everything you wanted to know about scope</a>
 						</section>
 						<section>
 							<h2>execution context</h2>
@@ -677,8 +679,6 @@ c();</code></pre>
 								<li class="fragment">And then, create variable, arguments, determine the value of this</li>
 								<li class="fragment">So, Further in the chain, the slower the identifier resolution is, which means local variables are fastest.</li>							
 							</ol>
-							<a href="http://davidshariff.com/blog/javascript-scope-chain-and-closures/">JS scope chain</a>, 
-							<a href="http://toddmotto.com/everything-you-wanted-to-know-about-javascript-scope/">Everything you wanted to know about scope</a>
 						</section>
 						<section>
 							<h2>store out of scope variable</h2>
