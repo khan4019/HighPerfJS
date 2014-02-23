@@ -60,6 +60,17 @@
 				.purpleBold{
 					font-weight: bold;
 					color:purple;
+				}				
+				.animate_block {
+					position: absolute;
+					background-color: blue;
+					width: 30px;
+					height: 20px;
+					padding-top: 10px;
+					text-align: center;
+					color: #fff;
+					font-size: 10px;
+					white-space: nowrap;
 				}
 			</style>
 			<!-- If the query includes 'print-pdf', use the PDF print sheet -->
@@ -2618,7 +2629,45 @@ el.cloneNode(true);
 					<section>
 						<section>
 							<h1>animation</h1>
-						</section>						
+						</section>	
+						<section>
+							<h4>how things are animated?</h4>
+							<pre><code>function animateFn(){/* some fancy animation */ }
+var timeId = setInterval(animationFunction, 10);
+//when done clearTimeId
+clearInterval(timeId);</code></pre>
+							<pre class="fragment"><code>
+function move(elem) {
+  var left = 0;
+
+  function frame() {
+    left++;
+    elem.style.left = left + 'px';
+
+    if (left == 100)
+      clearInterval(timeId)
+  }
+
+  var timeId = setInterval(frame, 10); // draw every 10ms
+}
+							</code></pre>
+							<div id="animateEl" class="animate_block"></div>
+							<script>
+								function move(elem) {
+								  var left = 0;
+								  function frame() {
+								    left +=1;
+								    elem.style.left = left + 'px';
+								    if (left == 100)
+								      clearInterval(timeId)
+								  }
+								  var timeId = setInterval(frame, 10);
+								}
+								document.getElementById('animateEl').addEventListener('click', function(){
+									move(this);
+								})
+							</script>
+						</section>					
 						<section>
 							<h2>animations perf</h2>							
 							<ol>
@@ -2641,11 +2690,15 @@ el.cloneNode(true);
 						</section>						
 						<section>
 							<h2>requestAnimationFrame</h2>
+							<br>
 							<ol>
-								<li>The browser can optimize it, so animations will be smoother</li>
-								<li>Browser dynamically adjust to keep frame rate normal</li>
-								<li>Animations in inactive tabs will stop, allowing the CPU to chill</li>
-								<li>More battery-friendly</li>
+								<li>browser optimize for smoother animations</li>
+								<li>dynamically adjust to keep frame rate normal</li>
+								<br>
+								<div class="fragment">
+									<li>inactive tabs will not animate  (save CPU)</li>
+									<li>More battery-friendly</li>
+								</div>
 							</ol>
 							<br>
 							<li class="fragment">Decouple events from animation</li>
@@ -2657,7 +2710,7 @@ el.cloneNode(true);
 							<a href="http://updates.html5rocks.com/2012/05/requestAnimationFrame-API-now-with-sub-millisecond-precision">rFA API: sub milisecond precision</a>
 						</section>						
 						<section>
-							<h2>animation perf</h2>
+							<h2>more animation perf</h2>
 							<h6>(read, understand, experiment and add)</h6>
 							<br>
 							<br>
