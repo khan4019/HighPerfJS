@@ -544,6 +544,164 @@ a = a + b
 					</section>
 					<section>
 						<section>
+							<h1 class="">String</h1>
+							<img src="images/concat.jpg" alt="">
+						</section>						
+						<section>
+							<h2>String Concatenation</h2>						
+							<pre><code contenteditable>
+var tinyMessage = 'Trust me, i started one line' + 
+		  'Designer told me he wants little more' + 
+		  'I added little more' +
+		  'Manager said, this is not enough' +
+		  "He didn't said what to add" +
+		  'Just said add' +
+		  "I didn't know what to add" +
+		  'So i added a slice of pizza' +
+		  'Client said this is stupid' +
+		  'Manager said, client is right';
+							</code></pre>
+							<a href="https://developers.google.com/speed/articles/optimizing-javascript"> Optimize JavaScript </a>
+						</section>
+						<section>
+							<h2>[ ].join(' ')</h2>
+							<pre><code contenteditable>
+var tinyMessage = ['Trust me, i started one line', 
+		   'Designer told me he wants little more', 
+		   'I added little more',
+		   'Manager said, this is not enough',
+		   "He didn't said what to add",
+		   'Just said add',
+		   "I didn't know what to add",
+		   'So i added a slice of pizza',
+		   'Client said this is stupid',
+		   'Manager said, client is right'].join(' ');
+							</code></pre>
+							<a href="http://jsperf.com/array-join-vs-string-connect">array-join-vs-string-connect</a>
+							<br/>
+							<a href="http://stackoverflow.com/questions/7299010/why-is-string-concatenation-faster-than-aray-join">Why is string concatenation faster than array join</a> 
+							<br/>
+							<a href="http://stackoverflow.com/questions/9538678/fastest-way-to-build-this-string">fastest-way-to-build-this-string</a>						
+						</section>
+						
+						<section>
+							<h2>StringBuilder</h2>
+							<pre><code contenteditable>
+var strBuilder = [];
+
+for (var i = 0; i &lt; 20; i++) {
+  strBuilder.push( i, '=', fibonacci(i));
+}
+
+return strBuilder.join(' ');
+							</code></pre>
+						</section>
+						<section>
+							<h2>primitive vs Object</h2>
+							<pre><code>
+var strPrimitive = 'Hello'; 
+var strObject = new String('Hello');
+							</code></pre>
+							<h2 class="fragment">primitive is faster</h2>
+							<ol class="fragment">
+								<li>length</li>
+								<li>charAt()</li>
+								<li>indexOf()</li>
+								<li>toUpperCase()</li>
+								<li>concatenate</li>
+							</ol>
+							<br>
+							<a href="https://hacks.mozilla.org/2012/12/performance-with-javascript-string-objects/">MDN: performance of JS String Object</a>
+						</section>
+<!-- commented out prototype and set time out stuff -->
+<!--
+						 <section>
+							<h2>Don't</h2>
+							<pre><code contenteditable>
+	baz.Bar = function() {
+	  // constructor body
+	  this.foo = function() {
+	  // method body
+	  };
+	}
+							</code></pre>
+						</section>
+						<section>
+							<h2>Do</h2>
+							<pre><code contenteditable>
+	baz.Bar = function() {
+	  // constructor body
+	};
+
+	baz.Bar.prototype.foo = function() {
+	  // method body
+	};
+							</code></pre>
+						</section>
+						<section>
+							<h2>Don't</h2>
+							<pre><code contenteditable>
+	foo.Bar = function() {
+	  this.prop1_ = 4;
+	  this.prop2_ = true;
+	  this.prop3_ = [];
+	  this.prop4_ = 'blah';
+	};
+							</code></pre>
+						</section>
+						<section>
+							<h2>Do</h2>
+							<pre><code contenteditable>
+	foo.Bar = function() {
+	  this.prop3_ = [];
+	};
+
+	foo.Bar.prototype.prop1_ = 4;
+
+	foo.Bar.prototype.prop2_ = true;
+
+	foo.Bar.prototype.prop4_ = 'blah';
+							</code></pre>
+						</section>
+						<section>
+							<h2>Don't</h2>
+							<pre><code contenteditable>
+	function setupAlertTimeout() {
+	  var msg = 'Message to alert';
+	  window.setTimeout(function() { alert(msg); }, 100);
+	}
+
+	is slower than:
+	function setupAlertTimeout() {
+	  window.setTimeout(function() {
+	    var msg = 'Message to alert';
+	    alert(msg);
+	  }, 100);
+	}
+
+	which is slower than:
+	function alertMsg() {
+	  var msg = 'Message to alert';
+	  alert(msg);
+	}
+
+	function setupAlertTimeout() {
+	  window.setTimeout(alertMsg, 100);
+	}
+							</code></pre>
+						</section>
+						<section>
+							<h2>From Google</h2>
+							<pre><code contenteditable>
+								
+							</code></pre>
+						</section> 
+-->
+<!-- End of commented out prototype and set time out -->						
+
+					</section>
+					<section>
+						<section>
 							<h1>local variable</h1>
 						</section>
 						<section>
@@ -1057,165 +1215,7 @@ while(l--) {
 								<li class="fragment">on array, reverse while is the fastest</li>
 							</ol>
 						</section>
-					</section>					
-					<section>
-						<section>
-							<h1 class="">String</h1>
-							<img src="images/concat.jpg" alt="">
-						</section>						
-						<section>
-							<h2>String Concatenation</h2>						
-							<pre><code contenteditable>
-var tinyMessage = 'Trust me, i started one line' + 
-		  'Designer told me he wants little more' + 
-		  'I added little more' +
-		  'Manager said, this is not enough' +
-		  "He didn't said what to add" +
-		  'Just said add' +
-		  "I didn't know what to add" +
-		  'So i added a slice of pizza' +
-		  'Client said this is stupid' +
-		  'Manager said, client is right';
-							</code></pre>
-							<a href="https://developers.google.com/speed/articles/optimizing-javascript"> Optimize JavaScript </a>
-						</section>
-						<section>
-							<h2>[ ].join(' ')</h2>
-							<pre><code contenteditable>
-var tinyMessage = ['Trust me, i started one line', 
-		   'Designer told me he wants little more', 
-		   'I added little more',
-		   'Manager said, this is not enough',
-		   "He didn't said what to add",
-		   'Just said add',
-		   "I didn't know what to add",
-		   'So i added a slice of pizza',
-		   'Client said this is stupid',
-		   'Manager said, client is right'].join(' ');
-							</code></pre>
-							<a href="http://jsperf.com/array-join-vs-string-connect">array-join-vs-string-connect</a>
-							<br/>
-							<a href="http://stackoverflow.com/questions/7299010/why-is-string-concatenation-faster-than-aray-join">Why is string concatenation faster than array join</a> 
-							<br/>
-							<a href="http://stackoverflow.com/questions/9538678/fastest-way-to-build-this-string">fastest-way-to-build-this-string</a>						
-						</section>
-						
-						<section>
-							<h2>StringBuilder</h2>
-							<pre><code contenteditable>
-var strBuilder = [];
-
-for (var i = 0; i &lt; 20; i++) {
-  strBuilder.push( i, '=', fibonacci(i));
-}
-
-return strBuilder.join(' ');
-							</code></pre>
-						</section>
-						<section>
-							<h2>primitive vs Object</h2>
-							<pre><code>
-var strPrimitive = 'Hello'; 
-var strObject = new String('Hello');
-							</code></pre>
-							<h2 class="fragment">primitive is faster</h2>
-							<ol class="fragment">
-								<li>length</li>
-								<li>charAt()</li>
-								<li>indexOf()</li>
-								<li>toUpperCase()</li>
-								<li>concatenate</li>
-							</ol>
-							<br>
-							<a href="https://hacks.mozilla.org/2012/12/performance-with-javascript-string-objects/">MDN: performance of JS String Object</a>
-						</section>
-<!-- commented out prototype and set time out stuff -->
-<!--
-						 <section>
-							<h2>Don't</h2>
-							<pre><code contenteditable>
-	baz.Bar = function() {
-	  // constructor body
-	  this.foo = function() {
-	  // method body
-	  };
-	}
-							</code></pre>
-						</section>
-						<section>
-							<h2>Do</h2>
-							<pre><code contenteditable>
-	baz.Bar = function() {
-	  // constructor body
-	};
-
-	baz.Bar.prototype.foo = function() {
-	  // method body
-	};
-							</code></pre>
-						</section>
-						<section>
-							<h2>Don't</h2>
-							<pre><code contenteditable>
-	foo.Bar = function() {
-	  this.prop1_ = 4;
-	  this.prop2_ = true;
-	  this.prop3_ = [];
-	  this.prop4_ = 'blah';
-	};
-							</code></pre>
-						</section>
-						<section>
-							<h2>Do</h2>
-							<pre><code contenteditable>
-	foo.Bar = function() {
-	  this.prop3_ = [];
-	};
-
-	foo.Bar.prototype.prop1_ = 4;
-
-	foo.Bar.prototype.prop2_ = true;
-
-	foo.Bar.prototype.prop4_ = 'blah';
-							</code></pre>
-						</section>
-						<section>
-							<h2>Don't</h2>
-							<pre><code contenteditable>
-	function setupAlertTimeout() {
-	  var msg = 'Message to alert';
-	  window.setTimeout(function() { alert(msg); }, 100);
-	}
-
-	is slower than:
-	function setupAlertTimeout() {
-	  window.setTimeout(function() {
-	    var msg = 'Message to alert';
-	    alert(msg);
-	  }, 100);
-	}
-
-	which is slower than:
-	function alertMsg() {
-	  var msg = 'Message to alert';
-	  alert(msg);
-	}
-
-	function setupAlertTimeout() {
-	  window.setTimeout(alertMsg, 100);
-	}
-							</code></pre>
-						</section>
-						<section>
-							<h2>From Google</h2>
-							<pre><code contenteditable>
-								
-							</code></pre>
-						</section> 
--->
-<!-- End of commented out prototype and set time out -->						
-
-					</section>					
+					</section>															
 					<section>
 						<section>
 							<h1>Array</h1>							
