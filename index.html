@@ -2150,6 +2150,173 @@ function getLargeThing (x) {
 							<br/>
 							<a href="http://jsperf.com/closure-vs-shared-method">JSPerf: Closure vs Shared method</a>		
 						</section>						
+					</section>
+					<section>
+						<h1>Jank</h1>						
+						<br/>						
+						<br/>						
+						<br/>												
+						<br/>
+						<a href="http://jakearchibald.github.io/jank-invaders/">Jank Invaders</a>						
+					</section>
+					<section>
+						<section>
+							<h1>animation</h1>
+						</section>	
+						<section>
+							<h4>how things are animated?</h4>
+							<pre><code>function animateFn(){/* some fancy animation */ }
+var timeId = setInterval(animationFunction, 10);
+//when done clearTimeId
+clearInterval(timeId);</code></pre>
+							<pre class="fragment"><code>
+function move(elem) {
+  var left = 0;
+
+  function frame() {
+    left++;
+    elem.style.left = left + 'px';
+
+    if (left == 100)
+      clearInterval(timeId)
+  }
+
+  var timeId = setInterval(frame, 10); // draw every 10ms
+}
+							</code></pre>
+							<div id="animateEl" class="animate_block"></div>
+							<script>
+								function move(elem) {
+								  var left = 0;
+								  function frame() {
+								    left +=1;
+								    elem.style.left = left + 'px';
+								    if (left == 100)
+								      clearInterval(timeId)
+								  }
+								  var timeId = setInterval(frame, 10);
+								}
+								document.getElementById('animateEl').addEventListener('click', function(){
+									move(this);
+								})
+							</script>
+							<a href="http://css-tricks.com/controlling-css-animations-transitions-javascript/">controlling js animation</a>
+						</section>					
+						<section>
+							<h2>animations perf</h2>							
+							<ol>
+								<li>elements have position: static (by default)</li>
+								<li>animation cause reflow (expensive)</li>
+								<br>
+								<div class="fragment">
+									<li>Try to avoid reflow (smoother, less CPU)</li>
+									<li>position: absolute/ fixed for Elements to animated</li>									
+								</div>
+								<br>
+								<li class="fragment">repaint not reflow</li>
+								<br>
+								<li class="fragment">put multiple animation in same timer (same loop)</li>
+							</ol>		
+							<br>
+							<br>					
+							<a href="https://docs.google.com/presentation/d/19R_E5B__kdE55L1bTpS6IFKbYbHq-PQKKky4do5Yc6A/preview?sle=true#slide=id.g105c64d69_170">performance tooling</a>, <a href="http://www.html5rocks.com/en/tutorials/speed/high-performance-animations/">high perf animation</a>
+
+						</section>						
+						<section>
+							<h2>requestAnimationFrame</h2>
+							<br>
+							<ol>
+								<li>browser optimize for smoother animations</li>
+								<li>dynamically adjust to keep frame rate normal</li>
+								<br>
+								<div class="fragment">
+									<li>inactive tabs will not animate  (save CPU)</li>
+									<li>More battery-friendly</li>
+								</div>
+							</ol>
+							<br>
+							<br>
+							<li class="fragment">Decouple events from animation</li>
+							
+							
+							<br>
+							<a href="http://creativejs.com/resources/requestanimationframe/">raf: tutorial</a>,
+							<a href="http://updates.html5rocks.com/2012/05/requestAnimationFrame-API-now-with-sub-millisecond-precision">sub millisecond precision</a>
+						</section>						
+						<section>
+							<h2>more animation perf</h2>
+							<h6>(explore, experiment and enjoy)</h6>
+							<br>
+							<br>
+							<br>
+							<a href="http://jankfree.org/">Jank Free</a>
+							<br>
+							<a href="http://css-tricks.com/myth-busting-css-animations-vs-javascript/">css vs js animation</a>
+							<br>
+							<a href="http://www.youtube.com/watch?v=mSK70FwUz2A">paul irish: Debugging and Fixing Jank</a>
+						</section>
+					</section>		
+					<section>
+						<section>
+							<h1>Scroll</h1>
+						</section>
+						<section>
+							<h2>scroll, scrollTO</h2>
+							<pre><code>
+//scroll down 100 pixels
+scroll(0, 100);
+
+scrollTo(x-coord,y-coord );
+
+//repeated scroll
+scrollBy(0, 100);
+							</code></pre>
+							<pre class="fragment"><code>
+window.onscroll = function(e) {
+   // do something on scroll 	 
+}
+							</code></pre>
+						</section>											
+						<section>
+							<h2>things to do</h2>
+							<br>
+							<li>Try to avoid handlers to window.onscroll</li>
+							<li class="fragment">debounce/throttle, setTimeout scroll event</li>							
+							<li class="fragment">consider libraries: <a href="http://airbnb.github.io/infinity/">infinity.js</a></li>
+							<br>
+							<br>
+							<br>	
+							<a href="http://www.html5rocks.com/en/tutorials/speed/unnecessary-paints/">avoid unnecessary Paints</a>
+						</section>											
+						<section>
+							<h2>External effect</h2>
+							<h6>(Demo: <a href="http://jankfree.org/examples/hover.html">Something else make Scroll bad!</a>)</h6>
+							<div class="fragment">
+								<p style="text-align:left; text-decoration:underline;">Unnecessary repaint:</p>
+								<ol>
+									<li>position:fixed</li>
+									<li>overflow:scroll</li>
+									<div class="fragment">
+										<li>:hover effect</li>
+										<li>touch listeners</li>
+									</div>								
+								</ol>
+							</div>
+							<div class="fragment">
+								<p style="text-align:left; text-decoration:underline;">long paint:</p>
+								<li>visually complex css</li>
+								<li>Image resize</li>
+							</div>
+							<br>							
+							<a href="http://jankfree.org/jank-busters-cssconf/template.html#15">painful repaint</a>
+						</section>
+<!-- 						<section>
+							<h1 class="upholdHeader">abc</h1>
+							<br/>
+							<a href="http://jankfree.org/examples/hover.html">jankFree hover</a>
+							<br/>
+							<a href="http://updates.html5rocks.com/2013/02/Profiling-Long-Paint-Times-with-DevTools-Continuous-Painting-Mode">Continuous Painting</a>
+						</section> -->
 					</section>																			
 					<section>
 						<section>
@@ -2612,174 +2779,7 @@ xhr.send();
 							<br/>
 							<a href="http://coding.smashingmagazine.com/2012/11/05/writing-fast-memory-efficient-javascript/">Memory Efficient JS</a>
 						</section>
-					</section>
-					<section>
-						<h1>Jank</h1>						
-						<br/>						
-						<br/>						
-						<br/>												
-						<br/>
-						<a href="http://jakearchibald.github.io/jank-invaders/">Jank Invaders</a>						
-					</section>
-					<section>
-						<section>
-							<h1>animation</h1>
-						</section>	
-						<section>
-							<h4>how things are animated?</h4>
-							<pre><code>function animateFn(){/* some fancy animation */ }
-var timeId = setInterval(animationFunction, 10);
-//when done clearTimeId
-clearInterval(timeId);</code></pre>
-							<pre class="fragment"><code>
-function move(elem) {
-  var left = 0;
-
-  function frame() {
-    left++;
-    elem.style.left = left + 'px';
-
-    if (left == 100)
-      clearInterval(timeId)
-  }
-
-  var timeId = setInterval(frame, 10); // draw every 10ms
-}
-							</code></pre>
-							<div id="animateEl" class="animate_block"></div>
-							<script>
-								function move(elem) {
-								  var left = 0;
-								  function frame() {
-								    left +=1;
-								    elem.style.left = left + 'px';
-								    if (left == 100)
-								      clearInterval(timeId)
-								  }
-								  var timeId = setInterval(frame, 10);
-								}
-								document.getElementById('animateEl').addEventListener('click', function(){
-									move(this);
-								})
-							</script>
-							<a href="http://css-tricks.com/controlling-css-animations-transitions-javascript/">controlling js animation</a>
-						</section>					
-						<section>
-							<h2>animations perf</h2>							
-							<ol>
-								<li>elements have position: static (by default)</li>
-								<li>animation cause reflow (expensive)</li>
-								<br>
-								<div class="fragment">
-									<li>Try to avoid reflow (smoother, less CPU)</li>
-									<li>position: absolute/ fixed for Elements to animated</li>									
-								</div>
-								<br>
-								<li class="fragment">repaint not reflow</li>
-								<br>
-								<li class="fragment">put multiple animation in same timer (same loop)</li>
-							</ol>		
-							<br>
-							<br>					
-							<a href="https://docs.google.com/presentation/d/19R_E5B__kdE55L1bTpS6IFKbYbHq-PQKKky4do5Yc6A/preview?sle=true#slide=id.g105c64d69_170">performance tooling</a>, <a href="http://www.html5rocks.com/en/tutorials/speed/high-performance-animations/">high perf animation</a>
-
-						</section>						
-						<section>
-							<h2>requestAnimationFrame</h2>
-							<br>
-							<ol>
-								<li>browser optimize for smoother animations</li>
-								<li>dynamically adjust to keep frame rate normal</li>
-								<br>
-								<div class="fragment">
-									<li>inactive tabs will not animate  (save CPU)</li>
-									<li>More battery-friendly</li>
-								</div>
-							</ol>
-							<br>
-							<br>
-							<li class="fragment">Decouple events from animation</li>
-							
-							
-							<br>
-							<a href="http://creativejs.com/resources/requestanimationframe/">raf: tutorial</a>,
-							<a href="http://updates.html5rocks.com/2012/05/requestAnimationFrame-API-now-with-sub-millisecond-precision">sub millisecond precision</a>
-						</section>						
-						<section>
-							<h2>more animation perf</h2>
-							<h6>(explore, experiment and enjoy)</h6>
-							<br>
-							<br>
-							<br>
-							<a href="http://jankfree.org/">Jank Free</a>
-							<br>
-							<a href="http://css-tricks.com/myth-busting-css-animations-vs-javascript/">css vs js animation</a>
-							<br>
-							<a href="http://www.youtube.com/watch?v=mSK70FwUz2A">paul irish: Debugging and Fixing Jank</a>
-						</section>
-					</section>		
-					<section>
-						<section>
-							<h1>Scroll</h1>
-						</section>
-						<section>
-							<h2>scroll, scrollTO</h2>
-							<pre><code>
-//scroll down 100 pixels
-scroll(0, 100);
-
-scrollTo(x-coord,y-coord );
-
-//repeated scroll
-scrollBy(0, 100);
-							</code></pre>
-							<pre class="fragment"><code>
-window.onscroll = function(e) {
-   // do something on scroll 	 
-}
-							</code></pre>
-						</section>											
-						<section>
-							<h2>things to do</h2>
-							<br>
-							<li>Try to avoid handlers to window.onscroll</li>
-							<li class="fragment">debounce/throttle, setTimeout scroll event</li>							
-							<li class="fragment">consider libraries: <a href="http://airbnb.github.io/infinity/">infinity.js</a></li>
-							<br>
-							<br>
-							<br>	
-							<a href="http://www.html5rocks.com/en/tutorials/speed/unnecessary-paints/">avoid unnecessary Paints</a>
-						</section>											
-						<section>
-							<h2>External effect</h2>
-							<h6>(Demo: <a href="http://jankfree.org/examples/hover.html">Something else make Scroll bad!</a>)</h6>
-							<div class="fragment">
-								<p style="text-align:left; text-decoration:underline;">Unnecessary repaint:</p>
-								<ol>
-									<li>position:fixed</li>
-									<li>overflow:scroll</li>
-									<div class="fragment">
-										<li>:hover effect</li>
-										<li>touch listeners</li>
-									</div>								
-								</ol>
-							</div>
-							<div class="fragment">
-								<p style="text-align:left; text-decoration:underline;">long paint:</p>
-								<li>visually complex css</li>
-								<li>Image resize</li>
-							</div>
-							<br>							
-							<a href="http://jankfree.org/jank-busters-cssconf/template.html#15">painful repaint</a>
-						</section>
-<!-- 						<section>
-							<h1 class="upholdHeader">abc</h1>
-							<br/>
-							<a href="http://jankfree.org/examples/hover.html">jankFree hover</a>
-							<br/>
-							<a href="http://updates.html5rocks.com/2013/02/Profiling-Long-Paint-Times-with-DevTools-Continuous-Painting-Mode">Continuous Painting</a>
-						</section> -->
-					</section>					
+					</section>										
 					<section>
 						<section>
 							<h1>Performance Test</h1>
