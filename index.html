@@ -734,9 +734,175 @@ for(var i =0; i &lt; 1000; i++){
 							<a href="http://jsperf.com/getters-vs-getters-with-caching">getter caching</a>
 						</section>
 					</section>
+					<section>
+						<section>
+							<h1>Array</h1>							
+						</section>
+						<section>
+							<h2>when to use Array</h2>							
+							<ul>
+								<li>Same Type</li>
+								<li>Use Full Array</li>
+								<li>Avoid Pre-allocate</li>
+								<li>Grow as you Go</li>
+							</ul>
+							<br/>
+							<br>
+							<br>
+							<a href="http://jsperf.com/type-inference-performance/2">Type Inference Performance</a>, 
+							<a href ="http://jsperf.com/sparse-arrays-vs-full-arrays">Sparse vs Full Arrays</a>, 
+							<a href="http://jsperf.com/pre-allocated-arrays">Pre-allocated Arrays</a>
 
+						</section>
+						<section>
+							<h2>How to Create Array</h2>
+							<pre><code>
+var a = []; // empty
+var b = new Array(); //empty
 
-					
+var c = [1,2]; 
+
+var d = new Array(5); // array of size 5
+var e = new Array(5, 10); //array of two element
+							</code></pre>
+							<ol class="fragment">
+								<li>literal will always produce array: just execute</li>
+								<li>constructor is a function call plus execution, argument check</li>								
+							</ol>
+							<ul  class="fragment">
+								<li>create with elements if you know</li>
+							</ul>
+							<a href="http://stackoverflow.com/questions/7375120/why-is-arr-faster-than-arr-new-array">why [] faster than new Array</a>
+							<br>
+							<a href="http://jsperf.com/literal-vs-new-23/2">literal vs new</a>
+						</section>
+						<section>
+							<h2>array initialize</h2>
+							<pre><code>
+a = []; // executor knows nothing
+for(var i = 1; i &lt;= 4; i++) {
+	 a.push(i);
+}
+
+// just do it:
+var a = [1, 2, 3, 4];
+							</code></pre>
+							<pre class="fragment"><code>
+var myArray = [1, 2, 3, 4, 5, 6]; //myArray.length = 6
+
+delete myArray[2]; 
+
+myArray; //[1, 2, undefined × 1, 4, 5,6]
+console.log(myArray.length); // 6
+console.log(myArray[2]); // undefined 
+
+							</code></pre>
+						</section>
+						<section>
+							<h2>push vs assign</h2>
+							<pre><code>
+var a = [], b = [];
+
+//push
+for (var i = 0; i&lt;1000; i++){
+   a.push(i);	
+}
+
+//assign by index
+for (var j = 0; j&lt;1000; j++){
+   b[j] = j;	
+}
+							</code></pre>
+							<a href="http://jsperf.com/zero-filled-array-creation">test: push vs assign</a>
+						</section>
+						<section>
+							<h2>be careful with assign</h2>
+							<pre><code>
+var myArr = [1, 2, 3, 4];
+
+myArr[68] = 69;
+myArr.length; //69
+myArr; //[1, 2, 3, 4, undefined × 64, 69]
+							</code></pre>
+							<pre class="fragment"><code>
+var myArr = [1,2,3,4];
+myArr[-7] = -7;
+myArr[2.5] = 3.5;
+myArr['myDude'] = 'thatJSDude';
+
+myArr.length;//4
+myArr; //[1, 2, 3, 4]  
+							</code></pre>
+							<h4 class="fragment">these becomes property of myArr</h4>
+							<a href="http://www.thatjsdude.com/jsConcepts/concepts/array.html">Array: that js dude</a>
+						</section>
+						<section>
+							<h2>push multiple</h2>
+							<pre><code>
+var a = [1, 2];
+a.push(3, 4, 5); 
+a; // [1, 2, 3, 4, 5]
+
+a.unshift(0); 
+a.unshift(-2, -1);
+a; //[-2, -1, 0, 1, 2, 3, 4, 5]
+							</code></pre>
+							<pre class="fragment"><code>
+var b = [1, 2, 3, 4, 5, ...];
+
+b.indexOf(669);
+b.indexOf(669, 500);
+
+b.lastIndexOf(303);
+b.lastIndexOf(303, 500);
+							</code></pre>
+							<a href="http://jsperf.com/indexof-fromindex">test: fromIndex</a>
+						</section>
+						<section>
+							<h2>Array summary</h2>
+							<ul>
+								<li>[] is faster than new Array()</li>
+								<li>a[index] is faster a.push</li>
+								<li>push, unshift multiple</li>
+								<li>fromIndex of indexOf</li>
+							</ul>
+							<ul class="fragment">
+								<li>prefer new array over many splice</li>								
+							</ul>
+						</section>						
+					</section>
+					<section>
+						<section>
+							<h1>Object</h1>
+						</section>						
+						<section>
+							<h2>When to use Object</h2>
+							<ul>
+								<li>Varying types properties </li>
+								<li>Integer-indexed Objects is always faster</li>
+								<li>Use Object.Create()</li>
+							</ul>
+							<br/>									
+							<br/>		
+							<a href="http://jsperf.com/object-create-vs-constructor-vs-object-literal/7">Object.create() vs. constructor vs. object literal</a>
+						</section>	
+						<section>
+							<h2>create object</h2>
+							<pre><code>
+var myObj1 = {};
+
+var myObj2 = new Object();
+							</code></pre>
+							<pre class="fragment"><code>
+function MyObj(){
+	
+}
+
+var myObj3 = new MyObj();
+							</code></pre>
+							<a href="http://jsperf.com/object-create-vs-constructor-vs-object-literal/86"></a>
+						</section>
+					</section>
 					<section>
 						<section>
 							<h1>loop</h1>
@@ -1129,176 +1295,31 @@ while(l--) {
 								<li class="fragment">on array, reverse while is the fastest</li>
 							</ol>
 						</section>
-					</section>															
-					<section>
-						<section>
-							<h1>Array</h1>							
-						</section>
-						<section>
-							<h2>when to use Array</h2>							
-							<ul>
-								<li>Same Type</li>
-								<li>Use Full Array</li>
-								<li>Avoid Pre-allocate</li>
-								<li>Grow as you Go</li>
-							</ul>
-							<br/>
-							<br>
-							<br>
-							<a href="http://jsperf.com/type-inference-performance/2">Type Inference Performance</a>, 
-							<a href ="http://jsperf.com/sparse-arrays-vs-full-arrays">Sparse vs Full Arrays</a>, 
-							<a href="http://jsperf.com/pre-allocated-arrays">Pre-allocated Arrays</a>
-
-						</section>
-						<section>
-							<h2>How to Create Array</h2>
-							<pre><code>
-var a = []; // empty
-var b = new Array(); //empty
-
-var c = [1,2]; 
-
-var d = new Array(5); // array of size 5
-var e = new Array(5, 10); //array of two element
-							</code></pre>
-							<ol class="fragment">
-								<li>literal will always produce array: just execute</li>
-								<li>constructor is a function call plus execution, argument check</li>								
-							</ol>
-							<ul  class="fragment">
-								<li>create with elements if you know</li>
-							</ul>
-							<a href="http://stackoverflow.com/questions/7375120/why-is-arr-faster-than-arr-new-array">why [] faster than new Array</a>
-							<br>
-							<a href="http://jsperf.com/literal-vs-new-23/2">literal vs new</a>
-						</section>
-						<section>
-							<h2>array initialize</h2>
-							<pre><code>
-a = []; // executor knows nothing
-for(var i = 1; i &lt;= 4; i++) {
-	 a.push(i);
-}
-
-// just do it:
-var a = [1, 2, 3, 4];
-							</code></pre>
-							<pre class="fragment"><code>
-var myArray = [1, 2, 3, 4, 5, 6]; //myArray.length = 6
-
-delete myArray[2]; 
-
-myArray; //[1, 2, undefined × 1, 4, 5,6]
-console.log(myArray.length); // 6
-console.log(myArray[2]); // undefined 
-
-							</code></pre>
-						</section>
-						<section>
-							<h2>push vs assign</h2>
-							<pre><code>
-var a = [], b = [];
-
-//push
-for (var i = 0; i&lt;1000; i++){
-   a.push(i);	
-}
-
-//assign by index
-for (var j = 0; j&lt;1000; j++){
-   b[j] = j;	
-}
-							</code></pre>
-							<a href="http://jsperf.com/zero-filled-array-creation">test: push vs assign</a>
-						</section>
-						<section>
-							<h2>be careful with assign</h2>
-							<pre><code>
-var myArr = [1, 2, 3, 4];
-
-myArr[68] = 69;
-myArr.length; //69
-myArr; //[1, 2, 3, 4, undefined × 64, 69]
-							</code></pre>
-							<pre class="fragment"><code>
-var myArr = [1,2,3,4];
-myArr[-7] = -7;
-myArr[2.5] = 3.5;
-myArr['myDude'] = 'thatJSDude';
-
-myArr.length;//4
-myArr; //[1, 2, 3, 4]  
-							</code></pre>
-							<h4 class="fragment">these becomes property of myArr</h4>
-							<a href="http://www.thatjsdude.com/jsConcepts/concepts/array.html">Array: that js dude</a>
-						</section>
-						<section>
-							<h2>push multiple</h2>
-							<pre><code>
-var a = [1, 2];
-a.push(3, 4, 5); 
-a; // [1, 2, 3, 4, 5]
-
-a.unshift(0); 
-a.unshift(-2, -1);
-a; //[-2, -1, 0, 1, 2, 3, 4, 5]
-							</code></pre>
-							<pre class="fragment"><code>
-var b = [1, 2, 3, 4, 5, ...];
-
-b.indexOf(669);
-b.indexOf(669, 500);
-
-b.lastIndexOf(303);
-b.lastIndexOf(303, 500);
-							</code></pre>
-							<a href="http://jsperf.com/indexof-fromindex">test: fromIndex</a>
-						</section>
-						<section>
-							<h2>Array summary</h2>
-							<ul>
-								<li>[] is faster than new Array()</li>
-								<li>a[index] is faster a.push</li>
-								<li>push, unshift multiple</li>
-								<li>fromIndex of indexOf</li>
-							</ul>
-							<ul class="fragment">
-								<li>prefer new array over many splice</li>								
-							</ul>
-						</section>						
 					</section>
 					<section>
 						<section>
-							<h1>Object</h1>
-						</section>						
-						<section>
-							<h2>When to use Object</h2>
-							<ul>
-								<li>Varying types properties </li>
-								<li>Integer-indexed Objects is always faster</li>
-								<li>Use Object.Create()</li>
-							</ul>
-							<br/>									
-							<br/>		
-							<a href="http://jsperf.com/object-create-vs-constructor-vs-object-literal/7">Object.create() vs. constructor vs. object literal</a>
-						</section>	
-						<section>
-							<h2>create object</h2>
-							<pre><code>
-var myObj1 = {};
-
-var myObj2 = new Object();
-							</code></pre>
-							<pre class="fragment"><code>
-function MyObj(){
-	
-}
-
-var myObj3 = new MyObj();
-							</code></pre>
-							<a href="http://jsperf.com/object-create-vs-constructor-vs-object-literal/86"></a>
+							<h1>so far</h1>
 						</section>
-					</section>					
+						<section>
+							<h2>Summary</h2>
+							<ol>
+								<li>parseInt is the fastest way to convert string to number</li>
+								<br>
+								<li class="fragment">primitive is faster than constructor</li>
+								<li class="fragment">local variable is faster than out-of scope variable</li>
+								<br>
+								<li class="fragment">push, unshift multiple </li>
+								<li class="fragment">consider fromIndex while using indexOf</li>
+								<br>
+								<li class="fragment">simple for loop is faster than built in filter</li>
+								<li class="fragment">reverse while is the fastest to iterate array</li>
+							</ol>
+						</section>
+						<section>
+							<h2>any question?</h2>	
+							<img src="images/question5.jpg" alt="">
+						</section>
+					</section>								
 					<section>
 						<section>
 							<h1>== or ===</h1>
@@ -1472,11 +1493,7 @@ var c = Object.create(b);
 							<br>
 							<a href="http://erik.eae.net/archives/2009/11/09/21.12.16/">inheritance antipattern</a>
 						</section>						
-					</section>
-					<section>
-						<h2>so far, any question?</h2>	
-						<img src="images/question5.jpg" alt="">					
-					</section>
+					</section>					
 					<section>
 						<section>
 							<h1>DOM</h1>
