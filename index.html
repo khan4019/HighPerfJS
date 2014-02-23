@@ -2739,11 +2739,11 @@ scrollTo(x-coord,y-coord );
 //repeated scroll
 scrollBy(0, 100);
 							</code></pre>
-							<pre class="fragment">
+							<pre class="fragment"><code>
 window.onscroll = function(e) {
    // do something on scroll 	 
 }
-							</pre>
+							</code></pre>
 						</section>
 						<section>
 							<h2>Scroll could be scary!</h2>
@@ -2757,9 +2757,10 @@ window.onscroll = function(e) {
 						</section>						
 						<section>
 							<h2>things to do</h2>
-							<li>don't attach handlers to window scroll event</li>
-							<li>debounce scroll event</li>
-							<li>pointer-events: none</li>
+							<br>
+							<li>Try to avoid handlers to window.onscroll</li>
+							<li class="fragment">debounce/throttle, setTimeout scroll event</li>							
+							<li class="fragment">consider libraries: <a href="http://airbnb.github.io/infinity/">infinity.js</a></li>
 							<br>
 							<a href="http://www.html5rocks.com/en/tutorials/speed/scrolling/">Scrolling Performance</a>,
 							<a href="http://www.html5rocks.com/en/tutorials/speed/unnecessary-paints/">unnecessary Paints</a>,
@@ -2768,13 +2769,11 @@ window.onscroll = function(e) {
 							<br>
 							<a href="http://www.thecssninja.com/javascript/pointer-events-60fps">pointer-events</a>, 
 							<a href="http://www.thecssninja.com/javascript/follow-up-60fps-scroll">60 fps scroll</a>
-						</section>
+						</section>											
 						<section>
-							<h2>scroll spy</h2>
-							<p>infinite scroll, <a href="http://airbnb.github.io/infinity/">infinity.js</a></p>
-						</section>						
-						<section>
-							<h2>Something else make Scroll bad!</h2>
+							<h4>Something else make Scroll bad!</h4>
+							<br>
+							<br>
 							<ul>
 								<li>position:fixed</li>
 								<li class="fragment">overflow:scroll</li>
@@ -2782,6 +2781,7 @@ window.onscroll = function(e) {
 								<li class="fragment">touch listeners</li>
 								<li class="fragment">Image resize</li>
 							</ul>
+							<br>
 							<br>
 							<a href="http://stackoverflow.com/questions/12969228/chrome-slow-scrolling-with-fixed-position-elements">slow scroll with fixed position</a>, 
 							<a href="http://jankfree.org/jank-busters-cssconf/template.html#15">Jank-busters</a>
