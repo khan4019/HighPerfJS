@@ -2763,15 +2763,17 @@ mySting.indexOf('x') == 0;
 							<pre><code>
 var xhr = new XMLHttpRequest ();
 xhr.open('GET', url, false);
+
 xhr.onreadystatechange = function () {
     if (this.readyState == 4) {                    
         clearTimeout(timeout);
-        // do something with response data
+        //success
     }
 }
+
 var timeout = setTimeout(function () {
         xhr.abort();
-        // call error callback
+        //timedout
     },60000); // timeout after a minute
 xhr.send();
 							</code></pre>
@@ -2814,13 +2816,11 @@ xhr.send();
 					<section>
 						<section>
 							<h1>Performance Test</h1>
-							<a href="http://jsperf.com/">jsPerf.com</a>
-							<a href="http://coding.smashingmagazine.com/2012/06/12/javascript-profiling-chrome-developer-tools/">JS Profiling</a>
-							<br/>
+							<a href="http://jsperf.com/">jsPerf.com</a>, 
+							<a href="http://coding.smashingmagazine.com/2012/06/12/javascript-profiling-chrome-developer-tools/">JS Profiling</a>, 							
 							<a href="https://developers.google.com/chrome-developer-tools/docs/profiles">Profiles</a>
 							<br/>
-							<a href="https://www.youtube.com/watch?v=480JL_WuMt0">Performance Secret: Peter Flynn</a>
-							<br>
+							<a href="https://www.youtube.com/watch?v=480JL_WuMt0">Performance Secret</a>, 
 							<a href="https://developers.google.com/chrome-developer-tools/docs/cpu-profiling">cpu profiling</a>
 						</section>
 						<section>
@@ -2829,15 +2829,19 @@ xhr.send();
 //test
 console.assert(myArray.length >5, "More than 5 elements");
 
-//hit count
-console.count("Number of times entered");
-
-//JS represents of Obj
-console.dir(document.body);
-
 //trace
 console.trace();
 							</code></pre>
+							<pre class="fragment"><code>
+ function foo(){
+    console.count('fooed');
+ }
+
+ foo(); // fooed: 1
+ foo(); // fooed: 2
+ foo(); // fooed: 3
+ foo(); // fooed: 4
+ 							</code></pre>
 							<a href="https://developers.google.com/chrome-developer-tools/docs/console">Using the console</a>
 							<br/>
 							<a href="https://developers.google.com/chrome-developer-tools/docs/console-api">Console API</a>
@@ -2855,10 +2859,7 @@ for (var i = array.length - 1; i >= 0; i--) {
 
 console.timeEnd("Array initialize");
 							</code></pre>
-						</section>
-						<section>
-							<h2 class="upholdHeader">Performance Debug</h2>
-							<pre><code contenteditable>
+							<pre class="fragment"><code contenteditable>
 var start = performance.now();
 
 //execute your function
@@ -2868,11 +2869,8 @@ var end = performance.now();
 
 console.log(start - end +'ms');
 							</code></pre> 
-							<a href="http://www.2ality.com/2013/10/console-api.html">Axel Rauschmayer: JS Console API</a>
 							<a href="https://www.codeschool.com/courses/discover-devtools">CodeSchool: Discover Dev Tools</a>
-							<br/>
-
-						</section>
+						</section>						
 						<section>
 							<h1 class="noUppercase">Rectangle</h1>
 								<h3>Settings</h3>
