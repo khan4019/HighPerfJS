@@ -71,6 +71,7 @@
 					color: #fff;
 					font-size: 10px;
 					white-space: nowrap;
+					left:0px;
 				}
 			</style>
 			<!-- If the query includes 'print-pdf', use the PDF print sheet -->
@@ -107,8 +108,7 @@
 						<section>
 							<h2>ToDo</h2>
 							<ol>
-								<li>profile and memory leak debug</li>
-								<li>animation. do it or leave it</li>
+								<li>profile and memory leak debug</li>								
 								<li>Scroll. add or mix up with jank</li>					
 								<li>iteratingCondition, do as little as possible</li>
 								<li>DOM: why removeNode is faster than innerHTML</li>
@@ -2667,6 +2667,7 @@ function move(elem) {
 									move(this);
 								})
 							</script>
+							<a href="http://css-tricks.com/controlling-css-animations-transitions-javascript/">controlling js animation</a>
 						</section>					
 						<section>
 							<h2>animations perf</h2>							
@@ -2675,7 +2676,7 @@ function move(elem) {
 								<li>animation cause reflow (expensive)</li>
 								<br>
 								<div class="fragment">
-									<li>if reflowing is not mandatory (smoother animation, lesser CPU)</li>
+									<li>Try to avoid reflow (smoother, less CPU)</li>
 									<li>position: absolute/ fixed for Elements to animated</li>									
 								</div>
 								<br>
@@ -2711,7 +2712,7 @@ function move(elem) {
 						</section>						
 						<section>
 							<h2>more animation perf</h2>
-							<h6>(read, understand, experiment and add)</h6>
+							<h6>(read, understand, experiment and enjoy)</h6>
 							<br>
 							<br>
 							<br>
