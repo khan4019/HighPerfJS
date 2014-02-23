@@ -1882,7 +1882,7 @@ function Child(args){
 							<h2>prototype chaining</h2>
 							<img src="images/prototype.png" alt="">
 							<br>
-							<a href="http://yehudakatz.com/2011/08/12/understanding-prototypes-in-javascript/">image: js ptotype</a>, 
+							<a href="http://yehudakatz.com/2011/08/12/understanding-prototypes-in-javascript/">image: prototype</a>, <a href="http://sporto.github.io/blog/2013/02/22/a-plain-english-guide-to-javascript-prototypes/">prototype</a>,
 							<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Introduction_to_Object-Oriented_JavaScript">MDN: OOP in JS</a>
 						</section>
 						<section>
@@ -1934,7 +1934,16 @@ var c = Object.create(b);
 							<h1>closure</h1>
 						</section>
 						<section>
-							<h2>explain closure</h2>
+							<h2>function inside function</h2>
+							<pre><code>var a = 2; 
+function b(){ 
+   var d = 21;
+   function dog(){  console.log(a); }
+}
+function c(){ console.log(a); }
+b();						
+c();</code></pre>
+							<img class="fragment" src="images/closureScope.png" alt="">
 						</section>
 						<section>
 							<h2>hold reference</h2>
