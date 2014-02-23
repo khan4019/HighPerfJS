@@ -2901,7 +2901,7 @@ console.log(start - end +'ms');
 							<h1>Recap</h1>
 						</section>
 						<section>
-							<h2>mega Performance</h2>
+							<h2>Network Performance</h2>
 							<ol>
 								<li>Minify</li>
 								<li>Combine</li>
@@ -2912,7 +2912,30 @@ console.log(start - end +'ms');
 							</ol>
 						</section>
 						<section>
-							<h2>mini performance</h2>							
+							<h2>runtime performance</h2>							
+							<ol>
+								<li>local variable is faster than out-of scope variable</li>
+								<li>reverse while is the fastest to iterate array</li>
+								<br>
+								<div class="fragment">
+									<li>getById, Class, Tag is faster than querySelectorAll</li>
+									<li>use documentFragment, cloneNode</li>
+								</div>
+								<br>
+								<div class="fragment">
+									<li>Delegate Events</li>
+									<li>repaint is faster than reflow</li>
+								</div>
+								<br>
+								<div class="fragment">
+									<li>Don't hold unnecessary object (garbage it)</li>
+									<li>Do u really need full Jquery or some module?</li>
+								</div>
+								<br>
+								<div class="fragment">
+									<li>devTool- audit, profile, timeline, console</li>									
+								</div>
+							</ol>
 						</section>
 						<section>
 							<h2>When optimizing</h2>
