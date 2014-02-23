@@ -671,16 +671,17 @@ c();</code></pre>
 							<img class="fragment" src="images/multiScope.png" alt="">
 							<a href="http://toddmotto.com/everything-you-wanted-to-know-about-javascript-scope/">Everything you wanted to know about scope</a>
 						</section>
-						<section>
+<!-- 						<section>
 							<h2>execution context</h2>
 							<ol>
 								<li>When you call a function, an execution context is created (before running any code) </li>
 								<li class="fragment">In the context,  first thing created is the scope chain</li>								
 								<li class="fragment">All local variables is pushed to the front of the context's scope chain.</li>
 								<li class="fragment">And then, create variable, arguments, determine the value of this</li>
-								<li class="fragment">So, Further in the chain, the slower the identifier resolution is, which means local variables are fastest.</li>							
+								<li class="fragment">So, Further in the chain, the slower the identifier resolution is, which means local variables are fastest.</li>
+								<p class="fragment"> (just for remembering)By storing local references to frequently used out-of-scope variables reading and writing to variables is significantly faster. This is visible especially with global variables and other deep searches for identifier resolution.</p>							
 							</ol>
-						</section>
+						</section> -->
 						<section>
 							<h2>store out of scope variable</h2>
 							<pre><code>
@@ -697,8 +698,7 @@ function useLocal() {
         console.log(localArr[k]);
 }
 							</code></pre>
-							<a href="http://jsperf.com/global/17">local vs global variable</a>
-							<p class="fragment"> (just for remembering)By storing local references to frequently used out-of-scope variables reading and writing to variables is significantly faster. This is visible especially with global variables and other deep searches for identifier resolution.</p>
+							<a href="http://jsperf.com/global/17">local vs global variable</a>							
 						</section>
 						<section>
 							<h2>cache outside for loop</h2>						
