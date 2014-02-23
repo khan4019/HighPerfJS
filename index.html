@@ -690,6 +690,33 @@ c();</code></pre>
 								<p class="fragment"> (just for remembering)By storing local references to frequently used out-of-scope variables reading and writing to variables is significantly faster. This is visible especially with global variables and other deep searches for identifier resolution.</p>							
 							</ol>
 						</section> -->
+						<section>
+							<h4>hoisting</h4>
+							<pre><code>
+function() {
+    var a = 5;
+    var bar = function() {
+            return 'world';
+        };
+    var b = 7;
+    function foo() {
+        return 'fooed';
+    }
+}							</code></pre>
+							<pre class="fragment"><code>
+function() {
+    function foo() {
+        return 'fooed';
+    }
+    var a = 5;
+    var bar;
+    var b;
+    bar = function() {
+            return 'world';
+        };
+    b = 7;    
+}							</code></pre>
+						</section>
 					</section>
 					<section>
 						<section>
