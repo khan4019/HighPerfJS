@@ -2793,29 +2793,6 @@ window.onscroll = function(e) {
 							<br/>
 							<a href="http://updates.html5rocks.com/2013/02/Profiling-Long-Paint-Times-with-DevTools-Continuous-Painting-Mode">Continuous Painting</a>
 						</section> -->
-						
-						<section>
-							<h2>Parallax</h2>							
-							<pre><code class="largeCode">
-window.onscroll = function(e) { 
-  var parallax = document.getElementById('parallax-background'); 
-  parallax.style.marginTop = (window.scrollY/2) + 'px';
- 
-}								
-							</code></pre>
-							<pre class="fragment"><code>
-window.onscroll = function(e) {
- 
-  // could use prefixes: webkitTransform, mozTransform etc.
- 
-  var parallax = document.getElementById('parallax-background');
- 
-  parallax.style.transform = 'translate3d(0px,' + (window.scrollY/2) + 'px, 0px)';
- 
-}								
-							</code></pre>
-							<a href="http://code.flickr.net/2013/06/04/adventures-in-jank-busting-parallax-performance-and-the-new-flickr-home-page/">Flickr: Parallax</a>
-						</section>						
 					</section>					
 					<section>
 						<section>
