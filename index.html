@@ -101,8 +101,7 @@
 								<li>animation</li>
 								<li>unbind event: memory leak</li>
 								<li>more about garbage collection</li>								
-								<li>Scroll</li>
-								<li>multi threader JS</li>
+								<li>Scroll</li>								
 								<li>profile and memory leak debug</li>
 							</ol>
 						</section>
@@ -110,18 +109,17 @@
 							<h3>Need to start: TODO</h3>
 							<ol>
 								<li>kyle: <a href="https://github.com/getify/You-Dont-Know-JS">u dont know js</a></li>
-								<li><a href="http://net.tutsplus.com/tutorials/javascript-ajax/stop-nesting-functions-but-not-all-of-them/">nesting func</a>, <a href="http://net.tutsplus.com/tutorials/javascript-ajax/closures-front-to-back/comment-page-1/#comment-413269">closure</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript?redirectlocale=en-US&redirectslug=JavaScript%2FA_re-introduction_to_JavaScript#Memory_leaks">clsr: memory leaks</a></li>						
+								<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript?redirectlocale=en-US&redirectslug=JavaScript%2FA_re-introduction_to_JavaScript#Memory_leaks">closure: memory leaks</a></li>						
 								<li>book: eloquent JS, ninja</li>
 								<li>module pattern: <a href="http://stackoverflow.com/questions/13366708/js-module-pattern-caching-better-performance">1</a>, <a href="http://javascriptweblog.wordpress.com/2011/05/31/a-fresh-look-at-javascript-mixins/">mixin</a>, <a href="http://www.macwright.org/2013/01/22/javascript-module-pattern-memory-and-closures.html">3</a>, <a href="http://jsperf.com/prototypal-performance/67">4</a></li>								
 							</ol>
 						</section>
 						<section>
-							<h2>before we start</h2>
-							<h4>(i hope u didnt have enough beer)</h4>
+							<h2>before we start</h2>							
 							<ul>
 								<li class="fragment">browsers are changing, everyday</li>
 								<li class="fragment">Standard spec are changing</li>
-								<li class="fragment">I didnt tested everything i am saying</li>
+								<li class="fragment">not tested everything</li>
 								<li class="fragment">My test case could vary than your use case</li>
 								<li class="fragment">Don't accept, "Don't Do this"</li>
 								<li class="fragment">Ask, Why i should not do it</li>
@@ -132,6 +130,9 @@
 					<section>
 						<section>
 							<h1>why performance</h1>							
+						</section>
+						<section>
+							<img src="images/spinner.gif" alt="">
 						</section>
 						<section>
 							<h2>add images and build a story</h2>
@@ -1731,6 +1732,7 @@ document.getElementsByClassName('data-control');
 								<li class="fragment">Display: none</li>								
 							</ul>
 							<br/>
+							<a href="https://docs.google.com/spreadsheet/pub?key=0ArK1Uipy0SbDdHVLc1ozTFlja1dhb25QNGhJMXN5MXc&single=true&gid=0&output=html">Styles that affect layout</a>
 							<a href="http://www.phpied.com/rendering-repaint-reflowrelayout-restyle/">Re flow Layout</a>
 						</section>
 						<section>
@@ -2496,6 +2498,8 @@ el.cloneNode(true);
 						</section>						
 						<section>
 							<h2>animation</h2>
+							<a href="https://docs.google.com/presentation/d/19R_E5B__kdE55L1bTpS6IFKbYbHq-PQKKky4do5Yc6A/preview?sle=true#slide=id.g105c64d69_170">performance tooling</a>
+							<br>
 							<a href="http://www.html5rocks.com/en/tutorials/speed/high-performance-animations/">high perf animation</a>
 							<br>
 							<a href="http://daneden.github.io/animate.css/">animate.css</a>
@@ -2616,7 +2620,8 @@ window.onscroll = function(e) {
 					</section>					
 					<section>
 						<section>
-							<h1 class="upholdHeader">Performance Debug</h1>
+							<h1>Performance Test</h1>
+							<a href="http://jsperf.com/">jsPerf.com</a>
 							<a href="http://coding.smashingmagazine.com/2012/06/12/javascript-profiling-chrome-developer-tools/">JS Profiling</a>
 							<br/>
 							<a href="https://developers.google.com/chrome-developer-tools/docs/profiles">Profiles</a>
