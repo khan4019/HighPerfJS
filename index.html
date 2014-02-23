@@ -2815,19 +2815,18 @@ xhr.send();
 					</section>										
 					<section>
 						<section>
-							<h1>Performance Test</h1>
-							<a href="http://jsperf.com/">jsPerf.com</a>, 
-							<a href="http://coding.smashingmagazine.com/2012/06/12/javascript-profiling-chrome-developer-tools/">JS Profiling</a>, 							
-							<a href="https://developers.google.com/chrome-developer-tools/docs/profiles">Profiles</a>
-							<br/>
-							<a href="https://www.youtube.com/watch?v=480JL_WuMt0">Performance Secret</a>, 
-							<a href="https://developers.google.com/chrome-developer-tools/docs/cpu-profiling">cpu profiling</a>
+							<h1>Performance Test</h1>														
+							<br>
+							<br>
+							<br>
+							<br>	
+							<a href="https://www.youtube.com/watch?v=480JL_WuMt0">Performance Tuning Secret</a>							
 						</section>
 						<section>
 							<h2>Ways to test</h2>
 							<ul>
 								<li>pageSpeed (network)</li>
-								<li>devtool - network</li>
+								<li>devtool - audit, network</li>
 								<li>jsPerf.org</li>								
 								<li>Devtool- Console, timeline, profile</li>
 							</ul>
@@ -2835,11 +2834,15 @@ xhr.send();
 						<section>
 							<h2>Console API</h2>
 							<pre><code>
-//test
 console.assert(myArray.length >5, "More than 5 elements");
 
 //trace
 console.trace();
+							</code></pre>
+							<pre class="fragment"><code>
+profile('myProfile');
+
+porfileEnd('myProfile');
 							</code></pre>
 							<pre class="fragment"><code>
  function foo(){
@@ -2848,8 +2851,7 @@ console.trace();
 
  foo(); // fooed: 1
  foo(); // fooed: 2
- foo(); // fooed: 3
- foo(); // fooed: 4
+ foo(); // fooed: 3 
  							</code></pre>
 							<a href="https://developers.google.com/chrome-developer-tools/docs/console">Using the console</a>
 							<br/>
