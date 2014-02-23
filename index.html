@@ -2618,19 +2618,26 @@ el.cloneNode(true);
 					<section>
 						<section>
 							<h1>animation</h1>
-						</section>
+						</section>						
 						<section>
-							<h2>animations</h2>
-							<h6>(todo: talk about basics)</h6>
-							By default elements have style property position: static and animating such elements causes reflowing of the layout and is expensive.
-Elements to be animated should be set as position: absolute or position: fixed if reflowing is not mandatory for smoother animation and lesser CPU load. Such elements do not affect other elements layout, so they will only cause a repaint rather than a full reflow with a nice performance boost.
-<br>
-<a href="http://www.schillmania.com/content/projects/javascript-animation-1/">animation basics part-1</a>, <a href="http://www.schillmania.com/content/projects/javascript-animation-2/">part-2</a>
+							<h2>animations</h2>							
+							<ol>
+								<li>elements have position: static (by default)</li>
+								<li>animation cause reflow (expensive)</li>
+								<br>
+								<div class="fragment">
+									<li>if reflowing is not mandatory (smoother animation, lesser CPU)</li>
+									<li>position: absolute/ fixed for Elements to animated</li>									
+								</div>
+								<br>
+								<li class="fragment">repaint not reflow</li>
+							</ol>							
 						</section>
 						<section>
 							<h2>multiple timers</h2>
 							<h6>(todo: talk about animation related perf issues)</h6>
 							<p>If multiple elements are animated at the same time, the best frame rate is achieved by iterating across all animated elements inside a single loop. Using multiple timers makes animation less efficient and consistent, presumably due to timer invocation overhead.</p>
+							<a href="https://docs.google.com/presentation/d/19R_E5B__kdE55L1bTpS6IFKbYbHq-PQKKky4do5Yc6A/preview?sle=true#slide=id.g105c64d69_170">performance tooling</a>, <a href="http://www.html5rocks.com/en/tutorials/speed/high-performance-animations/">high perf animation</a>
 						</section>
 						<section>
 							<h2>requestAnimationFrame</h2>
@@ -2657,10 +2664,7 @@ Elements to be animated should be set as position: absolute or position: fixed i
 							<br>
 							<a href="http://jankfree.org/">Jank Free</a>
 							<br>
-							<a href="http://www.youtube.com/watch?v=mSK70FwUz2A">paul irish: Debugging and Fixing Jank</a>, 
-							<a href="https://docs.google.com/presentation/d/19R_E5B__kdE55L1bTpS6IFKbYbHq-PQKKky4do5Yc6A/preview?sle=true#slide=id.g105c64d69_170">performance tooling</a>, <a href="http://www.html5rocks.com/en/tutorials/speed/high-performance-animations/">high perf animation</a>
-							<br>
-							<a href="http://alistapart.com/article/web-animation-at-work?utm_source=html5weekly&utm_medium=email">has some decent performance</a>
+							<a href="http://www.youtube.com/watch?v=mSK70FwUz2A">paul irish: Debugging and Fixing Jank</a>
 						</section>
 					</section>		
 					<section>
