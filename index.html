@@ -95,8 +95,7 @@
 						</section>
 						<section>
 							<h2>ToDo</h2>
-							<ol>								
-								<li>closure and memory leak</li>
+							<ol>
 								<li>profile and memory leak debug</li>
 								<li>animation. do it or leave it</li>
 								<li>Scroll. add or mix up with jank</li>					
@@ -2016,7 +2015,24 @@ function a() {
 						</section>
 						<section>
 							<h2>summary</h2>
-
+							<br>
+							<ol>
+								<li>getById, Class, Tag is faster than querySelectorAll</li>
+								<li>use efficient css selector</li>
+								<br>								
+								<div class="fragment">
+									<li>appendChild is faster than innerHTML</li>
+									<li>use documentFragment, cloneNode</li>
+								</div>
+								<br>
+								<li class="fragment">Minimize layout reflow</li>								
+								<li class="fragment">Delegate Events</li>
+								<br>
+								<div class="fragment">
+									<li>Inheritance: Object.create</li>
+									<li>Closure: avoid memory leak</li>
+								</div>
+							</ol>
 						</section>
 						<section>
 							<h2>any question?</h2>
