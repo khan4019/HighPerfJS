@@ -2702,6 +2702,7 @@ function move(elem) {
 								</div>
 							</ol>
 							<br>
+							<br>
 							<li class="fragment">Decouple events from animation</li>
 							<br>
 							<a href="http://creativejs.com/resources/requestanimationframe/">raf: tutorial</a>
@@ -2728,7 +2729,24 @@ function move(elem) {
 							<h1>Scroll</h1>
 						</section>
 						<section>
-							<h1 class="upholdHeader">Scroll could be scary!</h1>
+							<h2>scroll, scrollTO</h2>
+							<pre><code>
+//scroll down 100 pixels
+scroll(0, 100);
+
+scrollTo(x-coord,y-coord );
+
+//repeated scroll
+scrollBy(0, 100);
+							</code></pre>
+							<pre class="fragment">
+window.onscroll = function(e) {
+   // do something on scroll 	 
+}
+							</pre>
+						</section>
+						<section>
+							<h2>Scroll could be scary!</h2>
 							<br>
 							<br>
 							<br>
@@ -2736,13 +2754,7 @@ function move(elem) {
 							<br/>
 							<a href="http://jankfree.org/examples/hover.html">demo</a>
 							<br/>							
-						</section>
-						<section>
-							<h2>scrollTO</h2>
-							<pre><code>
-//ggl JavaScript scrollTo and learn about it
-							</code></pre>
-						</section>
+						</section>						
 						<section>
 							<h2>things to do</h2>
 							<li>don't attach handlers to window scroll event</li>
