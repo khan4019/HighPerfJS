@@ -96,6 +96,7 @@
 						<section>
 							<h2>started: but incomplete</h2>
 							<ol>								
+								<li>iteratingCondition, do as little as possible</li>
 								<li>DOM: why removeNode is faster than innerHTML</li>
 								<li>style manipulation</li>
 								<li>animation</li>
@@ -726,7 +727,7 @@ for (var sum = 0; i-- || console.log(sum); sum += myArr[i]);
 							<pre><code>
 //add an example for this
 							</code></pre>
-							<a href="http://james.padolsey.com/javascript/zakas-javascript-performance-tips/">number 2 might help</a>
+							<a href="http://james.padolsey.com/javascript/zakas-javascript-performance-tips/">JS performance tip</a>
 						</section>						
 					</section>
 					<section>
@@ -939,7 +940,7 @@ console.log(sum); //0012
 								<li>Always enumerates the keys</li>
 								<li>Keys always string</li>
 							</ul>
-							<a href="http://javascriptweblog.wordpress.com/2011/01/04/exploring-javascript-for-in-loops/#more-1897">Angus Croll: add couple example</a>
+							<a href="http://javascriptweblog.wordpress.com/2011/01/04/exploring-javascript-for-in-loops/#more-1897">Angus: explore for-in</a>
 						</section>						
 						<section>
 							<h2>for vs for-in</h2>							
@@ -956,14 +957,20 @@ for(var j in myArr){
   console.log(myArr[j]);
 }
 							</code></pre>
-							<p>dont use for-in while traversing on an array</p>
+							<br>
+							<p class="fragment">dont use for-in while traversing on an array</p>
+							<br>
 							<a href="http://jsperf.com/for-vs-forintest">for vs for-in</a>
 						</section>						
 					</section>
 					<section>
 						<section>
-							<h1 class="upholdHeader">Other looping</h1>
-							<img class="halfScreenImage"  src="images/loop.jpg" alt="">
+							<h1>Other looping</h1>							
+						</section>
+						<section>
+							<img src="images/steppingThroughLongLoop.gif" alt="">
+							<h3>stepping through long loop while debugging</h3>
+							<h6>from: Addy Osmani (g+)</h6>
 						</section>
 						<section>
 							<h3>while, do while</h3>
