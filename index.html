@@ -1978,19 +1978,36 @@ b(); //3</code></pre>
 						<section>
 							<h2>closure creation</h2>
 							<img src="images/closure1.png" alt="">
+							<p class="fragment">private variable</p>
+							<p class="fragment">save state</p>
+							<p class="fragment">closure create encapsulation</p>
 						</section>
 						<section>
 							<h2>multiple closure</h2>
 							<img src="images/closure2.png" alt="">
+							<p class="fragment">each closure have separate private variable</p>
 						</section>
 						<section>
-							<h2>hold reference</h2>
-							<h5>get something from smashing magazine addy osmani</h5>
-							<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript?redirectlocale=en-US&redirectslug=JavaScript%2FA_re-introduction_to_JavaScript#Memory_leaks">closure: memory leaks</a>
+							<h2>Who care?</h2>
+							<ol>
+								<li>holding function reference: call to counter can not be garbage collected</li>
+								<li class="fragment">How many closure you are creating</li>
+								<br>
+								<li class="fragment">variable reference: Dont use excessively large private variable</li>
+								<li class="fragment">Unnecessary closure affect processing speed and memory consumption</li>
+							</ol>
+							<pre class="fragment"><code>
+function a() {
+    var largeStr = new Array(1000000).join('x');
+    return function () {
+        return largeStr;
+    };
+}
+							</code></pre>
+							<a href="http://coding.smashingmagazine.com/2012/11/05/writing-fast-memory-efficient-javascript/">Addy Osmani: memory efficient JS</a>
+							<br>
+							<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript?redirectlocale=en-US&redirectslug=JavaScript%2FA_re-introduction_to_JavaScript#Memory_leaks">IE8: memory leaks</a>
 						</section>
-						<section>
-							<h2>IE memory leak</h2>
-						</section>						
 					</section>
 					<section>
 						<section>
