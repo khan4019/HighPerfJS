@@ -292,7 +292,9 @@ p,div{
 								<li>Starts to download 1.js first</li>
 								<li>will start download 2.js (if possible)</li>
 								<li>browser have 6 connection per hostname</li>
+								<br>
 								<li class="fragment">will not start parsing and executing 2.js before 1.js is downloaded, parsed and executed</li>
+								<br>
 								<li class="fragment">because browser has to maintain code dependency</li>
 							</ol>
 							<br>
@@ -304,7 +306,8 @@ p,div{
 					</section>
 					<section>
 						<section>
-							<h1>How to Improve</h1>
+							<h2>How to</h2>
+							<h1>Improve</h1>
 							<h2>Performance</h2>
 						</section>		
 						<section>
@@ -371,10 +374,11 @@ console.table({a:1,b:2,c:3});</code></pre>
 								<img src="images/begger.jpg" alt="">
 								<img src="images/begger.jpg" alt="">
 							</div>
-							<pre class="fragment"><code>&lt;script src=&quot;allScripts.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;</code></pre>
+							<pre class="fragment"><code>
+&lt;script src=&quot;allScripts.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
+							</code></pre>
 							<div class="fragment">
-								<h3>CommonJS, Require JS</h3>
-							<h3>Give the load to Grunt!</h3>							
+								<h5>CommonJS, Require JS, Grunt!</h5>							
 							</div>
 							<a href="http://yeoman.io/">http://yeoman.io</a>
 						</section>
@@ -384,7 +388,7 @@ console.table({a:1,b:2,c:3});</code></pre>
 							<h5>if u need it later load later or async</h5>
 						</section>						
 						<section>
-							<h1 class="upholdHeader">Async Vs Defer</h1>
+							<h2 >Async Vs Defer</h2>
 							<h4>Dont block</h4>
 							<pre><code>
 &lt;script src=&quot;file-a.js&quot;&gt;&lt;/script&gt;
@@ -400,7 +404,7 @@ console.table({a:1,b:2,c:3});</code></pre>
 							<a class=" refName" href="http://peter.sh/experiments/asynchronous-and-deferred-javascript-execution-explained/">Async Vs Defer</a>
 						</section>
 						<section>
-							<h1>Small in line</h1>							
+							<h2>Small in line</h1>							
 							<h4>Quick render: Good for Mobile device</h4>
 						</section>
 						<section>							
@@ -408,8 +412,8 @@ console.table({a:1,b:2,c:3});</code></pre>
 							<pre><code>	
 &lt;!doctype html&gt;<br/>&lt;html&gt;<br/>  &lt;head&gt;<br/>     &lt;link rel=&quot;stylesheet&quot; href=&quot;reveal.css&quot;&gt;<br/>  &lt;head&gt;<br/>  &lt;body&gt;<br/>    &lt;div class=&quot;awesomeDiv&quot;&gt;<br/>       &lt;h2&gt;unnecessary title&lt;/h2&gt;<br/>       &lt;div&gt;<br/>          &lt;p&gt;unnecessary content&lt;/p&gt;<br/>       &lt;/div&gt;<br/>    &lt;/div&gt;<br/>    &lt;script src=&quot;allScripts.js&quot;&gt;<br/>  &lt;/body&gt;<br/>&lt;html&gt;
 							</code></pre>
-							<h3 class="slide"> Style on Top</h3>
-							<h3 class="slide"> Script on bottom</h3>
+							<h4 class="slide"> Style on Top</h4>
+							<h4 class="slide"> Script on bottom</h4>
 							<br/>							
 							<a href="https://developers.google.com/speed/articles/include-scripts-properly">Properly include style and scripts</a>
 						</section>
@@ -478,6 +482,7 @@ console.table({a:1,b:2,c:3});</code></pre>
 							</0l>
 						</section>
 						<section>
+						<h4>how many colors are there?</h4>
 							<img src="images/colors.jpg" alt="">
 						</section>						
 						<section>
