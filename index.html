@@ -660,6 +660,15 @@ b();							</code></pre>
 							<img src="images/localScope.png" alt="">
 						</section>
 						<section>
+							<h4>multi local scope</h4>
+							<pre><code>var a = 2; 
+function b(){ console.log(a); }
+function c(){ console.log(a); }
+b();						
+c();</code></pre>
+							<img src="images/multiScope.png" alt="">
+						</section>
+						<section>
 							<h2>execution context</h2>
 							<ol>
 								<li>When you call a function, an execution context is created (before running any code) </li>
