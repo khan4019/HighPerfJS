@@ -2134,14 +2134,15 @@ function test(){
 test();
 							</code></pre>
 							<pre class="fragment"><code>
-var another;
+var anotherStr;
 
 function test(){
    var myString = 'a new string';
-   another = myString;
+   anotherStr = myString;
 }
 test();
 							</code></pre>
+							<h5 class="fragment">GC cant remove anotheStr</h5>
 							<a href="http://buildnewgames.com/garbage-collector-friendly-code/">Garbage collector friendly code</a>
 						</section>
 						<section>
@@ -2154,19 +2155,14 @@ test();
 							<img src="images/objectTree.png" alt="" class="fragment">
 							<br>
 							<a href="https://developers.google.com/chrome-developer-tools/docs/javascript-memory-profiling">JS memory</a>
-						</section>
+						</section>												
 						<section>
 							<h2>JS: Garbage collection</h2>
+							<br>
 							<ol>
-								<li>GC pulse: garbage significant inactive object</li>
-								<li>memory churn: creating/freeing object frequently</li>
-								<li></li>
-								<li></li>
-							</ol>
-						</section>
-						<section>
-							<h2>Holding references</h2>						
-							<pre><code contenteditable>
+								<li>Don't hold object u dont need</li>
+								<li>use appropriate scope (no/less global)</li>
+								<pre class="fragment"><code>
 function getLargeThing (x) {
   var a = function () {
     var largeStr = new Array(1000000).join('x');
@@ -2175,9 +2171,12 @@ function getLargeThing (x) {
 	};
 }();
 							</code></pre>
-							<a href="http://coding.smashingmagazine.com/2012/11/05/writing-fast-memory-efficient-javascript/">Fast Memory Efficient JavaScript</a>
-							<br/>
-							<a href="http://jsperf.com/closure-vs-shared-method">JSPerf: Closure vs Shared method</a>		
+								<div class="fragment">
+									<li>unbind event listener after DOM removed</li>
+									<li>clean locally cached data</li>
+								</div>
+							</ol>							
+							<a href="http://coding.smashingmagazine.com/2012/11/05/writing-fast-memory-efficient-javascript/">Fast Memory Efficient JavaScript</a>							
 						</section>						
 					</section>
 					<section>
