@@ -108,8 +108,7 @@
 						<section>
 							<h2>ToDo</h2>
 							<ol>
-								<li>profile and memory leak debug</li>								
-								<li>Scroll. add or mix up with jank</li>					
+								<li>profile and memory leak debug</li>																
 								<li>iteratingCondition, do as little as possible</li>
 								<li>DOM: why removeNode is faster than innerHTML</li>
 								<li>style manipulation</li>								
@@ -2704,16 +2703,15 @@ function move(elem) {
 							<br>
 							<br>
 							<li class="fragment">Decouple events from animation</li>
+							
+							
 							<br>
-							<a href="http://creativejs.com/resources/requestanimationframe/">raf: tutorial</a>
-							<br>
-							<a href="http://www.paulirish.com/2011/requestanimationframe-for-smart-animating/">Paul Irish: rfa for smart animation</a>
-							<br>
-							<a href="http://updates.html5rocks.com/2012/05/requestAnimationFrame-API-now-with-sub-millisecond-precision">rFA API: sub milisecond precision</a>
+							<a href="http://creativejs.com/resources/requestanimationframe/">raf: tutorial</a>,
+							<a href="http://updates.html5rocks.com/2012/05/requestAnimationFrame-API-now-with-sub-millisecond-precision">sub millisecond precision</a>
 						</section>						
 						<section>
 							<h2>more animation perf</h2>
-							<h6>(read, understand, experiment and enjoy)</h6>
+							<h6>(explore, experiment and enjoy)</h6>
 							<br>
 							<br>
 							<br>
@@ -2762,29 +2760,29 @@ window.onscroll = function(e) {
 							<li class="fragment">debounce/throttle, setTimeout scroll event</li>							
 							<li class="fragment">consider libraries: <a href="http://airbnb.github.io/infinity/">infinity.js</a></li>
 							<br>
-							<a href="http://www.html5rocks.com/en/tutorials/speed/scrolling/">Scrolling Performance</a>,
-							<a href="http://www.html5rocks.com/en/tutorials/speed/unnecessary-paints/">unnecessary Paints</a>,
 							<br>
-							<a href="http://stackoverflow.com/a/12613687/1535443">performance with infinite scroll</a>
-							<br>
-							<a href="http://www.thecssninja.com/javascript/pointer-events-60fps">pointer-events</a>, 
-							<a href="http://www.thecssninja.com/javascript/follow-up-60fps-scroll">60 fps scroll</a>
+							<br>	
+							<a href="http://www.html5rocks.com/en/tutorials/speed/unnecessary-paints/">avoid unnecessary Paints</a>
 						</section>											
 						<section>
 							<h4>Something else make Scroll bad!</h4>
-							<br>
-							<br>
-							<ul>
+							<p style="text-align:left; text-decoration:underline;">Unnecessary repaint:</p>
+							<ol>
 								<li>position:fixed</li>
-								<li class="fragment">overflow:scroll</li>
-								<li class="fragment">:hover effect</li>
-								<li class="fragment">touch listeners</li>
-								<li class="fragment">Image resize</li>
-							</ul>
+								<li>overflow:scroll</li>
+								<div class="fragment">
+									<li>:hover effect</li>
+									<li>touch listeners</li>
+								</div>								
+							</ol>
+							<div class="fragment">
+								<p style="text-align:left; text-decoration:underline;">long paint:</p>
+								<li>visually complex css</li>
+								<li>Image resize</li>
+							</div>
 							<br>
-							<br>
-							<a href="http://stackoverflow.com/questions/12969228/chrome-slow-scrolling-with-fixed-position-elements">slow scroll with fixed position</a>, 
-							<a href="http://jankfree.org/jank-busters-cssconf/template.html#15">Jank-busters</a>
+							<br>							
+							<a href="http://jankfree.org/jank-busters-cssconf/template.html#15">painful repaint</a>
 						</section>
 <!-- 						<section>
 							<h1 class="upholdHeader">abc</h1>
