@@ -671,6 +671,19 @@ c();</code></pre>
 							<img class="fragment" src="images/multiScope.png" alt="">
 							<a href="http://toddmotto.com/everything-you-wanted-to-know-about-javascript-scope/">Everything you wanted to know about scope</a>
 						</section>
+						<section>
+							<h4>nested function (closure)</h4>
+							<pre><code>var a = 2; 
+function b(){ 
+   var d = 21;
+   function dog(){  console.log(a); }
+}
+function c(){ console.log(a); }
+b();						
+c();</code></pre>
+							<img class="fragment" src="images/closureScope.png" alt="">
+							<a href="http://toddmotto.com/everything-you-wanted-to-know-about-javascript-scope/">Everything you wanted to know about scope</a>
+						</section>
 <!-- 						<section>
 							<h2>execution context</h2>
 							<ol>
