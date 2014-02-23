@@ -2150,146 +2150,7 @@ function getLargeThing (x) {
 							<br/>
 							<a href="http://jsperf.com/closure-vs-shared-method">JSPerf: Closure vs Shared method</a>		
 						</section>						
-					</section>									
-					<section>
-						<section>
-							<h1 class="upholdHeader"> JavaScript Others</h1>
-						</section>						
-						<section>
-							<h2>Reduce Global</h2>
-							<pre><code>
-var current = null;
-function init(){...}
-function change(){...}
-function verify(){...}
-							</code></pre>
-							<pre class="fragment"><code>
-var myNameSpace = {
-  current:null,
-  init:function(){...},
-  change:function(){...},
-  verify:function(){...}
-}
-
-myNameSpace.init();
-
-							</code></pre>
-							<a href="http://www.w3.org/wiki/JavaScript_best_practices">W3.org JS best practice</a>
-							<br/>
-							<a href="http://thanpol.as/javascript/development-using-namespaces/">Develop with Namespace</a>
-						</section>
-						<section>
-							<h2>Self executing</h2>
-							<pre><code>
-(function(){
-  var current = null;
-  function init(){...}
-  function change(){...}
-  function verify(){...}
-})();							
-							</code></pre>
-							<pre class="fragment"><code>
-(function( skillet, $, undefined ) {
-    //Private Property
-    var amountOfGrease = "1 Cup";
-
-    //Public Method
-    skillet.toString = function() {
-        console.log( skillet.quantity + " " + 
-                     skillet.ingredient + " & " + 
-                     amountOfGrease + " of Grease" );
-        console.log( isHot ? "Hot" : "Cold" );
-    };    
-}( window.skillet = window.skillet || {}, jQuery ));								
-							</code></pre>	
-						</section>						
-						<section>
-							<h2>Re-think try-catch</h2>
-							<img src="images/tryCatch.jpg">
-							<a href="http://flippinawesome.org/2013/09/30/rethinking-javascripts-trycatch">Rethink: Try-catch</a>
-							<br/>
-							<a href="http://jsperf.com/try-catch-error-perf/3">JSPerf: try-catch vs if check</a>
-							<br/>
-							<a href="http://stackoverflow.com/questions/3217294/javascript-try-catch-performance-vs-error-checking-code">JS: try catch vs Error checking</a>
-							<br/>
-							<a href="http://stackoverflow.com/questions/1234343/why-are-empty-catch-blocks-a-bad-idea">Why Empty catch block is bad</a>
-						</section>
-						<section>
-							<h2>add this code</h2>
-							<a href="http://jsperf.com/try-catch-error-perf/3">try catch perf</a>
-						</section>
-						<section>
-							<h2>Use Strict Mode</h2>
-							<pre><code>
-// Non-strict code...
- 
-(function(){
-  "use strict";
- 
-  // Define your library strictly...
-})();
- 
-// Non-strict code...
-							</code></pre>
-							
-							<a href="http://ejohn.org/blog/ecmascript-5-strict-mode-json-and-more/">John Resig: Strict Mode</a>							
-						</section>
-						<section>
-							<h2>timeout for ajax call</h2>		
-							<pre><code>
-var xhr = new XMLHttpRequest ();
-xhr.open('GET', url, false);
-xhr.onreadystatechange = function () {
-    if (this.readyState == 4) {                    
-        clearTimeout(timeout);
-        // do something with response data
-    }
-}
-var timeout = setTimeout( 
-    function () {
-        xhr.abort();
-        // call error callback
-    },
-    60*1000 // timeout after a minute
-);
-xhr.send();
-							</code></pre>
-						</section>
-						<section>
-							<h2>Client-side storage</h2>
-							<p>(If you need, google and read)</p>
-							<ul>
-								<li>cookies</li>
-								<li>localStorage</li>
-								<li>sessionStorage</li>
-								<li>indexedDB</li>																
-							</ul>							
-							<br>
-							<br>
-							<br>
-							<a href="http://dev.w3.org/html5/webstorage/">spec: Web Storage</a>, <a href="http://www.w3.org/TR/IndexedDB/">spec: Indexed DB</a>
-							<a href="http://html5doctor.com/storing-data-the-simple-html5-way-and-a-few-tricks-you-might-not-have-known/">Remy Sharp: storing Data</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/Guide/API/DOM/Storage">MDN: DOM storage</a>
-						</section>
-						<section>
-							<h2> multi-threaded JavaScript</h2>
-							<li>web worker</li>
-							<p>its a browser feature</p>
-							<li class="fragment">non blocking doesn't mean concurrency</li>
-							<a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/workers.html">spec: web sorker</a>
-							, <a href="http://www.html5rocks.com/en/tutorials/workers/basics/">Web worker: basics</a>
-						</section>	
-						<section>
-							<h2 class="upholdHeader">Know JavaScript Engine</h2>							
-							<ul>
-								<li>Know V8</li>
-								<li>Hidden Class</li>
-								<li>Avoid Memory Leaks</li>
-								<li>Compile browser</li>
-							</ul>
-							<br/>
-							<a href="http://coding.smashingmagazine.com/2012/11/05/writing-fast-memory-efficient-javascript/">Memory Efficient JS</a>
-						</section>
-					</section>					
+					</section>																			
 					<section>
 						<section>
 							<h1>JQuery</h1>
@@ -2612,6 +2473,145 @@ mySting.indexOf('x') == 0;
 							
 							<a href="http://www.youtube.com/watch?v=MFtijdklZDo">bReaK aLL thE RuleZ</a>		
 						</section>						
+					</section>
+					<section>
+						<section>
+							<h1 class="upholdHeader"> JavaScript Others</h1>
+						</section>						
+						<section>
+							<h2>Reduce Global</h2>
+							<pre><code>
+var current = null;
+function init(){...}
+function change(){...}
+function verify(){...}
+							</code></pre>
+							<pre class="fragment"><code>
+var myNameSpace = {
+  current:null,
+  init:function(){...},
+  change:function(){...},
+  verify:function(){...}
+}
+
+myNameSpace.init();
+
+							</code></pre>
+							<a href="http://www.w3.org/wiki/JavaScript_best_practices">W3.org JS best practice</a>
+							<br/>
+							<a href="http://thanpol.as/javascript/development-using-namespaces/">Develop with Namespace</a>
+						</section>
+						<section>
+							<h2>Self executing</h2>
+							<pre><code>
+(function(){
+  var current = null;
+  function init(){...}
+  function change(){...}
+  function verify(){...}
+})();							
+							</code></pre>
+							<pre class="fragment"><code>
+(function( skillet, $, undefined ) {
+    //Private Property
+    var amountOfGrease = "1 Cup";
+
+    //Public Method
+    skillet.toString = function() {
+        console.log( skillet.quantity + " " + 
+                     skillet.ingredient + " & " + 
+                     amountOfGrease + " of Grease" );
+        console.log( isHot ? "Hot" : "Cold" );
+    };    
+}( window.skillet = window.skillet || {}, jQuery ));								
+							</code></pre>	
+						</section>						
+						<section>
+							<h2>Re-think try-catch</h2>
+							<img src="images/tryCatch.jpg">
+							<a href="http://flippinawesome.org/2013/09/30/rethinking-javascripts-trycatch">Rethink: Try-catch</a>
+							<br/>
+							<a href="http://jsperf.com/try-catch-error-perf/3">JSPerf: try-catch vs if check</a>
+							<br/>
+							<a href="http://stackoverflow.com/questions/3217294/javascript-try-catch-performance-vs-error-checking-code">JS: try catch vs Error checking</a>
+							<br/>
+							<a href="http://stackoverflow.com/questions/1234343/why-are-empty-catch-blocks-a-bad-idea">Why Empty catch block is bad</a>
+						</section>
+						<section>
+							<h2>add this code</h2>
+							<a href="http://jsperf.com/try-catch-error-perf/3">try catch perf</a>
+						</section>
+						<section>
+							<h2>Use Strict Mode</h2>
+							<pre><code>
+// Non-strict code...
+ 
+(function(){
+  "use strict";
+ 
+  // Define your library strictly...
+})();
+ 
+// Non-strict code...
+							</code></pre>
+							
+							<a href="http://ejohn.org/blog/ecmascript-5-strict-mode-json-and-more/">John Resig: Strict Mode</a>							
+						</section>
+						<section>
+							<h2>timeout for ajax call</h2>		
+							<pre><code>
+var xhr = new XMLHttpRequest ();
+xhr.open('GET', url, false);
+xhr.onreadystatechange = function () {
+    if (this.readyState == 4) {                    
+        clearTimeout(timeout);
+        // do something with response data
+    }
+}
+var timeout = setTimeout( 
+    function () {
+        xhr.abort();
+        // call error callback
+    },
+    60*1000 // timeout after a minute
+);
+xhr.send();
+							</code></pre>
+						</section>
+						<section>
+							<h2>Client-side storage</h2>
+							<p>(If you need, google and read)</p>
+							<ul>
+								<li>cookies</li>
+								<li>localStorage</li>
+								<li>sessionStorage</li>
+								<li>indexedDB</li>																
+							</ul>							
+							<br>
+							<br>
+							<br>
+							<a href="http://dev.w3.org/html5/webstorage/">spec: Web Storage</a>, <a href="http://www.w3.org/TR/IndexedDB/">spec: Indexed DB</a>
+							<a href="http://html5doctor.com/storing-data-the-simple-html5-way-and-a-few-tricks-you-might-not-have-known/">Remy Sharp: storing Data</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/Guide/API/DOM/Storage">MDN: DOM storage</a>
+						</section>
+						<section>
+							<h2> multi-threaded JavaScript</h2>
+							<li>web worker</li>
+							<p>its a browser feature</p>
+							<li class="fragment">non blocking doesn't mean concurrency</li>
+							<a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/workers.html">spec: web sorker</a>
+							, <a href="http://www.html5rocks.com/en/tutorials/workers/basics/">Web worker: basics</a>
+						</section>	
+						<section>
+							<h2 class="upholdHeader">Know JavaScript Engine</h2>							
+							<ul>
+								<li>Know V8</li>
+								<li>Hidden Class</li>
+								<li>Avoid Memory Leaks</li>
+								<li>Compile browser</li>
+							</ul>
+							<br/>
+							<a href="http://coding.smashingmagazine.com/2012/11/05/writing-fast-memory-efficient-javascript/">Memory Efficient JS</a>
+						</section>
 					</section>
 					<section>
 						<h1>Jank</h1>						
