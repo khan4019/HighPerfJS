@@ -1999,56 +1999,7 @@ if (callback && typeof callback === "function"){
 						</section>
 					</section>
 					<section>
-<!-- 						<section>
-							<h1 class="upholdHeader">JavaScript: The Good Parts</h1>
-						</section>
 						<section>
-							<h2>From Good parts: Don't</h2>
-							<pre><code contenteditable>
-var add_the_handlers = function (nodes) {
-  var i;
-  for (i = 0; i < nodes.length; i += 1) {
-       nodes[i].onclick = function (e) {
-	  alert(i);
-      }
-  }
-};
-							</code></pre>
-						</section>
-						<section>
-							<h2>From Good parts:: DO</h2>
-							<pre><code contenteditable>
-var add_the_handlers = function (nodes) {
-	var i;
-	for (i = 0; i < nodes.length; i += 1) {
-		nodes[i].onclick = function (i) {
-			return function (e) {
-				alert(i);
-			};
-		}(i);
-	}
-};
-							</code></pre>
-						</section>
-						<section>
-							<h2>From Good parts:: DO</h2>
-							<pre><code contenteditable>
-var add_the_handlers = function (nodes) {
-	var helper = function(i){
-	  return function(e){
-           alert(i);
-	  };
-	};
-	
-	var i;
-	for (i = 0; i < nodes.length; i += 1) {
-		nodes[i].onclick = helper(i);
-	}
-};
-							</code></pre>
-						</section>
-
- -->						<section>
 							<h1>Momoization</h1>
 						</section>
 						<section>
