@@ -2120,86 +2120,7 @@ memoFooBar(2); // calculate and cache
 							</code></pre>
 						<a href="http://addyosmani.com/blog/faster-javascript-memoization/">Addy Osmani: JS Memoization</a>, <a href="https://github.com/addyosmani/memoize.js/blob/master/memoize.js">memoize.js</a>
 						</section>						
-					</section>	
-					<section>
-						<section>
-							<h1>== or ===</h1>							
-						</section>
-						<section>
-							<h2>What the difference?</h2>
-							<br>
-							<p>== and != try to coerce values before comparing (can lead to unexpected results)</p>
-							<p>=== and !== don't do any coercion (generally safer)</p>
-							<br>
-							<p class="fragment"><strong>jshint#eqeqeq: </strong> prohibits the use of == and != in favor of === and !==.</p>							
-							<p class="fragment">older browsers === and !== was faster (not in modern browser)</p>
-							<a href="http://www.jshint.com/docs/options/">js hint options</a>, <a href="http://jsperf.com/equalityinnit">equality perf test</a>
-						</section>
-						<section>							
-							<h2>How == works?</h2>							
-							<li>force coercion (change type) of one or both</li>
-							<pre><code>
-[0] == true; 
-
-//convert boolean using toNumber
-[0] == 1;
-
-//convert object using toPrimitive
-//[0].valueOf() is not a primitive so use...
-//[0].toString() -> "0"
-"0" == 1; 
-
-//convert string using toNumber
-0 == 1; //false!
-							</code></pre>
-							<a href="http://javascriptweblog.wordpress.com/2011/02/07/truth-equality-and-javascript/">Angus Croll: truth equality</a>							
-						</section>
-						<section>		
-							<pre><code>
-"potato" == false; //false
-"potato" == true; //false
-							</code></pre>					
-							<pre class="fragment"><code>
-"potato" == true; 
-
-//convert boolean using toNumber
-"potato" == 1;
-
-//convert string using toNumber
-NaN == 1; //false!
-							</code></pre>
-							<pre class="fragment"><code>
-"potato" == false; 
-
-//convert boolean using toNumber
-"potato" == 0;
-
-//convert string using toNumber
-NaN == 0; //false!
-							</code></pre>
-						</section>
-						<section>
-							<h2 class="upholdHeader">Which one? === or ==</h2>
-
-							<pre><code contenteditable>
-0 == ''; // true
-0 === false; //false
-							</code></pre>
-							<pre class="fragment"><code contenteditable>
-if (( x === null) || (x === undefined)){ ... }
-
-if(x == null) { ... }
-							</code></pre>
-							<p class="fragment"> When you don't actually know whether they are same type</p>
-							<pre class="fragment"><code contenteditable>
-typeof thing == 'function'; //always be string
-myArray.length == 0;  //will always be number
-mySting.indexOf('x') == 0;
-							</code></pre>
-							
-							<a href="http://www.youtube.com/watch?v=MFtijdklZDo">bReaK aLL thE RuleZ</a>		
-						</section>						
-					</section>
+					</section>						
 					<section>
 						<section>
 							<h1>Garbage</h1>
@@ -2612,6 +2533,85 @@ el.cloneNode(true);
 							<h2>any question?</h2>
 							<img class="halfScreenImage" src="images/question8.jpg" alt="">
 						</section>
+					</section>
+					<section>
+						<section>
+							<h1>== or ===</h1>							
+						</section>
+						<section>
+							<h2>What the difference?</h2>
+							<br>
+							<p>== and != try to coerce values before comparing (can lead to unexpected results)</p>
+							<p>=== and !== don't do any coercion (generally safer)</p>
+							<br>
+							<p class="fragment"><strong>jshint#eqeqeq: </strong> prohibits the use of == and != in favor of === and !==.</p>							
+							<p class="fragment">older browsers === and !== was faster (not in modern browser)</p>
+							<a href="http://www.jshint.com/docs/options/">js hint options</a>, <a href="http://jsperf.com/equalityinnit">equality perf test</a>
+						</section>
+						<section>							
+							<h2>How == works?</h2>							
+							<li>force coercion (change type) of one or both</li>
+							<pre><code>
+[0] == true; 
+
+//convert boolean using toNumber
+[0] == 1;
+
+//convert object using toPrimitive
+//[0].valueOf() is not a primitive so use...
+//[0].toString() -> "0"
+"0" == 1; 
+
+//convert string using toNumber
+0 == 1; //false!
+							</code></pre>
+							<a href="http://javascriptweblog.wordpress.com/2011/02/07/truth-equality-and-javascript/">Angus Croll: truth equality</a>							
+						</section>
+						<section>		
+							<pre><code>
+"potato" == false; //false
+"potato" == true; //false
+							</code></pre>					
+							<pre class="fragment"><code>
+"potato" == true; 
+
+//convert boolean using toNumber
+"potato" == 1;
+
+//convert string using toNumber
+NaN == 1; //false!
+							</code></pre>
+							<pre class="fragment"><code>
+"potato" == false; 
+
+//convert boolean using toNumber
+"potato" == 0;
+
+//convert string using toNumber
+NaN == 0; //false!
+							</code></pre>
+						</section>
+						<section>
+							<h2 class="upholdHeader">Which one? === or ==</h2>
+
+							<pre><code contenteditable>
+0 == ''; // true
+0 === false; //false
+							</code></pre>
+							<pre class="fragment"><code contenteditable>
+if (( x === null) || (x === undefined)){ ... }
+
+if(x == null) { ... }
+							</code></pre>
+							<p class="fragment"> When you don't actually know whether they are same type</p>
+							<pre class="fragment"><code contenteditable>
+typeof thing == 'function'; //always be string
+myArray.length == 0;  //will always be number
+mySting.indexOf('x') == 0;
+							</code></pre>
+							
+							<a href="http://www.youtube.com/watch?v=MFtijdklZDo">bReaK aLL thE RuleZ</a>		
+						</section>						
 					</section>
 					<section>
 						<h1>Jank</h1>						
