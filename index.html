@@ -1949,18 +1949,17 @@ c();</code></pre>
 							<img class="fragment" src="images/closureScope.png" alt="">
 						</section>
 						<section>
-							<h2>how it works</h2>
+							<h4>how it works</h4>
 							<pre><code>
-function increment(){
+function counter(){
     var i = 0;
     
     return function(){
        return i++;
     }
-}
-							</code></pre>
+}</code></pre>
 							<pre class="fragment"><code>
-var a = increment();
+var a = counter();
 a(); //0
 a(); //1
 a(); //2
@@ -1968,11 +1967,21 @@ a(); //3
 a(); //4
 a(); //5</code></pre>
 							<pre class="fragment"><code>
-var b = increment();
+var b = counter();
 b(); //0
 b(); //1
 b(); //2
 b(); //3</code></pre>
+							<h6 class="fragment">every assignment of counter creates new closure</h6>
+							<h6 class="fragment">a and b has separate private i to remember position</h6>
+						</section>
+						<section>
+							<h2>closure creation</h2>
+							<img src="images/closure1.png" alt="">
+						</section>
+						<section>
+							<h2>multiple closure</h2>
+							<img src="images/closure2.png" alt="">
 						</section>
 						<section>
 							<h2>hold reference</h2>
