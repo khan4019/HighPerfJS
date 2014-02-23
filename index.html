@@ -643,6 +643,16 @@ function foo(){
 							<a href="http://davidshariff.com/blog/what-is-the-execution-context-in-javascript/">executiuon context</a>
 						</section>
 						<section>
+							
+							<pre><code>
+var a = 2; 
+function b(){
+	console.log(a);
+}
+							</code></pre>
+							<img class="halfScreenImage" src="images/globalScope.png" alt="">
+						</section>
+						<section>
 							<h2>execution context</h2>
 							<ol>
 								<li>When you call a function, an execution context is created (before running any code) </li>
