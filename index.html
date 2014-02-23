@@ -624,7 +624,7 @@ var strObject = new String('Hello');
 						<section>
 							<h2>Variable and function</h2>
 							<pre><code>
-var a = 2;
+var global = 2;
 
 function b(){	
    console.log(a);
@@ -637,7 +637,7 @@ function c(){
 							<pre class="fragment"><code>var global = 5;
 
 function foo(){	 
-  var d = 21;
+  var local = 21;
 
   function dog(){	
     console.log(dog);
@@ -1880,10 +1880,9 @@ function Child(args){
 						</section>						
 						<section>
 							<h2>prototype chaining</h2>
-							<pre><code>
-//create an image of prototype chain
-//and talk how that works
-							</code></pre>
+							<img src="images/prototype.png" alt="">
+							<br>
+							<a href="http://yehudakatz.com/2011/08/12/understanding-prototypes-in-javascript/">image: js ptotype</a>, 
 							<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Introduction_to_Object-Oriented_JavaScript">MDN: OOP in JS</a>
 						</section>
 						<section>
