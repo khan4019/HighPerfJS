@@ -2647,6 +2647,36 @@ ReferenceError: c is not defined
 					</section>
 					<section>
 						<section>
+							<h1>try-catch</h1>
+							<img src="images/tryCatch.jpg">
+						</section>
+						<section>
+							<h2>Re-think try-catch</h2>
+							<pre><code>
+function tryCatch(obj) {
+    try {
+      return obj.prop;
+    } catch (ex) {
+      return null;
+    }
+}
+							</code></pre>
+							<pre class="fragment"><code>
+function ifCheck(obj) {
+    if (obj !== undefined) {
+      return obj.prop;
+    } else {
+      return null;
+    }
+  }
+							</code></pre>
+							<a href="http://flippinawesome.org/2013/09/30/rethinking-javascripts-trycatch">Rethink: Try-catch</a>
+							<br/>
+							<a href="http://jsperf.com/try-catch-error-perf/3">JSPerf: try-catch vs if check</a>							
+						</section>							
+					</section>
+					<section>
+						<section>
 							<h1>== or ===</h1>							
 						</section>
 						<section>
@@ -2726,23 +2756,8 @@ mySting.indexOf('x') == 0;
 					</section>
 					<section>
 						<section>
-							<h1 class="upholdHeader"> JavaScript Others</h1>
-						</section>				
-						<section>
-							<h2>Re-think try-catch</h2>
-							<img src="images/tryCatch.jpg">
-							<a href="http://flippinawesome.org/2013/09/30/rethinking-javascripts-trycatch">Rethink: Try-catch</a>
-							<br/>
-							<a href="http://jsperf.com/try-catch-error-perf/3">JSPerf: try-catch vs if check</a>
-							<br/>
-							<a href="http://stackoverflow.com/questions/3217294/javascript-try-catch-performance-vs-error-checking-code">JS: try catch vs Error checking</a>
-							<br/>
-							<a href="http://stackoverflow.com/questions/1234343/why-are-empty-catch-blocks-a-bad-idea">Why Empty catch block is bad</a>
-						</section>
-						<section>
-							<h2>add this code</h2>
-							<a href="http://jsperf.com/try-catch-error-perf/3">try catch perf</a>
-						</section>						
+							<h1> Something for you</h1>
+						</section>			
 						<section>
 							<h2>timeout for ajax call</h2>		
 							<pre><code>
@@ -2754,13 +2769,10 @@ xhr.onreadystatechange = function () {
         // do something with response data
     }
 }
-var timeout = setTimeout( 
-    function () {
+var timeout = setTimeout(function () {
         xhr.abort();
         // call error callback
-    },
-    60*1000 // timeout after a minute
-);
+    },60000); // timeout after a minute
 xhr.send();
 							</code></pre>
 						</section>
