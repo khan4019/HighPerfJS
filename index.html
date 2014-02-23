@@ -640,9 +640,9 @@ function foo(){
   var local = 21;
 
   function dog(){	
-    console.log(dog);
+    console.log(local);
   }
-
+  dog();
 }</code></pre>
 							<a href="http://davidshariff.com/blog/what-is-the-execution-context-in-javascript/">executiuon context</a>
 						</section>
@@ -663,7 +663,7 @@ function b(){
 b();							</code></pre>
 							<img class="fragment" src="images/localScope.png" alt="">
 							<br>
-							<a href="http://davidshariff.com/blog/javascript-scope-chain-and-closures/">JS scope chain</a>, 
+							<a href="http://davidshariff.com/blog/javascript-scope-chain-and-closures/">JS scope chain</a>
 						</section>
 						<section>
 							<h4>multi execution context</h4>
@@ -673,6 +673,7 @@ function c(){ console.log(a); }
 b();						
 c();</code></pre>
 							<img class="fragment" src="images/multiScope.png" alt="">
+							<h4 class="fragment">new scope is created even a function call itself</h4>
 							<a href="http://toddmotto.com/everything-you-wanted-to-know-about-javascript-scope/">Everything you wanted to know about scope</a>
 						</section>
 						<section>
@@ -681,6 +682,7 @@ c();</code></pre>
 function b(){ 
    var d = 21;
    function dog(){  console.log(a); }
+   dog();
 }
 function c(){ console.log(a); }
 b();						
@@ -1934,16 +1936,43 @@ var c = Object.create(b);
 							<h1>closure</h1>
 						</section>
 						<section>
-							<h2>function inside function</h2>
+							<h4>function inside function</h4>
 							<pre><code>var a = 2; 
 function b(){ 
    var d = 21;
    function dog(){  console.log(a); }
+   dog();
 }
 function c(){ console.log(a); }
 b();						
 c();</code></pre>
 							<img class="fragment" src="images/closureScope.png" alt="">
+						</section>
+						<section>
+							<h2>how it works</h2>
+							<pre><code>
+function increment(){
+    var i = 0;
+    
+    return function(){
+       return i++;
+    }
+}
+							</code></pre>
+							<pre class="fragment"><code>
+var a = increment();
+a(); //0
+a(); //1
+a(); //2
+a(); //3
+a(); //4
+a(); //5</code></pre>
+							<pre class="fragment"><code>
+var b = increment();
+b(); //0
+b(); //1
+b(); //2
+b(); //3</code></pre>
 						</section>
 						<section>
 							<h2>hold reference</h2>
