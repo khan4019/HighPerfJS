@@ -2639,14 +2639,18 @@ Elements to be animated should be set as position: absolute or position: fixed i
 							<h2>requestAnimationFrame</h2>
 							<ol>
 								<li>The browser can optimize it, so animations will be smoother</li>
+								<li>Browser dynamically adjust to keep frame rate normal</li>
 								<li>Animations in inactive tabs will stop, allowing the CPU to chill</li>
 								<li>More battery-friendly</li>
 							</ol>
+							<li class="fragment">Decouple events from animation</li>
+
 							<br>
 							<a href="http://creativejs.com/resources/requestanimationframe/">raf: tutorial</a>
 							<br>
 							<a href="http://www.paulirish.com/2011/requestanimationframe-for-smart-animating/">Paul Irish: rfa for smart animation</a>
 							<br>
+							<a href="http://updates.html5rocks.com/2012/05/requestAnimationFrame-API-now-with-sub-millisecond-precision">rFA API: sub milisecond precision</a>
 						</section>						
 						<section>
 							<h2>animation perf</h2>
@@ -2717,19 +2721,7 @@ Elements to be animated should be set as position: absolute or position: fixed i
 							<br/>
 							<a href="http://updates.html5rocks.com/2013/02/Profiling-Long-Paint-Times-with-DevTools-Continuous-Painting-Mode">Continuous Painting</a>
 						</section> -->
-						<section>
-							<h2>requestAnimationFrame (rAF)</h2>
-							<p class="fragment">Browser dynamically adjust to keep frame rate normal.</p>
-							<ul>
-								<p class="fragment purpleBold">Decouple events from animation</p>
-								<p class="fragment purpleBold">Avoid animation that causes reflow-repaint loops </p>
-								<a href="http://www.html5rocks.com/en/tutorials/speed/animations/">HTML5: faster rFA</a>
-								<br/>
-								<a href="http://updates.html5rocks.com/2012/05/requestAnimationFrame-API-now-with-sub-millisecond-precision">rFA API: sub milisecond precision</a>
-								<br/>
-								<a href="http://caniuse.com/requestanimationframe">can i use: rFA</a>
-							</ul>
-						</section>
+						
 						<section>
 							<h2>Parallax</h2>							
 							<pre><code class="largeCode">
