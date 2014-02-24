@@ -900,11 +900,13 @@ b.lastIndexOf(303, 500);
 						</section>						
 						<section>
 							<h2>When to use Object</h2>
-							<ul>
+							<br>
+							<br>
+							<ol>
 								<li>Varying types properties </li>
 								<li>Integer-indexed Objects is always faster</li>
 								<li>Use Object.Create()</li>
-							</ul>
+							</ol>
 							<br/>									
 							<br/>		
 							<a href="http://jsperf.com/object-create-vs-constructor-vs-object-literal/7">Object.create() vs. constructor vs. object literal</a>
@@ -958,8 +960,7 @@ for(initiation; iteratingCondition; repeatingExpression){
 						<section>
 							<h2>initiation;</h2>						
 							<p>would be executed only once</p>
-							<pre><code contenteditable>
-var myArr = [1, 2, 3, 4, 5];
+							<pre><code>var myArr = [1, 2, 3, 4, 5];
 
 for(var i =0; i&lt; myArr.length; i++){
   console.log(myArr[i]);
@@ -972,20 +973,14 @@ for(var i =0, len = myArr.length; i&lt;len; i++){
   console.log(myArr[i]);
 }
 							</code></pre>							
-						</section>
-						<section>
-							<h2>skip initiation</h2>
-							<p>(hoisting)</p>
-							<pre><code>
-var myArr = [1, 2, 3, 4, 5],
+							<pre class="fragment"><code>var myArr = [1, 2, 3, 4, 5],
     i = 0,
     len = myArr.length;
 
 for ( ; i &lt; len; i++ ) {
   console.log(myArr[i]);
-}
-							</code></pre>
-						</section>
+}</code></pre>
+						</section>						
 						<section>
 							<h2>iteratingCondition</h2>
 							<pre><code>
@@ -997,6 +992,16 @@ for(var i =0; i&lt;len && i&lt;3; i++){
 }
 							</code></pre>
 							<pre class="fragment"><code>
+//skip iteratingCondition
+var i = 0;
+for(;;i++){
+  console.log(i);
+  if(i==5) break;
+}
+							</code></pre>							
+						</section>
+<!-- 						<section>		
+							<pre class="fragment"><code>
 //assign variable
 //TODO: this doesnt work. modify it
 var myArr = [1, 2, 3, 4, 5];
@@ -1004,17 +1009,7 @@ var myArr = [1, 2, 3, 4, 5];
 for (var i=0, item; item = myArr[i]; i++) {
   console.log(item);
 }
-							</code></pre>							
-						</section>
-						<section>
-							<pre><code>
-//skip condition
-var i = 0;
-for(;;i++){
-  console.log(i);
-  if(i==5) break;
-}
-							</code></pre>
+							</code></pre>												
 							<pre><code>
 //TODO: put it in the right flow
 var myArr = [1, 2, 3, 4, 5], 
@@ -1022,7 +1017,7 @@ var myArr = [1, 2, 3, 4, 5],
 for (var sum = 0; i-- || console.log(sum); sum += myArr[i]);
 //15
 							</code></pre>
-						</section>
+						</section> -->
 						<section>
 							<h2>do as little as possible in each loop</h2>
 							<pre><code>
