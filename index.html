@@ -519,15 +519,9 @@ var tinyMessage = 'Trust me, i started one line' +
 		  "He didn't said what to add" +
 		  'Just said add' +
 		  "I didn't know what to add" +
-		  'So i added a slice of pizza' +
-		  'Client said this is stupid' +
-		  'Manager said, client is right';
+		  'So i added a slice of pizza';
 							</code></pre>
-							<a href="https://developers.google.com/speed/articles/optimizing-javascript"> Optimize JavaScript </a>
-						</section>
-						<section>
-							<h2>[ ].join(' ')</h2>
-							<pre><code contenteditable>
+							<pre class="fragment"><code contenteditable>
 var tinyMessage = ['Trust me, i started one line', 
 		   'Designer told me he wants little more', 
 		   'I added little more',
@@ -535,17 +529,10 @@ var tinyMessage = ['Trust me, i started one line',
 		   "He didn't said what to add",
 		   'Just said add',
 		   "I didn't know what to add",
-		   'So i added a slice of pizza',
-		   'Client said this is stupid',
-		   'Manager said, client is right'].join(' ');
+		   'So i added a slice of pizza'].join(' ');
 							</code></pre>
-							<a href="http://jsperf.com/array-join-vs-string-connect">array-join-vs-string-connect</a>
-							<br/>
-							<a href="http://stackoverflow.com/questions/7299010/why-is-string-concatenation-faster-than-aray-join">Why is string concatenation faster than array join</a> 
-							<br/>
-							<a href="http://stackoverflow.com/questions/9538678/fastest-way-to-build-this-string">fastest-way-to-build-this-string</a>						
-						</section>
-						
+							<a href="https://developers.google.com/speed/articles/optimizing-javascript"> Optimize JavaScript </a>
+						</section>						
 						<section>
 							<h2>StringBuilder</h2>
 							<pre><code contenteditable>
