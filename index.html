@@ -60,6 +60,18 @@
 				.purpleBold{
 					font-weight: bold;
 					color:purple;
+				}				
+				.animate_block {
+					position: absolute;
+					background-color: blue;
+					width: 30px;
+					height: 20px;
+					padding-top: 10px;
+					text-align: center;
+					color: #fff;
+					font-size: 10px;
+					white-space: nowrap;
+					left:0px;
 				}
 			</style>
 			<!-- If the query includes 'print-pdf', use the PDF print sheet -->
@@ -95,18 +107,12 @@
 						</section>
 						<section>
 							<h2>ToDo</h2>
-							<ol>								
-								<li>closure and memory leak</li>
-								<li>profile and memory leak debug</li>
-								<li>animation. do it or leave it</li>
-								<li>Scroll. add or mix up with jank</li>					
+							<ol>
+								<li>profile and memory leak debug</li>																
 								<li>iteratingCondition, do as little as possible</li>
 								<li>DOM: why removeNode is faster than innerHTML</li>
 								<li>style manipulation</li>								
 								<li>unbind event: memory leak</li>
-								<li>more about garbage collection</li>								
-								<li>kyle: <a href="https://github.com/getify/You-Dont-Know-JS">u dont know js</a></li>
-								<li>module pattern: <a href="http://stackoverflow.com/questions/13366708/js-module-pattern-caching-better-performance">1</a>, <a href="http://javascriptweblog.wordpress.com/2011/05/31/a-fresh-look-at-javascript-mixins/">mixin</a>, <a href="http://www.macwright.org/2013/01/22/javascript-module-pattern-memory-and-closures.html">3</a>, <a href="http://jsperf.com/prototypal-performance/67">4</a></li>
 							</ol>
 						</section>
 						<section>
@@ -114,7 +120,7 @@
 							<ul>
 								<li class="fragment">browsers are changing, everyday</li>
 								<li class="fragment">Standard spec are changing</li>
-								<li class="fragment">not tested everything</li>
+								<li class="fragment">not tested all possible use cases</li>
 								<li class="fragment">My test case could vary than your use case</li>
 								<li class="fragment">Don't accept, "Don't Do this"</li>
 								<li class="fragment">Ask, Why i should not do it</li>
@@ -132,9 +138,13 @@
 						</section>
 						<section>
 							<img src="images/spinner.gif" alt="">
+							<div class="fragment">
+								<h6>you hate spinner,</h6>
+								<h6> so does your client</h6>
+							</div>
 						</section>
 						<section>
-							<h2>add images and build a story</h2>
+							<h2>long running error</h2>
 							<img src="images/longRun3.jpg" alt="">
 							<img class="fragment" src="images/longRun.png" alt="">
 						</section>
@@ -271,6 +281,7 @@ p,div{
 							<h2>script in html</h2>
 							<img  class="fullScreenImage"  src="images/domTreeWithHTML2.png">
 							<br>
+							<br>
 							<ol class="fragment">
 								<li>No UI update while JS executes</li>
 								<li>Long-running script => Unresponsive UI</li>
@@ -302,37 +313,11 @@ p,div{
 							<br>
 							<a href="http://www.html5rocks.com/en/tutorials/speed/script-loading/">html5rocks: script-loading</a>
 						</section>
-					</section>
-					<section>
-						<section>
-							<h2>How to</h2>
-							<h1>Improve</h1>
-							<h2>Performance</h2>
-						</section>		
-						<section>
-							<img src="images/redbull.jpg" alt="">
-						</section>
-						<section>
-							<img src="images/redBullWings.jpeg" alt="">
-						</section>
-						<section>
-							<img  class="fullScreenImage"  src="images/developerSecret.jpg">
-						</section>
-						<section>
-							<img  class="fullScreenImage"  src="images/coffeePot.jpg">
-						</section>
-						<section>
-							<img  class="fullScreenImage"  src="images/pizzaSlice.jpg">
-						</section>
-						<section>
-							<img class="fullScreenImage" src="images/badBoss.jpg">
-						</section>
-						<section><img src="images/manageDeveloper.jpg" alt="" class="fullScreenImage"></section>
-					</section>
-					</section>
+					</section>									
 					<section>	
 						<section>
 							<h1>Network</h1>
+							<img class="fullScreenImage" src="images/lifeOfARequestParts.png" alt="">
 						</section>					
 						<section>
 							<h2>Every byte counts</h2>
@@ -347,17 +332,17 @@ p,div{
 //Now, God only knows
 var myFancyObject = {aaaa:1, bbbb:2, cccc:3}
 
-function logTable(obj) {
-console.table(obj);
+function logEverything(obj) {
+console.log(obj);
 }
 
-logTable(myFancyObject);</code></pre>
+logEverything(myFancyObject);</code></pre>
 								<pre class="fragment"><code>
  //103 bytes
- var myFancyObject={aaaa:1,bbbb:2,cccc:3};function logTable(a){console.table(a)}logTable(myFancyObject);</code></pre>
+ var myFancyObject={aaaa:1,bbbb:2,cccc:3};function logEverything(a){console.log(a)}logEverything(myFancyObject);</code></pre>
 								<pre class="fragment"><code>
 //23 bytes
-console.table({a:1,b:2,c:3});</code></pre>
+console.log({a:1,b:2,c:3});</code></pre>
 								<a href="">free with building tools</a>
 								<br>
 								<a href="http://jscompress.com/">JS Compress</a>, <a href="http://marijnhaverbeke.nl/uglifyjs">Uglify</a>, <a href="http://crockford.com/javascript/jsmin">JS Min</a>								
@@ -463,7 +448,7 @@ console.table({a:1,b:2,c:3});</code></pre>
 								<li>standard</li>
 								<li>What does the Boss say?</li>
 								<li>framework suggestion</li>
-								<li>add more to this list</li>
+								<li>Random guy in JS meetup</li>
 							</ul>							
 						</section>
 						<section>
@@ -491,6 +476,83 @@ console.table({a:1,b:2,c:3});</code></pre>
 							<img src="images/useOnlyWhatYouNeed.jpg" alt="">
 						</section>
 					</section>					
+					<section>
+						<section>
+							<h2>How to</h2>
+							<h1>Improve</h1>
+							<h2>Performance</h2>
+						</section>		
+						<section>
+							<img src="images/redbull.jpg" alt="">
+						</section>
+						<section>
+							<img src="images/redBullWings.jpeg" alt="">
+						</section>
+						<section>
+							<img  class="fullScreenImage"  src="images/developerSecret.jpg">
+						</section>
+						<section>
+							<img  class="fullScreenImage"  src="images/coffeePot.jpg">
+						</section>
+						<section>
+							<img  class="fullScreenImage"  src="images/pizzaSlice.jpg">
+						</section>
+						<section>
+							<img class="fullScreenImage" src="images/badBoss.jpg">
+						</section>
+						<section>
+							<img src="images/manageDeveloper.jpg" alt="" class="fullScreenImage">
+						</section>
+					</section>						
+					<section>
+						<section>
+							<h1 class="">String</h1>
+							<img src="images/concat.jpg" alt="">
+						</section>						
+						<section>
+							<h2>String Concatenation</h2>						
+							<pre><code contenteditable>
+var tinyMessage = 'Trust me, i started one line' + 
+		  'Designer told me he wants little more' + 
+		  'I added little more' +
+		  'Manager said, this is not enough' +
+		  "He didn't said what to add" +
+		  'Just said add' +
+		  "I didn't know what to add" +
+		  'So i added a slice of pizza';
+							</code></pre>
+							<pre class="fragment"><code contenteditable>
+var tinyMessage = ['Trust me, i started one line', 
+		   'Designer told me he wants little more', 
+		   'I added little more',
+		   'Manager said, this is not enough',
+		   "He didn't said what to add",
+		   'Just said add',
+		   "I didn't know what to add",
+		   'So i added a slice of pizza'].join(' ');
+							</code></pre>
+							<a href="https://developers.google.com/speed/articles/optimizing-javascript"> Optimize JavaScript </a>
+						</section>												
+						<section>
+							<h2>primitive vs Object</h2>
+							<pre><code>
+var strPrimitive = 'Hello'; 
+var strObject = new String('Hello');
+							</code></pre>
+							<h2 class="fragment">primitive is faster</h2>
+							<ol class="fragment">
+								<li>length</li>
+								<li>charAt()</li>
+								<li>indexOf()</li>
+								<li>toUpperCase()</li>
+								<li>concatenate</li>
+							</ol>
+							<br>
+							<br>
+							<br>
+							<a href="https://hacks.mozilla.org/2012/12/performance-with-javascript-string-objects/">MDN: performance of JS String Object</a>
+						</section>
+					</section>
 					<section>
 						<section>
 							<h1>Number</h1>
@@ -528,82 +590,8 @@ a += b;
 a = a + b
 
 							</code></pre>
-							<a href="http://jsperf.com/a-b-vs-a-a-b/2">addition</a>
+							<a href="http://jsperf.com/a-b-vs-a-a-b/2">plusEqual or plus</a>
 						</section>						
-					</section>
-					<section>
-						<section>
-							<h1 class="">String</h1>
-							<img src="images/concat.jpg" alt="">
-						</section>						
-						<section>
-							<h2>String Concatenation</h2>						
-							<pre><code contenteditable>
-var tinyMessage = 'Trust me, i started one line' + 
-		  'Designer told me he wants little more' + 
-		  'I added little more' +
-		  'Manager said, this is not enough' +
-		  "He didn't said what to add" +
-		  'Just said add' +
-		  "I didn't know what to add" +
-		  'So i added a slice of pizza' +
-		  'Client said this is stupid' +
-		  'Manager said, client is right';
-							</code></pre>
-							<a href="https://developers.google.com/speed/articles/optimizing-javascript"> Optimize JavaScript </a>
-						</section>
-						<section>
-							<h2>[ ].join(' ')</h2>
-							<pre><code contenteditable>
-var tinyMessage = ['Trust me, i started one line', 
-		   'Designer told me he wants little more', 
-		   'I added little more',
-		   'Manager said, this is not enough',
-		   "He didn't said what to add",
-		   'Just said add',
-		   "I didn't know what to add",
-		   'So i added a slice of pizza',
-		   'Client said this is stupid',
-		   'Manager said, client is right'].join(' ');
-							</code></pre>
-							<a href="http://jsperf.com/array-join-vs-string-connect">array-join-vs-string-connect</a>
-							<br/>
-							<a href="http://stackoverflow.com/questions/7299010/why-is-string-concatenation-faster-than-aray-join">Why is string concatenation faster than array join</a> 
-							<br/>
-							<a href="http://stackoverflow.com/questions/9538678/fastest-way-to-build-this-string">fastest-way-to-build-this-string</a>						
-						</section>
-						
-						<section>
-							<h2>StringBuilder</h2>
-							<pre><code contenteditable>
-var strBuilder = [];
-
-for (var i = 0; i &lt; 20; i++) {
-  strBuilder.push( i, '=', fibonacci(i));
-}
-
-return strBuilder.join(' ');
-							</code></pre>
-						</section>
-						<section>
-							<h2>primitive vs Object</h2>
-							<pre><code>
-var strPrimitive = 'Hello'; 
-var strObject = new String('Hello');
-							</code></pre>
-							<h2 class="fragment">primitive is faster</h2>
-							<ol class="fragment">
-								<li>length</li>
-								<li>charAt()</li>
-								<li>indexOf()</li>
-								<li>toUpperCase()</li>
-								<li>concatenate</li>
-							</ol>
-							<br>
-							<br>
-							<br>
-							<a href="https://hacks.mozilla.org/2012/12/performance-with-javascript-string-objects/">MDN: performance of JS String Object</a>
-						</section>
 					</section>
 					<section>
 						<section>
@@ -614,38 +602,16 @@ var strObject = new String('Hello');
 							<ul>
 								<li>Single threaded.</li>
 								<li>Synchronous execution</li>
-								<li>1 Global context</li>
-								<li>Infinite function contexts</li>								
+								<div class="fragment">
+									<li>1 Global context</li>
+									<li>Infinite function contexts</li>	
+								</div>							
 							</ul>
 							<br>
 							<br>
 							<p class="fragment">Each function call creates a new execution context, even a call to itself.</p>
-						</section>
-						<section>
-							<h2>Variable and function</h2>
-							<pre><code>
-var a = 2;
-
-function b(){	
-   console.log(a);
-}
-
-function c(){	
-   console.log(a);
-}
-</code></pre>				
-							<pre class="fragment"><code>var global = 5;
-
-function foo(){	 
-  var d = 21;
-
-  function dog(){	
-    console.log(dog);
-  }
-
-}</code></pre>
 							<a href="http://davidshariff.com/blog/what-is-the-execution-context-in-javascript/">executiuon context</a>
-						</section>
+						</section>						
 						<section>
 							<h4>global scope</h4>
 							<pre><code>var a = 2; 
@@ -663,7 +629,7 @@ function b(){
 b();							</code></pre>
 							<img class="fragment" src="images/localScope.png" alt="">
 							<br>
-							<a href="http://davidshariff.com/blog/javascript-scope-chain-and-closures/">JS scope chain</a>, 
+							<a href="http://davidshariff.com/blog/javascript-scope-chain-and-closures/">JS scope chain</a>
 						</section>
 						<section>
 							<h4>multi execution context</h4>
@@ -673,6 +639,7 @@ function c(){ console.log(a); }
 b();						
 c();</code></pre>
 							<img class="fragment" src="images/multiScope.png" alt="">
+							<h4 class="fragment">new scope is created even a function call itself</h4>
 							<a href="http://toddmotto.com/everything-you-wanted-to-know-about-javascript-scope/">Everything you wanted to know about scope</a>
 						</section>
 						<section>
@@ -681,6 +648,7 @@ c();</code></pre>
 function b(){ 
    var d = 21;
    function dog(){  console.log(a); }
+   dog();
 }
 function c(){ console.log(a); }
 b();						
@@ -771,7 +739,7 @@ for(var i = 0; i &lt; someArray.length; i++) {
 							</code></pre>
 							<a href="http://jsperf.com/property-access-vs-variable-caching">property access vs variable cache</a>
 						</section>
-						<section>
+						<!-- <section>
 							<h2>access object property</h2>
 							<pre><code>
 var a = [{ z: 1 }, { z: 2 }],
@@ -807,7 +775,7 @@ for(var i =0; i &lt; 1000; i++){
 							<a href="http://jsperf.com/caching-of-properties">caching object properties</a>
 							<br>
 							<a href="http://jsperf.com/getters-vs-getters-with-caching">getter caching</a>
-						</section>
+						</section> -->
 					</section>
 					<section>
 						<section>
@@ -838,42 +806,21 @@ var b = new Array(); //empty
 var c = [1,2]; 
 
 var d = new Array(5); // array of size 5
-var e = new Array(5, 10); //array of two element
-							</code></pre>
-							<br>
+var e = new Array(5, 10); //array of two element</code></pre>							
 							<ol class="fragment">
 								<li>literal will always produce array: just execute</li>
 								<li>constructor is a function call plus execution, argument check</li>								
 							</ol>
-							<br>
-							<br>							
-							<a href="http://stackoverflow.com/questions/7375120/why-is-arr-faster-than-arr-new-array">why [] faster than new Array</a>
-							<br>							
-							<a href="http://jsperf.com/literal-vs-new-23/2">literal vs new</a>
-						</section>
-						<section>
-							<h2>array initialize</h2>
-							<pre><code>
+							<pre class="fragment"><code>
 a = []; // executor knows nothing
 for(var i = 1; i &lt;= 4; i++) {
 	 a.push(i);
 }
-
 // just do it:
-var a = [1, 2, 3, 4];
-							</code></pre>
-							<li class="fragment">create with elements if you know</li>
-							<pre class="fragment"><code>
-var myArray = [1, 2, 3, 4, 5, 6]; //myArray.length = 6
-
-delete myArray[2]; 
-
-myArray; //[1, 2, undefined × 1, 4, 5,6]
-console.log(myArray.length); // 6
-console.log(myArray[2]); // undefined 
-
-							</code></pre>
-						</section>
+var a = [1, 2, 3, 4];</code></pre>							
+							<a href="http://stackoverflow.com/questions/7375120/why-is-arr-faster-than-arr-new-array">why [] faster</a>, 					
+							<a href="http://jsperf.com/literal-vs-new-23/2">literal vs new</a>
+						</section>						
 						<section>
 							<h2>push vs assign</h2>
 							<pre><code>
@@ -953,11 +900,13 @@ b.lastIndexOf(303, 500);
 						</section>						
 						<section>
 							<h2>When to use Object</h2>
-							<ul>
+							<br>
+							<br>
+							<ol>
 								<li>Varying types properties </li>
 								<li>Integer-indexed Objects is always faster</li>
 								<li>Use Object.Create()</li>
-							</ul>
+							</ol>
 							<br/>									
 							<br/>		
 							<a href="http://jsperf.com/object-create-vs-constructor-vs-object-literal/7">Object.create() vs. constructor vs. object literal</a>
@@ -1011,8 +960,7 @@ for(initiation; iteratingCondition; repeatingExpression){
 						<section>
 							<h2>initiation;</h2>						
 							<p>would be executed only once</p>
-							<pre><code contenteditable>
-var myArr = [1, 2, 3, 4, 5];
+							<pre><code>var myArr = [1, 2, 3, 4, 5];
 
 for(var i =0; i&lt; myArr.length; i++){
   console.log(myArr[i]);
@@ -1025,20 +973,14 @@ for(var i =0, len = myArr.length; i&lt;len; i++){
   console.log(myArr[i]);
 }
 							</code></pre>							
-						</section>
-						<section>
-							<h2>skip initiation</h2>
-							<p>(hoisting)</p>
-							<pre><code>
-var myArr = [1, 2, 3, 4, 5],
+							<pre class="fragment"><code>var myArr = [1, 2, 3, 4, 5],
     i = 0,
     len = myArr.length;
 
 for ( ; i &lt; len; i++ ) {
   console.log(myArr[i]);
-}
-							</code></pre>
-						</section>
+}</code></pre>
+						</section>						
 						<section>
 							<h2>iteratingCondition</h2>
 							<pre><code>
@@ -1050,6 +992,16 @@ for(var i =0; i&lt;len && i&lt;3; i++){
 }
 							</code></pre>
 							<pre class="fragment"><code>
+//skip iteratingCondition
+var i = 0;
+for(;;i++){
+  console.log(i);
+  if(i==5) break;
+}
+							</code></pre>							
+						</section>
+<!-- 						<section>		
+							<pre class="fragment"><code>
 //assign variable
 //TODO: this doesnt work. modify it
 var myArr = [1, 2, 3, 4, 5];
@@ -1057,17 +1009,7 @@ var myArr = [1, 2, 3, 4, 5];
 for (var i=0, item; item = myArr[i]; i++) {
   console.log(item);
 }
-							</code></pre>							
-						</section>
-						<section>
-							<pre><code>
-//skip condition
-var i = 0;
-for(;;i++){
-  console.log(i);
-  if(i==5) break;
-}
-							</code></pre>
+							</code></pre>												
 							<pre><code>
 //TODO: put it in the right flow
 var myArr = [1, 2, 3, 4, 5], 
@@ -1075,20 +1017,14 @@ var myArr = [1, 2, 3, 4, 5],
 for (var sum = 0; i-- || console.log(sum); sum += myArr[i]);
 //15
 							</code></pre>
-						</section>
+						</section> -->
 						<section>
 							<h2>do as little as possible in each loop</h2>
 							<pre><code>
 //add an example for this
 							</code></pre>
 							<a href="http://james.padolsey.com/javascript/zakas-javascript-performance-tips/">JS performance tip</a>
-						</section>						
-					</section>
-					<section>
-						<section>
-							<h1>for loop extra</h1>
-							<img src="images/loop5.png" alt="">
-						</section>
+						</section>											
 						<section>
 							<h2>forward or backward</h2>
 							<pre><code>
@@ -1150,8 +1086,8 @@ function byForLoop(myArr, num){
 							<a href="http://jsperf.com/array-filter-vs-simple-loop/2">filter vs simple loop</a>							
 						</section>
 						<section>
-							<h2>apple to apple</h2>
-							<pre><code>
+							<h2>Why this happens?</h2>
+							<!-- <pre><code>
 function filter(array, fn) {
   var results = [];
   var item;
@@ -1161,34 +1097,25 @@ function filter(array, fn) {
   }
   return results;
 }
-							</code></pre>
+							</code></pre> -->
 							<ol class="fragment">
 								<li>range of elements is set before the first call</li>
 								<li>new elements will not be visited</li>
 								<li>if elements are changed or deleted, their value would be original</li>
 								<li class="fragment"> robustness comes with the expense of overhead</li>
-							</ol>													
-							<a href="http://monkeyandcrow.com/blog/why_javascripts_filter_is_slow/">why native filter method is slow</a>
-						</section>
-						<section>
-							<h2>Other array method</h2>
-							<ul>
-								<li>map, forEach, every</li>
-								<li>some, any</li>	
-								<li>reduce, reduceRight</li>							
-							</ul>
-							<br>							
+							</ol>	
+							<br><br>
+							<li class="fragment">also happens for: map, forEach, every, any, etc.</li>											
 							<br>
 							<ol class="fragment">
 								<li>for trusted data</li>
 								<li>not to have deleted values</li>
 								<li>well behaved callbackfn</li>
 							</ol>
+							<br>	
 							<br>
-							<br>
-							<h3 class="fragment">consider for loop</h3>
-							<a href="http://www.ecma-international.org/ecma-262/5.1/#sec-15.4.4.20">spec: filter</a>
-						</section>
+							<a href="http://monkeyandcrow.com/blog/why_javascripts_filter_is_slow/">why native filter method is slow</a>
+						</section>						
 					</section>
 					<section>
 						<section>
@@ -1276,7 +1203,7 @@ for(var idx in foo){
 							</code></pre>
 							<a href="http://javascriptweblog.wordpress.com/2011/01/04/exploring-javascript-for-in-loops/">explore for-in</a>
 						</section>
-						<section>
+						<!-- <section>
 							<h2>What is the sum?</h2>
 								<pre><code>
 var numbers = [10, 20, 30];
@@ -1295,7 +1222,7 @@ console.log(sum); //0012
 								<li>Keys always string</li>
 							</ul>
 							<a href="http://javascriptweblog.wordpress.com/2011/01/04/exploring-javascript-for-in-loops/#more-1897">Angus: explore for-in</a>
-						</section>						
+						</section>	 -->					
 						<section>
 							<h2>for vs for-in</h2>							
 							<pre><code>
@@ -1336,31 +1263,23 @@ var myArr = [1,2,3,4,5,6,7,8,9],
 while (i++ &lt; len) {
   console.log(myArr[i]);
 }
-							</code></pre>							
-							<pre class="fragment"><code>
-var i = myArr.length -1;
 
+//do while
 do {
   someFn(arr[i]);
 } while (i--);
 							</code></pre>
-						</section>
-						<section>
-							<h2>reverse while</h2>
-							<pre><code>
+							<pre class="fragment"><code>
 var l = arr.length;
 
 while(l--) {
   someFn(arr[l]);
 }
 							</code></pre>
-							<ul>
-								<li>Even faster than reverse for loop</li>
-							</ul>
 							<a href="http://jsperf.com/fastest-array-loops-in-javascript/32">fastest way to traverse array</a>
 							<br>
 							<a href="https://blogs.oracle.com/greimer/resource/loop-test.html">different looping</a>
-						</section>
+						</section>						
 						<section>
 							<h2>summary of looping</h2>
 							<ol>
@@ -1405,8 +1324,7 @@ while(l--) {
 					</section>
 					<section>
 						<section>
-							<h1>DOM query</h1>							
-							<li>descendant (add it somewhere)</li>
+							<h1>DOM query</h1>														
 						</section>
 						<section>
 							<h2>DOM query</h2>
@@ -1632,14 +1550,13 @@ var text = document.createTextNode('Only one Item');
 li.appendChild(text);
 ul.appendChild(li);
 							</code></pre>
-							<li class="fragment">createTextNode faster than setting innerHTML</li>
+							<li class="fragment">appendChild faster than setting innerHTML</li>
 							<li class="fragment">if ref passed will move from current parent</li>
 							<a href="http://glowfilter.com/blog/javascript-performance-testing-innerhtml-vs-appendchild/">createElement</a>, <a href="http://jsperf.com/creating-text-node/3">TextNode</a>, <a href="http://jsperf.com/realistic-innerhtml-vs-appendchild/15">$.append</a>							
 						</section>						
 						<section>
 							<h2>removeNode</h2>
-							<h4>prefer removeNode() over innherHTML = ''</h4>
-							<p>TODO: why this is happen???</p>
+							<h4>prefer removeNode() over innherHTML = ''</h4>							
 							<pre><code>
 el.innerHTML = '';
 //or
@@ -1731,7 +1648,7 @@ elem.setAttribute('style', elemStyle);
 								<li>Minimize the size of DOM</li>
 								<li>avoid modifying while traversing</li>
 								<li>Dont ask for size while changing</li>
-								<li>Clone Node and dereference aftr clone</li>
+								<li>Clone Node and dereference after clone</li>
 								<li>Minimize reflow and repaint</li>
 								<li>css class vs style attribute</li>
 							</ol>
@@ -1831,11 +1748,7 @@ unmonitorEvents(el);
 						<section>
 							<h2>unbind eventhandler: memory leak</h2>
 							<p>(may go to memory leak section)</p>
-						</section>						
-						<section>
-							<h2>flight.js</h2>
-							<a href="http://twitter.github.io/flight/">flight.js</a>
-						</section>						
+						</section>												
 					</section>
 					<section>
 						<section>
@@ -1880,10 +1793,9 @@ function Child(args){
 						</section>						
 						<section>
 							<h2>prototype chaining</h2>
-							<pre><code>
-//create an image of prototype chain
-//and talk how that works
-							</code></pre>
+							<img src="images/prototype.png" alt="">
+							<br>
+							<a href="http://yehudakatz.com/2011/08/12/understanding-prototypes-in-javascript/">image: prototype</a>, <a href="http://sporto.github.io/blog/2013/02/22/a-plain-english-guide-to-javascript-prototypes/">prototype</a>,
 							<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Introduction_to_Object-Oriented_JavaScript">MDN: OOP in JS</a>
 						</section>
 						<section>
@@ -1935,16 +1847,78 @@ var c = Object.create(b);
 							<h1>closure</h1>
 						</section>
 						<section>
-							<h2>explain closure</h2>
+							<h4>function inside function</h4>
+							<pre><code>var a = 2; 
+function b(){ 
+   var d = 21;
+   function dog(){  console.log(a); }
+   dog();
+}
+function c(){ console.log(a); }
+b();						
+c();</code></pre>
+							<img class="fragment" src="images/closureScope.png" alt="">
 						</section>
 						<section>
-							<h2>hold reference</h2>
-							<h5>get something from smashing magazine addy osmani</h5>
-							<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript?redirectlocale=en-US&redirectslug=JavaScript%2FA_re-introduction_to_JavaScript#Memory_leaks">closure: memory leaks</a>
+							<h4>how it works</h4>
+							<pre><code>
+function counter(){
+    var i = 0;
+    
+    return function(){
+       return i++;
+    }
+}</code></pre>
+							<pre class="fragment"><code>
+var a = counter();
+a(); //0
+a(); //1
+a(); //2
+a(); //3
+a(); //4
+a(); //5</code></pre>
+							<pre class="fragment"><code>
+var b = counter();
+b(); //0
+b(); //1
+b(); //2
+b(); //3</code></pre>
+							<h6 class="fragment">every assignment of counter creates new closure</h6>
+							<h6 class="fragment">a and b has separate private i to remember position</h6>
 						</section>
 						<section>
-							<h2>IE memory leak</h2>
-						</section>						
+							<h2>closure creation</h2>
+							<img src="images/closure1.png" alt="">
+							<p class="fragment">private variable</p>
+							<p class="fragment">save state</p>
+							<p class="fragment">closure create encapsulation</p>
+						</section>
+						<section>
+							<h2>multiple closure</h2>
+							<img src="images/closure2.png" alt="">
+							<p class="fragment">each closure have separate private variable</p>
+						</section>
+						<section>
+							<h2>Who care?</h2>
+							<ol>
+								<li>holding function reference: call to counter can not be garbage collected</li>
+								<li class="fragment">How many closure you are creating</li>
+								<br>
+								<li class="fragment">variable reference: Dont use excessively large private variable</li>
+								<li class="fragment">Unnecessary closure affect processing speed and memory consumption</li>
+							</ol>
+							<pre class="fragment"><code>
+function a() {
+    var largeStr = new Array(1000000).join('x');
+    return function () {
+        return largeStr;
+    };
+}
+							</code></pre>
+							<a href="http://coding.smashingmagazine.com/2012/11/05/writing-fast-memory-efficient-javascript/">Addy Osmani: memory efficient JS</a>
+							<br>
+							<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript?redirectlocale=en-US&redirectslug=JavaScript%2FA_re-introduction_to_JavaScript#Memory_leaks">IE8: memory leaks</a>
+						</section>
 					</section>
 					<section>
 						<section>
@@ -1953,7 +1927,24 @@ var c = Object.create(b);
 						</section>
 						<section>
 							<h2>summary</h2>
-
+							<br>
+							<ol>
+								<li>getById, Class, Tag is faster than querySelectorAll</li>
+								<li>use efficient css selector</li>
+								<br>								
+								<div class="fragment">
+									<li>appendChild is faster than innerHTML</li>
+									<li>use documentFragment, cloneNode</li>
+								</div>
+								<br>
+								<li class="fragment">Minimize layout reflow</li>								
+								<li class="fragment">Delegate Events</li>
+								<br>
+								<div class="fragment">
+									<li>Inheritance: Object.create</li>
+									<li>Closure: avoid memory leak</li>
+								</div>
+							</ol>
 						</section>
 						<section>
 							<h2>any question?</h2>
@@ -1967,13 +1958,13 @@ var c = Object.create(b);
 						<section>
 							<h2>Memoization</h2>
 							<pre><code class="largeCode" contenteditable>
-var fibonacci = function (n) {
-   return n < 2 ? n : fibonacci(n - 1) + fibonacci(n - 2);
+function fibonacci(n) {
+   return n &lt; 2 ? n : fibonacci(n - 1) + fibonacci(n - 2);
 };
-for (var i = 0; i <= 10; i += 1) {
+
+for (var i = 0; i &lt;= 10; i += 1) {
    console.log( i + ': ' + fibonacci(i));
 }
-
 // 0: 0
 // 1: 1
 // 2: 1
@@ -1984,22 +1975,25 @@ for (var i = 0; i <= 10; i += 1) {
 // 7: 13
 // 8: 21
 // 9: 34
-// 10: 55
-							</code></pre>
+// 10: 55					</code></pre>
+							<h4 class="fragment">every call itself creates new scope</h4>
 						</section>
 						<section>
 							<h2>JavaScript: Good Parts</h2>
 							<pre><code contenteditable>
-var fibonacci = (function () {
+var fibonacci = (function () {  
   var memo = [0, 1];
+  
   var fib = function (n) {
      var result = memo[n];
+     
      if (typeof result !== 'number') {
          result = fib(n - 1) + fib(n - 2);
          memo[n] = result;
-     }
+     }     
      return result;
   };
+  
   return fib;
 })();
 							</code></pre>
@@ -2009,122 +2003,69 @@ var fibonacci = (function () {
 							<pre><code contenteditable>
 Function.prototype.memoize = function(){
     var self = this, cache = {};
+    
     return function( arg ){
-      if(arg in cache) {
-        console.log('Cache hit for '+arg);
+      if(arg in cache) {        
         return cache[arg];
-      } else {
-        console.log('Cache miss for '+arg);
+      } else {        
         return cache[arg] = self( arg );
       }
     }
-  }
-							</code></pre>
-						<a href="http://addyosmani.com/blog/faster-javascript-memoization/">Addy Osmani: Faster JS Memoization</a>
-						</section>
-						<section>
-							<h2>Implement general Memoize</h2>
-							<pre><code class="largeCode" contenteditable>
-
+  }</code></pre>
+							<pre class="fragment"><code>
 function fooBar(a){ ... }
-// once a memoizer is available, usage is as simple as
 var memoFooBar = fooBar.memoize();
-memoFooBar(1);
-// are conducted. This result is then cached for next time.
-memoFooBar(1); // will now return the cached result
-memoFooBar(2); // whilst this will need to be calculated
+
+memoFooBar(1); // calculated and cache
+memoFooBar(1); // returned from cache
+memoFooBar(2); // calculate and cache
 							</code></pre>
-							<a href="https://github.com/addyosmani/memoize.js/blob/master/memoize.js">Addy Osmani: Optimized Memoization Library</a>
-						</section>
-					</section>	
-					<section>
-						<section>
-							<h1>== or ===</h1>							
-						</section>
-						<section>
-							<h2>What the difference?</h2>
-							<br>
-							<p>== and != try to coerce values before comparing (can lead to unexpected results)</p>
-							<p>=== and !== don't do any coercion (generally safer)</p>
-							<br>
-							<p class="fragment"><strong>jshint#eqeqeq: </strong> prohibits the use of == and != in favor of === and !==.</p>							
-							<p class="fragment">older browsers === and !== was faster (not in modern browser)</p>
-							<a href="http://www.jshint.com/docs/options/">js hint options</a>, <a href="http://jsperf.com/equalityinnit">equality perf test</a>
-						</section>
-						<section>							
-							<h2>How == works?</h2>							
-							<li>force coercion (change type) of one or both</li>
-							<pre><code>
-[0] == true; 
-
-//convert boolean using toNumber
-[0] == 1;
-
-//convert object using toPrimitive
-//[0].valueOf() is not a primitive so use...
-//[0].toString() -> "0"
-"0" == 1; 
-
-//convert string using toNumber
-0 == 1; //false!
-							</code></pre>
-							<a href="http://javascriptweblog.wordpress.com/2011/02/07/truth-equality-and-javascript/">Angus Croll: truth equality</a>							
-						</section>
-						<section>		
-							<pre><code>
-"potato" == false; //false
-"potato" == true; //false
-							</code></pre>					
-							<pre class="fragment"><code>
-"potato" == true; 
-
-//convert boolean using toNumber
-"potato" == 1;
-
-//convert string using toNumber
-NaN == 1; //false!
-							</code></pre>
-							<pre class="fragment"><code>
-"potato" == false; 
-
-//convert boolean using toNumber
-"potato" == 0;
-
-//convert string using toNumber
-NaN == 0; //false!
-							</code></pre>
-						</section>
-						<section>
-							<h2 class="upholdHeader">Which one? === or ==</h2>
-
-							<pre><code contenteditable>
-0 == ''; // true
-0 === false; //false
-							</code></pre>
-							<pre class="fragment"><code contenteditable>
-if (( x === null) || (x === undefined)){ ... }
-
-if(x == null) { ... }
-							</code></pre>
-							<p class="fragment"> When you don't actually know whether they are same type</p>
-							<pre class="fragment"><code contenteditable>
-typeof thing == 'function'; //always be string
-myArray.length == 0;  //will always be number
-mySting.indexOf('x') == 0;
-							</code></pre>
-							
-							<a href="http://www.youtube.com/watch?v=MFtijdklZDo">bReaK aLL thE RuleZ</a>		
+						<a href="http://addyosmani.com/blog/faster-javascript-memoization/">Addy Osmani: JS Memoization</a>, <a href="https://github.com/addyosmani/memoize.js/blob/master/memoize.js">memoize.js</a>
 						</section>						
-					</section>
+					</section>						
 					<section>
 						<section>
-							<h1 class="upholdHeader">Garbage</h1>
-							<img src="images/garbage.jpg">
-							
+							<h1>Garbage</h1>
+							<img src="images/garbage.jpg">		
 						</section>
 						<section>
-							<h2>Holding references</h2>						
-							<pre><code contenteditable>
+							<h2>reference</h2>
+							<pre><code>
+function test(){
+   var myString = 'a new string';
+}
+test();
+							</code></pre>
+							<pre class="fragment"><code>
+var anotherStr;
+
+function test(){
+   var myString = 'a new string';
+   anotherStr = myString;
+}
+test();
+							</code></pre>
+							<h5 class="fragment">GC cant remove anotheStr</h5>
+							<a href="http://buildnewgames.com/garbage-collector-friendly-code/">Garbage collector friendly code</a>
+						</section>
+						<section>
+							<h2>memory hold by object</h2>
+							<ol>
+								<li>object itself</li>
+								<li>refernce holding</li>
+							</ol>
+							<br>
+							<img src="images/objectTree.png" alt="" class="fragment">
+							<br>
+							<a href="https://developers.google.com/chrome-developer-tools/docs/javascript-memory-profiling">JS memory</a>
+						</section>												
+						<section>
+							<h2>JS: Garbage collection</h2>
+							<br>
+							<ol>
+								<li>Don't hold object u dont need</li>
+								<li>use appropriate scope (no/less global)</li>
+<!-- 								<pre class="fragment"><code>
 function getLargeThing (x) {
   var a = function () {
     var largeStr = new Array(1000000).join('x');
@@ -2132,163 +2073,173 @@ function getLargeThing (x) {
 		return largeStr;
 	};
 }();
-							</code></pre>
-							<a href="http://coding.smashingmagazine.com/2012/11/05/writing-fast-memory-efficient-javascript/">Fast Memory Efficient JavaScript</a>
-							<br/>
-							<a href="http://jsperf.com/closure-vs-shared-method">JSPerf: Closure vs Shared method</a>		
-						</section>
-						<section>
-							<h2>Trust Arguments</h2>						
-							<pre><code contenteditable>
-if (callback && typeof callback === "function"){
-	/* rest of your logic */
-}else{
-	/* not a valid function */
-}
-
-							</code></pre>
-							<a href="http://coding.smashingmagazine.com/2011/10/27/lessons-from-a-review-of-javascript-code/">JavaScript Code Review</a>		
-						</section>
-					</section>									
+							</code></pre> -->
+								<div class="fragment">
+									<li>unbind event listener after DOM removed</li>
+									<li>clean locally cached data</li>
+								</div>
+							</ol>							
+							<a href="http://coding.smashingmagazine.com/2012/11/05/writing-fast-memory-efficient-javascript/">Fast Memory Efficient JavaScript</a>							
+						</section>						
+					</section>
+					<section>
+						<h1>Jank</h1>						
+						<br/>						
+						<br/>						
+						<br/>												
+						<br/>
+						<a href="http://jakearchibald.github.io/jank-invaders/">Jank Invaders</a>						
+					</section>
 					<section>
 						<section>
-							<h1 class="upholdHeader"> JavaScript Others</h1>
-						</section>						
-						<section>
-							<h2>Reduce Global</h2>
-							<pre><code>
-var current = null;
-function init(){...}
-function change(){...}
-function verify(){...}
-							</code></pre>
-							<pre class="fragment"><code>
-var myNameSpace = {
-  current:null,
-  init:function(){...},
-  change:function(){...},
-  verify:function(){...}
-}
-
-myNameSpace.init();
-
-							</code></pre>
-							<a href="http://www.w3.org/wiki/JavaScript_best_practices">W3.org JS best practice</a>
-							<br/>
-							<a href="http://thanpol.as/javascript/development-using-namespaces/">Develop with Namespace</a>
-						</section>
-						<section>
-							<h2>Self executing</h2>
-							<pre><code>
-(function(){
-  var current = null;
-  function init(){...}
-  function change(){...}
-  function verify(){...}
-})();							
-							</code></pre>
-							<pre class="fragment"><code>
-(function( skillet, $, undefined ) {
-    //Private Property
-    var amountOfGrease = "1 Cup";
-
-    //Public Method
-    skillet.toString = function() {
-        console.log( skillet.quantity + " " + 
-                     skillet.ingredient + " & " + 
-                     amountOfGrease + " of Grease" );
-        console.log( isHot ? "Hot" : "Cold" );
-    };    
-}( window.skillet = window.skillet || {}, jQuery ));								
-							</code></pre>	
-						</section>						
-						<section>
-							<h2>Re-think try-catch</h2>
-							<img src="images/tryCatch.jpg">
-							<a href="http://flippinawesome.org/2013/09/30/rethinking-javascripts-trycatch">Rethink: Try-catch</a>
-							<br/>
-							<a href="http://jsperf.com/try-catch-error-perf/3">JSPerf: try-catch vs if check</a>
-							<br/>
-							<a href="http://stackoverflow.com/questions/3217294/javascript-try-catch-performance-vs-error-checking-code">JS: try catch vs Error checking</a>
-							<br/>
-							<a href="http://stackoverflow.com/questions/1234343/why-are-empty-catch-blocks-a-bad-idea">Why Empty catch block is bad</a>
-						</section>
-						<section>
-							<h2>add this code</h2>
-							<a href="http://jsperf.com/try-catch-error-perf/3">try catch perf</a>
-						</section>
-						<section>
-							<h2>Use Strict Mode</h2>
-							<pre><code>
-// Non-strict code...
- 
-(function(){
-  "use strict";
- 
-  // Define your library strictly...
-})();
- 
-// Non-strict code...
-							</code></pre>
-							
-							<a href="http://ejohn.org/blog/ecmascript-5-strict-mode-json-and-more/">John Resig: Strict Mode</a>							
-						</section>
-						<section>
-							<h2>timeout for ajax call</h2>		
-							<pre><code>
-var xhr = new XMLHttpRequest ();
-xhr.open('GET', url, false);
-xhr.onreadystatechange = function () {
-    if (this.readyState == 4) {                    
-        clearTimeout(timeout);
-        // do something with response data
-    }
-}
-var timeout = setTimeout( 
-    function () {
-        xhr.abort();
-        // call error callback
-    },
-    60*1000 // timeout after a minute
-);
-xhr.send();
-							</code></pre>
-						</section>
-						<section>
-							<h2>Client-side storage</h2>
-							<p>(If you need, google and read)</p>
-							<ul>
-								<li>cookies</li>
-								<li>localStorage</li>
-								<li>sessionStorage</li>
-								<li>indexedDB</li>																
-							</ul>							
-							<br>
-							<br>
-							<br>
-							<a href="http://dev.w3.org/html5/webstorage/">spec: Web Storage</a>, <a href="http://www.w3.org/TR/IndexedDB/">spec: Indexed DB</a>
-							<a href="http://html5doctor.com/storing-data-the-simple-html5-way-and-a-few-tricks-you-might-not-have-known/">Remy Sharp: storing Data</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/Guide/API/DOM/Storage">MDN: DOM storage</a>
-						</section>
-						<section>
-							<h2> multi-threaded JavaScript</h2>
-							<li>web worker</li>
-							<p>its a browser feature</p>
-							<li class="fragment">non blocking doesn't mean concurrency</li>
-							<a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/workers.html">spec: web sorker</a>
-							, <a href="http://www.html5rocks.com/en/tutorials/workers/basics/">Web worker: basics</a>
+							<h1>animation</h1>
 						</section>	
 						<section>
-							<h2 class="upholdHeader">Know JavaScript Engine</h2>							
-							<ul>
-								<li>Know V8</li>
-								<li>Hidden Class</li>
-								<li>Avoid Memory Leaks</li>
-								<li>Compile browser</li>
-							</ul>
-							<br/>
-							<a href="http://coding.smashingmagazine.com/2012/11/05/writing-fast-memory-efficient-javascript/">Memory Efficient JS</a>
+							<h4>how things are animated?</h4>
+							<pre><code>function animateFn(){/* some fancy animation */ }
+var timeId = setInterval(animationFunction, 10);
+//when done clearTimeId
+clearInterval(timeId);</code></pre>
+							<pre class="fragment"><code>
+function move(elem) {
+  var left = 0;
+
+  function frame() {
+    left++;
+    elem.style.left = left + 'px';
+
+    if (left == 100)
+      clearInterval(timeId)
+  }
+
+  var timeId = setInterval(frame, 10); // draw every 10ms
+}
+							</code></pre>
+							<div id="animateEl" class="animate_block"></div>
+							<script>
+								function move(elem) {
+								  var left = 0;
+								  function frame() {
+								    left +=1;
+								    elem.style.left = left + 'px';
+								    if (left == 100)
+								      clearInterval(timeId)
+								  }
+								  var timeId = setInterval(frame, 10);
+								}
+								document.getElementById('animateEl').addEventListener('click', function(){
+									move(this);
+								})
+							</script>
+							<a href="http://css-tricks.com/controlling-css-animations-transitions-javascript/">controlling js animation</a>
+						</section>					
+						<section>
+							<h2>animations perf</h2>							
+							<ol>
+								<li>elements have position: static (by default)</li>
+								<li>animation cause reflow (expensive)</li>
+								<br>
+								<div class="fragment">
+									<li>Try to avoid reflow (smoother, less CPU)</li>
+									<li>position: absolute/ fixed for Elements to animated</li>									
+								</div>
+								<br>
+								<li class="fragment">repaint not reflow</li>
+								<br>
+								<li class="fragment">put multiple animation in same timer (same loop)</li>
+							</ol>		
+							<br>
+							<br>					
+							<a href="https://docs.google.com/presentation/d/19R_E5B__kdE55L1bTpS6IFKbYbHq-PQKKky4do5Yc6A/preview?sle=true#slide=id.g105c64d69_170">performance tooling</a>, <a href="http://www.html5rocks.com/en/tutorials/speed/high-performance-animations/">high perf animation</a>,
+							<a href="http://jankfree.org/">Jank Free</a>
+							<br>
+							<a href="http://css-tricks.com/myth-busting-css-animations-vs-javascript/">css vs js animation</a>,
+							<a href="http://www.youtube.com/watch?v=mSK70FwUz2A">Debug-Fix Jank</a>
+						</section>						
+						<section>
+							<h2>requestAnimationFrame</h2>
+							<br>
+							<ol>
+								<li>browser optimize for smoother animations</li>
+								<li>dynamically adjust to keep frame rate normal</li>
+								<br>
+								<div class="fragment">
+									<li>inactive tabs will not animate  (save CPU)</li>
+									<li>More battery-friendly</li>
+								</div>
+							</ol>
+							<br>
+							<br>
+							<li class="fragment">Decouple events from animation</li>
+							
+							
+							<br>
+							<a href="http://creativejs.com/resources/requestanimationframe/">raf: tutorial</a>,
+							<a href="http://updates.html5rocks.com/2012/05/requestAnimationFrame-API-now-with-sub-millisecond-precision">sub millisecond precision</a>
+						</section>												
+					</section>		
+					<section>
+						<section>
+							<h1>Scroll</h1>
 						</section>
-					</section>					
+						<section>
+							<h2>scroll, scrollTO</h2>
+							<pre><code>
+//scroll down 100 pixels
+scroll(0, 100);
+
+scrollTo(x-coord,y-coord );
+
+//repeated scroll
+scrollBy(0, 100);
+							</code></pre>
+							<pre class="fragment"><code>
+window.onscroll = function(e) {
+   // do something on scroll 	 
+}
+							</code></pre>
+						</section>											
+						<section>
+							<h2>things to do</h2>
+							<br>
+							<li>Try to avoid handlers to window.onscroll</li>
+							<li class="fragment">debounce/throttle, setTimeout scroll event</li>							
+							<li class="fragment">consider libraries: <a href="http://airbnb.github.io/infinity/">infinity.js</a></li>
+							<br>
+							<br>
+							<br>	
+							<a href="http://www.html5rocks.com/en/tutorials/speed/unnecessary-paints/">avoid unnecessary Paints</a>
+						</section>											
+						<section>
+							<h2>External effect</h2>
+							<h6>(Demo: <a href="http://jankfree.org/examples/hover.html">Something else make Scroll bad!</a>)</h6>
+							<div class="fragment">
+								<p style="text-align:left; text-decoration:underline;">Unnecessary repaint:</p>
+								<ol>
+									<li>position:fixed</li>
+									<li>overflow:scroll</li>
+									<div class="fragment">
+										<li>:hover effect</li>
+										<li>touch listeners</li>
+									</div>								
+								</ol>
+							</div>
+							<div class="fragment">
+								<p style="text-align:left; text-decoration:underline;">long paint:</p>
+								<li>visually complex css</li>
+								<li>Image resize</li>
+							</div>
+							<br>							
+							<a href="http://jankfree.org/jank-busters-cssconf/template.html#15">painful repaint</a>
+						</section>
+<!-- 						<section>
+							<h1 class="upholdHeader">abc</h1>
+							<br/>
+							<a href="http://jankfree.org/examples/hover.html">jankFree hover</a>
+							<br/>
+							<a href="http://updates.html5rocks.com/2013/02/Profiling-Long-Paint-Times-with-DevTools-Continuous-Painting-Mode">Continuous Painting</a>
+						</section> -->
+					</section>																			
 					<section>
 						<section>
 							<h1>JQuery</h1>
@@ -2368,21 +2319,7 @@ $( "#list" ).on( "click", "a", function( event ) {
 						<section>
 							<h2>simultaneous ajax</h2>
 							<a href="http://css-tricks.com/multiple-simultaneous-ajax-requests-one-callback-jquery/">multiple ajax</a>
-						</section>
-						<section>
-							<h1 class="upholdHeader">Jquery Also !</h1>
-							<h2 style="color:purple">Right to left</h2>
-							<br/>
-							<br/>
-							<br/>
-							<a href="http://net.tutsplus.com/tutorials/javascript-ajax/quick-tip-think-right-to-left-with-jquery/">Jquery Right to left</a>
-							<br/>
-							<a href="http://24ways.org/2011/your-jquery-now-with-less-suck/"> Your jQuery: Now With 67% Less Suck </a>
-							<br/>
-							<a href="http://jsperf.com/jquery-selector-perf-right-to-left">JSPerf: Jquery Right to Left</a>
-							<br/>
-							<a href="http://stackoverflow.com/questions/5797014/why-do-browsers-match-css-selectors-from-right-to-left">Why Right to Left</a>
-						</section>
+						</section>						
 					</section>
 					<section>
 						<section>
@@ -2527,6 +2464,20 @@ el.cloneNode(true);
 						</section>
 						<section>
 							<h2>summary</h2>
+							<ol>
+								<li>memoize expensive static computation</li>
+								<li>Don't hold unnecessary object (garbage it)</li>
+								<br>
+								<div class="fragment">
+									<li>requestAnimationFrame optimize animation</li>
+									<li>window.onscroll try to avoid event handler with</li>
+								</div>
+								<br>
+								<div class="fragment">
+									<li>native vs JQuery (browser support)</li>
+									<li>Do u really need full Jquery or some module</li>									
+								</div>
+							</ol>
 						</section>
 						<section>
 							<h2>any question?</h2>
@@ -2535,157 +2486,264 @@ el.cloneNode(true);
 					</section>
 					<section>
 						<section>
-							<h1>animation</h1>
-						</section>						
-						<section>
-							<h2>animation</h2>
-							<a href="https://docs.google.com/presentation/d/19R_E5B__kdE55L1bTpS6IFKbYbHq-PQKKky4do5Yc6A/preview?sle=true#slide=id.g105c64d69_170">performance tooling</a>
-							<br>
-							<a href="http://www.html5rocks.com/en/tutorials/speed/high-performance-animations/">high perf animation</a>
-							<br>
-							<a href="http://daneden.github.io/animate.css/">animate.css</a>
-							<br>
-							<a href="http://alistapart.com/article/web-animation-at-work?utm_source=html5weekly&utm_medium=email">has some decent performance</a>
+							<h1>Global Variable</h1>
 						</section>
 						<section>
-							<h2>scrollTO</h2>
+							<h2>Reduce Global</h2>
 							<pre><code>
-//ggl JavaScript scrollTo and learn about it
-							</code></pre>
-						</section>
-						<section>
-							<h2>multiple timers</h2>
-							<p>If multiple elements are animated at the same time, the best frame rate is achieved by iterating across all animated elements inside a single loop. Using multiple timers makes animation less efficient and consistent, presumably due to timer invocation overhead.</p>
-
-						</section>
-						<section>
-							<h2>animations</h2>
-							By default elements have style property position: static and animating such elements causes reflowing of the layout and is expensive.
-Elements to be animated should be set as position: absolute or position: fixed if reflowing is not mandatory for smoother animation and lesser CPU load. Such elements do not affect other elements layout, so they will only cause a repaint rather than a full reflow with a nice performance boost.
-<br>
-<a href="http://developer.nokia.com/community/wiki/JavaScript_Performance_Best_Practices#Animations">something about animation</a>
-<h2>talk about animation basics</h2>
-<a href="http://www.schillmania.com/content/projects/javascript-animation-1/">animation basics part-1</a>, <a href="http://www.schillmania.com/content/projects/javascript-animation-2/">part-2</a>
-						</section>
-						<section>
-							<h2>requestFrame</h2>
-						</section>
-					</section>		
-					<section>
-						<section>
-							<h1>Scroll</h1>
-						</section>
-						<section>
-							<h2>scroll problem</h2>
-						</section>
-						<section>
-							<h2>scroll spy</h2>
-							<p>infinite scroll</p>
-						</section>
-					</section>			
-					<section>
-						<section>
-							<h1>Jank</h1>
-							<a href="http://jankfree.org/examples/hover.html">jank layers hover scroll</a>
-							<br/>
-							<a href="http://jakearchibald.github.io/jank-invaders/">Jank Invaders</a>
-							<br/>
-							<a href="http://www.youtube.com/watch?v=mSK70FwUz2A">Debugging and Fixing Jank</a>
-							<br/>
-							<a href="http://jankfree.org/">Jank Free</a>
-							<br/>
-						</section>
-						<section>
-							<h1 class="upholdHeader">Scroll could be scary!</h1>
-							<!-- <p class="purpleBold fragment">Scroll and hover effect at the same time</p> -->
-							<br/>
-							<br/>
-							<a href="http://www.html5rocks.com/en/tutorials/speed/scrolling/">Scrolling Performance</a>
-							<br/>
-							<a href="http://www.html5rocks.com/en/tutorials/speed/unnecessary-paints/">unnecessary Paints</a>
-						</section>
-						<section>
-							<h2>Something else make Scroll bad!</h2>
-							<ul>
-								<li>position:fixed</li>
-								<li class="fragment">overflow:scroll</li>
-								<li class="fragment">:hover effect</li>
-								<li class="fragment">touch listeners</li>
-								<li class="fragment">Image resize</li>
-							</ul>
-							<a href="http://stackoverflow.com/questions/12969228/chrome-slow-scrolling-with-fixed-position-elements">slow scroll with fixed position</a>
-							<a href="http://jankfree.org/jank-busters-cssconf/template.html#15">Jank-busters</a>
-						</section>
-<!-- 						<section>
-							<h1 class="upholdHeader">abc</h1>
-							<br/>
-							<a href="http://jankfree.org/examples/hover.html">jankFree hover</a>
-							<br/>
-							<a href="http://updates.html5rocks.com/2013/02/Profiling-Long-Paint-Times-with-DevTools-Continuous-Painting-Mode">Continuous Painting</a>
-						</section> -->
-						<section>
-							<h2>requestAnimationFrame (rAF)</h2>
-							<p class="fragment">Browser dynamically adjust to keep frame rate normal.</p>
-							<ul>
-								<p class="fragment purpleBold">Decouple events from animation</p>
-								<p class="fragment purpleBold">Avoid animation that causes reflow-repaint loops </p>
-								<a href="http://www.html5rocks.com/en/tutorials/speed/animations/">HTML5: faster rFA</a>
-								<br/>
-								<a href="http://updates.html5rocks.com/2012/05/requestAnimationFrame-API-now-with-sub-millisecond-precision">rFA API: sub milisecond precision</a>
-								<br/>
-								<a href="http://caniuse.com/requestanimationframe">can i use: rFA</a>
-							</ul>
-						</section>
-						<section>
-							<h2>Parallax</h2>							
-							<pre><code class="largeCode">
-window.onscroll = function(e) { 
-  var parallax = document.getElementById('parallax-background'); 
-  parallax.style.marginTop = (window.scrollY/2) + 'px';
- 
-}								
+var current = null;
+function init(){...}
+function change(){...}
 							</code></pre>
 							<pre class="fragment"><code>
-window.onscroll = function(e) {
- 
-  // could use prefixes: webkitTransform, mozTransform etc.
- 
-  var parallax = document.getElementById('parallax-background');
- 
-  parallax.style.transform = 'translate3d(0px,' + (window.scrollY/2) + 'px, 0px)';
- 
-}								
+var myNameSpace = {
+  current:null,
+  init:function(){...},
+  change:function(){...}  
+}
 							</code></pre>
-							<a href="http://code.flickr.net/2013/06/04/adventures-in-jank-busting-parallax-performance-and-the-new-flickr-home-page/">Flickr: Parallax</a>
-						</section>						
-					</section>					
-					<section>
-						<section>
-							<h1>Performance Test</h1>
-							<a href="http://jsperf.com/">jsPerf.com</a>
-							<a href="http://coding.smashingmagazine.com/2012/06/12/javascript-profiling-chrome-developer-tools/">JS Profiling</a>
+							<pre class="fragment"><code>
+(function(){
+  var current = null;
+  function init(){...}
+  function change(){...}
+})();							
+							</code></pre>
+
+							<a href="http://www.w3.org/wiki/JavaScript_best_practices">W3.org JS best practice</a>
 							<br/>
-							<a href="https://developers.google.com/chrome-developer-tools/docs/profiles">Profiles</a>
-							<br/>
-							<a href="https://www.youtube.com/watch?v=480JL_WuMt0">Performance Secret: Peter Flynn</a>
-							<br>
-							<a href="https://developers.google.com/chrome-developer-tools/docs/cpu-profiling">cpu profiling</a>
+							<a href="http://thanpol.as/javascript/development-using-namespaces/">Develop with Namespace</a>
 						</section>
 						<section>
-							<h2 class="upholdHeader">Console API</h2>
+							<h4>combined var</h4>
 							<pre><code>
-//test
+var foo,
+    fooed    
+    fooled;</code></pre>
+    						<pre class="fragment"><code>
+var p = 9,
+    q = 10;
+    r = 11;</code></pre>
+							<pre class="fragment"><code>
+var a = 7, 
+    b = c = 6;
+							</code></pre>
+							<pre class="fragment"><code>// Non-strict code... 
+(function(){
+  "use strict"; 
+  var a = 7, 
+    b = c = 6;
+})();
+ReferenceError: c is not defined 
+							</code></pre>
+							<a href="http://ejohn.org/blog/ecmascript-5-strict-mode-json-and-more/">Strict Mode</a>, <a href="http://james.padolsey.com/javascript/js-adolescence/">JS adolescence</a>								
+						</section>												
+					</section>
+					<section>
+						<section>
+							<h1>try-catch</h1>
+							<img src="images/tryCatch.jpg">
+						</section>
+						<section>
+							<h2>Re-think try-catch</h2>
+							<pre><code>
+function tryCatch(obj) {
+    try {
+      return obj.prop;
+    } catch (ex) {
+      return null;
+    }
+}
+							</code></pre>
+							<pre class="fragment"><code>
+function ifCheck(obj) {
+    if (obj !== undefined) {
+      return obj.prop;
+    } else {
+      return null;
+    }
+  }
+							</code></pre>
+							<a href="http://flippinawesome.org/2013/09/30/rethinking-javascripts-trycatch">Rethink: Try-catch</a>
+							<br/>
+							<a href="http://jsperf.com/try-catch-error-perf/3">JSPerf: try-catch vs if check</a>							
+						</section>							
+					</section>
+					<section>
+						<section>
+							<h1>== or ===</h1>							
+						</section>
+						<section>
+							<h2>What the difference?</h2>
+							<br>
+							<p>== and != try to coerce values before comparing (can lead to unexpected results)</p>
+							<p>=== and !== don't do any coercion (generally safer)</p>
+							<br>
+							<p class="fragment"><strong>jshint#eqeqeq: </strong> prohibits the use of == and != in favor of === and !==.</p>							
+							<p class="fragment">older browsers === and !== was faster (not in modern browser)</p>
+							<a href="http://www.jshint.com/docs/options/">js hint options</a>, <a href="http://jsperf.com/equalityinnit">equality perf test</a>
+						</section>
+						<section>							
+							<h2>How == works?</h2>							
+							<li>force coercion (change type) of one or both</li>
+							<pre><code>
+[0] == true; 
+
+//convert boolean using toNumber
+[0] == 1;
+
+//convert object using toPrimitive
+//[0].valueOf() is not a primitive so use...
+//[0].toString() -> "0"
+"0" == 1; 
+
+//convert string using toNumber
+0 == 1; //false!
+							</code></pre>
+							<a href="http://javascriptweblog.wordpress.com/2011/02/07/truth-equality-and-javascript/">Angus Croll: truth equality</a>							
+						</section>
+						<section>		
+							<pre><code>
+"potato" == false; //false
+"potato" == true; //false
+							</code></pre>					
+							<pre class="fragment"><code>
+"potato" == true; 
+
+//convert boolean using toNumber
+"potato" == 1;
+
+//convert string using toNumber
+NaN == 1; //false!
+							</code></pre>
+							<pre class="fragment"><code>
+"potato" == false; 
+
+//convert boolean using toNumber
+"potato" == 0;
+
+//convert string using toNumber
+NaN == 0; //false!
+							</code></pre>
+						</section>
+						<section>
+							<h2 class="upholdHeader">Which one? === or ==</h2>
+
+							<pre><code contenteditable>
+0 == ''; // true
+0 === false; //false
+							</code></pre>
+							<pre class="fragment"><code contenteditable>
+if (( x === null) || (x === undefined)){ ... }
+
+if(x == null) { ... }
+							</code></pre>
+							<p class="fragment"> When you don't actually know whether they are same type</p>
+							<pre class="fragment"><code contenteditable>
+typeof thing == 'function'; //always be string
+myArray.length == 0;  //will always be number
+mySting.indexOf('x') == 0;
+							</code></pre>
+							
+							<a href="http://www.youtube.com/watch?v=MFtijdklZDo">bReaK aLL thE RuleZ</a>		
+						</section>						
+					</section>
+					<section>
+						<section>
+							<h1> Something for you</h1>
+						</section>			
+						<section>
+							<h2>timeout for ajax call</h2>		
+							<pre><code>
+var xhr = new XMLHttpRequest ();
+xhr.open('GET', url, false);
+
+xhr.onreadystatechange = function () {
+    if (this.readyState == 4) {                    
+        clearTimeout(timeout);
+        //success
+    }
+}
+
+var timeout = setTimeout(function () {
+        xhr.abort();
+        //timedout
+    },60000); // timeout after a minute
+xhr.send();
+							</code></pre>
+						</section>
+						<section>
+							<h2>Client-side storage</h2>
+							<p>(If you need, google and read)</p>
+							<ul>
+								<li>cookies</li>
+								<li>localStorage</li>
+								<li>sessionStorage</li>
+								<li>indexedDB</li>																
+							</ul>							
+							<br>
+							<br>
+							<br>
+							<a href="http://dev.w3.org/html5/webstorage/">spec: Web Storage</a>, <a href="http://www.w3.org/TR/IndexedDB/">spec: Indexed DB</a>
+							<a href="http://html5doctor.com/storing-data-the-simple-html5-way-and-a-few-tricks-you-might-not-have-known/">Remy Sharp: storing Data</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/Guide/API/DOM/Storage">MDN: DOM storage</a>
+						</section>
+						<section>
+							<h2> multi-threaded JavaScript</h2>
+							<li>web worker</li>
+							<p>its a browser feature</p>
+							<li class="fragment">non blocking doesn't mean concurrency</li>
+							<a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/workers.html">spec: web sorker</a>
+							, <a href="http://www.html5rocks.com/en/tutorials/workers/basics/">Web worker: basics</a>
+						</section>	
+						<section>
+							<h2 class="upholdHeader">Know JavaScript Engine</h2>							
+							<ul>
+								<li>Know V8</li>
+								<li>Hidden Class</li>
+								<li>Avoid Memory Leaks</li>
+								<li>Compile browser</li>
+							</ul>
+							<br/>
+							<a href="http://coding.smashingmagazine.com/2012/11/05/writing-fast-memory-efficient-javascript/">Memory Efficient JS</a>
+						</section>
+					</section>										
+					<section>
+						<section>
+							<h1>Performance Test</h1>														
+						</section>
+						<section>
+							<h2>Ways to test</h2>
+							<ol>
+								<li>chrome task manager (shift + Esc)</li>
+								<li>pageSpeed (network)</li>
+								<li>webPageTest.org</li>
+								<li>devtool - audit, network</li>
+								<li>jsPerf.org</li>								
+								<li>Devtool- Console, timeline, profile</li>
+							</ol>
+						</section>
+						<section>
+							<h2>Console API</h2>
+							<pre><code>
 console.assert(myArray.length >5, "More than 5 elements");
-
-//hit count
-console.count("Number of times entered");
-
-//JS represents of Obj
-console.dir(document.body);
 
 //trace
 console.trace();
 							</code></pre>
+							<pre class="fragment"><code>
+profile('myProfile');
+
+porfileEnd('myProfile');
+							</code></pre>
+							<pre class="fragment"><code>
+ function foo(){
+    console.count('fooed');
+ }
+
+ foo(); // fooed: 1
+ foo(); // fooed: 2
+ foo(); // fooed: 3 
+ 							</code></pre>
 							<a href="https://developers.google.com/chrome-developer-tools/docs/console">Using the console</a>
 							<br/>
 							<a href="https://developers.google.com/chrome-developer-tools/docs/console-api">Console API</a>
@@ -2703,10 +2761,7 @@ for (var i = array.length - 1; i >= 0; i--) {
 
 console.timeEnd("Array initialize");
 							</code></pre>
-						</section>
-						<section>
-							<h2 class="upholdHeader">Performance Debug</h2>
-							<pre><code contenteditable>
+							<pre class="fragment"><code contenteditable>
 var start = performance.now();
 
 //execute your function
@@ -2716,17 +2771,10 @@ var end = performance.now();
 
 console.log(start - end +'ms');
 							</code></pre> 
-							<a href="http://www.2ality.com/2013/10/console-api.html">Axel Rauschmayer: JS Console API</a>
 							<a href="https://www.codeschool.com/courses/discover-devtools">CodeSchool: Discover Dev Tools</a>
-							<br/>
-
-						</section>
+						</section>												
 						<section>
-							<h1 class="noUppercase">Rectangle</h1>
-								<h3>Settings</h3>
-						</section>
-						<section>
-							<h1 class="upholdHeader">Memory Profiling</h1>
+							<h2>Memory Profiling</h2>
 							<a href="https://developers.google.com/chrome-developer-tools/docs/javascript-memory-profiling">JS Memory Profiling</a>
 							<br/>
 							<a href="http://updates.html5rocks.com/2013/02/Profiling-Long-Paint-Times-with-DevTools-Continuous-Painting-Mode">Long paint times profiling</a>
@@ -2741,76 +2789,13 @@ console.log(start - end +'ms');
 							<br/>
 							<a href="http://www.html5rocks.com/en/tutorials/games/abouttracing/">Tracing Flag</a>
 						</section>
-					</section>
-					<section>
-						<section>
-							<h1>don't shoot urself</h1>
-							<h3>decide what works for you and your team</h3>
-						</section>
-						<section>
-							<h2>combined var !</h2>
-							<pre><code>
-var foo,
-    fooed,     
-    fooled;
-							</code></pre>
-							<pre class="fragment"><code>
-var foo = 'bar';
-//after something
-var fooed = 'inside the bar';   
-//after something else  
-var fooled = 'by the smart guy';
-							</code></pre>
-							<ul class="fragment">								
-								<li>u decide: micro save or readable</li>
-								<li>es6: <code>let</code></li>
-							</ul>
-							<a href="http://james.padolsey.com/javascript/js-adolescence/">js adolescence</a>
-						</section>
-						<section>
-							<h2>risk of combined var</h2>
-							<pre><code>
-var foo,
-    fooed    
-    fooled;
-							</code></pre>
-							<pre class="fragment"><code>
-var a = 7, 
-    b = c = 6;
-							</code></pre>
-						</section>
-						<section>
-							<h2>When optimizing</h2>
-							<li>focus on the big things (first)</li>							
-						</section>
-						<section>
-							<h2>walk through a requirement</h2>
-							<a href="http://coding.smashingmagazine.com/2012/11/05/writing-fast-memory-efficient-javascript/">table event handler example</a>
-						</section>
-					</section>
-					<section>
-						<h1 class="upholdHeader">Break Everything</h1>
-						<br/>
-						<h3>I have said</h3>
-						<p>\</p>
-						<p>/</p>
-						<p>As Long As YOU know what YOU ARE doing</p>
-						<br/>
-
-						<br/><br/>
-						<a href="http://www.youtube.com/watch?v=MFtijdklZDo">Break All the Rules</a><br/>	
-					</section>					
-					<section>
-						<h1>Review Your Code</h1>
-						<a href="https://groups.google.com/forum/?fromgroups#!forum/jsmentors">JSMentors</a><br/>
-						<a href="http://codereview.stackexchange.com/">Code Review</a>
-					</section>
+					</section>										
 					<section>
 						<section>
 							<h1>Recap</h1>
 						</section>
 						<section>
-							<h2>mega Performance</h2>
+							<h2>Network Performance</h2>
 							<ol>
 								<li>Minify</li>
 								<li>Combine</li>
@@ -2821,24 +2806,53 @@ var a = 7,
 							</ol>
 						</section>
 						<section>
-							<h2>mini performance</h2>							
+							<h2>runtime performance</h2>							
+							<ol>
+								<li>local variable is faster than out-of scope variable</li>
+								<li>reverse while is the fastest to iterate array</li>
+								<br>
+								<div class="fragment">
+									<li>getById, Class, Tag is faster than querySelectorAll</li>
+									<li>use documentFragment, cloneNode</li>
+								</div>
+								<br>
+								<div class="fragment">
+									<li>Delegate Events</li>
+									<li>repaint is faster than reflow</li>
+								</div>
+								<br>
+								<div class="fragment">
+									<li>Don't hold unnecessary object (garbage it)</li>
+									<li>Do u really need full Jquery or some module?</li>
+								</div>
+								<br>
+								<div class="fragment">
+									<li>devTool- audit, profile, timeline, console</li>									
+								</div>
+							</ol>
 						</section>
-					</section>					
+						<!-- <section>
+							<h2>When optimizing</h2>
+							<li>focus on the big things (first)</li>							
+							<li>decide what works for you and your team</li>
+							<li>review your code: <a href="https://groups.google.com/forum/?fromgroups#!forum/jsmentors">JSMentors</a>, <a href="http://codereview.stackexchange.com/">Code Review</a></li>
+						</section> -->						
+					</section>										
 					<section>
 						<section>
-							<h1 class="upholdHeader">promise().then()</h1>
-							<a href="http://www.amazon.com/Secrets-JavaScript-Ninja-John-Resig/dp/193398869X">JavaScipt Ninja</a>
+							<h1 class="upholdHeader">Break Everything</h1>
 							<br/>
-							<a href="http://underscorejs.org/underscore.js">UnderScore or JQuery source code </a>
+							<h3>I have said</h3>
+							<p>\</p>
+							<p>/</p>
+							<p>As Long As YOU know what YOU ARE doing</p>
 							<br/>
-							<a href="http://ejohn.org/blog/asmjs-javascript-compile-target/">asm.js: JS compile Target</a>
-							<br/>
-							<a href="http://lodash.com/">Lo-dash</a>
-							<br>
-							<a href="http://html5index.org/">JS API index</a>
-						</section>
+
+							<br/><br/>
+							<a href="http://www.youtube.com/watch?v=MFtijdklZDo">Break All the Rules</a><br/>	
+						</section>						
 						<section>
-							<h2 class="upholdHeader">Take Away</h2>
+							<h2 class="upholdHeader">Final Take Away</h2>
 							<ul>
 								<li class="fragment">Nothing is absolutely right</li>
 							</ul>
@@ -2848,6 +2862,22 @@ var a = 7,
 						</section>
 						<section><img src="images/knowWhy.jpg" alt=""></section>
 					</section>
+					<section>
+							<h1>Need more !!!</h1>
+							<a href="https://www.youtube.com/watch?v=480JL_WuMt0">Performance Tuning Secret</a>
+							<br>
+							<a href="http://www.amazon.com/Secrets-JavaScript-Ninja-John-Resig/dp/193398869X">JavaScipt Ninja</a>
+							<br/>
+							<a href="http://underscorejs.org/underscore.js">UnderScore or Angular source code </a>
+							<br/>
+							<a href="http://ejohn.org/blog/asmjs-javascript-compile-target/">asm.js: JS compile Target</a>
+							<br/>
+							<a href="http://lodash.com/">Lo-dash</a>
+							<br>
+							<a href="http://html5index.org/">JS API index</a>
+							<br>
+							<a href="https://github.com/getify/You-Dont-Know-JS">You Don't Know JS</a>
+						</section>
 					<section>
 						<section>
 							<h1>Free Tip</h1>
