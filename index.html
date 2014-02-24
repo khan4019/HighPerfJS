@@ -120,7 +120,7 @@
 							<ul>
 								<li class="fragment">browsers are changing, everyday</li>
 								<li class="fragment">Standard spec are changing</li>
-								<li class="fragment">not tested everything</li>
+								<li class="fragment">not tested all possible use cases</li>
 								<li class="fragment">My test case could vary than your use case</li>
 								<li class="fragment">Don't accept, "Don't Do this"</li>
 								<li class="fragment">Ask, Why i should not do it</li>
@@ -138,9 +138,13 @@
 						</section>
 						<section>
 							<img src="images/spinner.gif" alt="">
+							<div class="fragment">
+								<h6>you hate spinner,</h6>
+								<h6> so does your client</h6>
+							</div>
 						</section>
 						<section>
-							<h2>add images and build a story</h2>
+							<h2>long running error</h2>
 							<img src="images/longRun3.jpg" alt="">
 							<img class="fragment" src="images/longRun.png" alt="">
 						</section>
@@ -277,6 +281,7 @@ p,div{
 							<h2>script in html</h2>
 							<img  class="fullScreenImage"  src="images/domTreeWithHTML2.png">
 							<br>
+							<br>
 							<ol class="fragment">
 								<li>No UI update while JS executes</li>
 								<li>Long-running script => Unresponsive UI</li>
@@ -339,6 +344,7 @@ p,div{
 					<section>	
 						<section>
 							<h1>Network</h1>
+							<img class="fullScreenImage" src="images/lifeOfARequestParts.png" alt="">
 						</section>					
 						<section>
 							<h2>Every byte counts</h2>
@@ -353,17 +359,17 @@ p,div{
 //Now, God only knows
 var myFancyObject = {aaaa:1, bbbb:2, cccc:3}
 
-function logTable(obj) {
-console.table(obj);
+function logEverything(obj) {
+console.log(obj);
 }
 
-logTable(myFancyObject);</code></pre>
+logEverything(myFancyObject);</code></pre>
 								<pre class="fragment"><code>
  //103 bytes
- var myFancyObject={aaaa:1,bbbb:2,cccc:3};function logTable(a){console.table(a)}logTable(myFancyObject);</code></pre>
+ var myFancyObject={aaaa:1,bbbb:2,cccc:3};function logEverything(a){console.log(a)}logEverything(myFancyObject);</code></pre>
 								<pre class="fragment"><code>
 //23 bytes
-console.table({a:1,b:2,c:3});</code></pre>
+console.log({a:1,b:2,c:3});</code></pre>
 								<a href="">free with building tools</a>
 								<br>
 								<a href="http://jscompress.com/">JS Compress</a>, <a href="http://marijnhaverbeke.nl/uglifyjs">Uglify</a>, <a href="http://crockford.com/javascript/jsmin">JS Min</a>								
