@@ -1203,7 +1203,7 @@ for(var idx in foo){
 							</code></pre>
 							<a href="http://javascriptweblog.wordpress.com/2011/01/04/exploring-javascript-for-in-loops/">explore for-in</a>
 						</section>
-						<section>
+						<!-- <section>
 							<h2>What is the sum?</h2>
 								<pre><code>
 var numbers = [10, 20, 30];
@@ -1222,7 +1222,7 @@ console.log(sum); //0012
 								<li>Keys always string</li>
 							</ul>
 							<a href="http://javascriptweblog.wordpress.com/2011/01/04/exploring-javascript-for-in-loops/#more-1897">Angus: explore for-in</a>
-						</section>						
+						</section>	 -->					
 						<section>
 							<h2>for vs for-in</h2>							
 							<pre><code>
@@ -1263,31 +1263,23 @@ var myArr = [1,2,3,4,5,6,7,8,9],
 while (i++ &lt; len) {
   console.log(myArr[i]);
 }
-							</code></pre>							
-							<pre class="fragment"><code>
-var i = myArr.length -1;
 
+//do while
 do {
   someFn(arr[i]);
 } while (i--);
 							</code></pre>
-						</section>
-						<section>
-							<h2>reverse while</h2>
-							<pre><code>
+							<pre class="fragment"><code>
 var l = arr.length;
 
 while(l--) {
   someFn(arr[l]);
 }
 							</code></pre>
-							<ul>
-								<li>Even faster than reverse for loop</li>
-							</ul>
 							<a href="http://jsperf.com/fastest-array-loops-in-javascript/32">fastest way to traverse array</a>
 							<br>
 							<a href="https://blogs.oracle.com/greimer/resource/loop-test.html">different looping</a>
-						</section>
+						</section>						
 						<section>
 							<h2>summary of looping</h2>
 							<ol>
