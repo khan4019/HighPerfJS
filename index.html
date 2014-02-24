@@ -2065,7 +2065,7 @@ test();
 							<ol>
 								<li>Don't hold object u dont need</li>
 								<li>use appropriate scope (no/less global)</li>
-								<pre class="fragment"><code>
+<!-- 								<pre class="fragment"><code>
 function getLargeThing (x) {
   var a = function () {
     var largeStr = new Array(1000000).join('x');
@@ -2073,7 +2073,7 @@ function getLargeThing (x) {
 		return largeStr;
 	};
 }();
-							</code></pre>
+							</code></pre> -->
 								<div class="fragment">
 									<li>unbind event listener after DOM removed</li>
 									<li>clean locally cached data</li>
@@ -2150,8 +2150,11 @@ function move(elem) {
 							</ol>		
 							<br>
 							<br>					
-							<a href="https://docs.google.com/presentation/d/19R_E5B__kdE55L1bTpS6IFKbYbHq-PQKKky4do5Yc6A/preview?sle=true#slide=id.g105c64d69_170">performance tooling</a>, <a href="http://www.html5rocks.com/en/tutorials/speed/high-performance-animations/">high perf animation</a>
-
+							<a href="https://docs.google.com/presentation/d/19R_E5B__kdE55L1bTpS6IFKbYbHq-PQKKky4do5Yc6A/preview?sle=true#slide=id.g105c64d69_170">performance tooling</a>, <a href="http://www.html5rocks.com/en/tutorials/speed/high-performance-animations/">high perf animation</a>,
+							<a href="http://jankfree.org/">Jank Free</a>
+							<br>
+							<a href="http://css-tricks.com/myth-busting-css-animations-vs-javascript/">css vs js animation</a>,
+							<a href="http://www.youtube.com/watch?v=mSK70FwUz2A">Debug-Fix Jank</a>
 						</section>						
 						<section>
 							<h2>requestAnimationFrame</h2>
@@ -2173,19 +2176,7 @@ function move(elem) {
 							<br>
 							<a href="http://creativejs.com/resources/requestanimationframe/">raf: tutorial</a>,
 							<a href="http://updates.html5rocks.com/2012/05/requestAnimationFrame-API-now-with-sub-millisecond-precision">sub millisecond precision</a>
-						</section>						
-						<section>
-							<h2>more animation perf</h2>
-							<h6>(explore, experiment and enjoy)</h6>
-							<br>
-							<br>
-							<br>
-							<a href="http://jankfree.org/">Jank Free</a>
-							<br>
-							<a href="http://css-tricks.com/myth-busting-css-animations-vs-javascript/">css vs js animation</a>
-							<br>
-							<a href="http://www.youtube.com/watch?v=mSK70FwUz2A">paul irish: Debugging and Fixing Jank</a>
-						</section>
+						</section>												
 					</section>		
 					<section>
 						<section>
@@ -2840,12 +2831,12 @@ console.log(start - end +'ms');
 								</div>
 							</ol>
 						</section>
-						<section>
+						<!-- <section>
 							<h2>When optimizing</h2>
 							<li>focus on the big things (first)</li>							
 							<li>decide what works for you and your team</li>
 							<li>review your code: <a href="https://groups.google.com/forum/?fromgroups#!forum/jsmentors">JSMentors</a>, <a href="http://codereview.stackexchange.com/">Code Review</a></li>
-						</section>						
+						</section> -->						
 					</section>										
 					<section>
 						<section>
