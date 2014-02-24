@@ -1324,8 +1324,7 @@ while(l--) {
 					</section>
 					<section>
 						<section>
-							<h1>DOM query</h1>							
-							<li>descendant (add it somewhere)</li>
+							<h1>DOM query</h1>														
 						</section>
 						<section>
 							<h2>DOM query</h2>
@@ -1551,14 +1550,13 @@ var text = document.createTextNode('Only one Item');
 li.appendChild(text);
 ul.appendChild(li);
 							</code></pre>
-							<li class="fragment">createTextNode faster than setting innerHTML</li>
+							<li class="fragment">appendChild faster than setting innerHTML</li>
 							<li class="fragment">if ref passed will move from current parent</li>
 							<a href="http://glowfilter.com/blog/javascript-performance-testing-innerhtml-vs-appendchild/">createElement</a>, <a href="http://jsperf.com/creating-text-node/3">TextNode</a>, <a href="http://jsperf.com/realistic-innerhtml-vs-appendchild/15">$.append</a>							
 						</section>						
 						<section>
 							<h2>removeNode</h2>
-							<h4>prefer removeNode() over innherHTML = ''</h4>
-							<p>TODO: why this is happen???</p>
+							<h4>prefer removeNode() over innherHTML = ''</h4>							
 							<pre><code>
 el.innerHTML = '';
 //or
@@ -1650,7 +1648,7 @@ elem.setAttribute('style', elemStyle);
 								<li>Minimize the size of DOM</li>
 								<li>avoid modifying while traversing</li>
 								<li>Dont ask for size while changing</li>
-								<li>Clone Node and dereference aftr clone</li>
+								<li>Clone Node and dereference after clone</li>
 								<li>Minimize reflow and repaint</li>
 								<li>css class vs style attribute</li>
 							</ol>
@@ -1750,11 +1748,7 @@ unmonitorEvents(el);
 						<section>
 							<h2>unbind eventhandler: memory leak</h2>
 							<p>(may go to memory leak section)</p>
-						</section>						
-						<section>
-							<h2>flight.js</h2>
-							<a href="http://twitter.github.io/flight/">flight.js</a>
-						</section>						
+						</section>												
 					</section>
 					<section>
 						<section>
