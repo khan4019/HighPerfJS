@@ -503,47 +503,7 @@ console.log({a:1,b:2,c:3});</code></pre>
 						<section>
 							<img src="images/manageDeveloper.jpg" alt="" class="fullScreenImage">
 						</section>
-					</section>	
-					<section>
-						<section>
-							<h1>Number</h1>
-						</section>
-						<section>
-							<h2>string to number</h2>							
-							<pre><code>
-//constructor
-Number("13268");
-
-//parseInt
-parseInt("13268");
-
-//unary +
-+"13268";
-
-//parseInt with base
-parseInt("13268", 10);
-
-//bitwise >> (right shift)
-"13268" >> 0;
-							</code></pre>
-							<a href="http://jsperf.com/number-vs-parseint-vs-plus/26">use parseInt</a>
-						</section>
-						<section>
-							<h2>add and set to itself</h2>
-							<pre><code>
-var a = 2, 
-   b = 3;
-
-//option-1
-a += b;
-
-//option-2
-a = a + b
-
-							</code></pre>
-							<a href="http://jsperf.com/a-b-vs-a-a-b/2">addition</a>
-						</section>						
-					</section>
+					</section>						
 					<section>
 						<section>
 							<h1 class="">String</h1>
@@ -617,6 +577,46 @@ var strObject = new String('Hello');
 							<br>
 							<a href="https://hacks.mozilla.org/2012/12/performance-with-javascript-string-objects/">MDN: performance of JS String Object</a>
 						</section>
+					</section>
+					<section>
+						<section>
+							<h1>Number</h1>
+						</section>
+						<section>
+							<h2>string to number</h2>							
+							<pre><code>
+//constructor
+Number("13268");
+
+//parseInt
+parseInt("13268");
+
+//unary +
++"13268";
+
+//parseInt with base
+parseInt("13268", 10);
+
+//bitwise >> (right shift)
+"13268" >> 0;
+							</code></pre>
+							<a href="http://jsperf.com/number-vs-parseint-vs-plus/26">use parseInt</a>
+						</section>
+						<section>
+							<h2>add and set to itself</h2>
+							<pre><code>
+var a = 2, 
+   b = 3;
+
+//option-1
+a += b;
+
+//option-2
+a = a + b
+
+							</code></pre>
+							<a href="http://jsperf.com/a-b-vs-a-a-b/2">addition</a>
+						</section>						
 					</section>
 					<section>
 						<section>
