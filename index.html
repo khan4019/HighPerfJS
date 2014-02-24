@@ -1024,13 +1024,7 @@ for (var sum = 0; i-- || console.log(sum); sum += myArr[i]);
 //add an example for this
 							</code></pre>
 							<a href="http://james.padolsey.com/javascript/zakas-javascript-performance-tips/">JS performance tip</a>
-						</section>						
-					</section>
-					<section>
-						<section>
-							<h1>for loop extra</h1>
-							<img src="images/loop5.png" alt="">
-						</section>
+						</section>											
 						<section>
 							<h2>forward or backward</h2>
 							<pre><code>
@@ -1092,8 +1086,8 @@ function byForLoop(myArr, num){
 							<a href="http://jsperf.com/array-filter-vs-simple-loop/2">filter vs simple loop</a>							
 						</section>
 						<section>
-							<h2>apple to apple</h2>
-							<pre><code>
+							<h2>Why this happens?</h2>
+							<!-- <pre><code>
 function filter(array, fn) {
   var results = [];
   var item;
@@ -1103,34 +1097,25 @@ function filter(array, fn) {
   }
   return results;
 }
-							</code></pre>
+							</code></pre> -->
 							<ol class="fragment">
 								<li>range of elements is set before the first call</li>
 								<li>new elements will not be visited</li>
 								<li>if elements are changed or deleted, their value would be original</li>
 								<li class="fragment"> robustness comes with the expense of overhead</li>
-							</ol>													
-							<a href="http://monkeyandcrow.com/blog/why_javascripts_filter_is_slow/">why native filter method is slow</a>
-						</section>
-						<section>
-							<h2>Other array method</h2>
-							<ul>
-								<li>map, forEach, every</li>
-								<li>some, any</li>	
-								<li>reduce, reduceRight</li>							
-							</ul>
-							<br>							
+							</ol>	
+							<br><br>
+							<li class="fragment">also happens for: map, forEach, every, any, etc.</li>											
 							<br>
 							<ol class="fragment">
 								<li>for trusted data</li>
 								<li>not to have deleted values</li>
 								<li>well behaved callbackfn</li>
 							</ol>
+							<br>	
 							<br>
-							<br>
-							<h3 class="fragment">consider for loop</h3>
-							<a href="http://www.ecma-international.org/ecma-262/5.1/#sec-15.4.4.20">spec: filter</a>
-						</section>
+							<a href="http://monkeyandcrow.com/blog/why_javascripts_filter_is_slow/">why native filter method is slow</a>
+						</section>						
 					</section>
 					<section>
 						<section>
