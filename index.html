@@ -590,7 +590,7 @@ a += b;
 a = a + b
 
 							</code></pre>
-							<a href="http://jsperf.com/a-b-vs-a-a-b/2">addition</a>
+							<a href="http://jsperf.com/a-b-vs-a-a-b/2">plusEqual or plus</a>
 						</section>						
 					</section>
 					<section>
@@ -602,38 +602,16 @@ a = a + b
 							<ul>
 								<li>Single threaded.</li>
 								<li>Synchronous execution</li>
-								<li>1 Global context</li>
-								<li>Infinite function contexts</li>								
+								<div class="fragment">
+									<li>1 Global context</li>
+									<li>Infinite function contexts</li>	
+								</div>							
 							</ul>
 							<br>
 							<br>
 							<p class="fragment">Each function call creates a new execution context, even a call to itself.</p>
-						</section>
-						<section>
-							<h2>Variable and function</h2>
-							<pre><code>
-var global = 2;
-
-function b(){	
-   console.log(a);
-}
-
-function c(){	
-   console.log(a);
-}
-</code></pre>				
-							<pre class="fragment"><code>var global = 5;
-
-function foo(){	 
-  var local = 21;
-
-  function dog(){	
-    console.log(local);
-  }
-  dog();
-}</code></pre>
 							<a href="http://davidshariff.com/blog/what-is-the-execution-context-in-javascript/">executiuon context</a>
-						</section>
+						</section>						
 						<section>
 							<h4>global scope</h4>
 							<pre><code>var a = 2; 
