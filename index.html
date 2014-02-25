@@ -1441,7 +1441,7 @@ ul.appendChild(li);
 							<li class="fragment">if ref passed will move from current parent</li>
 							<a href="http://glowfilter.com/blog/javascript-performance-testing-innerhtml-vs-appendchild/">createElement</a>, <a href="http://jsperf.com/creating-text-node/3">TextNode</a>, <a href="http://jsperf.com/realistic-innerhtml-vs-appendchild/15">$.append</a>							
 						</section>						
-						<section>
+						<!-- <section>
 							<h2>removeNode</h2>
 							<h4>prefer removeNode() over innherHTML = ''</h4>							
 							<pre><code>
@@ -1459,7 +1459,7 @@ function emptyDOM(el) {
   }
 							</code></pre>
 							<a href="http://jsperf.com/jquery-html-vs-empty-vs-innerhtml/18">removeNode</a>
-						</section>
+						</section> -->
 						<section>
 							<h2>more changes</h2>
 							<pre><code>
@@ -1518,7 +1518,7 @@ target.parentNode.replaceChild(clone, target);
 								<br>
 								<a href="http://jsperf.com/dom-vs-innerhtml-based-templating/473">JS templating shootoff: important</a>
 						</section>
-						<section>
+						<!-- <section>
 							<h2>style changes</h2>
 							<p>Make multiple predefined style changes at once using className</p>
 							<p>Make multiple dynamic style changes at once using setAttribute</p>
@@ -1527,18 +1527,25 @@ var elem = document.getElementById('styled');
 elemStyle = 'background: blue; color: white;';
 elem.setAttribute('style', elemStyle);
 							</code></pre>
-						</section>
+						</section> -->
 						<section>
-							<h2>Summary</h2>
-							<p>(work on this)</p>
+							<h2>Summary</h2>							
 							<ol>
 								<li>Minimize the size of DOM</li>
 								<li>avoid modifying while traversing</li>
-								<li>Dont ask for size while changing</li>
-								<li>Clone Node and dereference after clone</li>
-								<li>Minimize reflow and repaint</li>
-								<li>css class vs style attribute</li>
+								<br>
+								<div class="fragment">
+									<li>Dont ask for size while changing</li>
+									<li>Clone Node and dereference after clone</li>
+								</div>
+								<br>
+								<div class="fragment">
+									<li>Minimize reflow and repaint</li>
+									<li>css class vs style attribute</li>
+								</div>
 							</ol>
+							<br>
+							<br>
 							<a href="http://blog.korynunn.com/javascript/the-dom-isnt-slow-you-are/">Dom isnt slow you are</a>
 						</section>
 					</section>										
