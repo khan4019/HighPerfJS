@@ -814,8 +814,8 @@ b.lastIndexOf(303, 500);
 							<ul>
 								<li>[] is faster than new Array()</li>
 								<li>a[index] is faster a.push</li>
-								<li>push, unshift multiple</li>
-								<li>fromIndex of indexOf</li>
+								<li>push can insert multiple</li>
+								<li>consider fromIndex if possible</li>
 							</ul>
 							<ul class="fragment">
 								<li>prefer new array over many splice</li>								
@@ -1133,7 +1133,10 @@ for(var j in myArr){
 						</section>
 						<section>
 							<img src="images/steppingThroughLongLoop.gif" alt="">
-							<h3>stepping through long loop while debugging</h3>
+							<br>
+							<br>
+							<br>
+							<br>
 							<h6>from: Addy Osmani (g+)</h6>
 						</section>
 						<section>
@@ -1190,7 +1193,7 @@ while(l--) {
 								<li class="fragment">primitive is faster than constructor</li>
 								<li class="fragment">local variable is faster than out-of scope variable</li>
 								<br>
-								<li class="fragment">push, unshift multiple </li>
+								<li class="fragment">push can insert multiple </li>
 								<li class="fragment">consider fromIndex while using indexOf</li>
 								<br>
 								<li class="fragment">simple for loop is faster than built in filter</li>
@@ -1521,7 +1524,7 @@ target.parentNode.replaceChild(clone, target);
 							<h2>DOM vs innerHTML</h2>
 								<h4>Templating JS vs Mustache</h4>
 								<pre><code>
-//add code example here
+//go to these link and help yourself
 								</code></pre>
 								<a href="http://jsperf.com/dom-vs-innerhtml-based-templating">JSPerf: Dom vs innerhtml based templating</a>
 								<br/>
@@ -1547,7 +1550,7 @@ elem.setAttribute('style', elemStyle);
 								<br>
 								<div class="fragment">
 									<li>Dont ask for size while changing</li>
-									<li>Clone Node and dereference after clone</li>
+									<li>createDocumentFragment, cloneNode</li>
 								</div>
 								<br>
 								<div class="fragment">
@@ -1573,7 +1576,13 @@ elem.setAttribute('style', elemStyle);
 						<section>
 							<h2>event delegate</h2>
 							<pre><code>
-&lt;ul id=&quot;listToDestroy&quot;&gt;<br/>    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;first item&lt;/a&gt;&lt;/li&gt;<br/>    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;second item&lt;/a&gt;&lt;/li&gt;<br/>    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;third item&lt;/a&gt;&lt;/li&gt;<br/>    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;forth item&lt;/a&gt;&lt;/li&gt;<br/>    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Fifth item&lt;/a&gt;&lt;/li&gt;<br/>&lt;/ul&gt;<br/><br/>&lt;script type=&quot;text/javascript&quot;&gt; <br/> document.getElementById('listToDestroy').addEventListener('click', function (e) { <br/>    var elm = e.target.parentNode; <br/>    elm.parentNode.removeChild(elm);<br/>    e.preventDefault();<br/> });<br/>&lt;/script&gt;</code></pre>
+&lt;ul id=&quot;listToDestroy&quot;&gt;<br/>    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;first item&lt;/a&gt;&lt;/li&gt;<br/>    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;second item&lt;/a&gt;&lt;/li&gt;<br/>    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;third item&lt;/a&gt;&lt;/li&gt;<br/>    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;forth item&lt;/a&gt;&lt;/li&gt;<br/>    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Fifth item&lt;/a&gt;&lt;/li&gt;<br/>&lt;/ul&gt;<br/><br/></code></pre>
+							<pre class="fragment"><code>
+&lt;script type=&quot;text/javascript&quot;&gt;  
+var el = document.getElementById('listToDestroy');
+
+el.addEventListener('click', function (e) { <br/>    var elm = e.target.parentNode; <br/>    elm.parentNode.removeChild(elm);<br/>    e.preventDefault();<br/> });<br/>&lt;/script&gt;
+							</code></pre>
 							<a href="http://jsperf.com/events-vanilla-and-jquery/17">js perf delegate</a>
 						</section>
 						<section>
@@ -1643,13 +1652,7 @@ monitorEvents(el, ['click', 'focus', 'keyup']);
 unmonitorEvents(el);
 							</code></pre>	
 							<a href="#">create demo</a>, <a href="http://youtu.be/2zmUSoVMyRU?t=3m9s">master dev tool console</a>
-						</section>
-						<section>
-							<h1 class="noUppercase">Debounce & Throttle</h1>
-							<h2>Defer</h2>
-							<br/>
-							<a href="http://jhankarmahbub.com/presentations/debounce.html">Debounce: Example</a>
-						</section>
+						</section>						
 						<!-- <section>
 							<h2>unbind eventhandler: memory leak</h2>
 							<p>(may go to memory leak section)</p>
@@ -2109,15 +2112,10 @@ window.onscroll = function(e) {
 							</code></pre>
 						</section>											
 						<section>
-							<h2>things to do</h2>
-							<br>
-							<li>Try to avoid handlers to window.onscroll</li>
-							<li class="fragment">debounce/throttle, setTimeout scroll event</li>							
-							<li class="fragment">consider libraries: <a href="http://airbnb.github.io/infinity/">infinity.js</a></li>
-							<br>
-							<br>
-							<br>	
-							<a href="http://www.html5rocks.com/en/tutorials/speed/unnecessary-paints/">avoid unnecessary Paints</a>
+							<h1 class="noUppercase">Debounce & Throttle</h1>
+							<h2>Defer</h2>
+							<br/>
+							<a href="http://jhankarmahbub.com/presentations/debounce.html">Debounce: Example</a>
 						</section>											
 						<section>
 							<h2>External effect</h2>
