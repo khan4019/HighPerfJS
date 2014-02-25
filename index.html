@@ -1001,10 +1001,10 @@ function filter(array, fn) {
 					</section>
 					<section>
 						<section>
-							<h1>For in </h1>
+							<h1>For-in, while </h1>
 							<img src="images/loop4.jpg" alt="">							
 						</section>						
-						<section>
+						<!-- <section>
 							<h5>"Iterates over the enumerable properties of an object, in arbitrary order" - MDN</h5>
 							<pre><code>
 for (var variable in objectExpression) {statement}
@@ -1012,21 +1012,17 @@ for (var variable in objectExpression) {statement}
 							<ul class="fragment">
 								<li>statement is optional</li>
 								<li>var can be declared outside</li>							
-							</ul>
-							<pre class="fragment"><code>
-var myObj = {a:1, b:2, c:3};
+							</ul>																					
+						</section> -->
+						<section>
+							<h4>enumerates inherited properties</h4>
+							<pre><code>var myObj = {a:1, b:2, c:3};
 
 for(var key in myObj){
   console.log(myObj[key]);
 }
-// 1, 2, 3
-							</code></pre>							
-							<a href="http://javascriptweblog.wordpress.com/2011/01/04/exploring-javascript-for-in-loops/">Angus Croll: for-in loops</a>
-						</section>
-						<section>
-							<h2>enumerates inherited properties</h2>
-							<pre class="fragment"><code>
-var myObj = {a:1, b:2, c:3};
+// 1, 2, 3</code></pre>
+							<pre class="fragment"><code>var myObj = {a:1, b:2, c:3};
 var mySon = Object.create(myObj);
 mySon.d = 4;
 mySon.e = 5;
@@ -1035,14 +1031,13 @@ for(var key in mySon){
   console.log(mySon[key]);
 }
 // 4, 5, 1, 2, 3</code></pre>
-								<pre class="fragment"><code>
-for(var key in mySon){
+								<pre class="fragment"><code>for(var key in mySon){
   if(mySon.hasOwnProperty(key)){  
      console.log(mySon[key]);
   }
 }
-//4, 5
-								</code></pre>
+//4, 5</code></pre>
+								<a href="http://javascriptweblog.wordpress.com/2011/01/04/exploring-javascript-for-in-loops/">Angus Croll: for-in loops</a>
 						</section>
 						<section>
 							<h2>cache hasOwnProperty</h2>
