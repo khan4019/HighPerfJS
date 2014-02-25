@@ -326,9 +326,7 @@ logEverything(myFancyObject);</code></pre>
  var myFancyObject={aaaa:1,bbbb:2,cccc:3};function logEverything(a){console.log(a)}logEverything(myFancyObject);</code></pre>
 								<pre class="fragment"><code>
 //23 bytes
-console.log({a:1,b:2,c:3});</code></pre>
-								<a href="">free with building tools</a>
-								<br>
+console.log({a:1,b:2,c:3});</code></pre>								
 								<a href="http://jscompress.com/">JS Compress</a>, <a href="http://marijnhaverbeke.nl/uglifyjs">Uglify</a>, <a href="http://crockford.com/javascript/jsmin">JS Min</a>								
 						</section>
 						<section>
@@ -345,10 +343,11 @@ console.log({a:1,b:2,c:3});</code></pre>
 							<pre class="fragment"><code>
 &lt;script src=&quot;allScripts.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
 							</code></pre>
+							<br>	
 							<div class="fragment">
-								<h5>CommonJS, Require JS, Grunt!</h5>							
+								<h5>CommonJS, Require JS, Grunt!, Yo</h5>							
 							</div>
-							<a href="http://yeoman.io/">http://yeoman.io</a>
+							
 						</section>
 						<section>
 							<h1>3. Load Less</h1>
@@ -508,11 +507,6 @@ var strObject = new String('Hello');
 							<br>
 							<a href="https://hacks.mozilla.org/2012/12/performance-with-javascript-string-objects/">MDN: performance of JS String Object</a>
 						</section>
-					</section>
-					<section>
-						<section>
-							<h1>Number</h1>
-						</section>
 						<section>
 							<h2>string to number</h2>							
 							<pre><code>
@@ -533,22 +527,7 @@ parseInt("13268", 10);
 							</code></pre>
 							<a href="http://jsperf.com/number-vs-parseint-vs-plus/26">use parseInt</a>
 						</section>
-						<section>
-							<h2>add and set to itself</h2>
-							<pre><code>
-var a = 2, 
-   b = 3;
-
-//option-1
-a += b;
-
-//option-2
-a = a + b
-
-							</code></pre>
-							<a href="http://jsperf.com/a-b-vs-a-a-b/2">plusEqual or plus</a>
-						</section>						
-					</section>
+					</section>					
 					<section>
 						<section>
 							<h1>JavaScript execution</h1>
