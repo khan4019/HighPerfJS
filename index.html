@@ -1808,8 +1808,7 @@ function a() {
     return function () {
         return largeStr;
     };
-}
-							</code></pre>
+}</code></pre>
 							<a href="http://coding.smashingmagazine.com/2012/11/05/writing-fast-memory-efficient-javascript/">Addy Osmani: memory efficient JS</a>
 							<br>
 							<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript?redirectlocale=en-US&redirectslug=JavaScript%2FA_re-introduction_to_JavaScript#Memory_leaks">IE8: memory leaks</a>
@@ -1836,7 +1835,8 @@ function a() {
 								<li class="fragment">Delegate Events</li>
 								<br>
 								<div class="fragment">
-									<li>Inheritance: Object.create</li>
+									<!-- <li>Inheritance: Object.create</li> -->
+									<li>do u need a closure. or function is enough</li>
 									<li>Closure: avoid memory leak</li>
 								</div>
 							</ol>
@@ -1893,7 +1893,7 @@ var fibonacci = (function () {
 })();
 							</code></pre>
 						</section>
-						<section>
+						<!-- <section>
 							<h2>General Memoization</h2>
 							<pre><code contenteditable>
 Function.prototype.memoize = function(){
@@ -1916,7 +1916,7 @@ memoFooBar(1); // returned from cache
 memoFooBar(2); // calculate and cache
 							</code></pre>
 						<a href="http://addyosmani.com/blog/faster-javascript-memoization/">Addy Osmani: JS Memoization</a>, <a href="https://github.com/addyosmani/memoize.js/blob/master/memoize.js">memoize.js</a>
-						</section>						
+						</section>	 -->					
 					</section>						
 					<section>
 						<section>
