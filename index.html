@@ -64,8 +64,8 @@
 				.animate_block {
 					position: absolute;
 					background-color: blue;
-					width: 30px;
-					height: 20px;
+					width: 50px;
+					height: 40px;
 					padding-top: 10px;
 					text-align: center;
 					color: #fff;
@@ -2049,15 +2049,14 @@ function move(elem) {
 						<section>
 							<h2>animations perf</h2>							
 							<ol>
-								<li>elements have position: static (by default)</li>
+								<li>by default, elements have position: static</li>
 								<li>animation cause reflow (expensive)</li>
 								<br>
 								<div class="fragment">
 									<li>Try to avoid reflow (smoother, less CPU)</li>
 									<li>position: absolute/ fixed for Elements to animated</li>									
-								</div>
+								</div>								
 								<br>
-								<li class="fragment">repaint not reflow</li>
 								<br>
 								<li class="fragment">put multiple animation in same timer (same loop)</li>
 							</ol>		
@@ -2240,7 +2239,7 @@ $( "#list" ).on( "click", "a", function( event ) {
 $(document).ready(function () {
    console.log('document is ready. I can sleep now');            
 });</code></pre>
-							<h3 class="fragment">Script as Last Tag of body</h3>							
+							<h5 class="fragment">Script as Last Tag of body</h5>							
 							<pre class="fragment"><code>
 document.addEventListener('DOMContentLoaded', function(){
    console.log('document is ready. I can sleep now'); 
@@ -2579,11 +2578,9 @@ var timeout = setTimeout(function () {
     },60000); // timeout after a minute
 xhr.send();
 							</code></pre>
-						</section>
-						<section>
-							<h2>simultaneous ajax</h2>
-							<a href="http://css-tricks.com/multiple-simultaneous-ajax-requests-one-callback-jquery/">multiple ajax</a>
-						</section>	
+							<h2 class="fragment">simultaneous ajax</h2>
+							<a href="http://css-tricks.com/multiple-simultaneous-ajax-requests-one-callback-jquery/">Chris Coyer: multiple ajax</a>
+						</section>						
 						<section>
 							<h2>Client-side storage</h2>
 							<p>(If you need, google and read)</p>
