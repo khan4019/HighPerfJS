@@ -1157,8 +1157,11 @@ while(l--) {
 							<ol>
 								<li>don't measure length in every iteration</li>
 								<li>cache object properties, function used in repeatingCode</li>
+								<br>
 								<li>backward for loop is faster than forward</li>
+								<br>								
 								<li class="fragment">for-in only when iterating over object</li>
+								<br>
 								<li class="fragment">on array, reverse while is the fastest</li>
 							</ol>
 						</section>
@@ -1274,28 +1277,14 @@ var nodesArray = Array.prototype.slice.call(myNodeList);</code></pre>
 						</section>
 						<section>
 							<h2>Cache</h2>
-							<pre><code>
-var blah = document.getElementById('myID');
+							<pre><code>var blah = document.getElementById('myID');
 var blah2 = document.getElementById('myID2');
-var blah3 = document.getElementById('myID3');
-
-
-var blah = document.getElementById('myID'),
-    blah2 = document.getElementById('myID2'),
-    blah3 = document.getElementById('myID3');
-							</code></pre>							
-							<pre class="fragment"><code>
-var doc = document,
+var blah3 = document.getElementById('myID3');</code></pre>							
+							<pre class="fragment"><code>var doc = document,
     blah = doc.getElementById('myID'),
     blah2 = doc.getElementById('myID2'),
-    blah3 = doc.getElementById('myID3');
-							</code></pre>
-							<a href="http://jsperf.com/caching-document-with-var-vs-without/2">jsPerf:caching</a>
-						</section>
-						<section>
-							<h2>cache querySelector</h2>
-							<pre><code>
-&lt;div class=&quot;awesome-selector&quot;&gt;<br/>  &lt;div class=&quot;inner-1&quot;&gt;&lt;/div&gt;<br/>  &lt;div class=&quot;inner-2&quot;&gt;&lt;/div&gt;<br/>  &lt;div class=&quot;inner-3&quot;&gt;&lt;/div&gt;<br/>&lt;/div&gt;
+    blah3 = doc.getElementById('myID3');</code></pre>							
+							<pre class="fragment"><code>&lt;div class=&quot;awesome-selector&quot;&gt;<br/>  &lt;div class=&quot;inner-1&quot;&gt;&lt;/div&gt;<br/>  &lt;div class=&quot;inner-2&quot;&gt;&lt;/div&gt;<br/>  &lt;div class=&quot;inner-3&quot;&gt;&lt;/div&gt;<br/>&lt;/div&gt;
 							</code></pre>
 							<pre class="fragment"><code>
 var awesome = document.querySelector('.awesome-selector');
@@ -1303,6 +1292,7 @@ var h1 = awesome.querySelector('.inner-1');
 var h2 = awesome.querySelector('.inner-2');
 var h3 = awesome.querySelector('.inner-3');
 							</code></pre>
+							<a href="http://jsperf.com/caching-document-with-var-vs-without/2">jsPerf:caching</a>,
 							<a href="http://jsperf.com/caching-queryselector">cache query selector</a>
 						</section>						
 						<section>
