@@ -1697,14 +1697,14 @@ function Child(args){
 							<h2>Object.create</h2>
 							<pre><code>
 var a = {a: 1}; 
-// a ---> Object.prototype ---> null
+// a ---&gt; Object.prototype ---&gt; null
 
 var b = Object.create(a);
-// b ---> a ---> Object.prototype ---> null
+// b ---&gt; a ---&gt; Object.prototype ---&gt; null
 
 
 var c = Object.create(b);
-// c ---> b ---> a ---> Object.prototype ---> null
+// c ---&gt; b ---&gt; a ---&gt; Object.prototype ---&gt; null
 							</code></pre>							
 							<ol>
 								<li class="fragment">object creation is faster than function</li>
@@ -1736,7 +1736,7 @@ var c = Object.create(b);
 							<br>
 							<a href="http://erik.eae.net/archives/2009/11/09/21.12.16/">inheritance antipattern</a>
 						</section>						
-					</section>	 -->
+					</section> -->	
 					<section>
 						<section>
 							<h1>closure</h1>
