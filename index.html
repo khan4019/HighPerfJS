@@ -94,7 +94,7 @@
 					<section>
 						<h1>High Perf JS</h1>					
 						<br/>
-						<h2><a href="http://goo.gl/0JIpFe">goo.gl/0JIpFe</a> </h2>
+						<h2 class="fragment"><a href="http://goo.gl/0JIpFe">goo.gl/0JIpFe</a> </h2>
 						<br/>
 						<p>
 							<a href="http://jhankarmahbub.com">MD Khan</a> / <a href="http://twitter.com/mdkhan005">@mdkhan005</a>
@@ -438,12 +438,12 @@ console.log({a:1,b:2,c:3});</code></pre>
 						<section>
 							<h2>JS: advices</h2>
 							<ul>
-								<li>jsLint, jsHing</li>
+								<li>jsLint, jsHint</li>
 								<li>Best Practice</li>
 								<li>standard</li>
 								<li>What does the Boss say?</li>
 								<li>framework suggestion</li>
-								<li>Random guy in JS meetup</li>
+								<li class="fragment">Random guy in JS meetup</li>
 							</ul>							
 						</section>
 						<section>
@@ -585,8 +585,7 @@ function b(){ console.log(a); }
 function c(){ console.log(a); }
 b();						
 c();</code></pre>
-							<img class="fragment" src="images/multiScope.png" alt="">
-							<h4 class="fragment">new scope is created even a function call itself</h4>
+							<img class="fragment" src="images/multiScope.png" alt="">							
 							<a href="http://toddmotto.com/everything-you-wanted-to-know-about-javascript-scope/">Everything you wanted to know about scope</a>
 						</section>
 						<section>
@@ -632,11 +631,11 @@ function() {
         return 'fooed';
     }    
     var bar;
-    var a;
-    a = 5;
+    var a;    
     bar = function() {
             return 'world';
-        };    
+        };
+    a = 5;        
 }							</code></pre>
 						</section>
 					</section>
