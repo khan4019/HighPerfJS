@@ -967,9 +967,9 @@ function byForLoop(myArr, num){
 }</code></pre>
 							<a href="http://jsperf.com/array-filter-vs-simple-loop/2">filter vs simple loop</a>							
 						</section>
-						<section>
+						<!--<section>
 							<h2>Why this happens?</h2>
-							<!-- <pre><code>
+							 <pre><code>
 function filter(array, fn) {
   var results = [];
   var item;
@@ -979,7 +979,7 @@ function filter(array, fn) {
   }
   return results;
 }
-							</code></pre> -->
+							</code></pre> 
 							<ol class="fragment">
 								<li>range of elements is set before the first call</li>
 								<li>new elements will not be visited</li>
@@ -997,7 +997,7 @@ function filter(array, fn) {
 							<br>	
 							<br>
 							<a href="http://monkeyandcrow.com/blog/why_javascripts_filter_is_slow/">why native filter method is slow</a>
-						</section>						
+						</section>		-->				
 					</section>
 					<section>
 						<section>
