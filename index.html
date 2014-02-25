@@ -641,7 +641,8 @@ function useGlobal() {
     for (j = 0; j &lt; 1000; j++)
         console.log(myArr[j]);
 }
-
+							</code></pre>
+							<pre class="fragment"><code>
 function useLocal() {
     var localArr = myArr;
     for (var k = 0; k &lt; 1000; k++)
@@ -716,44 +717,27 @@ for(var i =0; i &lt; 1000; i++){
 						</section>
 						<section>
 							<h2>when to use Array</h2>							
-							<ul>
+							<br>
+							<ol>
 								<li>Same Type</li>
 								<li>Use Full Array</li>
-								<li>Avoid Pre-allocate</li>
-								<li>Grow as you Go</li>
-							</ul>
+								<li>Avoid Pre-allocate, Grow as you Go</li>
+							</ol>
 							<br/>
-							<br>
-							<br>
-							<a href="http://jsperf.com/type-inference-performance/2">Type Inference Performance</a>, 
-							<a href ="http://jsperf.com/sparse-arrays-vs-full-arrays">Sparse vs Full Arrays</a>, 
-							<a href="http://jsperf.com/pre-allocated-arrays">Pre-allocated Arrays</a>
-
-						</section>
-						<section>
-							<h2>How to Create Array</h2>
-							<pre><code>
+							<pre class="fragment"><code>
 var a = []; // empty
 var b = new Array(); //empty
 
 var c = [1,2]; 
 
 var d = new Array(5); // array of size 5
-var e = new Array(5, 10); //array of two element</code></pre>							
-							<ol class="fragment">
-								<li>literal will always produce array: just execute</li>
-								<li>constructor is a function call plus execution, argument check</li>								
-							</ol>
-							<pre class="fragment"><code>
-a = []; // executor knows nothing
-for(var i = 1; i &lt;= 4; i++) {
-	 a.push(i);
-}
-// just do it:
-var a = [1, 2, 3, 4];</code></pre>							
-							<a href="http://stackoverflow.com/questions/7375120/why-is-arr-faster-than-arr-new-array">why [] faster</a>, 					
-							<a href="http://jsperf.com/literal-vs-new-23/2">literal vs new</a>
-						</section>						
+var e = new Array(5, 10); //array of two element
+							</code></pre>
+							<br>
+							<br>
+							<a href="http://stackoverflow.com/questions/7375120/why-is-arr-faster-than-arr-new-array">why [] faster</a>, 
+							<a href ="http://jsperf.com/sparse-arrays-vs-full-arrays">Sparse vs Full Arrays</a> 
+						</section>											
 						<section>
 							<h2>push vs assign</h2>
 							<pre><code>
