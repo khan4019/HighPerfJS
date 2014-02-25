@@ -873,15 +873,21 @@ var myArr = [1, 2, 3, 4, 5],
 for(var i =0; i&lt;len && i&lt;3; i++){
   console.log(myArr[i]);  
 }
-							</code></pre>
-							<pre class="fragment"><code>
+							</code></pre>							
+<!-- 							<pre class="fragment"><code>
 //skip iteratingCondition
 var i = 0;
 for(;;i++){
   console.log(i);
   if(i==5) break;
 }
-							</code></pre>							
+							</code></pre> -->							
+							<pre class="fragment"><code>
+//do as little as possible in each loop
+//will see an example in future
+							</code></pre>
+							<a href="http://james.padolsey.com/javascript/zakas-javascript-performance-tips/">JS performance tip</a>
+
 						</section>
 <!-- 						<section>		
 							<pre class="fragment"><code>
@@ -900,14 +906,7 @@ var myArr = [1, 2, 3, 4, 5],
 for (var sum = 0; i-- || console.log(sum); sum += myArr[i]);
 //15
 							</code></pre>
-						</section> -->
-						<section>
-							<h2>do as little as possible in each loop</h2>
-							<pre><code>
-//will see an example in future
-							</code></pre>
-							<a href="http://james.padolsey.com/javascript/zakas-javascript-performance-tips/">JS performance tip</a>
-						</section>											
+						</section> -->																	
 						<section>
 							<h2>forward or backward</h2>
 							<pre><code>
