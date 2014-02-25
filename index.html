@@ -605,28 +605,26 @@ c();</code></pre>
 						<section>
 							<h4>hoisting</h4>
 							<pre><code>
-function() {
-    var a = 5;
+function() {    
     var bar = function() {
             return 'world';
-        };
-    var b = 7;
+        };    
     function foo() {
         return 'fooed';
     }
+    var a = 5;
 }							</code></pre>
 							<pre class="fragment"><code>
 function() {
     function foo() {
         return 'fooed';
-    }
-    var a = 5;
+    }    
     var bar;
-    var b;
+    var a;
+    a = 5;
     bar = function() {
             return 'world';
-        };
-    b = 7;    
+        };    
 }							</code></pre>
 						</section>
 					</section>
