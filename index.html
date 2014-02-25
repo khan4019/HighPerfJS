@@ -278,19 +278,14 @@ p,div{
 							<br>
 							<br>
 							<br>
-							<a href="http://stackoverflow.com/questions/8996852/load-and-execute-order-of-scripts">load and execution order</a>	
-							<br>
-							<a href="http://www.nczonline.net/blog/2009/01/05/what-determines-that-a-script-is-long-running/">What determines long running script</a>
+							<a href="http://stackoverflow.com/questions/8996852/load-and-execute-order-of-scripts">load and execution order</a>
 						</section>
 						<section>
 							<h2>how u add JavaScript</h2>
 							<pre><code>
 &lt;script src=&quot;1.js&quot;&gt;&lt;/script&gt;<br/>&lt;script src=&quot;2.js&quot;&gt;&lt;/script&gt;
 							</code></pre>
-							<ol class="fragment">
-								<li>Starts to download 1.js first</li>
-								<li>will start download 2.js (if possible)</li>
-								<li>browser have 6 connection per hostname</li>
+							<ol class="fragment">							
 								<br>
 								<li class="fragment">will not start parsing and executing 2.js before 1.js is downloaded, parsed and executed</li>
 								<br>
