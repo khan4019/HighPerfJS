@@ -810,41 +810,7 @@ b.lastIndexOf(303, 500);
 								<li>prefer new array over many splice</li>								
 							</ul>
 						</section>						
-					</section>
-					<section>
-						<section>
-							<h1>Object</h1>
-						</section>						
-						<section>
-							<h2>When to use Object</h2>
-							<br>
-							<br>
-							<ol>
-								<li>Varying types properties </li>
-								<li>Integer-indexed Objects is always faster</li>
-								<li>Use Object.Create()</li>
-							</ol>
-							<br/>									
-							<br/>		
-							<a href="http://jsperf.com/object-create-vs-constructor-vs-object-literal/7">Object.create() vs. constructor vs. object literal</a>
-						</section>	
-						<section>
-							<h2>create object</h2>
-							<pre><code>
-var myObj1 = {};
-
-var myObj2 = new Object();
-							</code></pre>
-							<pre class="fragment"><code>
-function MyObj(){
-	
-}
-
-var myObj3 = new MyObj();
-							</code></pre>
-							<a href="http://jsperf.com/object-create-vs-constructor-vs-object-literal/86"></a>
-						</section>
-					</section>
+					</section>					
 					<section>
 						<section>
 							<h1>loop</h1>
