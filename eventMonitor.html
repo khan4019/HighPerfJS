@@ -1,0 +1,16 @@
+<input id="myInput" type="text">
+<script>
+	var el = document.getElementById('myInput');
+	el.addEventListener('focus', function (e) {
+		console.log('focused');
+	});
+
+	el.addEventListener('blur', function (e) {
+		console.log('blured');
+	});
+
+	el.addEventListener('keyup', function (e) {
+		console.log('keyup');
+	});
+
+</script>
