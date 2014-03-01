@@ -987,140 +987,7 @@ function byForLoop(myArr, num){
 }</code></pre>
 							<a href="http://jsperf.com/array-filter-vs-simple-loop/2">filter vs simple loop</a>							
 						</section>
-						<!--<section>
-							<h2>Why this happens?</h2>
-							 <pre><code>
-function filter(array, fn) {
-  var results = [];
-  var item;
-  for (var i = 0, len = array.length; i &lt; len; i++) {
-    item = array[i];
-    if (fn(item)) results.push(item);
-  }
-  return results;
-}
-							</code></pre> 
-							<ol class="fragment">
-								<li>range of elements is set before the first call</li>
-								<li>new elements will not be visited</li>
-								<li>if elements are changed or deleted, their value would be original</li>
-								<li class="fragment"> robustness comes with the expense of overhead</li>
-							</ol>	
-							<br><br>
-							<li class="fragment">also happens for: map, forEach, every, any, etc.</li>											
-							<br>
-							<ol class="fragment">
-								<li>for trusted data</li>
-								<li>not to have deleted values</li>
-								<li>well behaved callbackfn</li>
-							</ol>
-							<br>	
-							<br>
-							<a href="http://monkeyandcrow.com/blog/why_javascripts_filter_is_slow/">why native filter method is slow</a>
-						</section>		-->				
-					</section>
-					<section>
-						<section>
-							<h1>For-in, while </h1>
-							<img src="images/loop4.jpg" alt="">							
-						</section>						
-						<!-- <section>
-							<h5>"Iterates over the enumerable properties of an object, in arbitrary order" - MDN</h5>
-							<pre><code>
-for (var variable in objectExpression) {statement}
-							</code></pre>
-							<ul class="fragment">
-								<li>statement is optional</li>
-								<li>var can be declared outside</li>							
-							</ul>																					
-						</section> -->
-						<section>
-							<h4>enumerates inherited properties</h4>
-							<pre><code>var myObj = {a:1, b:2, c:3};
-
-for(var key in myObj){
-  console.log(myObj[key]);
-}
-// 1, 2, 3</code></pre>
-							<pre class="fragment"><code>var myObj = {a:1, b:2, c:3};
-var mySon = Object.create(myObj);
-mySon.d = 4;
-mySon.e = 5;
-
-for(var key in mySon){
-  console.log(mySon[key]);
-}
-// 4, 5, 1, 2, 3</code></pre>
-								<pre class="fragment"><code>for(var key in mySon){
-  if(mySon.hasOwnProperty(key)){  
-     console.log(mySon[key]);
-  }
-}
-//4, 5</code></pre>
-								<a href="http://javascriptweblog.wordpress.com/2011/01/04/exploring-javascript-for-in-loops/">Angus Croll: for-in loops</a>
-						</section>
-						<section>
-							<h2>cache hasOwnProperty</h2>
-							<pre><code>
- var i,
-    obj = {},
-    hasOwn = Object.prototype.hasOwnProperty;
-
-for(var j = 0; j&lt;10000; j++){
-  obj[j] = j;
-}
-							</code></pre>
-							<pre class="fragment"><code>
-for (i in obj) {
-    if (hasOwn.call(obj, i)) {
-         console.log(i, ":", obj[i]);
-    }
-}
-							</code></pre>
-							<p>not a performance gain for modern browsers</p>
-							<a href="http://jsperf.com/for-in-loop-caching-hasownproperty/3">cache hasOwnProperty</a>
-						</section>
-						<!--<section>
-							<h2>coerce to object</h2>
-							<pre><code>
-var myArr = [10, 20, 30];
-
-for(var idx in myArr){
-   console.log(myArr[idx])	
-}
-//10, 20, 30
-							</code></pre>
-							<pre class="fragment"><code>
-var foo = 'bar';
-
-for(var idx in foo){
-   console.log(foo[idx])	
-}
-//b, a, r
-							</code></pre>
-							<a href="http://javascriptweblog.wordpress.com/2011/01/04/exploring-javascript-for-in-loops/">explore for-in</a>
-						</section>
-						 <section>
-							<h2>What is the sum?</h2>
-								<pre><code>
-var numbers = [10, 20, 30];
-var sum = 0;
-for(var num in numbers){
-	sum += num;	
-}
-
-console.log(sum); //?
-								</code></pre>
-								<pre class="fragment"><code>
-console.log(sum); //0012				
-								</code></pre>
-							<ul class="fragment">
-								<li>Always enumerates the keys</li>
-								<li>Keys always string</li>
-							</ul>
-							<a href="http://javascriptweblog.wordpress.com/2011/01/04/exploring-javascript-for-in-loops/#more-1897">Angus: explore for-in</a>
-						</section>	 -->					
-						<section>
+												<section>
 							<h2>for vs for-in</h2>							
 							<pre><code>
 var myArr = [1, 2, 3, 4, 5, ... ];
@@ -1188,7 +1055,140 @@ while(l--) {
 								<li class="fragment">on array, reverse while is the fastest</li>
 							</ol>
 						</section>
+						<!--<section>
+							<h2>Why this happens?</h2>
+							 <pre><code>
+function filter(array, fn) {
+  var results = [];
+  var item;
+  for (var i = 0, len = array.length; i &lt; len; i++) {
+    item = array[i];
+    if (fn(item)) results.push(item);
+  }
+  return results;
+}
+							</code></pre> 
+							<ol class="fragment">
+								<li>range of elements is set before the first call</li>
+								<li>new elements will not be visited</li>
+								<li>if elements are changed or deleted, their value would be original</li>
+								<li class="fragment"> robustness comes with the expense of overhead</li>
+							</ol>	
+							<br><br>
+							<li class="fragment">also happens for: map, forEach, every, any, etc.</li>											
+							<br>
+							<ol class="fragment">
+								<li>for trusted data</li>
+								<li>not to have deleted values</li>
+								<li>well behaved callbackfn</li>
+							</ol>
+							<br>	
+							<br>
+							<a href="http://monkeyandcrow.com/blog/why_javascripts_filter_is_slow/">why native filter method is slow</a>
+						</section>		-->				
 					</section>
+					<!-- <section>
+						<section>
+							<h1>For-in, while </h1>
+							<img src="images/loop4.jpg" alt="">							
+						</section>						
+						<section>
+							<h5>"Iterates over the enumerable properties of an object, in arbitrary order" - MDN</h5>
+							<pre><code>
+for (var variable in objectExpression) {statement}
+							</code></pre>
+							<ul class="fragment">
+								<li>statement is optional</li>
+								<li>var can be declared outside</li>							
+							</ul>																					
+						</section> 
+						<section>
+							<h4>enumerates inherited properties</h4>
+							<pre><code>var myObj = {a:1, b:2, c:3};
+
+for(var key in myObj){
+  console.log(myObj[key]);
+}
+// 1, 2, 3</code></pre>
+							<pre class="fragment"><code>var myObj = {a:1, b:2, c:3};
+var mySon = Object.create(myObj);
+mySon.d = 4;
+mySon.e = 5;
+
+for(var key in mySon){
+  console.log(mySon[key]);
+}
+// 4, 5, 1, 2, 3</code></pre>
+								<pre class="fragment"><code>for(var key in mySon){
+  if(mySon.hasOwnProperty(key)){  
+     console.log(mySon[key]);
+  }
+}
+//4, 5</code></pre>
+								<a href="http://javascriptweblog.wordpress.com/2011/01/04/exploring-javascript-for-in-loops/">Angus Croll: for-in loops</a>
+						</section>
+						<section>
+							<h2>cache hasOwnProperty</h2>
+							<pre><code>
+ var i,
+    obj = {},
+    hasOwn = Object.prototype.hasOwnProperty;
+
+for(var j = 0; j&lt;10000; j++){
+  obj[j] = j;
+}
+							</code></pre>
+							<pre class="fragment"><code>
+for (i in obj) {
+    if (hasOwn.call(obj, i)) {
+         console.log(i, ":", obj[i]);
+    }
+}
+							</code></pre>
+							<p>not a performance gain for modern browsers</p>
+							<a href="http://jsperf.com/for-in-loop-caching-hasownproperty/3">cache hasOwnProperty</a>
+						</section>
+						<section>
+							<h2>coerce to object</h2>
+							<pre><code>
+var myArr = [10, 20, 30];
+
+for(var idx in myArr){
+   console.log(myArr[idx])	
+}
+//10, 20, 30
+							</code></pre>
+							<pre class="fragment"><code>
+var foo = 'bar';
+
+for(var idx in foo){
+   console.log(foo[idx])	
+}
+//b, a, r
+							</code></pre>
+							<a href="http://javascriptweblog.wordpress.com/2011/01/04/exploring-javascript-for-in-loops/">explore for-in</a>
+						</section>
+						 <section>
+							<h2>What is the sum?</h2>
+								<pre><code>
+var numbers = [10, 20, 30];
+var sum = 0;
+for(var num in numbers){
+	sum += num;	
+}
+
+console.log(sum); //?
+								</code></pre>
+								<pre class="fragment"><code>
+console.log(sum); //0012				
+								</code></pre>
+							<ul class="fragment">
+								<li>Always enumerates the keys</li>
+								<li>Keys always string</li>
+							</ul>
+							<a href="http://javascriptweblog.wordpress.com/2011/01/04/exploring-javascript-for-in-loops/#more-1897">Angus: explore for-in</a>
+						</section>	 					
+					</section>-->
 					<section>
 						<section>
 							<h1>so far</h1>
