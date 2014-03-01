@@ -104,9 +104,7 @@
 					<section>
 						<h2>Improvement</h2>
 						<ol>
-							<li>make it smaller: remove memoization</li>							
-							<li>array could be lighter: takeof unshift, lastIndexOf</li>
-							<li>take of hasOwnProperty + cache of hasOwnProperty of for-in</li>
+							<li>make it smaller: remove memoization</li>														
 							<li>could remove cloneNode</li>
 							<li>could remove scroll</li>
 							<li>make jquery second to alst slide off</li>
@@ -1369,7 +1367,7 @@ var all = inpArr.concat(butArr);
 								<li class="fragment">Attribute – input[type="checkbox"]</li>
 								<li class="fragment">Pseudo – p:first-child</li>
 							</ul>
-							<li class="fragment">think again about crazy long selector</li>
+							<li class="fragment">think again about crazy long selector</li>							
 							<br/>
 							<a href="http://www.youtube.com/watch?v=a2_6bGNZ7bA">Faster HTML and CSS</a>
 						</section>
@@ -1377,7 +1375,8 @@ var all = inpArr.concat(butArr);
 							<h3>select by attribute value</h3>
 							<pre><code>&lt;div&gt;<br/>  &lt;span data-control=&quot;true&quot;&gt;Something, Darkside&lt;/span&gt;<br/>&lt;/div&gt;</code></pre>
 							<pre class="fragment"><code>
-document.querySelectorAll('[data-control]');								
+//add more complex example, search in high perf css
+document.querySelectorAll('[data-control]');
 							</code></pre>
 							<!-- <pre class="fragment"><code>
 getElementByAttributeValue('data-control');
@@ -1878,7 +1877,7 @@ function a() {
 							<img src="images/question1.jpg" alt="">
 						</section>
 					</section>
-					<section>
+					<!--<section>
 						<section>
 							<h1>Momoization</h1>
 						</section>
@@ -1925,7 +1924,7 @@ var fibonacci = (function () {
 })();
 							</code></pre>
 						</section>
-						<!-- <section>
+						 <section>
 							<h2>General Memoization</h2>
 							<pre><code contenteditable>
 Function.prototype.memoize = function(){
@@ -1948,8 +1947,8 @@ memoFooBar(1); // returned from cache
 memoFooBar(2); // calculate and cache
 							</code></pre>
 						<a href="http://addyosmani.com/blog/faster-javascript-memoization/">Addy Osmani: JS Memoization</a>, <a href="https://github.com/addyosmani/memoize.js/blob/master/memoize.js">memoize.js</a>
-						</section>	 -->					
-					</section>						
+						</section>	 					
+					</section>		-->				
 					<section>
 						<section>
 							<h1>Garbage</h1>
