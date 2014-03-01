@@ -696,6 +696,7 @@ for(var i = 0; i &lt; someArray.length; i++) {
    container.innerHtml += 'my number: ' + i;  
    console.log(i);  
 } 
+//caution, this cause reflow
 							</code></pre>
 							<a href="http://jsperf.com/property-access-vs-variable-caching">property access vs variable cache</a>
 						</section>
@@ -770,19 +771,29 @@ var e = new Array(5, 10); //array of two element
 							<pre><code>
 var a = [], b = [];
 
-//push
 for (var i = 0; i&lt;1000; i++){
-   a.push(i);	
+   a.push(i);	//push
 }
 
-//assign by index
 for (var j = 0; j&lt;1000; j++){
-   b[j] = j;	
+   b[j] = j;	//assign by index
 }
 							</code></pre>
+							<pre class="fragment"><code>
+var a = [1, 2];
+a.push(3, 4, 5); 
+a; // [1, 2, 3, 4, 5]
+							</code></pre>
+							<pre class="fragment"><code>
+var b = [1, 2, 3, 4, 5, ...];
+
+b.indexOf(669);
+b.indexOf(669, 500);
+							</code></pre>
+							<a href="http://jsperf.com/indexof-fromindex">test: fromIndex</a>,
 							<a href="http://jsperf.com/zero-filled-array-creation">test: push vs assign</a>
 						</section>
-						<section>
+						<!-- <section>
 							<h2>be careful with assign</h2>
 							<pre><code>
 var myArr = [1, 2, 3, 4];
@@ -802,28 +813,10 @@ myArr; //[1, 2, 3, 4]
 							</code></pre>
 							<h4 class="fragment">these becomes property of myArr</h4>
 							<a href="http://www.thatjsdude.com/jsConcepts/concepts/array.html">Array: that js dude</a>
-						</section>
+						</section> -->
 						<section>
-							<h2>push multiple</h2>
-							<pre><code>
-var a = [1, 2];
-a.push(3, 4, 5); 
-a; // [1, 2, 3, 4, 5]
-
-a.unshift(0); 
-a.unshift(-2, -1);
-a; //[-2, -1, 0, 1, 2, 3, 4, 5]
-							</code></pre>
-							<pre class="fragment"><code>
-var b = [1, 2, 3, 4, 5, ...];
-
-b.indexOf(669);
-b.indexOf(669, 500);
-
-b.lastIndexOf(303);
-b.lastIndexOf(303, 500);
-							</code></pre>
-							<a href="http://jsperf.com/indexof-fromindex">test: fromIndex</a>
+							<h2>talk about splice perf</h2>
+							
 						</section>
 						<section>
 							<h2>Array summary</h2>
