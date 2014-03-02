@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset=utf-8 />
+<title>Event propagation</title>
+<style>
+	* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 70px;
+  transition: background 800ms;
+}
+
+html {
+  height: 100%;
+  background: hsl(193, 66%, 55%);
+  font: bold 40px helvetica, sans-serif;
+  color: red;
+  background-image: url(images/event/html.png);
+  background-repeat: no-repeat;
+}
+
+body {
+  height: 100%;
+  background: hsl(193, 66%, 65%);
+  background-image: url(images/event/body.png);
+  background-repeat: no-repeat;
+}
+
+div {
+  height: 100%;
+  background: hsl(193, 66%, 75%);
+  background-image: url(images/event/div.png);
+  background-repeat: no-repeat;
+}
+
+ul {
+  height: 100%;
+  list-style: none;
+  background: hsl(193, 66%, 85%);
+  background-image: url(images/event/ul.png);
+  background-repeat: no-repeat;
+}
+
+li {
+  height: 100%;
+  background: hsl(193, 66%, 95%);
+  background-image: url(images/event/li.png);
+  background-repeat: no-repeat;
+}
+
+.highlight {
+  background: red;
+}
+</style>
+</head>
+<body>
+  <div>
+    <ul>
+      <li>Click on a layer to see event propagation.</li>
+    </ul>
+  </div>
+  <script>
+  	var html = document.documentElement;
+	var body = document.body;
+	var div = body.querySelector('div');
+	var ul = body.querySelector('ul');
+	var li = body.querySelector('li');
+	var pause = 1000;
+
+	// Capture
+	html.addEventListener('click', callback, true);
+	body.addEventListener('click', callback, true);
+	div.addEventListener('click', callback, true);
+	html.addEventListener('click', callback, true);
+	ul.addEventListener('click', callback, true);
+	li.addEventListener('click', callback, true);
+
+	// Bubble
+	html.addEventListener('click', callback, false);
+	body.addEventListener('click', callback, false);
+	div.addEventListener('click', callback, false);
+	html.addEventListener('click', callback, false);
+	ul.addEventListener('click', callback, false);
+	li.addEventListener('click', callback, false);
+
+	function callback(event) {
+	  var ms = event.timeout = (event.timeout + pause) || 0;
+	  var target = event.currentTarget;
+	  
+	  setTimeout(function() {
+	    target.classList.add('highlight');
+	    setTimeout(function() {
+	      target.classList.remove('highlight');
+	    }, pause);
+	  }, ms);
+	}
+  </script>
+</body>
+</html>
