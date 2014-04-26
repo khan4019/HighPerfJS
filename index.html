@@ -103,13 +103,20 @@
 					</section>
 					<section>
 						<h2>TODO</h2>
-						<ol>							
-							<li>keep or remove: cloneNode, scroll</li>							
+						<ol>
 							<li>why backward looping is faster</li>
-							<li>add  better example to compare querySelectorAll performance over setting a class</li>							
+							<li>add  better example to compare querySelectorAll performance over setting a class</li>	<li><a href="http://www.toptal.com/javascript#hiring-guide">concepts from interview perspective</a>
+   								<ol>
+   									<li>read closure</li>
+   									<li>inheritance and prototype chain</li>
+   									<li>code snippet</li>
+   								</ol>
+							</li>						
 							<li>talk more about jsperf.org show popular one.</li>
+							<li>if possible add tips from dev tool </li>
 							<li>talk more about dev tool performance debug</li>
 							<li><a href="http://amasad.me/2014/03/09/lesser-known-javascript-debugging-techniques/">lesser known js debug techniques</a></li>
+							<li><a href="http://calendar.perfplanet.com/2013/the-runtime-performance-checklist/">Runtime perf checklist</a></li>
 							<li>must make sure time is not more than 50min</li>
 						</ol>
 					</section>
@@ -158,7 +165,7 @@
 							</div>
 						</section>
 						<section>
-							<h2>long running error</h2>
+							<h2>long running error !</h2>
 							<img src="images/longRun3.jpg" alt="">
 							<img class="fragment" src="images/longRun.png" alt="">
 						</section>
@@ -572,7 +579,17 @@ parseInt("13268", 10);
 							<br>
 							<p class="fragment">Each function call creates a new execution context, even a call to itself.</p>
 							<a href="http://davidshariff.com/blog/what-is-the-execution-context-in-javascript/">executiuon context</a>
+						</section>
+						<section>
+							<img src="images/my Drawing/globe.png" alt="">
 						</section>						
+						<section>
+							<img src="images/my Drawing/globeJackie.jpg" alt="">
+						</section>						
+						<section>
+							<img src="images/my Drawing/globeStars.jpg" alt="">
+						</section>						
+						
 						<section>
 							<h4>global scope</h4>
 							<pre><code>var a = 2; 
@@ -582,9 +599,16 @@ function b(){
 							<img class="fragment" src="images/globalscope.png" alt="">
 						</section>
 						<section>
+							<img  class="fullScreenImage" src="images/my Drawing/gglMap.jpg" alt="">
+						</section>						
+						<section>
+							<img  class="fullScreenImage" src="images/my Drawing/localStar.jpg" alt="">
+						</section>
+						<section>
 							<h4>local scope (execute function)</h4>
 							<pre><code>var a = 2; 
 function b(){
+   var d = 21;
    console.log(a);
 }
 b();							</code></pre>
@@ -812,11 +836,12 @@ myArr; //[1, 2, 3, 4]
 							</code></pre>
 							<h4 class="fragment">these becomes property of myArr</h4>
 							<a href="http://www.thatjsdude.com/jsConcepts/concepts/array.html">Array: that js dude</a>
-						</section> -->
+						</section>
 						<section>
 							<h2>talk about splice perf</h2>
 							
 						</section>
+						 -->
 						<section>
 							<h2>Array summary</h2>
 							<ul>
@@ -825,9 +850,9 @@ myArr; //[1, 2, 3, 4]
 								<li>push can insert multiple</li>
 								<li>consider fromIndex if possible</li>
 							</ul>
-							<ul class="fragment">
+							<!-- <ul class="fragment">
 								<li>prefer new array over many splice</li>								
-							</ul>
+							</ul> -->
 						</section>						
 					</section>					
 					<section>
@@ -1513,7 +1538,7 @@ for (var i = 0; i &lt; list.length; i++) {
 document.body.appendChild(fragment);</code></pre>
 							<a href="https://developer.mozilla.org/en-US/docs/Web/API/document.createDocumentFragment">createDocumentFragment</a>
 						</section>
-						<section>
+						<!-- <section>
 							<h2>cloneNode</h2>	
 							<pre><code>&lt;div&gt;
   &lt;span id=&quot;childSpan&quot;&gt;original child&lt;/span&gt;
@@ -1534,7 +1559,7 @@ target.parentNode.replaceChild(clone, target);
 							<li class="fragment">Be careful if source has ID (don't duplicate)</li>
 							<li class="fragment">AddEventListener isn't cloned but $.clone does</li>
 							<a href="http://developer.nokia.com/community/wiki/JavaScript_Performance_Best_Practices">cloneNode</a>
-						</section>
+						</section> -->
 						<section>
 							<h2>DOM vs innerHTML</h2>
 								<h4>Templating JS vs Mustache</h4>
@@ -2811,17 +2836,7 @@ console.log(start - end +'ms');
 					<section>
 						<section>
 							<h1>Free Fun</h1>
-						</section>
-						<section>
-							<h2>just google</h2>
-							<ul>
-								<li class="fragment">google in 1998</li>
-								<li class="fragment">do a barrel roll</li>
-								<li class="fragment">tilt</li>
-								<li class="fragment">zerg rush</li>
-								<li class="fragment">google gravity</li>
-							</ul>
-						</section>
+						</section>						
 						<section>
 							<h2>read with patience and generate developer jokes</h2>
 							<a href="http://www.tickld.com/x/20-jokes-that-only-intellectuals-will-understand">logical jokes</a>
