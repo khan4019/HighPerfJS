@@ -103,8 +103,7 @@
 					</section>
 					<section>
 						<h2>TODO</h2>
-						<ol>
-							<li>why backward looping is faster</li>
+						<ol>							
 							<li>add  better example to compare querySelectorAll performance over setting a class</li>	<li><a href="http://www.toptal.com/javascript#hiring-guide">concepts from interview perspective</a>
    								<ol>
    									<li>read closure</li>
@@ -965,10 +964,15 @@ for(var k = 1000; k>=0; k--){
   console.log(myArr[k]);
 }
 							</code></pre>
+							<pre class="fragment"><code>
+for(var i = 1000; --i>=0;){
+  console.log(myArr[i]);
+}								
+							</code></pre>
 							<p>dont worry about it for a smaller array</p>
-							<a href="http://jsperf.com/for-loop-backward-perf">js perf: backward test</a>
+							<a href="http://jsperf.com/for-loop-backward-perf">js perf: backward test</a> or <a href="http://stackoverflow.com/a/13136778/1535443">for loop backward</a>
 							<br>
-							<a href="http://stackoverflow.com/a/13136778/1535443">for loop backward</a>
+							<a href="http://stackoverflow.com/a/3551216/1535443">why backward is fast</a>
 						</section>
 						<section>
 							<h2>cache function</h2>
