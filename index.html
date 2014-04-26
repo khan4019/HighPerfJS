@@ -97,14 +97,18 @@
 						<h2 class="fragment"><a href="http://goo.gl/0JIpFe">goo.gl/0JIpFe</a> </h2>
 						<br/>
 						<p>
-							<a href="http://jhankarmahbub.com">MD Khan</a> / <a href="http://twitter.com/mdkhan005">@mdkhan005</a>
+							<h3>
+								<a href="http://jhankarmahbub.com">MD Khan</a> / <a href="http://twitter.com/mdkhan005">@mdkhan005</a>
+
+							</h3>
 						</p>
-						<h6>www.thatjsdude.com</h6>
+						<h4>www.thatjsdude.com</h4>
 					</section>
-					<section>
+					<!-- <section>
 						<h2>TODO</h2>
 						<ol>							
-							<li>add  better example to compare querySelectorAll performance over setting a class</li>	<li><a href="http://www.toptal.com/javascript#hiring-guide">concepts from interview perspective</a>
+							<li>event monitor demo</li>
+							<li><a href="http://www.toptal.com/javascript#hiring-guide">concepts from interview perspective</a>
    								<ol>
    									<li>read closure</li>
    									<li>inheritance and prototype chain</li>
@@ -117,7 +121,7 @@
 							<li><a href="http://calendar.perfplanet.com/2013/the-runtime-performance-checklist/">Runtime perf checklist</a></li>
 							
 						</ol>
-					</section>
+					</section> -->
 					<section>
 						<section>
 							<h2 class="upholdHeader">Performance improvement</h2>
@@ -590,6 +594,7 @@ parseInt("13268", 10);
 							<ul>
 								<li>Single threaded.</li>
 								<li>Synchronous execution</li>
+								<br>
 								<div class="fragment">
 									<li>1 Global context</li>
 									<li>Infinite function contexts</li>	
@@ -1284,12 +1289,12 @@ console.log(sum); //0012
 						<section>
 							<img  class="fullScreenImage"  src="images/developerSecret.jpg">
 						</section>
-						<section>
+						<!-- <section>
 							<img  class="fullScreenImage"  src="images/coffeePot.jpg">
 						</section>
 						<section>
 							<img  class="fullScreenImage"  src="images/pizzaSlice.jpg">
-						</section>
+						</section> -->
 						<section>
 							<img class="fullScreenImage" src="images/badBoss.jpg">
 						</section>
@@ -1431,10 +1436,17 @@ var all = inpArr.concat(butArr);
 						</section>
 						<section>
 							<h3>select by attribute value</h3>
-							<pre><code>&lt;div&gt;<br/>  &lt;span data-control=&quot;true&quot;&gt;Something, Darkside&lt;/span&gt;<br/>&lt;/div&gt;</code></pre>
+							<pre><code>
+&lt;section class=&quot;mySection&quot;&gt;
+  &lt;div class=&quot;myDiv&quot;&gt;
+       &lt;div&gt;
+	    &lt;span data-control=&quot;true&quot;&gt;Something, Darkside&lt;/span&gt;
+       &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/section&gt;
+							</code></pre>
 							<pre class="fragment"><code>
-//add more complex example, search in high perf css
-document.querySelectorAll('[data-control]');
+document.querySelectorAll('.mySection .myDiv [data-control]')
 							</code></pre>
 							<!-- <pre class="fragment"><code>
 getElementByAttributeValue('data-control');
@@ -1906,7 +1918,7 @@ function a() {
 					<section>
 						<section>
 							<h1>so far</h1>
-							<img src="images/summary5.jpeg" alt="">
+							<img src="images/summary7.jpg" alt="">
 						</section>
 						<section>
 							<h2>summary</h2>
@@ -2041,8 +2053,7 @@ test();
 							<br>
 							<img src="images/objectTree.png" alt="" class="fragment">
 							<br>
-							<li>todo: does IIFE garbage collected immediately??</li>
-							<li>does it tied to DOM</li>
+
 							<a href="https://developers.google.com/chrome-developer-tools/docs/javascript-memory-profiling">JS memory</a>
 						</section>												
 						<!--<section>
@@ -2434,7 +2445,7 @@ el.cloneNode(true);
 								<li class="fragment">querySelctorAll dont have map, each, filter</li>
 								<br>
 								<li class="fragment">Angular, Backbone uses Jquery</li>
-								<li class="fragment">lazy (dont want to larn new framework)</li>
+								<li class="fragment">lazy (dont want to learn new framework)</li>
 								<li><a href="http://flippinawesome.org/2014/03/10/is-jquery-too-big-for-mobile/">is JQuery too big for mobile device</a></li>
 							</ol>
 							<br>
