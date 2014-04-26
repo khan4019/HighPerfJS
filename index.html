@@ -1344,7 +1344,6 @@ myNodeList --> NodeList.prototype --> Object.prototype --> null
 							</code></pre>
 							<pre class="fragment"><code>
 //loop and put them in a array
-// or go to the MDN: NdeList link below
 //or
 var nodesArray = Array.prototype.slice.call(myNodeList);</code></pre>
 							<a href="https://developer.mozilla.org/en-US/docs/Web/API/NodeList">MDN: NodeList</a>, <a href="http://www.w3.org/TR/selectors-api/">W3: selectors-api</a>, <a href="http://www.w3.org/TR/selectors-api2">DOM API level 2</a>
@@ -1352,7 +1351,7 @@ var nodesArray = Array.prototype.slice.call(myNodeList);</code></pre>
 						<section>
 							<h2>What to use</h2>
 							<pre><code>
-&lt;div&gt;<br/>    &lt;article&gt;<br/>        &lt;p&gt;&lt;/p&gt;<br/>    &lt;/article&gt;<br/>    &lt;article &gt;<br/>        &lt;span id=&quot;myId&quot; class=&quot;myClass&quot;&gt;my text&lt;/span&gt;<br/>    &lt;/article&gt;<br/>&lt;/div&gt;
+&lt;div&gt;<br/>    &lt;article&gt;<br/>        &lt;p&gt;some unnecessary text&lt;/p&gt;<br/>    &lt;/article&gt;<br/>    &lt;article &gt;<br/>        &lt;span id=&quot;myId&quot; class=&quot;myClass&quot;&gt;my span not spam&lt;/span&gt;<br/>    &lt;/article&gt;<br/>&lt;/div&gt;
 							</code></pre>							
 							<br>
 							<ol class="fragment">
@@ -1464,7 +1463,7 @@ function getElementByAttributeValue(attribute)
     }
 							</code></pre> -->							
 							<pre class="fragment"><code>
-&lt;div&gt;<br/>  &lt;span class=&quot;data-control&quot; data-control=&quot;true&quot;&gt;Something, something, something, Darkside&lt;/span&gt;<br/>&lt;/div&gt;
+&lt;div&gt;<br/>  &lt;span class=&quot;data-control&quot; data-control=&quot;true&quot;&gt; Something, Darkside   &lt;/span&gt;<br/>&lt;/div&gt;
 							</code></pre>
 							<pre class="fragment"><code>
 document.getElementsByClassName('data-control');
@@ -1482,7 +1481,7 @@ document.getElementsByClassName('data-control');
 							<br>
 							<ul>
 								<li class="fragment">Minimum change</li>
-								<li class="fragment">Don't change Layout</li>
+								<li class="fragment">Try to avoid Layout change</li>
 								<li class="fragment">Change Background Color</li>
 								<li class="fragment">Change Text Color</li>
 								<li class="fragment">Visibility: hidden</li>
@@ -2366,18 +2365,18 @@ el.classList.contains('hide');
 							<h2>jQuery helpers</h2>
 							<pre><code>
 $(el).hide();
-el.style.display = 'none';
-
 $(el).show();
-el.style.display='';</code></pre>
+
+el.style.display='';
+el.style.display = 'none';</code></pre>
 						<pre class="fragment"><code>
 $(el).html();
-el.innerHTML;
-
 $(el).html(setString);
-el.innerHTML = setString;
-
 $(el).empty();
+
+
+el.innerHTML;
+el.innerHTML = setString;
 el.innerHTML = '';</code></pre>
 						<pre class="fragment"><code>
 $(el).text();
