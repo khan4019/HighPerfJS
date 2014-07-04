@@ -223,262 +223,9 @@
 						</section>
 					
 					</section>
-					<section>
-						<section>
-							<h1>HTML</h1>
-						</section>
-						<section>
-						<h2>Your Html</h2>
-						<pre><code contenteditable>
-1.  &lt;html&gt;
-2.      &lt;body&gt;
-3.         &lt;p&gt;
-4.            Hello World
-5.        &lt;/p&gt;
-6.        &lt;div&gt; 
-7.           &lt;img src=&quot;example.png&quot;/&gt;
-8.        &lt;/div&gt;
-9.     &lt;/body&gt;
-10. &lt;/html&gt;
-
-						</code></pre>
-						<a href="http://www.html5rocks.com/en/tutorials/internals/howbrowserswork/">How Browser Works</a>						
-					</section>
-
-					<section>
-						<img  class="fullScreenImage"  src="images/domTreeWithHTML.png">
-					</section>			
-					<section>
-							<h2>Style</h2>						
-							<pre><code contenteditable>
-p,div{
-  margin-top:3px;
-}
-
-.error {
-  color:red;
-}
-						</code></pre>
-						
-						</section>
-						<section>
-							<img  class="fullScreenImage"  src="images/parsingCSS.png">
-						</section>
-						
-						<section>
-							<h1 class="noUppercase">Render Tree</h1>
-							<img src="images/renderTree.png">
-						</section>
-						<section>
-							<h1 class="upholdHeader">So far</h1>
-							<img class="fullScreenImage" src="images/uptoRenderTree.png">
-						</section>
-						<section>
-							<h1 class="upholdHeader">Layout</h1>
-							<img class="fullScreenImage" src="images/layout.png">
-							<a href="http://en.wikipedia.org/wiki/Comparison_of_layout_engines_(Cascading_Style_Sheets)">CSS Layout Engines</a>
-						</section>
-						<section>
-							<h1 class="noUppercase">Paint</h1>
-							<img src="images/painting.png">
-						</section>
+					
 					</section>
 					<section>
-						<section>
-							<h1>JavaScript</h1>
-						</section>
-						<section>
-							<h2>inline script</h2>
-							<pre><code>
-1.  &lt;html&gt;
-2.      &lt;body&gt;
-3.         &lt;p&gt;
-4.            Hello World
-5.        &lt;/p&gt;
-6.        &lt;div&gt; 
-7.           &lt;script type =&quot;text/javascript&quot;&gt;
-8.               console.log('inline script');
-9.            &lt;/script&gt;
-10.           &lt;img src=&quot;example.png&quot;/&gt;
-11.        &lt;/div&gt;
-12.     &lt;/body&gt;
-13. &lt;/html&gt;
-							</code></pre>
-						</section>
-						<section>
-						<h2>external script</h2>
-						<pre><code>
-1.  &lt;html&gt;
-2.      &lt;body&gt;
-3.         &lt;p&gt;
-4.            Hello World
-5.        &lt;/p&gt;
-6.        &lt;div&gt; 
-7.           &lt;script src=&quot;1.js&quot;&gt;&lt;/script&gt;
-8.           &lt;img src=&quot;example.png&quot;/&gt;
-9.        &lt;/div&gt;
-10.     &lt;/body&gt;
-11. &lt;/html&gt;
-
-							</code></pre>							
-						</section>
-						<section>
-							<h2>script in html</h2>
-							<img  class="fullScreenImage"  src="images/domTreeWithHTML2.png">
-							<br>
-							<br>
-							<ol class="fragment">
-								<li>No UI update while JS executes</li>
-								<li>Long-running script => Unresponsive UI</li>
-							</ol>
-							<br>
-							<br>
-							<br>
-							<a href="http://stackoverflow.com/questions/8996852/load-and-execute-order-of-scripts">load and execution order</a>
-						</section>
-						<section>
-							<h2>multiple JavaScript files</h2>
-							<pre><code>
-&lt;script src=&quot;1.js&quot;&gt;&lt;/script&gt;<br/>&lt;script src=&quot;2.js&quot;&gt;&lt;/script&gt;
-							</code></pre>
-							<ol class="fragment">							
-								<br>
-								<li class="fragment">will not start parsing and executing 2.js before 1.js is downloaded, parsed and executed</li>
-								<br>
-								<li class="fragment">because browser has to maintain code dependency</li>
-							</ol>
-							<br>
-							<br>
-							<a href="http://www.browserscope.org/?category=network&v=top">browserscope:Network</a>
-							<br>
-							<a href="http://www.html5rocks.com/en/tutorials/speed/script-loading/">html5rocks: script-loading</a>
-						</section>
-					</section>									
-					<!-- <section>	
-						<section>
-							<h1>Network</h1>
-							<img class="fullScreenImage" src="images/lifeOfARequestParts.png" alt="">
-						</section>					
-						<section>
-							<h2>Every byte counts</h2>
-							<img src="images/smallIsFaster.jpg" alt="">							
-							<h3>Every byte will bite!</h3>
-						</section>
-						<section>
-							<h2>1. Minify</h2>
-								<pre class="fragment"><code>
-//205 bytes
-//When I wrote this, only God and I understood what I was doing
-//Now, God only knows
-var myFancyObject = {aaaa:1, bbbb:2, cccc:3}
-
-function logEverything(obj) {
-console.log(obj);
-}
-
-logEverything(myFancyObject);</code></pre>
-								<pre class="fragment"><code>
- //103 bytes
- var myFancyObject={aaaa:1,bbbb:2,cccc:3};function logEverything(a){console.log(a)}logEverything(myFancyObject);</code></pre>
-								<pre class="fragment"><code>
-//23 bytes
-console.log({a:1,b:2,c:3});</code></pre>								
-								<a href="http://jscompress.com/">JS Compress</a>, <a href="http://marijnhaverbeke.nl/uglifyjs">Uglify</a>, <a href="http://crockford.com/javascript/jsmin">JS Min</a>								
-						</section>
-						<section>
-							<h2>2. Combine</h2>
-							<pre><code>
-&lt;script src=&quot;underscore.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt; <br/>&lt;script src=&quot;jquery.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt; <br/>&lt;script src=&quot;backbone.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;<br/>&lt;script src=&quot;upperscore.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;<br/>&lt;script src=&quot;frontbone.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;</code></pre>							
-							<div class="fragment">
-								<img src="images/begger.jpg" alt="">
-								<img src="images/begger.jpg" alt="">
-								<img src="images/begger.jpg" alt="">
-								<img src="images/begger.jpg" alt="">
-								<img src="images/begger.jpg" alt="">
-							</div>
-							<pre class="fragment"><code>
-&lt;script src=&quot;allScripts.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
-							</code></pre>
-							<br>	
-							<div class="fragment">
-								<h5>CommonJS, Require JS, Grunt!, Yo</h5>							
-							</div>
-							
-						</section>
-						<section>
-							<h1>3. Load Less</h1>
-							<h3>load as little as possible</h3>
-							<h5>if u need it later load later or async</h5>
-						</section>						
-						<section>
-							<h2 >Async Vs Defer</h2>
-							<h4>Dont block</h4>
-							<pre><code>
-&lt;script src=&quot;file-a.js&quot;&gt;&lt;/script&gt;
-&lt;script src=&quot;file-b.js&quot; defer&gt;&lt;/script&gt;
-&lt;script src=&quot;file-c.js&quot; async&gt;&lt;/script&gt;
-							</code></pre>
-							<br>
-							<img class="slide fragment" src="images/asyncVsDefer.jpg">
-							<br/>
-							<br>
-							<br>
-							<a href="http://www.html5rocks.com/en/tutorials/speed/script-loading/#toc-quick-reference">html5rocks: load-script</a>,
-							<a class=" refName" href="http://peter.sh/experiments/asynchronous-and-deferred-javascript-execution-explained/">Async Vs Defer</a>
-						</section>
-						<section>
-							<h2>Small in line</h1>							
-							<h4>Quick render: Good for Mobile device</h4>
-						</section>
-						<section>							
-							<h2 class="upholdHeader">4. Right Order</h2>
-							<pre><code>	
-&lt;!doctype html&gt;<br/>&lt;html&gt;<br/>  &lt;head&gt;<br/>     &lt;link rel=&quot;stylesheet&quot; href=&quot;reveal.css&quot;&gt;<br/>  &lt;head&gt;<br/>  &lt;body&gt;<br/>    &lt;div class=&quot;awesomeDiv&quot;&gt;<br/>       ..... <br/>    &lt;/div&gt;<br/>    &lt;script src=&quot;allScripts.js&quot;&gt;<br/>  &lt;/body&gt;<br/>&lt;html&gt;
-							</code></pre>
-							<h4 class="slide"> Style on Top</h4>
-							<h4 class="slide"> Script on bottom</h4>
-							<br/>							
-							<a href="https://developers.google.com/speed/articles/include-scripts-properly">Properly include style and scripts</a>
-						</section>
-						<section>
-							<h1>5. Cache</h1>
-							<h4>browser or CDN</h4>
-							<img src="images/cdn.png" alt="">
-						</section>
-						<section>
-							<h1>6. gZip</h1>
-							<img src="images/gzip.jpg" alt="">
-							<br>
-							<a href="http://www.7-zip.org/">7-zip</a>
-						</section>
-						<section>
-							<h1>Summary</h1>
-							<ul>
-								<li>Minify</li>
-								<li>Combine</li>
-								<div class="fragment">
-									<li>Load less</li>
-									<li>Right order</li>
-								</div>
-								<div class="fragment">
-									<li>Cache</li>
-									<li>gZip</li>
-								</div>								
-							</ul>
-							<br>
-							<br>
-							<a href="http://chimera.labs.oreilly.com/books/1230000000545">High Performance Browser Network</a>
-						</section>
-					</section> -->					
-					<section>
-						<section>
-							<h1>Client side</h1>
-							<img src="images/smallAdd.jpg" alt="">
-						</section>
-						<section>
-							<h2>Things to do or not to</h2>
-							<img src="images/options3.jpg" alt="">							
-						</section>
 						<section>
 							<h2>JS: advices</h2>
 							<ul>
@@ -518,32 +265,7 @@ console.log({a:1,b:2,c:3});</code></pre>
 					<section>
 						<section>
 							<h1 class="">String</h1>
-							<img src="images/concat.jpg" alt="">
 						</section>						
-						<section>
-							<h2>String Concatenation</h2>						
-							<pre><code contenteditable>
-var tinyMessage = 'Trust me, i started one line' + 
-		  'Designer told me he wants little more' + 
-		  'I added little more' +
-		  'Manager said, this is not enough' +
-		  "He didn't said what to add" +
-		  'Just said add' +
-		  "I didn't know what to add" +
-		  'So i added a slice of pizza';
-							</code></pre>
-							<pre class="fragment"><code contenteditable>
-var tinyMessage = ['Trust me, i started one line', 
-		   'Designer told me he wants little more', 
-		   'I added little more',
-		   'Manager said, this is not enough',
-		   "He didn't said what to add",
-		   'Just said add',
-		   "I didn't know what to add",
-		   'So i added a slice of pizza'].join(' ');
-							</code></pre>
-							<a href="https://developers.google.com/speed/articles/optimizing-javascript"> Optimize JavaScript </a>
-						</section>												
 						<section>
 							<h2>primitive vs Object</h2>
 							<pre><code>
@@ -586,74 +308,105 @@ parseInt("13268", 10);
 					</section>					
 					<section>
 						<section>
-							<h1>JavaScript execution</h1>
-							<img src="images/execution1.jpg" alt="">
+							<h1 class="upholdHeader">Scope</h1>
+							<br>
+							<br>
+							<h2 class="fragment">scope and hoisting</h2>
+							<br><br>
+							<h4 class="fragment">Crystal clear concept about JavaScript Basics</h4>
+							<br><br>
+							<a href="">thatjsdude.com</a>
 						</section>
 						<section>
-							<h2>javaScript execution</h2>
-							<ul>
-								<li>Single threaded.</li>
-								<li>Synchronous execution</li>
-								<br>
-								<div class="fragment">
-									<li>1 Global context</li>
-									<li>Infinite function contexts</li>	
-								</div>							
-							</ul>
-							<br>
-							<br>
-							<p class="fragment">Each function call creates a new execution context, even a call to itself.</p>
-							<a href="http://davidshariff.com/blog/what-is-the-execution-context-in-javascript/">executiuon context</a>
+							<img class="fullScreenImage" src="images/scope.jpg" alt="">
 						</section>
+						<section>
+							<img src="images/scope4.png" alt="" class="fullScreenImage">
+						</section>
+						<section>
+							<img src="images/weChat.jpg" alt="">
+						</section>
+						<section>
+							<img src="images/whatsApp.jpg" alt="">
+						</section>
+						<section>
+							<h2>JavaScript Scope</h2>
+							<br>
+							<!-- <img src="images/creep.png" alt=""> -->
+							<br>
+
+							<ul class="fragment">
+									<li>Global scope</li>
+									<br>
+									<li class="fragment">local scope</li>	
+								
+							</ul>
+						</section>
+
 						<section>
 							<img src="images/my Drawing/globe.png" alt="">
-						</section>						
+						</section>
+
 						<section>
 							<img src="images/my Drawing/globeJackie.jpg" alt="">
 						</section>						
+						<section><img src="images/jackie.jpg" alt=""></section>	
+						<section><img src="images/newYear.jpg" alt=""></section>		
 						<section>
 							<img src="images/my Drawing/globeStars.jpg" alt="">
 						</section>						
 						
 						<section>
-							<h4>global scope</h4>
-							<pre><code>var a = 2; 
+							<h2>global scope</h2>
+							<!-- <pre><code>var a = 2; 
 function b(){
    console.log(a);
-}							</code></pre>
+}							</code></pre> -->
 							<img class="fragment" src="images/globalscope.png" alt="">
 						</section>
 						<section>
-							<img  class="fullScreenImage" src="images/my Drawing/gglMap.jpg" alt="">
-						</section>						
-						<section>
-							<img  class="fullScreenImage" src="images/my Drawing/localStar.jpg" alt="">
+							<h1>Local Scope</h1>
 						</section>
 						<section>
-							<h4>local scope (execute function)</h4>
-							<pre><code>var a = 2; 
+							<img  class="fullScreenImage" src="images/my Drawing/gglMap.jpg" alt="">
+						</section>	
+						<section>
+							<img src="images/kd.jpg" alt="">
+						</section>					
+						<section>
+							<img  class="fullScreenImage" src="images/localStar.jpg" alt="">
+						</section>
+						<section>
+							<img src="images/football.jpg" alt="">
+						</section>					
+						<section>
+							<img  class="fullScreenImage" src="images/localEvents.jpg" alt="">
+						</section>
+						<section>
+							<h2>local/function scope</h2>
+							<!-- <pre><code>var a = 2; 
 function b(){
    var d = 21;
    console.log(a);
 }
-b();							</code></pre>
+b();							</code></pre> -->
 							<img class="fragment" src="images/localScope.png" alt="">
 							<br>
 							<a href="http://davidshariff.com/blog/javascript-scope-chain-and-closures/">JS scope chain</a>
 						</section>
 						<section>
-							<h4>multi execution context</h4>
-							<pre><code>var a = 2; 
+							<h2>multi execution context</h2>
+							<!-- <pre><code>var a = 2; 
 function b(){ console.log(a); }
 function c(){ console.log(a); }
 b();						
-c();</code></pre>
+c();</code></pre> -->
 							<img class="fragment" src="images/multiScope.png" alt="">							
-							<a href="http://toddmotto.com/everything-you-wanted-to-know-about-javascript-scope/">Everything you wanted to know about scope</a>
+				
 						</section>
 						<section>
-							<h4>nested function (closure)</h4>
-							<pre><code>var a = 2; 
+							<h2>nested function (closure)</h2>
+				<!-- 			<pre><code>var a = 2; 
 function b(){ 
    var d = 21;
    function dog(){  console.log(a); }
@@ -662,9 +415,9 @@ function b(){
 function c(){ console.log(a); }
 b();						
 c();</code></pre>
-							<img class="fragment" src="images/closureScope.png" alt="">
-							<a href="http://toddmotto.com/everything-you-wanted-to-know-about-javascript-scope/">Everything you wanted to know about scope</a>
-						</section>
+ -->							<img class="fragment" src="images/closureScope.png" alt="">
+<!-- 							<a href="http://toddmotto.com/everything-you-wanted-to-know-about-javascript-scope/">Everything you wanted to know about scope</a>
+ -->						</section>
 <!-- 						<section>
 							<h2>execution context</h2>
 							<ol>
@@ -712,15 +465,19 @@ function() {
 var myArr = [0, 1, 2,3 4, 5 ...];
 
 function useGlobal() {
-    for (j = 0; j &lt; 1000; j++)
+    
+    for (j = 0; j &lt; 1000; j++){
         console.log(myArr[j]);
+    }
 }
 							</code></pre>
 							<pre class="fragment"><code>
 function useLocal() {
     var localArr = myArr;
-    for (var k = 0; k &lt; 1000; k++)
+
+    for (var k = 0; k &lt; 1000; k++){
         console.log(localArr[k]);
+    }
 }
 							</code></pre>
 							<a href="http://jsperf.com/global/17">local vs global variable</a>							
@@ -1842,8 +1599,8 @@ var c = Object.create(b);
 							<h1>closure</h1>
 						</section>
 						<section>
-							<h4>function inside function</h4>
-							<pre><code>var a = 2; 
+							<h2>function inside function</h2>
+							<!-- <pre><code>var a = 2; 
 function b(){ 
    var d = 21;
    function dog(){  console.log(a); }
@@ -1851,7 +1608,7 @@ function b(){
 }
 function c(){ console.log(a); }
 b();						
-c();</code></pre>
+c();</code></pre> -->
 							<img class="fragment" src="images/closureScope.png" alt="">
 						</section>
 						<section>
@@ -1883,9 +1640,9 @@ b(); //3</code></pre>
 						</section>
 						<section>
 							<h2>closure creation</h2>
-							<img src="images/closure1.png" alt="">
-							<p class="fragment">private variable</p>
-							<p class="fragment">save state</p>
+							<img class="fragment" src="images/closure1.png" alt="">
+							<p class="fragment">private variable, save State
+							</p>
 							<p class="fragment">closure create encapsulation</p>
 						</section>
 						<section>
@@ -2865,12 +2622,11 @@ console.log(start - end +'ms');
 							<br>
 							<a href="http://www.amazon.com/Secrets-JavaScript-Ninja-John-Resig/dp/193398869X">JavaScipt Ninja</a>
 							<br/>
-							<a href="http://underscorejs.org/underscore.js">UnderScore or Angular source code </a>
-							
+							<a href="#">asm.js</a>							
+							<br>
+							<a href="#">ParallelJS</a>
 							<br/>
 							<a href="http://lodash.com/">Lo-dash</a>
-							<br>
-							<a href="http://html5index.org/">JS API index</a>
 							<br>
 							<a href="https://github.com/getify/You-Dont-Know-JS">You Don't Know JS</a>
 						</section>
