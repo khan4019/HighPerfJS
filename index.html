@@ -252,229 +252,6 @@ parseInt("13268", 10);
 					</section>					
 					<section>
 						<section>
-							<h1 class="upholdHeader">Scope</h1>							
-						</section>
-						<section>
-							<h2>JavaScript Scope</h2>
-							<br>
-							<!-- <img src="images/creep.png" alt=""> -->
-							<br>
-
-							<ul class="fragment">
-									<li>Global scope</li>
-									<br>
-									<li class="fragment">local scope</li>	
-								
-							</ul>
-						</section>
-
-						<section>
-							<img src="images/my Drawing/globe.png" alt="">
-						</section>
-
-						<section>
-							<img src="images/my Drawing/globeJackie.jpg" alt="">
-						</section>						
-						<section><img src="images/jackie.jpg" alt=""></section>	
-						<section><img src="images/newYear.jpg" alt=""></section>		
-						<section>
-							<img src="images/my Drawing/globeStars.jpg" alt="">
-						</section>						
-						
-						<section>
-							<h2>global scope</h2>
-							<pre><code>var a = 2; 
-function b(){
-   console.log(a);
-}							</code></pre>
-							<img class="fragment" src="images/globalscope.png" alt="">
-						</section>
-						<section>
-							<h1>Local Scope</h1>
-						</section>
-						<section>
-							<img  class="fullScreenImage" src="images/my Drawing/gglMap.jpg" alt="">
-						</section>	
-						<section>
-							<img src="images/kd.jpg" alt="">
-						</section>					
-						<section>
-							<img  class="fullScreenImage" src="images/localStar.jpg" alt="">
-						</section>
-						<section>
-							<img src="images/football.jpg" alt="">
-						</section>					
-						<section>
-							<img  class="fullScreenImage" src="images/localEvents.jpg" alt="">
-						</section>
-						<section>
-							<h2>local/function scope</h2>
-							<!-- <pre><code>var a = 2; 
-function b(){
-   var d = 21;
-   console.log(a);
-}
-b();							</code></pre> -->
-							<img class="fragment" src="images/localScope.png" alt="">
-							<br>
-							<a href="http://davidshariff.com/blog/javascript-scope-chain-and-closures/">JS scope chain</a>
-						</section>
-						<section>
-							<h2>multi execution context</h2>
-							<!-- <pre><code>var a = 2; 
-function b(){ console.log(a); }
-function c(){ console.log(a); }
-b();						
-c();</code></pre> -->
-							<img class="fragment" src="images/multiScope.png" alt="">							
-				
-						</section>
-						<section>
-							<h2>nested function (closure)</h2>
-				<!-- 			<pre><code>var a = 2; 
-function b(){ 
-   var d = 21;
-   function dog(){  console.log(a); }
-   dog();
-}
-function c(){ console.log(a); }
-b();						
-c();</code></pre>
- -->							<img class="fragment" src="images/closureScope.png" alt="">
-<!-- 							<a href="http://toddmotto.com/everything-you-wanted-to-know-about-javascript-scope/">Everything you wanted to know about scope</a>
- -->						</section>
-<!-- 						<section>
-							<h2>execution context</h2>
-							<ol>
-								<li>When you call a function, an execution context is created (before running any code) </li>
-								<li class="fragment">In the context,  first thing created is the scope chain</li>								
-								<li class="fragment">All local variables is pushed to the front of the context's scope chain.</li>
-								<li class="fragment">And then, create variable, arguments, determine the value of this</li>
-								<li class="fragment">So, Further in the chain, the slower the identifier resolution is, which means local variables are fastest.</li>
-								<p class="fragment"> (just for remembering)By storing local references to frequently used out-of-scope variables reading and writing to variables is significantly faster. This is visible especially with global variables and other deep searches for identifier resolution.</p>							
-							</ol>
-						</section> -->
-					</section>
-					<section>
-						<section>
-							<h1>hoisting</h1>
-						</section>
-						<section>
-							<h4>hoisting</h4>
-							<pre><code>
-function() {    
-    var bar = function() {
-            return 'world';
-        };    
-    function foo() {
-        return 'fooed';
-    }
-    var a = 5;
-}							</code></pre>
-							<pre class="fragment"><code>
-function() {
-    function foo() {
-        return 'fooed';
-    }    
-    var bar;
-    var a;    
-    bar = function() {
-            return 'world';
-        };
-    a = 5;        
-}							</code></pre>
-						</section>
-					</section>
-					<section>
-						<section>
-							<h1>local variable</h1>
-						</section>						
-						<section>
-							<h2>store out of scope variable</h2>
-							<pre><code>
-var myArr = [0, 1, 2,3 4, 5 ...];
-
-function useGlobal() {
-    
-    for (j = 0; j &lt; 1000; j++){
-        console.log(myArr[j]);
-    }
-}
-							</code></pre>
-							<pre class="fragment"><code>
-function useLocal() {
-    var localArr = myArr;
-
-    for (var k = 0; k &lt; 1000; k++){
-        console.log(localArr[k]);
-    }
-}
-							</code></pre>
-							<a href="http://jsperf.com/global/17">local vs global variable</a>							
-						</section>
-						<section>
-							<h2>cache outside for loop</h2>						
-							<pre><code>
-for(var i = 0; i &lt; someArray.length; i++) {
-
-   var container = document.getElementById('container');  
-   container.innerHtml += 'my number: ' + i;  
-   console.log(i);  
-}
-							</code></pre>		
-							<h4 class="fragment">when value doesnt change</h4>
-							<pre class="fragment"><code>
-var container = document.getElementById('container');  
-
-for(var i = 0; i &lt; someArray.length; i++) {
-
-   container.innerHtml += 'my number: ' + i;  
-   console.log(i);  
-} 
-//caution, this cause reflow
-							</code></pre>
-							<a href="http://jsperf.com/property-access-vs-variable-caching">property access vs variable cache</a>
-						</section>
-						<!-- <section>
-							<h2>access object property</h2>
-							<pre><code>
-var a = [{ z: 1 }, { z: 2 }],
-   sum = 0,
-   el;
-
-for(var i =0; i &lt; 1000; i++){
-   el = a[i%2];
-   sum += el.z;
-   sum += el.z;
-   sum += el.z;
-   sum += el.z;
-   sum += el.z;	
-}
-							</code></pre>							
-						</section>
-						<section>
-							<h2>cache properties</h2>
-							<pre><code>
-var a = [{ z: 1 }, { z: 2 }],
-   sum = 0,
-   val;
-
-for(var i =0; i &lt; 1000; i++){
-   val = a[i%2].z;
-   sum += val;
-   sum += val;
-   sum += val;
-   sum += val;
-   sum += val;	
-}
-							</code></pre>
-							<a href="http://jsperf.com/caching-of-properties">caching object properties</a>
-							<br>
-							<a href="http://jsperf.com/getters-vs-getters-with-caching">getter caching</a>
-						</section> -->
-					</section>
-					<section>
-						<section>
 							<h1>Array</h1>
 							<img src="images/array.jpg" alt="">							
 						</section>
@@ -930,6 +707,230 @@ console.log(sum); //0012
 							<a href="http://javascriptweblog.wordpress.com/2011/01/04/exploring-javascript-for-in-loops/#more-1897">Angus: explore for-in</a>
 						</section>	 					
 					</section>-->
+					
+					<section>
+						<section>
+							<h1 class="upholdHeader">Scope</h1>							
+						</section>
+						<section>
+							<h2>JavaScript Scope</h2>
+							<br>
+							<!-- <img src="images/creep.png" alt=""> -->
+							<br>
+
+							<ul class="fragment">
+									<li>Global scope</li>
+									<br>
+									<li class="fragment">local scope</li>	
+								
+							</ul>
+						</section>
+
+						<section>
+							<img src="images/my Drawing/globe.png" alt="">
+						</section>
+
+						<section>
+							<img src="images/my Drawing/globeJackie.jpg" alt="">
+						</section>						
+						<section><img src="images/jackie.jpg" alt=""></section>	
+						<section><img src="images/newYear.jpg" alt=""></section>		
+						<section>
+							<img src="images/my Drawing/globeStars.jpg" alt="">
+						</section>						
+						
+						<section>
+							<h2>global scope</h2>
+							<pre><code>var a = 2; 
+function b(){
+   console.log(a);
+}							</code></pre>
+							<img class="fragment" src="images/globalscope.png" alt="">
+						</section>
+						<section>
+							<h1>Local Scope</h1>
+						</section>
+						<section>
+							<img  class="fullScreenImage" src="images/my Drawing/gglMap.jpg" alt="">
+						</section>	
+						<section>
+							<img src="images/kd.jpg" alt="">
+						</section>					
+						<section>
+							<img  class="fullScreenImage" src="images/localStar.jpg" alt="">
+						</section>
+						<section>
+							<img src="images/football.jpg" alt="">
+						</section>					
+						<section>
+							<img  class="fullScreenImage" src="images/localEvents.jpg" alt="">
+						</section>
+						<section>
+							<h2>local/function scope</h2>
+							<!-- <pre><code>var a = 2; 
+function b(){
+   var d = 21;
+   console.log(a);
+}
+b();							</code></pre> -->
+							<img class="fragment" src="images/localScope.png" alt="">
+							<br>
+							<a href="http://davidshariff.com/blog/javascript-scope-chain-and-closures/">JS scope chain</a>
+						</section>
+						<section>
+							<h2>multi execution context</h2>
+							<!-- <pre><code>var a = 2; 
+function b(){ console.log(a); }
+function c(){ console.log(a); }
+b();						
+c();</code></pre> -->
+							<img class="fragment" src="images/multiScope.png" alt="">							
+				
+						</section>
+						<section>
+							<h2>nested function (closure)</h2>
+				<!-- 			<pre><code>var a = 2; 
+function b(){ 
+   var d = 21;
+   function dog(){  console.log(a); }
+   dog();
+}
+function c(){ console.log(a); }
+b();						
+c();</code></pre>
+ -->							<img class="fragment" src="images/closureScope.png" alt="">
+<!-- 							<a href="http://toddmotto.com/everything-you-wanted-to-know-about-javascript-scope/">Everything you wanted to know about scope</a>
+ -->						</section>
+						<section>
+							<h2>execution context</h2>
+							<ol>
+								<li>When you call a function, an execution context is created (before running any code) </li>
+								<li class="fragment">In the context,  first thing created is the scope chain</li>								
+								<li class="fragment">All local variables is pushed to the front of the context's scope chain.</li>
+								<li class="fragment">And then, create variable, arguments, determine the value of this</li>
+								<li class="fragment">So, Further in the chain, the slower the identifier resolution is, which means local variables are fastest.</li>
+								<p class="fragment"> (just for remembering)By storing local references to frequently used out-of-scope variables reading and writing to variables is significantly faster. This is visible especially with global variables and other deep searches for identifier resolution.</p>							
+							</ol>
+						</section>
+					</section>
+					<section>
+						<section>
+							<h1>hoisting</h1>
+						</section>
+						<section>
+							<h4>hoisting</h4>
+							<pre><code>
+function() {    
+    var bar = function() {
+            return 'world';
+        };    
+    function foo() {
+        return 'fooed';
+    }
+    var a = 5;
+}							</code></pre>
+							<pre class="fragment"><code>
+function() {
+    function foo() {
+        return 'fooed';
+    }    
+    var bar;
+    var a;    
+    bar = function() {
+            return 'world';
+        };
+    a = 5;        
+}							</code></pre>
+						</section>
+					</section>
+					<section>
+						<section>
+							<h1>local variable</h1>
+						</section>						
+						<section>
+							<h2>store out of scope variable</h2>
+							<pre><code>
+var myArr = [0, 1, 2,3 4, 5 ...];
+
+function useGlobal() {
+    
+    for (j = 0; j &lt; 1000; j++){
+        console.log(myArr[j]);
+    }
+}
+							</code></pre>
+							<pre class="fragment"><code>
+function useLocal() {
+    var localArr = myArr;
+
+    for (var k = 0; k &lt; 1000; k++){
+        console.log(localArr[k]);
+    }
+}
+							</code></pre>
+							<a href="http://jsperf.com/global/17">local vs global variable</a>							
+						</section>
+						<section>
+							<h2>cache outside for loop</h2>						
+							<pre><code>
+for(var i = 0; i &lt; someArray.length; i++) {
+
+   var container = document.getElementById('container');  
+   container.innerHtml += 'my number: ' + i;  
+   console.log(i);  
+}
+							</code></pre>		
+							<h4 class="fragment">when value doesnt change</h4>
+							<pre class="fragment"><code>
+var container = document.getElementById('container');  
+
+for(var i = 0; i &lt; someArray.length; i++) {
+
+   container.innerHtml += 'my number: ' + i;  
+   console.log(i);  
+} 
+//caution, this cause reflow
+							</code></pre>
+							<a href="http://jsperf.com/property-access-vs-variable-caching">property access vs variable cache</a>
+						</section>
+						<!-- <section>
+							<h2>access object property</h2>
+							<pre><code>
+var a = [{ z: 1 }, { z: 2 }],
+   sum = 0,
+   el;
+
+for(var i =0; i &lt; 1000; i++){
+   el = a[i%2];
+   sum += el.z;
+   sum += el.z;
+   sum += el.z;
+   sum += el.z;
+   sum += el.z;	
+}
+							</code></pre>							
+						</section>
+						<section>
+							<h2>cache properties</h2>
+							<pre><code>
+var a = [{ z: 1 }, { z: 2 }],
+   sum = 0,
+   val;
+
+for(var i =0; i &lt; 1000; i++){
+   val = a[i%2].z;
+   sum += val;
+   sum += val;
+   sum += val;
+   sum += val;
+   sum += val;	
+}
+							</code></pre>
+							<a href="http://jsperf.com/caching-of-properties">caching object properties</a>
+							<br>
+							<a href="http://jsperf.com/getters-vs-getters-with-caching">getter caching</a>
+						</section> -->
+					</section>
 					<section>
 						<section>
 							<h1>so far</h1>
@@ -2562,14 +2563,28 @@ console.log(start - end +'ms');
 						</section>
 					<section>
 						<section>
-							<h1>Free Fun</h1>
+							<h1>Free Tips</h1>
 							<br>
 							<br>
 							<br>
 							<br>
-							<h6>( kill time at work )</h6>
-						</section>						
+							<h6>( Appear Smart in Meetings )</h6>
+						</section>
 						<section>
+							<h2>1. Draw a Venn Diagram</h2>
+							<img src="images/vennDiagram.jpeg" alt="">
+						</section>
+						<section>
+							<ul>
+								<li>Nod continuously while playing candy crush</li>
+								<li class="fragment">Ask Presenter to go back a slide</li>
+								<br>
+								<li class="fragment">Encourage Everyone to "take a step back"</li>
+								<li class="fragment">Ask "Will this scale?" no matter what it is</li>
+							</ul>
+							<a href="https://medium.com/comedy-corner/10-tricks-to-appear-smart-during-meetings-27b489a39d1a">10 tricks to be smart during meetings</a>
+						</section>						
+						<!-- <section>
  							<h2>just google</h2>
  							<ul>
 								<li class="fragment">google in 1998</li>
@@ -2582,7 +2597,7 @@ console.log(start - end +'ms');
 						<section>
 							<h2>read with patience and generate developer jokes</h2>
 							<a href="http://www.tickld.com/x/20-jokes-that-only-intellectuals-will-understand">logical jokes</a>
-						</section>						
+						</section>					 -->	
 					</section>
 					<section>
 						<h1>Thank You</h1>
