@@ -209,7 +209,31 @@
 					<section>
 						<section>
 							<h1 class="">String</h1>
-						</section>						
+						</section>
+						<section>
+							<h2>String Concatenation</h2>						
+							<pre><code contenteditable>
+var tinyMessage = 'Trust me, i started one line' + 
+		  'Designer told me he wants little more' + 
+		  'I added little more' +
+		  'Manager said, this is not enough' +
+		  "He didn't said what to add" +
+		  'Just said add' +
+		  "I didn't know what to add" +
+		  'So i added a slice of pizza';
+							</code></pre>
+							<pre class="fragment"><code contenteditable>
+var tinyMessage = ['Trust me, i started one line', 
+		   'Designer told me he wants little more', 
+		   'I added little more',
+		   'Manager said, this is not enough',
+		   "He didn't said what to add",
+		   'Just said add',
+		   "I didn't know what to add",
+		   'So i added a slice of pizza'].join(' ');
+							</code></pre>
+							<a href="https://developers.google.com/speed/articles/optimizing-javascript"> Optimize JavaScript </a>
+						</section>							
 						<section>
 							<h2>primitive vs Object</h2>
 							<pre><code>
@@ -256,28 +280,44 @@ parseInt("13268", 10);
 							<img src="images/array.jpg" alt="">							
 						</section>
 						<section>
-							<h2>when to use Array</h2>							
+							<h2>push vs assign</h2>
+							<pre><code>
+var a = [];
+
+for (var i = 0; i&lt;10000; i++){
+   a.push(i);
+}
+							</code></pre>
 							<br>
-							<ol>
-								<li>Same Type</li>
-								<li>Use Full Array</li>
-								<li>Avoid Pre-allocate, Grow as you Go</li>
-							</ol>
-							<br/>
 							<pre class="fragment"><code>
-var a = []; // empty
-var b = new Array(); //empty
+var b = [];
 
-var c = [1,2]; 
-
-var d = new Array(5); // array of size 5
-var e = new Array(5, 10); //array of two element
+for (var i = 0; i&lt;10000; i++){
+   b[i] = i;
+}
+							</code></pre>
+							<a href="http://jsperf.com/zero-filled-array-creation">test: push vs assign</a>
+						</section>
+						<section>
+							<h2>Push multiple</h2>
+							<pre><code>
+var a = [1, 2];
+a.push(3, 4, 5); 
+a; // [1, 2, 3, 4, 5]
 							</code></pre>
 							<br>
 							<br>
-							<a href="http://stackoverflow.com/questions/7375120/why-is-arr-faster-than-arr-new-array">why [] faster</a>, 
-							<a href ="http://jsperf.com/sparse-arrays-vs-full-arrays">Sparse vs Full Arrays</a> 
-						</section>											
+							<div class="fragment">
+								<h4>indexOf Extra Parameter</h4>
+								<pre><code>
+var b = [1, 2, 3, 4, 5, ...];
+
+b.indexOf(669);
+b.indexOf(669, 500);
+								</code></pre>
+								<a href="http://jsperf.com/indexof-fromindex">test: fromIndex</a>
+							</div>
+						</section>
 						<section>
 							<h2>push vs assign</h2>
 							<pre><code>
@@ -1158,49 +1198,6 @@ document.getElementsByClassName('data-control');
 							</code></pre>
 							<a href="http://jsperf.com/class-vs-attribute-selector-performance/4">select by attribute value</a>
 						</section>						
-					</section>
-					<section>
-						<section>
-							<h1>Change DOM</h1>
-							<img src="images/change.jpg" alt="">
-						</section>
-						<section>
-							<h2 >Avoid Change</h2>
-							<br>
-							<ul>
-								<li class="fragment">Minimum change</li>
-								<li class="fragment">Try to avoid Layout change</li>
-								<li class="fragment">Change Background Color</li>
-								<li class="fragment">Change Text Color</li>
-								<li class="fragment">Visibility: hidden</li>
-							</ul>
-							<br>
-							<br>
-							<a href="http://www.html5rocks.com/en/tutorials/speed/high-performance-animations/"> paint and layout</a>
-						</section>
-
-						<section>
-							<h2 >Re paint</h2>
-							<img class="fullScreenImage" src="images/repaint.png">
-						</section>
-						<section>
-							<h2>More Changes =&gt; More Work</h2>
-							<ul>
-								<li class="fragment">Change Layout</li>
-								<li class="fragment">Change Width / Height</li>
-								<li class="fragment">Change Font</li>
-								<li class="fragment">Move DOM Node</li>
-								<li class="fragment">Resize Window</li>
-								<li class="fragment">Display: none</li>								
-							</ul>
-							<br/>
-							<a href="https://docs.google.com/spreadsheet/pub?key=0ArK1Uipy0SbDdHVLc1ozTFlja1dhb25QNGhJMXN5MXc&single=true&gid=0&output=html">Styles that affect layout</a>
-							<a href="http://www.phpied.com/rendering-repaint-reflowrelayout-restyle/">Re flow Layout</a>
-						</section>
-						<section>
-							<h2>Re Flow</h2>
-							<img class="fullScreenImage" src="images/reFlow.png">							
-						</section>
 					</section>
 					<section>
 						<section>
@@ -2333,7 +2330,7 @@ mySting.indexOf('x') == 0;
 					</section> -->
 					<section>
 						<section>
-							<h1> Something for you</h1>
+							<h1>Extra Credit</h1>
 						</section>			
 						<section>
 							<h2>timeout for ajax call</h2>		
@@ -2358,27 +2355,10 @@ xhr.send();
 							<a href="http://css-tricks.com/multiple-simultaneous-ajax-requests-one-callback-jquery/">Chris Coyer: multiple ajax</a>
 						</section>						
 						<section>
-							<h2>Client-side storage</h2>
-							<p>(If you need, google and read)</p>
-							<ul>
-								<li>cookies</li>
-								<li>localStorage</li>
-								<li>sessionStorage</li>
-								<li>indexedDB</li>																
-							</ul>							
-							<br>
-							<br>
-							<br>
-							<a href="http://dev.w3.org/html5/webstorage/">spec: Web Storage</a>, <a href="http://www.w3.org/TR/IndexedDB/">spec: Indexed DB</a>
-							<a href="http://html5doctor.com/storing-data-the-simple-html5-way-and-a-few-tricks-you-might-not-have-known/">Remy Sharp: storing Data</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/Guide/API/DOM/Storage">MDN: DOM storage</a>
+							<h2>asm.js</h2>
 						</section>
 						<section>
-							<h2> multi-threaded JavaScript</h2>
-							<li>web worker</li>
-							<p>its a browser feature</p>
-							<li class="fragment">non blocking doesn't mean concurrency</li>
-							<a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/workers.html">spec: web sorker</a>
-							, <a href="http://www.html5rocks.com/en/tutorials/workers/basics/">Web worker: basics</a>
+							<h2>parallel.js</h2>
 						</section>	
 						<section>
 							<h2 class="upholdHeader">Know JavaScript Engine</h2>							
@@ -2552,10 +2532,6 @@ console.log(start - end +'ms');
 							<a href="https://www.youtube.com/watch?v=480JL_WuMt0">Performance Tuning Secret</a>
 							<br>
 							<a href="http://www.amazon.com/Secrets-JavaScript-Ninja-John-Resig/dp/193398869X">JavaScipt Ninja</a>
-							<br/>
-							<a href="#">asm.js</a>							
-							<br>
-							<a href="#">ParallelJS</a>
 							<br/>
 							<a href="http://lodash.com/">Lo-dash</a>
 							<br>
