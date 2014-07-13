@@ -850,36 +850,6 @@ c();</code></pre>
 					</section>
 					<section>
 						<section>
-							<h1>hoisting</h1>
-						</section>
-						<section>
-							<h4>hoisting</h4>
-							<pre><code>
-function() {    
-    var bar = function() {
-            return 'world';
-        };    
-    function foo() {
-        return 'fooed';
-    }
-    var a = 5;
-}							</code></pre>
-							<pre class="fragment"><code>
-function() {
-    function foo() {
-        return 'fooed';
-    }    
-    var bar;
-    var a;    
-    bar = function() {
-            return 'world';
-        };
-    a = 5;        
-}							</code></pre>
-						</section>
-					</section>
-					<section>
-						<section>
 							<h1>local variable</h1>
 						</section>						
 						<section>
