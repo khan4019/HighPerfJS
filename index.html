@@ -381,13 +381,10 @@ myArr; //[1, 2, 3, 4]
 					<section>
 						<section>
 							<h1>loop</h1>
-							<img class="halfScreenImage" src="images/loop3.jpg" alt="">							
+							<img class="halfScreenImage" src="images/loop3.jpg" alt="">
 						</section>			
 						<section>
 							<img class="fullScreenImage" src="images/loop1.jpg" alt="">
-						</section>
-						<section>
-							<img class="fullScreenImage" src="images/loop2.jpg" alt="">
 						</section>
 						<section>
 							<img class="fullScreenImage" src="images/loop6.jpg" alt="">
@@ -520,21 +517,25 @@ for (var i = 0; i &lt; 1000; i++) {
 						<section>
 							<h2>filter vs if</h2>
 							<pre><code>
-var myArray = [{"number":1,"name":"Fred"},{"number":2,"name":"John"},{"number":3,"name":"Toni"},{"number":4,"name":"Sarah"}];
+var devs = [{ name: 'addy', age: 7}, 
+			{name: 'paul', age:13},
+			{name: 'ryan', age: 17}
+			];
 
 function byFilter(myArr, num){
     return myArr.filter(function (el) {
-        return el.number === num;
+        return el.age > 10;
     });
 }</code></pre>
 							<pre class="fragment"><code>
 function byForLoop(myArr, num){
-    var i, l;
+    var i, l, output=[];
     for (i = 0, l = myArr.length; i &lt; l; i += 1) {
-        if (myArr[i].number === num) {
-            return [myArr[i]];
+        if (myArr[i].age > 10) {
+            output.push(myArr[i]);
         }
      }
+     return output;
      return [];
 }</code></pre>
 							<a href="http://jsperf.com/array-filter-vs-simple-loop/2">filter vs simple loop</a>							
@@ -578,7 +579,7 @@ while (i++ &lt; len) {
   console.log(myArr[i]);
 }
 
-//do while
+
 do {
   someFn(arr[i]);
 } while (i--);
