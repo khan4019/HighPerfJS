@@ -339,32 +339,6 @@ b.indexOf(669, 500);
 								<a href="http://jsperf.com/indexof-fromindex">test: fromIndex</a>
 							</div>
 						</section>
-						<!-- <section>
-							<h2>be careful with assign</h2>
-							<pre><code>
-var myArr = [1, 2, 3, 4];
-
-myArr[68] = 69;
-myArr.length; //69
-myArr; //[1, 2, 3, 4, undefined × 64, 69]
-							</code></pre>
-							<pre class="fragment"><code>
-var myArr = [1,2,3,4];
-myArr[-7] = -7;
-myArr[2.5] = 3.5;
-myArr['myDude'] = 'thatJSDude';
-
-myArr.length;//4
-myArr; //[1, 2, 3, 4]  
-							</code></pre>
-							<h4 class="fragment">these becomes property of myArr</h4>
-							<a href="http://www.thatjsdude.com/jsConcepts/concepts/array.html">Array: that js dude</a>
-						</section>
-						<section>
-							<h2>talk about splice perf</h2>
-							
-						</section>
-						 -->
 						<section>
 							<h2>Array summary</h2>
 							<ul>
@@ -373,9 +347,6 @@ myArr; //[1, 2, 3, 4]
 								<li>push can insert multiple</li>
 								<li>consider fromIndex if possible</li>
 							</ul>
-							<!-- <ul class="fragment">
-								<li>prefer new array over many splice</li>								
-							</ul> -->
 						</section>						
 					</section>					
 					<section>
@@ -438,14 +409,6 @@ for(var i =0; i&lt;len && i&lt;3; i++){
   console.log(myArr[i]);  
 }
 							</code></pre>							
-<!-- 							<pre class="fragment"><code>
-//skip iteratingCondition
-var i = 0;
-for(;;i++){
-  console.log(i);
-  if(i==5) break;
-}
-							</code></pre> -->							
 							<pre class="fragment"><code>
 //do as little as possible in each loop
 //will see an example in future
@@ -453,24 +416,6 @@ for(;;i++){
 							<a href="http://james.padolsey.com/javascript/zakas-javascript-performance-tips/">JS performance tip</a>
 
 						</section>
-<!-- 						<section>		
-							<pre class="fragment"><code>
-//assign variable
-//TODO: this doesnt work. modify it
-var myArr = [1, 2, 3, 4, 5];
-
-for (var i=0, item; item = myArr[i]; i++) {
-  console.log(item);
-}
-							</code></pre>												
-							<pre><code>
-//TODO: put it in the right flow
-var myArr = [1, 2, 3, 4, 5], 
-    i = myArr.length;
-for (var sum = 0; i-- || console.log(sum); sum += myArr[i]);
-//15
-							</code></pre>
-						</section> -->																	
 						<section>
 							<h2>forward or backward</h2>
 							<pre><code>
@@ -608,141 +553,7 @@ while(l--) {
 								<li class="fragment">on array, reverse while is the fastest</li>
 							</ol>
 						</section>
-						<!--<section>
-							<h2>Why this happens?</h2>
-							 <pre><code>
-function filter(array, fn) {
-  var results = [];
-  var item;
-  for (var i = 0, len = array.length; i &lt; len; i++) {
-    item = array[i];
-    if (fn(item)) results.push(item);
-  }
-  return results;
-}
-							</code></pre> 
-							<ol class="fragment">
-								<li>range of elements is set before the first call</li>
-								<li>new elements will not be visited</li>
-								<li>if elements are changed or deleted, their value would be original</li>
-								<li class="fragment"> robustness comes with the expense of overhead</li>
-							</ol>	
-							<br><br>
-							<li class="fragment">also happens for: map, forEach, every, any, etc.</li>											
-							<br>
-							<ol class="fragment">
-								<li>for trusted data</li>
-								<li>not to have deleted values</li>
-								<li>well behaved callbackfn</li>
-							</ol>
-							<br>	
-							<br>
-							<a href="http://monkeyandcrow.com/blog/why_javascripts_filter_is_slow/">why native filter method is slow</a>
-						</section>		-->				
 					</section>
-					<!-- <section>
-						<section>
-							<h1>For-in, while </h1>
-							<img src="images/loop4.jpg" alt="">							
-						</section>						
-						<section>
-							<h5>"Iterates over the enumerable properties of an object, in arbitrary order" - MDN</h5>
-							<pre><code>
-for (var variable in objectExpression) {statement}
-							</code></pre>
-							<ul class="fragment">
-								<li>statement is optional</li>
-								<li>var can be declared outside</li>							
-							</ul>																					
-						</section> 
-						<section>
-							<h4>enumerates inherited properties</h4>
-							<pre><code>var myObj = {a:1, b:2, c:3};
-
-for(var key in myObj){
-  console.log(myObj[key]);
-}
-// 1, 2, 3</code></pre>
-							<pre class="fragment"><code>var myObj = {a:1, b:2, c:3};
-var mySon = Object.create(myObj);
-mySon.d = 4;
-mySon.e = 5;
-
-for(var key in mySon){
-  console.log(mySon[key]);
-}
-// 4, 5, 1, 2, 3</code></pre>
-								<pre class="fragment"><code>for(var key in mySon){
-  if(mySon.hasOwnProperty(key)){  
-     console.log(mySon[key]);
-  }
-}
-//4, 5</code></pre>
-								<a href="http://javascriptweblog.wordpress.com/2011/01/04/exploring-javascript-for-in-loops/">Angus Croll: for-in loops</a>
-						</section>
-						<section>
-							<h2>cache hasOwnProperty</h2>
-							<pre><code>
- var i,
-    obj = {},
-    hasOwn = Object.prototype.hasOwnProperty;
-
-for(var j = 0; j&lt;10000; j++){
-  obj[j] = j;
-}
-							</code></pre>
-							<pre class="fragment"><code>
-for (i in obj) {
-    if (hasOwn.call(obj, i)) {
-         console.log(i, ":", obj[i]);
-    }
-}
-							</code></pre>
-							<p>not a performance gain for modern browsers</p>
-							<a href="http://jsperf.com/for-in-loop-caching-hasownproperty/3">cache hasOwnProperty</a>
-						</section>
-						<section>
-							<h2>coerce to object</h2>
-							<pre><code>
-var myArr = [10, 20, 30];
-
-for(var idx in myArr){
-   console.log(myArr[idx])	
-}
-//10, 20, 30
-							</code></pre>
-							<pre class="fragment"><code>
-var foo = 'bar';
-
-for(var idx in foo){
-   console.log(foo[idx])	
-}
-//b, a, r
-							</code></pre>
-							<a href="http://javascriptweblog.wordpress.com/2011/01/04/exploring-javascript-for-in-loops/">explore for-in</a>
-						</section>
-						 <section>
-							<h2>What is the sum?</h2>
-								<pre><code>
-var numbers = [10, 20, 30];
-var sum = 0;
-for(var num in numbers){
-	sum += num;	
-}
-
-console.log(sum); //?
-								</code></pre>
-								<pre class="fragment"><code>
-console.log(sum); //0012				
-								</code></pre>
-							<ul class="fragment">
-								<li>Always enumerates the keys</li>
-								<li>Keys always string</li>
-							</ul>
-							<a href="http://javascriptweblog.wordpress.com/2011/01/04/exploring-javascript-for-in-loops/#more-1897">Angus: explore for-in</a>
-						</section>	 					
-					</section>-->
-					
 					<section>
 						<section>
 							<h1 class="upholdHeader">Scope</h1>							
@@ -750,9 +561,7 @@ console.log(sum); //0012
 						<section>
 							<h2>JavaScript Scope</h2>
 							<br>
-							<!-- <img src="images/creep.png" alt=""> -->
 							<br>
-
 							<ul class="fragment">
 									<li>Global scope</li>
 									<br>
@@ -824,18 +633,8 @@ c();</code></pre> -->
 						</section>
 						<section>
 							<h2>nested function (closure)</h2>
-				<!-- 			<pre><code>var a = 2; 
-function b(){ 
-   var d = 21;
-   function dog(){  console.log(a); }
-   dog();
-}
-function c(){ console.log(a); }
-b();						
-c();</code></pre>
- -->							<img class="fragment" src="images/closureScope.png" alt="">
-<!-- 							<a href="http://toddmotto.com/everything-you-wanted-to-know-about-javascript-scope/">Everything you wanted to know about scope</a>
- -->						</section>
+											<img class="fragment" src="images/closureScope.png" alt="">
+						</section>
 						<section>
 							<h2>execution context</h2>
 							<ol>
@@ -898,43 +697,6 @@ for(var i = 0; i &lt; someArray.length; i++) {
 							</code></pre>
 							<a href="http://jsperf.com/property-access-vs-variable-caching">property access vs variable cache</a>
 						</section>
-						<!-- <section>
-							<h2>access object property</h2>
-							<pre><code>
-var a = [{ z: 1 }, { z: 2 }],
-   sum = 0,
-   el;
-
-for(var i =0; i &lt; 1000; i++){
-   el = a[i%2];
-   sum += el.z;
-   sum += el.z;
-   sum += el.z;
-   sum += el.z;
-   sum += el.z;	
-}
-							</code></pre>							
-						</section>
-						<section>
-							<h2>cache properties</h2>
-							<pre><code>
-var a = [{ z: 1 }, { z: 2 }],
-   sum = 0,
-   val;
-
-for(var i =0; i &lt; 1000; i++){
-   val = a[i%2].z;
-   sum += val;
-   sum += val;
-   sum += val;
-   sum += val;
-   sum += val;	
-}
-							</code></pre>
-							<a href="http://jsperf.com/caching-of-properties">caching object properties</a>
-							<br>
-							<a href="http://jsperf.com/getters-vs-getters-with-caching">getter caching</a>
-						</section> -->
 					</section>
 					<section>
 						<section>
@@ -982,12 +744,6 @@ for(var i =0; i &lt; 1000; i++){
 						<section>
 							<img  class="fullScreenImage"  src="images/developerSecret.jpg">
 						</section>
-						<!-- <section>
-							<img  class="fullScreenImage"  src="images/coffeePot.jpg">
-						</section>
-						<section>
-							<img  class="fullScreenImage"  src="images/pizzaSlice.jpg">
-						</section> -->
 						<section>
 							<img class="fullScreenImage" src="images/badBoss.jpg">
 						</section>
@@ -1075,26 +831,6 @@ var h3 = awesome.querySelector('.inner-3');
 							<a href="http://jsperf.com/caching-document-with-var-vs-without/2">jsPerf:caching</a>,
 							<a href="http://jsperf.com/caching-queryselector">cache query selector</a>
 						</section>						
-						<!-- <section>
-							<h2>querySelectorAll</h2>
-							<br>
-							<pre><code>
-document.querySelectorAll('input, button');
-							</code></pre>
-							<pre class="fragment"><code>
-// get the elements
-var inp = document.getElementsByTagName('input');
-var but = document.getElementsByTagName('button');
-
-// change the NodeList to array
-var inpArr = Array.prototype.slice.call(inp);
-var butArr = Array.prototype.slice.call(but);
-
-// Join the arrays
-var all = inpArr.concat(butArr);
-							</code></pre>
-							<a href="http://jsperf.com/concat-vs-queryselectorall/2">concat vs querySelectorAll</a>
-						</section> -->
 						<section>
 							<h2>need for speed</h2>
 							<img src="images/ambulence.jpg">
@@ -1187,25 +923,6 @@ ul.appendChild(li);
 							<li class="fragment">if ref passed will move from current parent</li>
 							<a href="http://glowfilter.com/blog/javascript-performance-testing-innerhtml-vs-appendchild/">createElement</a>, <a href="http://jsperf.com/creating-text-node/3">TextNode</a>, <a href="http://jsperf.com/realistic-innerhtml-vs-appendchild/15">$.append</a>							
 						</section>						
-						<!-- <section>
-							<h2>removeNode</h2>
-							<h4>prefer removeNode() over innherHTML = ''</h4>							
-							<pre><code>
-el.innerHTML = '';
-//or
-el.innerHTML = null;
-							</code></pre>
-							<pre><code>
-//prefer
-function emptyDOM(el) {
-    var child;
-    while (child = el.lastChild) {
-      el.removeChild(child);
-    }
-  }
-							</code></pre>
-							<a href="http://jsperf.com/jquery-html-vs-empty-vs-innerhtml/18">removeNode</a>
-						</section> -->
 						<section>
 							<h2>more changes</h2>
 							<pre><code>
@@ -1230,28 +947,6 @@ for (var i = 0; i &lt; list.length; i++) {
 document.body.appendChild(fragment);</code></pre>
 							<a href="https://developer.mozilla.org/en-US/docs/Web/API/document.createDocumentFragment">createDocumentFragment</a>
 						</section>
-						<!-- <section>
-							<h2>cloneNode</h2>	
-							<pre><code>&lt;div&gt;
-  &lt;span id=&quot;childSpan&quot;&gt;original child&lt;/span&gt;
-&lt;/div&gt;
-&lt;div&gt;
-  &lt;span id=&quot;fakeSpan&quot;&gt;foo bar&lt;/span&gt;
-&lt;/div&gt;</code></pre>						
-							<pre class="fragment"><code>
-var orig = document.getElementById('childSpan'),
-    clone = orig.cloneNode(true),
-    target = document.getElementById('fakeSpan');
-
-clone.setAttribute('id', 'newChild');
-
-//.replaceChild(newChild, oldChild);
-target.parentNode.replaceChild(clone, target);
-							</code></pre>
-							<li class="fragment">Be careful if source has ID (don't duplicate)</li>
-							<li class="fragment">AddEventListener isn't cloned but $.clone does</li>
-							<a href="http://developer.nokia.com/community/wiki/JavaScript_Performance_Best_Practices">cloneNode</a>
-						</section> -->
 						<section>
 							<h2>DOM vs innerHTML</h2>
 								<h4>Templating JS vs Mustache</h4>
@@ -1264,16 +959,6 @@ target.parentNode.replaceChild(clone, target);
 								<br>
 								<a href="http://jsperf.com/dom-vs-innerhtml-based-templating/473">JS templating shootoff: important</a>
 						</section>
-						<!-- <section>
-							<h2>style changes</h2>
-							<p>Make multiple predefined style changes at once using className</p>
-							<p>Make multiple dynamic style changes at once using setAttribute</p>
-							<pre><code>
-var elem = document.getElementById('styled');
-elemStyle = 'background: blue; color: white;';
-elem.setAttribute('style', elemStyle);
-							</code></pre>
-						</section> -->
 						<section>
 							<h2>Summary</h2>							
 							<ol>
@@ -1366,44 +1051,6 @@ el.addEventListener('click', function (e) {
 							 });
 							</script>
 						</section>
-						<!-- <section>
-							<h2>event object</h2>
-							<ul>
-								<li>target</li>
-								<li>preventDefault</li>
-								<li>stropPropagation</li>
-								<li>stopImmediatePropagation</li>
-								<li>timestamp</li>
-								<li>clientX, clientY</li>
-							</ul>
-							<br>
-							<a href="http://coding.smashingmagazine.com/2013/11/12/an-introduction-to-dom-events/">intro to DOM event: The Event Object</a>
-							<br>
-							<a href="http://www.w3.org/TR/DOM-Level-3-Events/#event-types">list of dom events</a>
-						</section> 
-						<section>
-							<h2>events attached to a dom</h2>							
-							<pre><code>
-//log all the event listener attached to el
-getEventListeners(el);
-
-//monitor every single event
-monitorEvents(el);
-
-//monitor some events
-monitorEvents(el, 'click');
-monitorEvents(el, ['click', 'focus', 'keyup']);
-
-//unmonitor
-unmonitorEvents(el);
-							</code></pre>	
-							<a href="#">create demo</a>, <a href="http://youtu.be/2zmUSoVMyRU?t=3m9s">master dev tool console</a>
-						</section>						
-						<section>
-							<h2>unbind eventhandler: memory leak</h2>
-							<p>(may go to memory leak section)</p>
-							<p>dont have time to explore, thats why hide it</p>
-						</section>												 -->
 					</section>
 					<section>
 						<section>
@@ -1426,7 +1073,6 @@ unmonitorEvents(el);
 								<li class="fragment">Delegate Events</li>
 								<br>
 								<div class="fragment">
-									<!-- <li>Inheritance: Object.create</li> -->
 									<li>do u need a closure. or function is enough</li>
 									<li>Closure: avoid memory leak</li>
 								</div>
@@ -1934,21 +1580,7 @@ console.log(start - end +'ms');
 								<li class="fragment">Ask "Will this scale?" no matter what it is</li>
 							</ul>
 							<a href="https://medium.com/comedy-corner/10-tricks-to-appear-smart-during-meetings-27b489a39d1a">10 tricks to be smart during meetings</a>
-						</section>						
-						<!-- <section>
- 							<h2>just google</h2>
- 							<ul>
-								<li class="fragment">google in 1998</li>
-								<li class="fragment">do a barrel roll</li>
-								<li class="fragment">tilt</li>
-								<li class="fragment">zerg rush</li>
-								<li class="fragment">google gravity</li>
-							</ul>
 						</section>
-						<section>
-							<h2>read with patience and generate developer jokes</h2>
-							<a href="http://www.tickld.com/x/20-jokes-that-only-intellectuals-will-understand">logical jokes</a>
-						</section>					 -->	
 					</section>
 					<section>
 						<h1>Thank You</h1>
