@@ -1096,11 +1096,11 @@ var all = inpArr.concat(butArr);
 							<a href="http://jsperf.com/concat-vs-queryselectorall/2">concat vs querySelectorAll</a>
 						</section> -->
 						<section>
-							<h2>selector render speed</h2>
+							<h2>need for speed</h2>
 							<img src="images/ambulence.jpg">
 						</section>
 						<section>
-							<h2>render speed (desc)</h2>
+							<h2>query speed (desc)</h2>
 							<br>
 							<ul>
 								<li>ID - #myID</li>
@@ -1312,12 +1312,22 @@ elem.setAttribute('style', elemStyle);
 						<section>
 							<h2>event delegate</h2>
 							<pre><code>
-&lt;ul id=&quot;listToDestroy&quot;&gt;<br/>    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;first item&lt;/a&gt;&lt;/li&gt;<br/>    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;second item&lt;/a&gt;&lt;/li&gt;<br/>    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;third item&lt;/a&gt;&lt;/li&gt;<br/>    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;forth item&lt;/a&gt;&lt;/li&gt;<br/>    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Fifth item&lt;/a&gt;&lt;/li&gt;<br/>&lt;/ul&gt;<br/><br/></code></pre>
+&lt;ul id=&quot;listToDestroy&quot;&gt;
+    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;first item&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;second item&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;third item&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;forth item&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Fifth item&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+							</code></pre>
 							<pre class="fragment"><code>
-&lt;script type=&quot;text/javascript&quot;&gt;  
 var el = document.getElementById('listToDestroy');
 
-el.addEventListener('click', function (e) { <br/>    var elm = e.target.parentNode; <br/>    elm.parentNode.removeChild(elm);<br/>    e.preventDefault();<br/> });<br/>&lt;/script&gt;
+el.addEventListener('click', function (e) {
+    var elm = e.target.parentNode;
+    elm.parentNode.removeChild(elm);
+    e.preventDefault();
+});
 							</code></pre>
 							<a href="http://jsperf.com/events-vanilla-and-jquery/17">js perf delegate</a>
 						</section>
@@ -1370,7 +1380,7 @@ el.addEventListener('click', function (e) { <br/>    var elm = e.target.parentNo
 							<a href="http://coding.smashingmagazine.com/2013/11/12/an-introduction-to-dom-events/">intro to DOM event: The Event Object</a>
 							<br>
 							<a href="http://www.w3.org/TR/DOM-Level-3-Events/#event-types">list of dom events</a>
-						</section> -->
+						</section> 
 						<section>
 							<h2>events attached to a dom</h2>							
 							<pre><code>
@@ -1389,180 +1399,11 @@ unmonitorEvents(el);
 							</code></pre>	
 							<a href="#">create demo</a>, <a href="http://youtu.be/2zmUSoVMyRU?t=3m9s">master dev tool console</a>
 						</section>						
-						<!-- <section>
+						<section>
 							<h2>unbind eventhandler: memory leak</h2>
 							<p>(may go to memory leak section)</p>
 							<p>dont have time to explore, thats why hide it</p>
 						</section>												 -->
-					</section>
-					<!-- <section>
-						<section>
-							<h1>Inheritance</h1>
-						</section>
-						<section>							
-							<img src="images/inheritance.png" alt="">
-							
-							<br>
-							<br>
-							<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Inheritance_and_the_prototype_chain">access property chain</a>							
-						</section>
-						<section>
-							<h2>Implement Inheritance</h2>
-							<ul>
-								<li class="">Functional Pattern: <a href="http://javascript.crockford.com/inheritance.html">Crockford</a></li>
-								<li class="fragment">Constructor: <a href="http://www.klauskomenda.com/code/javascript-inheritance-by-example/"> example</a></li>
-								<li class="fragment">Prototype: <a href="http://javascriptweblog.wordpress.com/2010/06/07/understanding-javascript-prototypes/">Angus prototype</a></li>
-								<li class="fragment">Object.create: <a href="http://css.dzone.com/articles/javascript-inheritance-example">example</a></li>
-								<li class="fragment">es6: class <a href="http://wiki.ecmascript.org/doku.php?id=harmony:classes">harmony: classes</a></li>
-								<li class="fragment">Libraries: prototype.js, base.js</li>
-							</ul>							
-						</section>
-						<section>
-							<h2>functional Pattern</h2>
-							<pre><code>
-function Parent(args){
-   //create new object
-   //set properties, method
-   //retrn new object	
-}
-							</code></pre>
-							<pre class="fragment"><code>
-function Child(args){
-   //call parent, pass parameters
-   //set child properties, on the returned object from Parent
-   //return the parent
-}
-							</code></pre>
-							<li class="fragment">simple and allow encapsulation</li>	
-							<li class="fragment">Each function call creates new object</li>
-						</section>						
-						<section>
-							<h2>prototype chaining</h2>
-							<img src="images/prototype.png" alt="">
-							<br>
-							<a href="http://yehudakatz.com/2011/08/12/understanding-prototypes-in-javascript/">image: prototype</a>, <a href="http://sporto.github.io/blog/2013/02/22/a-plain-english-guide-to-javascript-prototypes/">prototype</a>,
-							<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Introduction_to_Object-Oriented_JavaScript">MDN: OOP in JS</a>
-						</section>
-						<section>
-							<h2>Object.create</h2>
-							<pre><code>
-var a = {a: 1}; 
-// a ---&gt; Object.prototype ---&gt; null
-
-var b = Object.create(a);
-// b ---&gt; a ---&gt; Object.prototype ---&gt; null
-
-
-var c = Object.create(b);
-// c ---&gt; b ---&gt; a ---&gt; Object.prototype ---&gt; null
-							</code></pre>							
-							<ol>
-								<li class="fragment">object creation is faster than function</li>
-								<li class="fragment">new method in prototype is available to all</li>
-								<li class="fragment">iterate every properties in a level then go to next</li>
-								<li class="fragment">Higher lookup time for higher level properties</li>								
-								<li class="fragment">nonexistent properties traverse full chain</li>								
-								<br>
-								<li class="fragment">dont check undefined. use <code>hasOwnProperty</code></li>
-							</ol>							
-							<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Inheritance_and_the_prototype_chain">MDN: perf at bottom</a>
-						</section>
-						<section>
-							<h2>best way to inheritance</h2>
-							<ol>
-								<li>It depends.</li>
-								<li class="fragment">prototypal inheritance performs better</li>
-								<li class="fragment">But dont make it crazy long</li>
-							</ol>
-							<br><br>
-							<ul class="fragment">
-								<li>Choice is yours</li>
-								<li>depending on you project, team</li>
-							</ul>
-							<br>
-							<br>
-							<br>
-							<a href="http://julien.richard-foy.fr/blog/2011/10/30/functional-inheritance-vs-prototypal-inheritance/">function vs prototypal </a>, <a href="http://jsperf.com/js-inheritance-performance/38">perf test</a>
-							<br>
-							<a href="http://erik.eae.net/archives/2009/11/09/21.12.16/">inheritance antipattern</a>
-						</section>						
-					</section> -->	
-					<section>
-						<section>
-							<h1>closure</h1>
-						</section>
-						<section>
-							<h2>function inside function</h2>
-							<!-- <pre><code>var a = 2; 
-function b(){ 
-   var d = 21;
-   function dog(){  console.log(a); }
-   dog();
-}
-function c(){ console.log(a); }
-b();						
-c();</code></pre> -->
-							<img class="fragment" src="images/closureScope.png" alt="">
-						</section>
-						<section>
-							<h4>how it works</h4>
-							<pre><code>
-function counter(){
-    var i = 0;
-    
-    return function(){
-       return i++;
-    }
-}</code></pre>
-							<pre class="fragment"><code>
-var a = counter();
-a(); //0
-a(); //1
-a(); //2
-a(); //3
-a(); //4
-a(); //5</code></pre>
-							<pre class="fragment"><code>
-var b = counter();
-b(); //0
-b(); //1
-b(); //2
-b(); //3</code></pre>
-							<h6 class="fragment">every assignment of counter creates new closure</h6>
-							<h6 class="fragment">a and b has separate private i to remember position</h6>
-						</section>
-						<section>
-							<h2>closure creation</h2>
-							<img class="fragment" src="images/closure1.png" alt="">
-							<p class="fragment">private variable, save State
-							</p>
-							<p class="fragment">closure create encapsulation</p>
-						</section>
-						<section>
-							<h2>multiple closure</h2>
-							<img src="images/closure2.png" alt="">
-							<p class="fragment">each closure have separate private variable</p>
-						</section>
-						<section>
-							<h2>Who care?</h2>
-							<ol>
-								<li>holding function reference: call to counter can not be garbage collected</li>
-								<li class="fragment">How many closure you are creating</li>
-								<br>
-								<li class="fragment">variable reference: Dont use excessively large private variable</li>
-								<li class="fragment">Unnecessary closure affect processing speed and memory consumption</li>
-							</ol>
-							<pre class="fragment"><code>
-function a() {
-    var largeStr = new Array(1000000).join('x');
-    return function () {
-        return largeStr;
-    };
-}</code></pre>
-							<a href="http://coding.smashingmagazine.com/2012/11/05/writing-fast-memory-efficient-javascript/">Addy Osmani: memory efficient JS</a>
-							<br>
-							<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript?redirectlocale=en-US&redirectslug=JavaScript%2FA_re-introduction_to_JavaScript#Memory_leaks">IE8: memory leaks</a>
-						</section>
 					</section>
 					<section>
 						<section>
@@ -2030,78 +1871,6 @@ el.cloneNode(true);
 							<h3 class="fragment">Decide based on your situation</h3>
 						</section>						
 					</section>
-						<section>
-							<section>
-								<h1>Momoization</h1>
-							</section>
-							<section>
-								<h2>Memoization</h2>
-								<pre><code class="largeCode" contenteditable>
-function fibonacci(n) {
-   return n &lt; 2 ? n : fibonacci(n - 1) + fibonacci(n - 2);
-};
-
-for (var i = 0; i &lt;= 10; i += 1) {
-   console.log( i + ': ' + fibonacci(i));
-}
-// 0: 0
-// 1: 1
-// 2: 1
-// 3: 2
-// 4: 3
-// 5: 5
-// 6: 8
-// 7: 13
-// 8: 21
-// 9: 34
-// 10: 55					</code></pre>
-												<h4 class="fragment">every call itself creates new scope</h4>
-											</section>
-											<section>
-												<h2>JavaScript: Good Parts</h2>
-												<pre><code contenteditable>
-var fibonacci = (function () {  
-  var memo = [0, 1];
-  
-  var fib = function (n) {
-     var result = memo[n];
-     
-     if (typeof result !== 'number') {
-         result = fib(n - 1) + fib(n - 2);
-         memo[n] = result;
-     }     
-     return result;
-  };
-  
-  return fib;
-})();
-												</code></pre>
-											</section>
-											 <section>
-												<h2>General Memoization</h2>
-												<pre><code contenteditable>
-Function.prototype.memoize = function(){
-    var self = this, cache = {};
-    
-    return function( arg ){
-      if(arg in cache) {        
-        return cache[arg];
-      } else {        
-        return cache[arg] = self( arg );
-      }
-    }
-  }</code></pre>
-												<pre class="fragment"><code>
-function fooBar(a){ ... }
-var memoFooBar = fooBar.memoize();
-
-memoFooBar(1); // calculated and cache
-memoFooBar(1); // returned from cache
-memoFooBar(2); // calculate and cache
-												</code></pre>
-											<a href="http://addyosmani.com/blog/faster-javascript-memoization/">Addy Osmani: JS Memoization</a>, <a href="https://github.com/addyosmani/memoize.js/blob/master/memoize.js">memoize.js</a>
-											</section>	 					
-										</section>
 					<section>
 						<section>
 							<h1>so far</h1>
@@ -2129,214 +1898,6 @@ memoFooBar(2); // calculate and cache
 							<img class="halfScreenImage" src="images/question8.jpg" alt="">
 						</section>
 					</section>
-					<!-- <section>
-						<section>
-							<h1>Global Variable</h1>
-						</section>
-						<section>
-							<h2>Reduce Global</h2>
-							<pre><code>
-var current = null;
-function init(){...}
-function change(){...}
-							</code></pre>
-							<pre class="fragment"><code>
-var myNameSpace = {
-  current:null,
-  init:function(){...},
-  change:function(){...}  
-}
-							</code></pre>
-							<pre class="fragment"><code>
-(function(){
-  var current = null;
-  function init(){...}
-  function change(){...}
-})();							
-							</code></pre>
-
-							<a href="http://www.w3.org/wiki/JavaScript_best_practices">W3.org JS best practice</a>
-							<br/>
-							<a href="http://thanpol.as/javascript/development-using-namespaces/">Develop with Namespace</a>
-						</section>
-						<section>
-							<h4>combined var</h4>
-							<pre><code>
-var foo,
-    fooed    
-    fooled;</code></pre>
-    						<pre class="fragment"><code>
-var p = 9,
-    q = 10;
-    r = 11;</code></pre>
-							<pre class="fragment"><code>
-var a = 7, 
-    b = c = 6;
-							</code></pre>
-							<pre class="fragment"><code>// Non-strict code... 
-(function(){
-  "use strict"; 
-  var a = 7, 
-    b = c = 6;
-})();
-ReferenceError: c is not defined 
-							</code></pre>
-							<a href="http://ejohn.org/blog/ecmascript-5-strict-mode-json-and-more/">Strict Mode</a>, <a href="http://james.padolsey.com/javascript/js-adolescence/">JS adolescence</a>								
-						</section>												
-					</section> -->
-<!-- 					<section>
-						<section>
-							<h1>try-catch</h1>
-							<img src="images/tryCatch.jpg">
-						</section>
-						<section>
-							<h2>Re-think try-catch</h2>
-							<pre><code>
-function tryCatch(obj) {
-    try {
-      return obj.prop;
-    } catch (ex) {
-      return null;
-    }
-}
-							</code></pre>
-							<pre class="fragment"><code>
-function ifCheck(obj) {
-    if (obj !== undefined) {
-      return obj.prop;
-    } else {
-      return null;
-    }
-  }
-							</code></pre>
-							<a href="http://flippinawesome.org/2013/09/30/rethinking-javascripts-trycatch">Rethink: Try-catch</a>
-							<br/>
-							<a href="http://jsperf.com/try-catch-error-perf/3">JSPerf: try-catch vs if check</a>							
-						</section>							
-					</section> -->
-					<!-- <section>
-						<section>
-							<h1>== or ===</h1>							
-						</section>
-						<section>
-							<h2>What the difference?</h2>
-							<br>
-							<p>== and != try to coerce values before comparing (can lead to unexpected results)</p>
-							<p>=== and !== don't do any coercion (generally safer)</p>
-							<br>
-							<p class="fragment"><strong>jshint#eqeqeq: </strong> prohibits the use of == and != in favor of === and !==.</p>							
-							<p class="fragment">older browsers === and !== was faster (not in modern browser)</p>
-							<a href="http://www.jshint.com/docs/options/">js hint options</a>, <a href="http://jsperf.com/equalityinnit">equality perf test</a>
-						</section>
-						<section>							
-							<h2>How == works?</h2>							
-							<li>force coercion (change type) of one or both</li>
-							<pre><code>
-[0] == true; 
-
-//convert boolean using toNumber
-[0] == 1;
-
-//convert object using toPrimitive
-//[0].valueOf() is not a primitive so use...
-//[0].toString() -> "0"
-"0" == 1; 
-
-//convert string using toNumber
-0 == 1; //false!
-							</code></pre>
-							<a href="http://javascriptweblog.wordpress.com/2011/02/07/truth-equality-and-javascript/">Angus Croll: truth equality</a>							
-						</section>
-						<section>		
-							<pre><code>
-"potato" == false; //false
-"potato" == true; //false
-							</code></pre>					
-							<pre class="fragment"><code>
-"potato" == true; 
-
-//convert boolean using toNumber
-"potato" == 1;
-
-//convert string using toNumber
-NaN == 1; //false!
-							</code></pre>
-							<pre class="fragment"><code>
-"potato" == false; 
-
-//convert boolean using toNumber
-"potato" == 0;
-
-//convert string using toNumber
-NaN == 0; //false!
-							</code></pre>
-						</section>
-						<section>
-							<h2 class="upholdHeader">Which one? === or ==</h2>
-
-							<pre><code contenteditable>
-0 == ''; // true
-0 === false; //false
-							</code></pre>
-							<pre class="fragment"><code contenteditable>
-if (( x === null) || (x === undefined)){ ... }
-
-if(x == null) { ... }
-							</code></pre>
-							<p class="fragment"> When you don't actually know whether they are same type</p>
-							<pre class="fragment"><code contenteditable>
-typeof thing == 'function'; //always be string
-myArray.length == 0;  //will always be number
-mySting.indexOf('x') == 0;
-							</code></pre>
-							
-							<a href="http://www.youtube.com/watch?v=MFtijdklZDo">bReaK aLL thE RuleZ</a>		
-						</section>						
-					</section> -->
-					<section>
-						<section>
-							<h1>Extra Credit</h1>
-						</section>			
-						<section>
-							<h2>timeout for ajax call</h2>		
-							<pre><code>
-var xhr = new XMLHttpRequest ();
-xhr.open('GET', url, false);
-
-xhr.onreadystatechange = function () {
-    if (this.readyState == 4) {                    
-        clearTimeout(timeout);
-        //success
-    }
-}
-
-var timeout = setTimeout(function () {
-        xhr.abort();
-        //timedout
-    },60000); // timeout after a minute
-xhr.send();
-							</code></pre>
-							<h2 class="fragment">simultaneous ajax</h2>
-							<a href="http://css-tricks.com/multiple-simultaneous-ajax-requests-one-callback-jquery/">Chris Coyer: multiple ajax</a>
-						</section>						
-						<section>
-							<h2>asm.js</h2>
-						</section>
-						<section>
-							<h2>parallel.js</h2>
-						</section>	
-						<section>
-							<h2 class="upholdHeader">Know JavaScript Engine</h2>							
-							<ul>
-								<li>Know V8</li>
-								<li>Hidden Class</li>
-								<li>Avoid Memory Leaks</li>
-								<li>Compile browser</li>
-							</ul>
-							<br/>
-							<a href="http://coding.smashingmagazine.com/2012/11/05/writing-fast-memory-efficient-javascript/">Memory Efficient JS</a>
-						</section>
-					</section>										
 					<section>
 						<section>
 							<h1>Performance Test</h1>
