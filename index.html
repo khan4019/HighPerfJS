@@ -339,32 +339,8 @@ for(var i =0; i&lt; myArr.length; i++){
 for(var i =0, len = myArr.length; i&lt;len; i++){
   console.log(myArr[i]);
 }
-							</code></pre>							
-							<pre class="fragment"><code>var myArr = [1, 2, 3, 4, 5],
-    i = 0,
-    len = myArr.length;
-
-for ( ; i &lt; len; i++ ) {
-  console.log(myArr[i]);
-}</code></pre>
+							</code></pre>														
 						</section>						
-						<section>
-							<h2>iteratingCondition</h2>
-							<pre><code>
-var myArr = [1, 2, 3, 4, 5],
-    len = myArr.length;
-
-for(var i =0; i&lt;len && i&lt;3; i++){
-  console.log(myArr[i]);  
-}
-							</code></pre>							
-							<pre class="fragment"><code>
-//do as little as possible in each loop
-//will see an example in future
-							</code></pre>
-							<a href="http://james.padolsey.com/javascript/zakas-javascript-performance-tips/">JS performance tip</a>
-
-						</section>
 						<section>
 							<h2>forward or backward</h2>
 							<pre><code>
@@ -455,12 +431,20 @@ for(var j in myArr){
 							<a href="http://jsperf.com/for-vs-forintest">for vs for-in</a>
 						</section>
 						<section>
-							<img src="images/steppingThroughLongLoop.gif" alt="">
-							<br>
-							<br>
-							<br>
-							<br>
-							<h6>from: Addy Osmani (g+)</h6>
+							<h2>for in could be faster</h2>
+							<pre><code>
+var arr = [0];
+arr[999] = 999;
+
+for(var i = 0, len = arr.length; i &lt; len; i++){
+   console.log(arr[i]);
+}
+							</code></pre>
+							<pre class="fragment"><code>
+for(var j in arr){
+  console.log(arr[j]);
+}
+							</code></pre>
 						</section>
 						<section>
 							<h3>while, do while</h3>
@@ -472,11 +456,6 @@ var myArr = [1,2,3,4,5,6,7,8,9],
 while (i++ &lt; len) {
   console.log(myArr[i]);
 }
-
-
-do {
-  someFn(arr[i]);
-} while (i--);
 							</code></pre>
 							<pre class="fragment"><code>
 var l = arr.length;
