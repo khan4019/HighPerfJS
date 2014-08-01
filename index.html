@@ -344,6 +344,29 @@ for(var i =0, len = myArr.length; i&lt;len; i++){
   console.log(myArr[i]);
 }
 							</code></pre>														
+						</section>
+						<section>
+							<h2>cache outside for loop</h2>						
+							<pre><code>
+for(var i = 0; i &lt; someArray.length; i++) {
+
+   var container = document.getElementById('container');  
+   container.innerHtml += 'my number: ' + i;  
+   console.log(i);  
+}
+							</code></pre>		
+							<h4 class="fragment">when value doesnt change</h4>
+							<pre class="fragment"><code>
+var container = document.getElementById('container');  
+
+for(var i = 0; i &lt; someArray.length; i++) {
+
+   container.innerHtml += 'my number: ' + i;  
+   console.log(i);  
+} 
+//caution, this cause reflow
+							</code></pre>
+							<a href="http://jsperf.com/property-access-vs-variable-caching">property access vs variable cache</a>
 						</section>						
 						<section>
 							<h2>forward or backward</h2>
@@ -543,23 +566,23 @@ function b(){
 						</section>
 						<section>
 							<h2>local/function scope</h2>
-							<!-- <pre><code>var a = 2; 
+							<pre><code>var a = 2; 
 function b(){
    var d = 21;
    console.log(a);
 }
-b();							</code></pre> -->
+b();							</code></pre>
 							<img class="fragment" src="images/localScope.png" alt="">
 							<br>
 							<a href="http://davidshariff.com/blog/javascript-scope-chain-and-closures/">JS scope chain</a>
 						</section>
 						<section>
 							<h2>multi execution context</h2>
-							<!-- <pre><code>var a = 2; 
+							<pre><code>var a = 2; 
 function b(){ console.log(a); }
 function c(){ console.log(a); }
 b();						
-c();</code></pre> -->
+c();</code></pre>
 							<img class="fragment" src="images/multiScope.png" alt="">							
 				
 						</section>
@@ -567,22 +590,6 @@ c();</code></pre> -->
 							<h2>nested function (closure)</h2>
 											<img class="fragment" src="images/closureScope.png" alt="">
 						</section>
-						<section>
-							<h2>execution context</h2>
-							<ol>
-								<li>When you call a function, an execution context is created (before running any code) </li>
-								<li class="fragment">In the context,  first thing created is the scope chain</li>								
-								<li class="fragment">All local variables is pushed to the front of the context's scope chain.</li>
-								<li class="fragment">And then, create variable, arguments, determine the value of this</li>
-								<li class="fragment">So, Further in the chain, the slower the identifier resolution is, which means local variables are fastest.</li>
-								<p class="fragment"> (just for remembering)By storing local references to frequently used out-of-scope variables reading and writing to variables is significantly faster. This is visible especially with global variables and other deep searches for identifier resolution.</p>							
-							</ol>
-						</section>
-					</section>
-					<section>
-						<section>
-							<h1>local variable</h1>
-						</section>						
 						<section>
 							<h2>store out of scope variable</h2>
 							<pre><code>
@@ -604,32 +611,19 @@ function useLocal() {
     }
 }
 							</code></pre>
-							<a href="http://jsperf.com/global/17">local vs global variable</a>							
+							<a href="http://jsperf.com/global/17">local vs global variable</a>
 						</section>
 						<section>
-							<h2>cache outside for loop</h2>						
-							<pre><code>
-for(var i = 0; i &lt; someArray.length; i++) {
-
-   var container = document.getElementById('container');  
-   container.innerHtml += 'my number: ' + i;  
-   console.log(i);  
-}
-							</code></pre>		
-							<h4 class="fragment">when value doesnt change</h4>
-							<pre class="fragment"><code>
-var container = document.getElementById('container');  
-
-for(var i = 0; i &lt; someArray.length; i++) {
-
-   container.innerHtml += 'my number: ' + i;  
-   console.log(i);  
-} 
-//caution, this cause reflow
-							</code></pre>
-							<a href="http://jsperf.com/property-access-vs-variable-caching">property access vs variable cache</a>
+							<h2>execution context</h2>
+							<ol>
+								<li>When you call a function, an execution context is created (before running any code) </li>
+								<li class="fragment">In the context,  first thing created is the scope chain</li>								
+								<li class="fragment">All local variables is pushed to the front of the context's scope chain.</li>
+								<li class="fragment">And then, create variable, arguments, determine the value of <code>this</code></li>
+								<li class="fragment">So, Further in the chain, the slower the identifier resolution is, which means local variables are fastest.</li>														
+							</ol>
 						</section>
-					</section>
+					</section>					
 					<section>
 						<section>
 							<h1>so far</h1>
