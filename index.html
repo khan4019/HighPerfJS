@@ -103,7 +103,8 @@
 
 								</h3>
 							</p>
-							<h4>www.thatjsdude.com</h4>
+							<h4>www.thatJSdude.com</h4>
+							<small>(youtube.com/user/khanLearning)</small>
 						</section>
 						<section>
 							<h1>Request</h1>
@@ -117,6 +118,16 @@
 						</section>
 					</section>
 					<section>
+						<section>
+							<h1>why performance</h1>							
+						</section>
+						<section>
+							<img src="images/spinner.gif" alt="">
+							<!-- <div class="fragment">
+								<h6>you hate spinner,</h6>
+								<h6> so does your client</h6>
+							</div> -->
+						</section>
 						<section>
 							<h2 class="upholdHeader">Performance improvement</h2>
 							<img class="fullScreenImage" src="images/underConstruction3.jpg" alt="">
@@ -136,16 +147,6 @@
 						<section>
 							<img class="fullScreenImage" src="images/bathroom1.jpg" alt="">
 						</section>
-						<section>
-							<h1>why performance</h1>							
-						</section>
-						<section>
-							<img src="images/spinner.gif" alt="">
-							<!-- <div class="fragment">
-								<h6>you hate spinner,</h6>
-								<h6> so does your client</h6>
-							</div> -->
-						</section>											
 					</section>	
 					<section>
 						<section>
@@ -305,19 +306,27 @@ b.indexOf(669, 500);
 							<img class="fullScreenImage" src="images/loop6.jpg" alt="">
 						</section>						
 						<section>
-							<h2>for loop (mostly used)</h2>
-							<pre><code>
-for(var i = 0; i &lt; 5; i++){
-  console.log(i);
-}
-							</code></pre>
+							<img src="images/forLoop.png" alt="">
+							<img class="fragment" src="images/forLoopInitiation.png" alt="">
+						</section>
+						<section>
+							<img src="images/forLoopRepeatingCondition.png" alt="">
+							<img class="fragment" src="images/forLoopRepeatingExpression.png" alt="">
+						</section>
+						<section>
+							<img src="images/forLoopRepeatingCode.png" alt="">
 							<pre class="fragment"><code>
 for(initiation; iteratingCondition; repeatingExpression){
   repeatingCode;
 }
 							</code></pre>
-							<h3 class="fragment">all parts are optional</h3>
-							<h4 class="fragment">but u have to put the semicolon</h4>
+							<h4 class="fragment">all parts are optional</h4>
+							<pre class="fragment"><code>
+var i = 0;
+for( ; ; ){
+   console.log(i++);	
+   if(i==5) break;	  
+}</code></pre>
 						</section>						
 						<section>
 							<h2>initiation;</h2>						
@@ -334,32 +343,31 @@ for(var i =0; i&lt; myArr.length; i++){
 for(var i =0, len = myArr.length; i&lt;len; i++){
   console.log(myArr[i]);
 }
-							</code></pre>							
-							<pre class="fragment"><code>var myArr = [1, 2, 3, 4, 5],
-    i = 0,
-    len = myArr.length;
-
-for ( ; i &lt; len; i++ ) {
-  console.log(myArr[i]);
-}</code></pre>
-						</section>						
-						<section>
-							<h2>iteratingCondition</h2>
-							<pre><code>
-var myArr = [1, 2, 3, 4, 5],
-    len = myArr.length;
-
-for(var i =0; i&lt;len && i&lt;3; i++){
-  console.log(myArr[i]);  
-}
-							</code></pre>							
-							<pre class="fragment"><code>
-//do as little as possible in each loop
-//will see an example in future
-							</code></pre>
-							<a href="http://james.padolsey.com/javascript/zakas-javascript-performance-tips/">JS performance tip</a>
-
+							</code></pre>														
 						</section>
+						<section>
+							<h2>cache outside for loop</h2>						
+							<pre><code>
+for(var i = 0; i &lt; someArray.length; i++) {
+
+   var container = document.getElementById('container');  
+   container.innerHtml += 'my number: ' + i;  
+   console.log(i);  
+}
+							</code></pre>		
+							<h4 class="fragment">when value doesnt change</h4>
+							<pre class="fragment"><code>
+var container = document.getElementById('container');  
+
+for(var i = 0; i &lt; someArray.length; i++) {
+
+   container.innerHtml += 'my number: ' + i;  
+   console.log(i);  
+} 
+//caution, this cause reflow
+							</code></pre>
+							<a href="http://jsperf.com/property-access-vs-variable-caching">property access vs variable cache</a>
+						</section>						
 						<section>
 							<h2>forward or backward</h2>
 							<pre><code>
@@ -450,12 +458,20 @@ for(var j in myArr){
 							<a href="http://jsperf.com/for-vs-forintest">for vs for-in</a>
 						</section>
 						<section>
-							<img src="images/steppingThroughLongLoop.gif" alt="">
-							<br>
-							<br>
-							<br>
-							<br>
-							<h6>from: Addy Osmani (g+)</h6>
+							<h2>for in could be faster</h2>
+							<pre><code>
+var arr = [0];
+arr[999] = 999;
+
+for(var i = 0, len = arr.length; i &lt; len; i++){
+   console.log(arr[i]);
+}
+							</code></pre>
+							<pre class="fragment"><code>
+for(var j in arr){
+  console.log(arr[j]);
+}
+							</code></pre>
 						</section>
 						<section>
 							<h3>while, do while</h3>
@@ -467,11 +483,6 @@ var myArr = [1,2,3,4,5,6,7,8,9],
 while (i++ &lt; len) {
   console.log(myArr[i]);
 }
-
-
-do {
-  someFn(arr[i]);
-} while (i--);
 							</code></pre>
 							<pre class="fragment"><code>
 var l = arr.length;
@@ -555,23 +566,23 @@ function b(){
 						</section>
 						<section>
 							<h2>local/function scope</h2>
-							<!-- <pre><code>var a = 2; 
+							<pre><code>var a = 2; 
 function b(){
    var d = 21;
    console.log(a);
 }
-b();							</code></pre> -->
+b();							</code></pre>
 							<img class="fragment" src="images/localScope.png" alt="">
 							<br>
 							<a href="http://davidshariff.com/blog/javascript-scope-chain-and-closures/">JS scope chain</a>
 						</section>
 						<section>
 							<h2>multi execution context</h2>
-							<!-- <pre><code>var a = 2; 
+							<pre><code>var a = 2; 
 function b(){ console.log(a); }
 function c(){ console.log(a); }
 b();						
-c();</code></pre> -->
+c();</code></pre>
 							<img class="fragment" src="images/multiScope.png" alt="">							
 				
 						</section>
@@ -579,22 +590,6 @@ c();</code></pre> -->
 							<h2>nested function (closure)</h2>
 											<img class="fragment" src="images/closureScope.png" alt="">
 						</section>
-						<section>
-							<h2>execution context</h2>
-							<ol>
-								<li>When you call a function, an execution context is created (before running any code) </li>
-								<li class="fragment">In the context,  first thing created is the scope chain</li>								
-								<li class="fragment">All local variables is pushed to the front of the context's scope chain.</li>
-								<li class="fragment">And then, create variable, arguments, determine the value of this</li>
-								<li class="fragment">So, Further in the chain, the slower the identifier resolution is, which means local variables are fastest.</li>
-								<p class="fragment"> (just for remembering)By storing local references to frequently used out-of-scope variables reading and writing to variables is significantly faster. This is visible especially with global variables and other deep searches for identifier resolution.</p>							
-							</ol>
-						</section>
-					</section>
-					<section>
-						<section>
-							<h1>local variable</h1>
-						</section>						
 						<section>
 							<h2>store out of scope variable</h2>
 							<pre><code>
@@ -616,32 +611,19 @@ function useLocal() {
     }
 }
 							</code></pre>
-							<a href="http://jsperf.com/global/17">local vs global variable</a>							
+							<a href="http://jsperf.com/global/17">local vs global variable</a>
 						</section>
 						<section>
-							<h2>cache outside for loop</h2>						
-							<pre><code>
-for(var i = 0; i &lt; someArray.length; i++) {
-
-   var container = document.getElementById('container');  
-   container.innerHtml += 'my number: ' + i;  
-   console.log(i);  
-}
-							</code></pre>		
-							<h4 class="fragment">when value doesnt change</h4>
-							<pre class="fragment"><code>
-var container = document.getElementById('container');  
-
-for(var i = 0; i &lt; someArray.length; i++) {
-
-   container.innerHtml += 'my number: ' + i;  
-   console.log(i);  
-} 
-//caution, this cause reflow
-							</code></pre>
-							<a href="http://jsperf.com/property-access-vs-variable-caching">property access vs variable cache</a>
+							<h2>execution context</h2>
+							<ol>
+								<li>When you call a function, an execution context is created (before running any code) </li>
+								<li class="fragment">In the context,  first thing created is the scope chain</li>								
+								<li class="fragment">All local variables is pushed to the front of the context's scope chain.</li>
+								<li class="fragment">And then, create variable, arguments, determine the value of <code>this</code></li>
+								<li class="fragment">So, Further in the chain, the slower the identifier resolution is, which means local variables are fastest.</li>														
+							</ol>
 						</section>
-					</section>
+					</section>					
 					<section>
 						<section>
 							<h1>so far</h1>
@@ -667,11 +649,7 @@ for(var i = 0; i &lt; someArray.length; i++) {
 								<li class="fragment">simple for loop is faster than built in filter</li>
 								<li class="fragment">reverse while is the fastest to iterate array</li>
 							</ol>
-						</section>
-						<section>
-							<h2>any question?</h2>	
-							<img src="images/question5.jpg" alt="">
-						</section>
+						</section>						
 					</section>	
 					<section>
 						<section>
@@ -961,6 +939,10 @@ el.addEventListener('click', function (e) {
 							<a href="http://jsperf.com/events-vanilla-and-jquery/17">js perf delegate</a>
 						</section>
 						<section>
+							<h2>think about gym</h2>
+
+						</section>
+						<section>
 							<h2>event delegate (demo)</h2>
 							<ul id="listToDestroy">
 				              <li><a href="#">first item</a></li>
@@ -1021,11 +1003,7 @@ el.addEventListener('click', function (e) {
 									<li>Closure: avoid memory leak</li>
 								</div>
 							</ol>
-						</section>
-						<section>
-							<h2>any question?</h2>
-							<img src="images/question1.jpg" alt="">
-						</section>
+						</section>						
 					</section>
 					<section>
 						<section>
@@ -1214,6 +1192,9 @@ function move(elem) {
 								})
 							</script>
 							<a href="http://css-tricks.com/controlling-css-animations-transitions-javascript/">controlling js animation</a>
+						</section>
+						<section>
+							<h2>animate with minimum reflow</h2>
 						</section>					
 						<section>
 							<h2>animations perf</h2>							
@@ -1328,14 +1309,10 @@ window.onscroll = function(e) {
 								<br>
 								<div class="fragment">
 									<li>native vs JQuery (browser support)</li>
-									<li>Do u really need full Jquery or some module</li>									
+									<li>Do u really need full Jquery or some module</li>
 								</div>
 							</ol>
-						</section>
-						<section>
-							<h2>any question?</h2>
-							<img class="halfScreenImage" src="images/question8.jpg" alt="">
-						</section>
+						</section>						
 					</section>
 					<section>
 						<section>
@@ -1347,7 +1324,7 @@ window.onscroll = function(e) {
 							<ol>
 								<li>chrome task manager (shift + Esc)</li>
 								<li>devtool - audit, network</li>
-								<li>jsPerf.com <a href="http://jsperf.com/">show popular</a></li>								
+								<li>jsPerf.com <a href="http://jsperf.com/">show popular</a></li>
 								<li>Devtool- Console, timeline, profile</li>
 							</ol>
 						</section>
@@ -1491,18 +1468,7 @@ console.log(start - end +'ms');
 							<a href="http://www.youtube.com/watch?v=MFtijdklZDo">Angus Croll: Break all the rules</a>							
 						</section>
 						<section><img src="images/knowWhy.jpg" alt=""></section>
-					</section>
-					<section>
-							<h1>Need more !!!</h1>
-							<a href="http://www.youtube.com/watch?v=Lsg84NtJbmI">So, You Want to be a Front-End Engineer</a>
-							<a href="https://www.youtube.com/watch?v=480JL_WuMt0">Performance Tuning Secret</a>
-							<br>
-							<a href="http://www.amazon.com/Secrets-JavaScript-Ninja-John-Resig/dp/193398869X">JavaScipt Ninja</a>
-							<br/>
-							<a href="http://lodash.com/">Lo-dash</a>
-							<br>
-							<a href="https://github.com/getify/You-Dont-Know-JS">You Don't Know JS</a>
-						</section>
+					</section>					
 					<section>
 						<section>
 							<h1>Free Tips</h1>
