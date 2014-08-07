@@ -231,12 +231,11 @@
 							<img src="images/array.jpg" alt="">							
 						</section>
 						<section>
-							<h2>when to use Array</h2>							
+							<h2>When to use Array</h2>							
 							<ol>
 								<li>Same Type</li>
 								<li>Use Full Array</li>
-								<li>Avoid Pre-allocate</li>
-								<li>Grow as you Go</li>
+								<li>Avoid Pre-allocate (Grow as you Go)</li>
 							</ol>
 							<pre class="fragment"><code>
 var a = [];
@@ -248,6 +247,12 @@ var c = [1, 2, 3, 4];
 								<small>literal will always produce array: just execute</small>
 								<small>constructor is a function call plus execution, argument check</small>
 							</div>
+							<pre class="fragment"><code>
+var a = new Array(5); 
+//[undefined, undefined, undefined, undefined, undefined]
+
+var b = new Array(5, 6);// [5,6]
+							</code></pre>
 							<a href="http://stackoverflow.com/questions/7375120/why-is-arr-faster-than-arr-new-array">why [] faster</a>, 					
 							<a href="http://jsperf.com/literal-vs-new-23/2">literal vs new</a>
 						</section>
@@ -354,44 +359,37 @@ for(var i =0, len = myArr.length; i&lt;len; i++){
 						<section>
 							<h2>cache outside for loop</h2>						
 							<pre><code>
-for(var i = 0; i &lt; someArray.length; i++) {
-
-   var container = document.getElementById('container');  
-   container.innerHtml += 'my number: ' + i;  
-   console.log(i);  
+for(var i = 0; i &lt; 10; i++) {
+   var container = document.getElementById('container'); 
+   console.log(container[i].innerText);
 }
 							</code></pre>		
 							<h4 class="fragment">when value doesnt change</h4>
 							<pre class="fragment"><code>
 var container = document.getElementById('container');  
 
-for(var i = 0; i &lt; someArray.length; i++) {
-
-   container.innerHtml += 'my number: ' + i;  
-   console.log(i);  
-} 
-//caution, this cause reflow
+for(var i = 0; i &lt; 10; i++) {
+   console.log(container[i].innerText);
+}
 							</code></pre>
 							<a href="http://jsperf.com/property-access-vs-variable-caching">property access vs variable cache</a>
 						</section>						
 						<section>
 							<h2>forward or backward</h2>
 							<pre><code>
-var myArr = [0,1,2,3,4,5 ...];
+var myArr = [0,1,2,3,4,5 ...],
+	len = myArr.length;
 
 //forward
-for(var j = 0; j&lt;1000; j++){
+for(var j = 0; j&lt;len; j++){
   console.log(myArr[j]);
 }
 
-//backward
-for(var k = 1000; k>=0; k--){
-  console.log(myArr[k]);
-}
 							</code></pre>
 							<pre class="fragment"><code>
-for(var i = 1000; --i>=0;){
-  console.log(myArr[i]);
+//backward
+for(var i = len; i--;){
+  console.log(myArr[k]);
 }								
 							</code></pre>
 							<p>dont worry about it for a smaller array</p>
