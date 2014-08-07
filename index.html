@@ -459,7 +459,9 @@ for(var j in myArr){
 							<br>
 							<p class="fragment">dont use for-in while traversing on an array</p>
 							<br>
-							<a href="http://jsperf.com/for-vs-forintest">for vs for-in</a>
+							<!-- <p>Repeat. 
+Let P be the name of the next property of obj whose [[Enumerable]] attribute is true. If there is no such property, return (normal, V, empty).</p> -->
+							<a href="http://jsperf.com/for-vs-forintest">for vs for-in</a>, <a href="http://www.ecma-international.org/publications/files/ECMA-ST/Ecma-262.pdf">spec: 12.6.4</a>
 						</section>
 						<section>
 							<h2>for in could be faster</h2>
