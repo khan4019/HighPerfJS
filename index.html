@@ -136,6 +136,9 @@
 								<h6> so does your client</h6>
 							</div> -->
 						</section>
+						<!-- <section>
+							<img src="images/spinner2.jpg" alt="">
+						</section> -->
 						<section>
 							<h2 class="upholdHeader">Performance improvement</h2>
 							<img class="fullScreenImage" src="images/underConstruction3.jpg" alt="">
@@ -151,6 +154,12 @@
 						</section>
 						<section>
 							<img src="images/snake.jpg" alt="">
+						</section>
+						<section>
+							<img src="images/motivation1.png" alt="">
+						</section>
+						<section>
+							<img src="images/motivation.png" alt="">
 						</section>
 						<section>
 							<img class="fullScreenImage" src="images/bathroom1.jpg" alt="">
@@ -190,7 +199,7 @@
 								<li class="fragment">Is it a performance/ design problem?</li>
 								<br>
 								<li class="fragment">Don't blindly go for blog/ talk/ boss</li>
-								<li class="fragment">Or some random guy in a conference</li>
+								<li class="fragment">Or some random guy in that conference</li>
 								<br>
 								<li class="fragment">Measure it (before, after)</li>
 								<li class="fragment">Make sure u understand after 6 months</li>								
@@ -210,12 +219,12 @@
 							<img src="images/array.jpg" alt="">							
 						</section>
 						<section>
-							<h2>When to use Array</h2>							
-							<ol>
-								<li>Same Type</li>
-								<li>Use Full Array</li>
-								<li>Avoid Pre-allocate (Grow as you Go)</li>
-							</ol>
+							<h2>Create Array</h2>							
+							<pre><code>
+new Array();
+//or
+[]
+							</code></pre>
 
 							<pre class="fragment"><code>
 var a = new Array(5); 
@@ -227,8 +236,8 @@ var b = new Array(5, 6);// [5,6]
 							<pre class="fragment"><code>
 var c = [];
 c[0] = 1; 
-c[2] = 2;
-c[3] = 3;
+c[1] = 2;
+c[2] = 3;
 
 var d = [1, 2, 3, 4]; 
 							</code></pre>
@@ -277,10 +286,17 @@ b.indexOf(669);
 						<section>
 							<h2>Array summary</h2>
 							<ul>
-								<li>[] is faster than new Array()</li>
-								<li>a[index] is faster a.push</li>
-								<li>push can insert multiple</li>
-								<li>consider fromIndex if possible</li>
+
+								<li>Same Type</li>
+								<li>Avoid Pre-allocate (Grow as you Go)</li>
+								<div class="fragment">
+									<li>[] is faster than new Array()</li>
+									<li>a[index] is faster a.push</li>
+								</div>
+								<div class="fragment">
+									<li>push can insert multiple</li>
+									<li>consider fromIndex if possible</li>	
+								</div>
 							</ul>
 						</section>						
 					</section>					
@@ -293,7 +309,11 @@ b.indexOf(669);
 							<img class="fullScreenImage" src="images/loop1.jpg" alt="">
 						</section>
 						<section>
-							<pre><code>
+							<h2>Loop in childhood memory</h2>
+							<br>
+							<br>
+							<br>
+							<pre class="fragment"><code>
 for(var i = 0; i &lt; 100; i++){
    console.log('I will not throw paper airplanes in class');
 }
@@ -330,14 +350,14 @@ for( ; ; ){
 							<p>would be executed only once</p>
 							<pre><code>var myArr = [1, 2, 3, 4, 5];
 
-for(var i =0; i&lt; myArr.length; i++){
+for(var i = 0; i &lt; myArr.length; i++){
   console.log(myArr[i]);
 }
 							</code></pre>
 							<pre class="fragment"><code>
 //length is calculated once
 
-for(var i =0, len = myArr.length; i&lt;len; i++){
+for(var i = 0, len = myArr.length; i &lt; len; i++){
   console.log(myArr[i]);
 }
 							</code></pre>														
@@ -364,13 +384,12 @@ for(var i = 0; i &lt; 10; i++) {
 							<h2>forward or backward</h2>
 							<pre><code>
 var myArr = [0,1,2,3,4,5 ...],
-	len = myArr.length;
+    len = myArr.length;
 
 //forward
 for(var j = 0; j &lt; len; j++){
   console.log(myArr[j]);
 }
-
 							</code></pre>
 							<pre class="fragment"><code>
 //backward
@@ -628,8 +647,6 @@ function useLocal() {
 						<section>
 							<h2>Summary</h2>
 							<ol>
-								<li>parseInt is the fastest way to convert string to number</li>
-								<br>
 								<li class="fragment">primitive is faster than constructor</li>
 								<li class="fragment">local variable is faster than out-of scope variable</li>
 								<br>
@@ -647,7 +664,7 @@ function useLocal() {
 							<h1>Improve</h1>
 							<h2>Performance?</h2>
 						</section>		
-						<section>?
+						<section>
 							<img src="images/redBull.jpg" alt="">
 						</section>
 						<section>
