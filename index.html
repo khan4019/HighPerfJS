@@ -95,7 +95,9 @@
 						<section>
 							<h1>High Perf JS</h1>					
 							<br/>
-							<h2 class="fragment"><a href="http://goo.gl/0JIpFe">goo.gl/0JIpFe</a> </h2>
+							<!-- <h2 class="fragment"><a href="http://goo.gl/0JIpFe">goo.gl/0JIpFe</a> </h2> -->
+							<br>
+							<br>
 							<br/>
 							<p>
 								<h3>
@@ -106,16 +108,22 @@
 							<h4>www.thatJSdude.com</h4>
 							<small>(youtube.com/user/khanLearning)</small>
 						</section>
-						<section>
+						<!-- <section>
 							<h1>Request</h1>
 							<br>
 							<br>
 							<ul>
 								<li class="fragment">4 questions during presentation</li>
-								<li class="fragment">Maximum 1 per person</li>
+								<li class="fragment">1 question per person</li>
 								<li class="fragment">Save your questions</li>
+								<li class="fragment">Please pay attention</li>
 							</ul>
 						</section>
+						<section>
+							<h2>Kiss on the floor</h2>
+							<img class="fragment" src="images/keys2.jpg" alt="">
+							<img class="fragment" src="images/keys.jpg" alt="">
+						</section> -->
 					</section>
 					<section>
 						<section>
@@ -128,6 +136,9 @@
 								<h6> so does your client</h6>
 							</div> -->
 						</section>
+						<!-- <section>
+							<img src="images/spinner2.jpg" alt="">
+						</section> -->
 						<section>
 							<h2 class="upholdHeader">Performance improvement</h2>
 							<img class="fullScreenImage" src="images/underConstruction3.jpg" alt="">
@@ -145,6 +156,12 @@
 							<img src="images/snake.jpg" alt="">
 						</section>
 						<section>
+							<img src="images/motivation1.png" alt="">
+						</section>
+						<section>
+							<img src="images/motivation.png" alt="">
+						</section>
+						<section>
 							<img class="fullScreenImage" src="images/bathroom1.jpg" alt="">
 						</section>
 					</section>	
@@ -153,11 +170,11 @@
 							<h1>How you get a website</h1>
 						</section>						
 						<section>
-							<h1>Websites</h1>
-							<img src="images/clientServer.png" alt="">
+							<img class="fullScreenImage" src="images/internet2.jpg" alt="">
 						</section>
 						<section>
-							<img class="fullScreenImage" src="images/internet2.jpg" alt="">
+							<h1>Websites</h1>
+							<img src="images/clientServer.png" alt="">
 						</section>												
 						<section>							
 							<h2>Network breakdown</h2>
@@ -166,31 +183,8 @@
 						<section>							
 							<h2>Network breakdown</h2>
 							<img class="fullScreenImage" src="images/lifeOfARequestParts.png" alt="">
-						</section>
-						
-						<section>
-							<h2>Network</h2>
-							<ul>
-								<li>Minify</li>
-								<li>Combine</li>
-								<br>
-								<div class="fragment">
-									<li>Load less</li>
-									<li>Script at bottom</li>
-								</div>
-								<br>
-								<div class="fragment">
-									<li>Cache</li>
-									<li>gZip</li>
-								</div>								
-							</ul>
-							<br>
-							<br>
-							<a href="http://chimera.labs.oreilly.com/books/1230000000545">High Performance Browser Network</a>
-						</section>
-					
-					</section>
-					
+						</section>					
+					</section>					
 					</section>
 					<section>
 						<section>
@@ -205,7 +199,7 @@
 								<li class="fragment">Is it a performance/ design problem?</li>
 								<br>
 								<li class="fragment">Don't blindly go for blog/ talk/ boss</li>
-								<li class="fragment">Or some random guy in a conference</li>
+								<li class="fragment">Or some random guy in that conference</li>
 								<br>
 								<li class="fragment">Measure it (before, after)</li>
 								<li class="fragment">Make sure u understand after 6 months</li>								
@@ -225,23 +219,28 @@
 							<img src="images/array.jpg" alt="">							
 						</section>
 						<section>
-							<h2>when to use Array</h2>							
-							<ol>
-								<li>Same Type</li>
-								<li>Use Full Array</li>
-								<li>Avoid Pre-allocate</li>
-								<li>Grow as you Go</li>
-							</ol>
-							<pre class="fragment"><code>
-var a = [];
-var b = new Array();
+							<h2>Create Array</h2>							
+							<pre><code>
+new Array();
+//or
+[]
+							</code></pre>
 
-var c = [1, 2, 3, 4]; 
-							</code></pre>							
-							<div class="fragment">
-								<small>literal will always produce array: just execute</small>
-								<small>constructor is a function call plus execution, argument check</small>
-							</div>
+							<pre class="fragment"><code>
+var a = new Array(5); 
+//[undefined, undefined, undefined, undefined, undefined]
+
+var b = new Array(5, 6);// [5,6]
+							</code></pre>
+							<small class="fragment">constructor is a function call plus execution, argument check</small>
+							<pre class="fragment"><code>
+var c = [];
+c[0] = 1; 
+c[1] = 2;
+c[2] = 3;
+
+var d = [1, 2, 3, 4]; 
+							</code></pre>
 							<a href="http://stackoverflow.com/questions/7375120/why-is-arr-faster-than-arr-new-array">why [] faster</a>, 					
 							<a href="http://jsperf.com/literal-vs-new-23/2">literal vs new</a>
 						</section>
@@ -250,7 +249,7 @@ var c = [1, 2, 3, 4];
 							<pre><code>
 var a = [];
 
-for (var i = 0; i&lt;10000; i++){
+for (var i = 0; i &lt; 10000; i++){
    a.push(i);
 }
 							</code></pre>
@@ -258,7 +257,7 @@ for (var i = 0; i&lt;10000; i++){
 							<pre class="fragment"><code>
 var b = [];
 
-for (var i = 0; i&lt;10000; i++){
+for (var i = 0; i &lt; 10000; i++){
    b[i] = i;
 }
 							</code></pre>
@@ -279,28 +278,46 @@ a; // [1, 2, 3, 4, 5]
 var b = [1, 2, 3, 4, 5, ...];
 
 b.indexOf(669);
-b.indexOf(669, 500);
 								</code></pre>
+								<pre class="fragment"><code>b.indexOf(669, 500);</code></pre>
 								<a href="http://jsperf.com/indexof-fromindex">test: fromIndex</a>
 							</div>
 						</section>
 						<section>
 							<h2>Array summary</h2>
 							<ul>
-								<li>[] is faster than new Array()</li>
-								<li>a[index] is faster a.push</li>
-								<li>push can insert multiple</li>
-								<li>consider fromIndex if possible</li>
+
+								<li>Same Type</li>
+								<li>Avoid Pre-allocate (Grow as you Go)</li>
+								<div class="fragment">
+									<li>[] is faster than new Array()</li>
+									<li>a[index] is faster a.push</li>
+								</div>
+								<div class="fragment">
+									<li>push can insert multiple</li>
+									<li>consider fromIndex if possible</li>	
+								</div>
 							</ul>
 						</section>						
 					</section>					
 					<section>
 						<section>
 							<h1>loop</h1>
-							<img class="halfScreenImage" src="images/loop3.jpg" alt="">
+							<img class="halfScreenImage fragment" src="images/loop3.jpg" alt="">
 						</section>			
 						<section>
 							<img class="fullScreenImage" src="images/loop1.jpg" alt="">
+						</section>
+						<section>
+							<h2>Loop in childhood memory</h2>
+							<br>
+							<br>
+							<br>
+							<pre class="fragment"><code>
+for(var i = 0; i &lt; 100; i++){
+   console.log('I will not throw paper airplanes in class');
+}
+							</code></pre>
 						</section>
 						<section>
 							<img class="fullScreenImage" src="images/loop6.jpg" alt="">
@@ -325,7 +342,7 @@ for(initiation; iteratingCondition; repeatingExpression){
 var i = 0;
 for( ; ; ){
    console.log(i++);	
-   if(i==5) break;	  
+   if(i == 5) break;	  
 }</code></pre>
 						</section>						
 						<section>
@@ -333,14 +350,14 @@ for( ; ; ){
 							<p>would be executed only once</p>
 							<pre><code>var myArr = [1, 2, 3, 4, 5];
 
-for(var i =0; i&lt; myArr.length; i++){
+for(var i = 0; i &lt; myArr.length; i++){
   console.log(myArr[i]);
 }
 							</code></pre>
 							<pre class="fragment"><code>
 //length is calculated once
 
-for(var i =0, len = myArr.length; i&lt;len; i++){
+for(var i = 0, len = myArr.length; i &lt; len; i++){
   console.log(myArr[i]);
 }
 							</code></pre>														
@@ -348,44 +365,36 @@ for(var i =0, len = myArr.length; i&lt;len; i++){
 						<section>
 							<h2>cache outside for loop</h2>						
 							<pre><code>
-for(var i = 0; i &lt; someArray.length; i++) {
-
-   var container = document.getElementById('container');  
-   container.innerHtml += 'my number: ' + i;  
-   console.log(i);  
+for(var i = 0; i &lt; 10; i++) {
+   var container = document.getElementById('container'); 
+   console.log(container[i].innerText);
 }
 							</code></pre>		
 							<h4 class="fragment">when value doesnt change</h4>
 							<pre class="fragment"><code>
 var container = document.getElementById('container');  
 
-for(var i = 0; i &lt; someArray.length; i++) {
-
-   container.innerHtml += 'my number: ' + i;  
-   console.log(i);  
-} 
-//caution, this cause reflow
+for(var i = 0; i &lt; 10; i++) {
+   console.log(container[i].innerText);
+}
 							</code></pre>
 							<a href="http://jsperf.com/property-access-vs-variable-caching">property access vs variable cache</a>
 						</section>						
 						<section>
 							<h2>forward or backward</h2>
 							<pre><code>
-var myArr = [0,1,2,3,4,5 ...];
+var myArr = [0,1,2,3,4,5 ...],
+    len = myArr.length;
 
 //forward
-for(var j = 0; j&lt;1000; j++){
+for(var j = 0; j &lt; len; j++){
   console.log(myArr[j]);
-}
-
-//backward
-for(var k = 1000; k>=0; k--){
-  console.log(myArr[k]);
 }
 							</code></pre>
 							<pre class="fragment"><code>
-for(var i = 1000; --i>=0;){
-  console.log(myArr[i]);
+//backward
+for(var i = len; i--; ){
+  console.log(myArr[k]);
 }								
 							</code></pre>
 							<p>dont worry about it for a smaller array</p>
@@ -414,26 +423,24 @@ for (var i = 0; i &lt; 1000; i++) {
 						<section>
 							<h2>filter vs if</h2>
 							<pre><code>
-var devs = [{ name: 'addy', age: 7}, 
-			{name: 'paul', age:13},
-			{name: 'ryan', age: 17}
-			];
-
-function byFilter(myArr, num){
-    return myArr.filter(function (el) {
-        return el.age > 10;
-    });
-}</code></pre>
+var devs = [{ name: 'addy osmani', age: 29}, {name: 'paul irish', age:31}, {name: 'md khan', age: 13}];
+							</code></pre>
 							<pre class="fragment"><code>
-function byForLoop(myArr, num){
-    var i, l, output=[];
-    for (i = 0, l = myArr.length; i &lt; l; i += 1) {
+devs.filter(function (el, i, arr) {
+    return el.age > 21;
+});
+							</code></pre>
+							<pre class="fragment"><code>
+function filterByForLoop(myArr, num){
+    
+    var i, len, output=[];
+    
+    for (i = 0, len = myArr.length; i &lt; len; i += 1) {
         if (myArr[i].age > 10) {
             output.push(myArr[i]);
         }
      }
-     return output;
-     return [];
+     return output;    
 }</code></pre>
 							<a href="http://jsperf.com/array-filter-vs-simple-loop/2">filter vs simple loop</a>							
 						</section>
@@ -443,7 +450,7 @@ function byForLoop(myArr, num){
 var myArr = [1, 2, 3, 4, 5, ... ];
 
 //faster
-for(var i =0; i&lt;1000; i++){
+for(var i =0; i &lt; 1000; i++){
  console.log(myArr[i]);
 }
 
@@ -455,7 +462,9 @@ for(var j in myArr){
 							<br>
 							<p class="fragment">dont use for-in while traversing on an array</p>
 							<br>
-							<a href="http://jsperf.com/for-vs-forintest">for vs for-in</a>
+							<!-- <p>Repeat. 
+Let P be the name of the next property of obj whose [[Enumerable]] attribute is true. If there is no such property, return (normal, V, empty).</p> -->
+							<a href="http://jsperf.com/for-vs-forintest">for vs for-in</a>, <a href="http://www.ecma-international.org/publications/files/ECMA-ST/Ecma-262.pdf">spec: 12.6.4</a>
 						</section>
 						<section>
 							<h2>for in could be faster</h2>
@@ -499,7 +508,7 @@ while(l--) {
 							<h2>summary of looping</h2>
 							<ol>
 								<li>don't measure length in every iteration</li>
-								<li>cache object properties, function used in repeatingCode</li>
+								<li>cache function used in repeatingCode</li>
 								<br>
 								<li>backward for loop is faster than forward</li>
 								<br>								
@@ -559,12 +568,6 @@ function b(){
 							<img  class="fullScreenImage" src="images/localStar.jpg" alt="">
 						</section>
 						<section>
-							<img src="images/football.jpg" alt="">
-						</section>					
-						<section>
-							<img  class="fullScreenImage" src="images/localEvents.jpg" alt="">
-						</section>
-						<section>
 							<h2>local/function scope</h2>
 							<pre><code>var a = 2; 
 function b(){
@@ -572,9 +575,19 @@ function b(){
    console.log(a);
 }
 b();							</code></pre>
-							<img class="fragment" src="images/localScope.png" alt="">
-							<br>
+							<div class="fragment">
+								<ol>
+									<li>function call creates execution context (before running any code) </li>
+									<li class="fragment">First thing created is the scope chain</li>								
+									<li class="fragment">All local variables is pushed to the front of the context's scope chain.</li>
+									<li class="fragment">And then, create variable, arguments, determine the value of <code>this</code></li>	
+								</ol>
+							</div>	
+														<br>
 							<a href="http://davidshariff.com/blog/javascript-scope-chain-and-closures/">JS scope chain</a>
+						</section>
+						<section>
+							<img src="images/localScope.png" alt="">
 						</section>
 						<section>
 							<h2>multi execution context</h2>
@@ -583,8 +596,14 @@ function b(){ console.log(a); }
 function c(){ console.log(a); }
 b();						
 c();</code></pre>
-							<img class="fragment" src="images/multiScope.png" alt="">							
-				
+							<img class="fragment" src="images/multiScope.png" alt="">						
+						</section>
+						<section>
+							<h2>local events</h2>
+							<img src="images/football.jpg" alt="">
+						</section>					
+						<section>
+							<img  class="fullScreenImage" src="images/localEvents.jpg" alt="">
 						</section>
 						<section>
 							<h2>nested function (closure)</h2>
@@ -593,7 +612,7 @@ c();</code></pre>
 						<section>
 							<h2>store out of scope variable</h2>
 							<pre><code>
-var myArr = [0, 1, 2,3 4, 5 ...];
+var myArr = [0, 1, 2, 3, 4, 5, 	...];
 
 function useGlobal() {
     
@@ -614,13 +633,9 @@ function useLocal() {
 							<a href="http://jsperf.com/global/17">local vs global variable</a>
 						</section>
 						<section>
-							<h2>execution context</h2>
+							<h2>summary of scope</h2>
 							<ol>
-								<li>When you call a function, an execution context is created (before running any code) </li>
-								<li class="fragment">In the context,  first thing created is the scope chain</li>								
-								<li class="fragment">All local variables is pushed to the front of the context's scope chain.</li>
-								<li class="fragment">And then, create variable, arguments, determine the value of <code>this</code></li>
-								<li class="fragment">So, Further in the chain, the slower the identifier resolution is, which means local variables are fastest.</li>														
+								<li>local variables are fastest.</li>
 							</ol>
 						</section>
 					</section>					
@@ -638,8 +653,6 @@ function useLocal() {
 						<section>
 							<h2>Summary</h2>
 							<ol>
-								<li>parseInt is the fastest way to convert string to number</li>
-								<br>
 								<li class="fragment">primitive is faster than constructor</li>
 								<li class="fragment">local variable is faster than out-of scope variable</li>
 								<br>
@@ -657,7 +670,7 @@ function useLocal() {
 							<h1>Improve</h1>
 							<h2>Performance?</h2>
 						</section>		
-						<section>?
+						<section>
 							<img src="images/redBull.jpg" alt="">
 						</section>
 						<section>
@@ -733,7 +746,7 @@ var nodesArray = Array.prototype.slice.call(myNodeList);</code></pre>
 							<br>
 							<a href="http://jsperf.com/queryselectorall-vs-others-selectors">selector api comparison</a>
 						</section>
-						<section>
+						<section class="test">
 							<h2>Cache</h2>
 							<pre><code>var blah = document.getElementById('myID');
 var blah2 = document.getElementById('myID2');
@@ -850,6 +863,7 @@ ul.appendChild(li);
 							<pre><code>
 var list = ['foo', 'bar', 'baz'],
     el, text;
+
 for (var i = 0; i &lt; list.length; i++) {
     el = document.createElement('li');
     text = document.createTextNode(list[i]);
@@ -868,18 +882,6 @@ for (var i = 0; i &lt; list.length; i++) {
 }
 document.body.appendChild(fragment);</code></pre>
 							<a href="https://developer.mozilla.org/en-US/docs/Web/API/document.createDocumentFragment">createDocumentFragment</a>
-						</section>
-						<section>
-							<h2>DOM vs innerHTML</h2>
-								<h4>Templating JS vs Mustache</h4>
-								<pre><code>
-//go to these link and help yourself
-								</code></pre>
-								<a href="http://jsperf.com/dom-vs-innerhtml-based-templating">JSPerf: Dom vs innerhtml based templating</a>
-								<br/>
-								<a href="http://mustache.github.io/mustache.5.html">Mustache Manual</a>
-								<br>
-								<a href="http://jsperf.com/dom-vs-innerhtml-based-templating/473">JS templating shootoff: important</a>
 						</section>
 						<section>
 							<h2>Summary</h2>							
@@ -913,7 +915,6 @@ document.body.appendChild(fragment);</code></pre>
 						<section>							
 							<img src="images/eventflow.png" alt="">
 							<br>
-							<a href="eventPropagation.html">Bubble demo</a>, 
 							<a href="http://www.w3.org/TR/DOM-Level-3-Events/#event-flow">w3: event flow (image)</a>
 						</section>
 						<section>
@@ -939,8 +940,8 @@ el.addEventListener('click', function (e) {
 							<a href="http://jsperf.com/events-vanilla-and-jquery/17">js perf delegate</a>
 						</section>
 						<section>
-							<h2>think about gym</h2>
-
+							<h2>security guard</h2>
+							<img src="images/security.jpeg" alt="">
 						</section>
 						<section>
 							<h2>event delegate (demo)</h2>
@@ -997,11 +998,7 @@ el.addEventListener('click', function (e) {
 								<br>
 								<li class="fragment">Minimize layout reflow</li>								
 								<li class="fragment">Delegate Events</li>
-								<br>
-								<div class="fragment">
-									<li>do u need a closure. or function is enough</li>
-									<li>Closure: avoid memory leak</li>
-								</div>
+								<br>								
 							</ol>
 						</section>						
 					</section>
@@ -1135,7 +1132,8 @@ el.cloneNode(true);
 								<br>
 								<li class="fragment">Angular, Backbone uses Jquery</li>
 								<li class="fragment">lazy (dont want to learn new framework)</li>
-								<li><a href="http://flippinawesome.org/2014/03/10/is-jquery-too-big-for-mobile/">is JQuery too big for mobile device</a></li>
+								<br>
+								<li class="fragment"><a href="http://flippinawesome.org/2014/03/10/is-jquery-too-big-for-mobile/">Is JQuery too big for mobile device</a></li>
 							</ol>
 							<br>
 							<br>
@@ -1299,10 +1297,7 @@ window.onscroll = function(e) {
 						<section>
 							<h2>summary</h2>
 							<ol>
-								<li>memoize expensive static computation</li>
-								<li>Don't hold unnecessary object (garbage it)</li>
-								<br>
-								<div class="fragment">
+								<div>
 									<li>requestAnimationFrame optimize animation</li>
 									<li>window.onscroll try to avoid event handler with</li>
 								</div>
@@ -1401,17 +1396,6 @@ console.log(start - end +'ms');
 						<section>
 							<h1>Recap</h1>
 						</section>
-						<!-- <section>
-							<h2>Network Performance</h2>
-							<ol>
-								<li>Minify</li>
-								<li>Combine</li>
-								<li>Load Less</li>
-								<li>Right Order</li>
-								<li>Cache (browser, CDN)</li>
-								<li>gZip</li>
-							</ol>
-						</section> -->
 						<section>
 							<h2>runtime performance</h2>							
 							<ol>
@@ -1467,7 +1451,16 @@ console.log(start - end +'ms');
 							<br/>
 							<a href="http://www.youtube.com/watch?v=MFtijdklZDo">Angus Croll: Break all the rules</a>							
 						</section>
-						<section><img src="images/knowWhy.jpg" alt=""></section>
+						<section>
+							<img src="images/knowWhy.jpg" alt="">
+						</section>
+						<section>
+							<img src="images/password.jpg" alt="">
+						</section>
+						<section>
+							<h2>blame framework but take credit</h2>
+							<img class="fragment" src="images/keys.jpg" alt="">
+						</section>
 					</section>					
 					<section>
 						<section>
@@ -1484,10 +1477,8 @@ console.log(start - end +'ms');
 						</section>
 						<section>
 							<ul>
-								<li>Nod continuously while playing candy crush</li>
 								<li class="fragment">Ask Presenter to go back a slide</li>
 								<br>
-								<li class="fragment">Encourage Everyone to "take a step back"</li>
 								<li class="fragment">Ask "Will this scale?" no matter what it is</li>
 							</ul>
 							<a href="https://medium.com/comedy-corner/10-tricks-to-appear-smart-during-meetings-27b489a39d1a">10 tricks to be smart during meetings</a>
@@ -1504,14 +1495,10 @@ console.log(start - end +'ms');
 						<h6>www.thatjsdude.com</h6>
 					</section>
 					<section>
-						<h1>Question?</h1>							
-						<img src="images/question11.jpg" alt="">
+						<img src="images/question.jpg" alt="">
 						<br>
-						<a href="http://goo.gl/0JIpFe">goo.gl/0JIpFe</a>
-						<br>
-						<br>
-						<a href="http://jhankarmahbub.com">MD Khan</a> / <a href="http://twitter.com/mdkhan005">@mdkhan005</a>
 						<h5>www.thatjsdude.com</h5>
+						<a href="http://goo.gl/0JIpFe">goo.gl/0JIpFe</a> (<a href="http://jhankarmahbub.com">MD Khan</a> / <a href="http://twitter.com/mdkhan005">@mdkhan005</a>)
 					</section>
 				</div>
 
