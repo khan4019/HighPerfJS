@@ -568,12 +568,6 @@ function b(){
 							<img  class="fullScreenImage" src="images/localStar.jpg" alt="">
 						</section>
 						<section>
-							<img src="images/football.jpg" alt="">
-						</section>					
-						<section>
-							<img  class="fullScreenImage" src="images/localEvents.jpg" alt="">
-						</section>
-						<section>
 							<h2>local/function scope</h2>
 							<pre><code>var a = 2; 
 function b(){
@@ -592,8 +586,14 @@ function b(){ console.log(a); }
 function c(){ console.log(a); }
 b();						
 c();</code></pre>
-							<img class="fragment" src="images/multiScope.png" alt="">							
-				
+							<img class="fragment" src="images/multiScope.png" alt="">						
+						</section>
+						<section>
+							<h2>local events</h2>
+							<img src="images/football.jpg" alt="">
+						</section>					
+						<section>
+							<img  class="fullScreenImage" src="images/localEvents.jpg" alt="">
 						</section>
 						<section>
 							<h2>nested function (closure)</h2>
@@ -602,7 +602,7 @@ c();</code></pre>
 						<section>
 							<h2>store out of scope variable</h2>
 							<pre><code>
-var myArr = [0, 1, 2,3 4, 5 ...];
+var myArr = [0, 1, 2, 3, 4, 5, ...];
 
 function useGlobal() {
     
