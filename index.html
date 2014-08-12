@@ -107,12 +107,25 @@
 							<small>(youtube.com/user/khanLearning)</small>
 						</section>
 						<section>
+							<h2>todo</h2>
+							<li>understand cache function in for loop</li>
+							<li>filter object mis format. take a screen shot</li>
+							<li></li>
+							<li></li>
+							<li></li>
+							<li></li>
+							<li></li>
+							<li></li>
+							<li></li>
+							<li></li>
+						</section>
+						<!-- <section>
 							<h1>Request</h1>
 							<br>
 							<br>
 							<ul>
 								<li class="fragment">4 questions during presentation</li>
-								<li class="fragment">Maximum 1 per person</li>
+								<li class="fragment">1 question per person</li>
 								<li class="fragment">Save your questions</li>
 								<li class="fragment">Please pay attention</li>
 							</ul>
@@ -121,7 +134,7 @@
 							<h2>Kiss on the floor</h2>
 							<img class="fragment" src="images/keys2.jpg" alt="">
 							<img class="fragment" src="images/keys.jpg" alt="">
-						</section>
+						</section> -->
 					</section>
 					<section>
 						<section>
@@ -159,11 +172,11 @@
 							<h1>How you get a website</h1>
 						</section>						
 						<section>
-							<h1>Websites</h1>
-							<img src="images/clientServer.png" alt="">
+							<img class="fullScreenImage" src="images/internet2.jpg" alt="">
 						</section>
 						<section>
-							<img class="fullScreenImage" src="images/internet2.jpg" alt="">
+							<h1>Websites</h1>
+							<img src="images/clientServer.png" alt="">
 						</section>												
 						<section>							
 							<h2>Network breakdown</h2>
@@ -172,31 +185,8 @@
 						<section>							
 							<h2>Network breakdown</h2>
 							<img class="fullScreenImage" src="images/lifeOfARequestParts.png" alt="">
-						</section>
-						
-						<section>
-							<h2>Network</h2>
-							<ul>
-								<li>Minify</li>
-								<li>Combine</li>
-								<br>
-								<div class="fragment">
-									<li>Load less</li>
-									<li>Script at bottom</li>
-								</div>
-								<br>
-								<div class="fragment">
-									<li>Cache</li>
-									<li>gZip</li>
-								</div>								
-							</ul>
-							<br>
-							<br>
-							<a href="http://chimera.labs.oreilly.com/books/1230000000545">High Performance Browser Network</a>
-						</section>
-					
-					</section>
-					
+						</section>					
+					</section>					
 					</section>
 					<section>
 						<section>
@@ -237,21 +227,21 @@
 								<li>Use Full Array</li>
 								<li>Avoid Pre-allocate (Grow as you Go)</li>
 							</ol>
-							<pre class="fragment"><code>
-var a = [];
-var b = new Array();
 
-var c = [1, 2, 3, 4]; 
-							</code></pre>							
-							<div class="fragment">
-								<small>literal will always produce array: just execute</small>
-								<small>constructor is a function call plus execution, argument check</small>
-							</div>
 							<pre class="fragment"><code>
 var a = new Array(5); 
 //[undefined, undefined, undefined, undefined, undefined]
 
 var b = new Array(5, 6);// [5,6]
+							</code></pre>
+							<small class="fragment">constructor is a function call plus execution, argument check</small>
+							<pre class="fragment"><code>
+var c = [];
+c[0] = 1; 
+c[2] = 2;
+c[3] = 3;
+
+var d = [1, 2, 3, 4]; 
 							</code></pre>
 							<a href="http://stackoverflow.com/questions/7375120/why-is-arr-faster-than-arr-new-array">why [] faster</a>, 					
 							<a href="http://jsperf.com/literal-vs-new-23/2">literal vs new</a>
@@ -261,7 +251,7 @@ var b = new Array(5, 6);// [5,6]
 							<pre><code>
 var a = [];
 
-for (var i = 0; i&lt;10000; i++){
+for (var i = 0; i &lt; 10000; i++){
    a.push(i);
 }
 							</code></pre>
@@ -269,7 +259,7 @@ for (var i = 0; i&lt;10000; i++){
 							<pre class="fragment"><code>
 var b = [];
 
-for (var i = 0; i&lt;10000; i++){
+for (var i = 0; i &lt; 10000; i++){
    b[i] = i;
 }
 							</code></pre>
@@ -308,10 +298,17 @@ b.indexOf(669, 500);
 					<section>
 						<section>
 							<h1>loop</h1>
-							<img class="halfScreenImage" src="images/loop3.jpg" alt="">
+							<img class="halfScreenImage fragment" src="images/loop3.jpg" alt="">
 						</section>			
 						<section>
 							<img class="fullScreenImage" src="images/loop1.jpg" alt="">
+						</section>
+						<section>
+							<pre><code>
+for(var i = 0; i &lt; 100; i++){
+   console.log('I will not throw paper airplanes in class');
+}
+							</code></pre>
 						</section>
 						<section>
 							<img class="fullScreenImage" src="images/loop6.jpg" alt="">
@@ -381,7 +378,7 @@ var myArr = [0,1,2,3,4,5 ...],
 	len = myArr.length;
 
 //forward
-for(var j = 0; j&lt;len; j++){
+for(var j = 0; j &lt; len; j++){
   console.log(myArr[j]);
 }
 
@@ -430,14 +427,17 @@ function byFilter(myArr, num){
 }</code></pre>
 							<pre class="fragment"><code>
 function byForLoop(myArr, num){
+    
     var i, l, output=[];
+    
     for (i = 0, l = myArr.length; i &lt; l; i += 1) {
         if (myArr[i].age > 10) {
             output.push(myArr[i]);
         }
      }
+
      return output;
-     return [];
+    
 }</code></pre>
 							<a href="http://jsperf.com/array-filter-vs-simple-loop/2">filter vs simple loop</a>							
 						</section>
@@ -505,7 +505,7 @@ while(l--) {
 							<h2>summary of looping</h2>
 							<ol>
 								<li>don't measure length in every iteration</li>
-								<li>cache object properties, function used in repeatingCode</li>
+								<li>cache function used in repeatingCode</li>
 								<br>
 								<li>backward for loop is faster than forward</li>
 								<br>								
@@ -1407,17 +1407,6 @@ console.log(start - end +'ms');
 						<section>
 							<h1>Recap</h1>
 						</section>
-						<!-- <section>
-							<h2>Network Performance</h2>
-							<ol>
-								<li>Minify</li>
-								<li>Combine</li>
-								<li>Load Less</li>
-								<li>Right Order</li>
-								<li>Cache (browser, CDN)</li>
-								<li>gZip</li>
-							</ol>
-						</section> -->
 						<section>
 							<h2>runtime performance</h2>							
 							<ol>
