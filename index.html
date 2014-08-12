@@ -108,19 +108,6 @@
 							<h4>www.thatJSdude.com</h4>
 							<small>(youtube.com/user/khanLearning)</small>
 						</section>
-						<section>
-							<h2>todo</h2>
-							<li>understand cache function in for loop</li>
-							<li>filter object mis format. take a screen shot</li>
-							<li></li>
-							<li></li>
-							<li></li>
-							<li></li>
-							<li></li>
-							<li></li>
-							<li></li>
-							<li></li>
-						</section>
 						<!-- <section>
 							<h1>Request</h1>
 							<br>
@@ -335,7 +322,7 @@ for(initiation; iteratingCondition; repeatingExpression){
 var i = 0;
 for( ; ; ){
    console.log(i++);	
-   if(i==5) break;	  
+   if(i == 5) break;	  
 }</code></pre>
 						</section>						
 						<section>
@@ -387,7 +374,7 @@ for(var j = 0; j &lt; len; j++){
 							</code></pre>
 							<pre class="fragment"><code>
 //backward
-for(var i = len; i--;){
+for(var i = len; i--; ){
   console.log(myArr[k]);
 }								
 							</code></pre>
@@ -417,10 +404,7 @@ for (var i = 0; i &lt; 1000; i++) {
 						<section>
 							<h2>filter vs if</h2>
 							<pre><code>
-var devs = [{ name: 'addy', age: 7}, 
-			{name: 'paul', age:13},
-			{name: 'ryan', age: 17}
-			];
+var devs = [{ name: 'addy', age: 7}, {name: 'paul', age:13}, {name: 'ryan', age: 17}];
 
 function byFilter(myArr, num){
     return myArr.filter(function (el) {
@@ -430,16 +414,14 @@ function byFilter(myArr, num){
 							<pre class="fragment"><code>
 function byForLoop(myArr, num){
     
-    var i, l, output=[];
+    var i, len, output=[];
     
-    for (i = 0, l = myArr.length; i &lt; l; i += 1) {
+    for (i = 0, len = myArr.length; i &lt; len; i += 1) {
         if (myArr[i].age > 10) {
             output.push(myArr[i]);
         }
      }
-
-     return output;
-    
+     return output;    
 }</code></pre>
 							<a href="http://jsperf.com/array-filter-vs-simple-loop/2">filter vs simple loop</a>							
 						</section>
@@ -624,8 +606,8 @@ function useLocal() {
 						<section>
 							<h2>execution context</h2>
 							<ol>
-								<li>When you call a function, an execution context is created (before running any code) </li>
-								<li class="fragment">In the context,  first thing created is the scope chain</li>								
+								<li>function call creates execution context (before running any code) </li>
+								<li class="fragment">First thing created is the scope chain</li>								
 								<li class="fragment">All local variables is pushed to the front of the context's scope chain.</li>
 								<li class="fragment">And then, create variable, arguments, determine the value of <code>this</code></li>
 								<li class="fragment">So, Further in the chain, the slower the identifier resolution is, which means local variables are fastest.</li>														
