@@ -575,9 +575,19 @@ function b(){
    console.log(a);
 }
 b();							</code></pre>
-							<img class="fragment" src="images/localScope.png" alt="">
-							<br>
+							<div class="fragment">
+								<ol>
+									<li>function call creates execution context (before running any code) </li>
+									<li class="fragment">First thing created is the scope chain</li>								
+									<li class="fragment">All local variables is pushed to the front of the context's scope chain.</li>
+									<li class="fragment">And then, create variable, arguments, determine the value of <code>this</code></li>	
+								</ol>
+							</div>	
+														<br>
 							<a href="http://davidshariff.com/blog/javascript-scope-chain-and-closures/">JS scope chain</a>
+						</section>
+						<section>
+							<img src="images/localScope.png" alt="">
 						</section>
 						<section>
 							<h2>multi execution context</h2>
@@ -602,7 +612,7 @@ c();</code></pre>
 						<section>
 							<h2>store out of scope variable</h2>
 							<pre><code>
-var myArr = [0, 1, 2, 3, 4, 5, ...];
+var myArr = [0, 1, 2, 3, 4, 5, 	...];
 
 function useGlobal() {
     
@@ -623,13 +633,9 @@ function useLocal() {
 							<a href="http://jsperf.com/global/17">local vs global variable</a>
 						</section>
 						<section>
-							<h2>execution context</h2>
+							<h2>summary of scope</h2>
 							<ol>
-								<li>function call creates execution context (before running any code) </li>
-								<li class="fragment">First thing created is the scope chain</li>								
-								<li class="fragment">All local variables is pushed to the front of the context's scope chain.</li>
-								<li class="fragment">And then, create variable, arguments, determine the value of <code>this</code></li>
-								<li class="fragment">So, Further in the chain, the slower the identifier resolution is, which means local variables are fastest.</li>														
+								<li>local variables are fastest.</li>
 							</ol>
 						</section>
 					</section>					
