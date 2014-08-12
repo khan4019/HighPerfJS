@@ -746,7 +746,7 @@ var nodesArray = Array.prototype.slice.call(myNodeList);</code></pre>
 							<br>
 							<a href="http://jsperf.com/queryselectorall-vs-others-selectors">selector api comparison</a>
 						</section>
-						<section>
+						<section class="test">
 							<h2>Cache</h2>
 							<pre><code>var blah = document.getElementById('myID');
 var blah2 = document.getElementById('myID2');
@@ -863,6 +863,7 @@ ul.appendChild(li);
 							<pre><code>
 var list = ['foo', 'bar', 'baz'],
     el, text;
+
 for (var i = 0; i &lt; list.length; i++) {
     el = document.createElement('li');
     text = document.createTextNode(list[i]);
@@ -881,18 +882,6 @@ for (var i = 0; i &lt; list.length; i++) {
 }
 document.body.appendChild(fragment);</code></pre>
 							<a href="https://developer.mozilla.org/en-US/docs/Web/API/document.createDocumentFragment">createDocumentFragment</a>
-						</section>
-						<section>
-							<h2>DOM vs innerHTML</h2>
-								<h4>Templating JS vs Mustache</h4>
-								<pre><code>
-//go to these link and help yourself
-								</code></pre>
-								<a href="http://jsperf.com/dom-vs-innerhtml-based-templating">JSPerf: Dom vs innerhtml based templating</a>
-								<br/>
-								<a href="http://mustache.github.io/mustache.5.html">Mustache Manual</a>
-								<br>
-								<a href="http://jsperf.com/dom-vs-innerhtml-based-templating/473">JS templating shootoff: important</a>
 						</section>
 						<section>
 							<h2>Summary</h2>							
