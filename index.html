@@ -423,15 +423,15 @@ for (var i = 0; i &lt; 1000; i++) {
 						<section>
 							<h2>filter vs if</h2>
 							<pre><code>
-var devs = [{ name: 'addy', age: 7}, {name: 'paul', age:13}, {name: 'ryan', age: 17}];
-
-function byFilter(myArr, num){
-    return myArr.filter(function (el) {
-        return el.age > 10;
-    });
-}</code></pre>
+var devs = [{ name: 'addy osmani', age: 29}, {name: 'paul irish', age:31}, {name: 'md khan', age: 13}];
+							</code></pre>
 							<pre class="fragment"><code>
-function byForLoop(myArr, num){
+devs.filter(function (el, i, arr) {
+    return el.age > 21;
+});
+							</code></pre>
+							<pre class="fragment"><code>
+function filterByForLoop(myArr, num){
     
     var i, len, output=[];
     
@@ -450,7 +450,7 @@ function byForLoop(myArr, num){
 var myArr = [1, 2, 3, 4, 5, ... ];
 
 //faster
-for(var i =0; i&lt;1000; i++){
+for(var i =0; i &lt; 1000; i++){
  console.log(myArr[i]);
 }
 
