@@ -220,11 +220,7 @@
 						</section>
 						<section>
 							<h2>Create Array</h2>							
-							<pre><code>
-new Array();    //constructor
-
-[];      //literals
-							</code></pre>
+							<pre><code>new Array();    //constructor</code></pre>
 
 							<pre class="fragment"><code>
 var a = new Array(5); 
@@ -233,6 +229,7 @@ var a = new Array(5);
 var b = new Array(5, 6);// [5,6]
 							</code></pre>
 							<small class="fragment">constructor is a function call plus execution, argument check</small>
+							<pre class="fragment"><code>[];   //literals</code></pre>
 							<pre class="fragment"><code>
 var c = [];
 c[0] = 1; 
@@ -326,7 +323,12 @@ for(var i = 0; i &lt; 100; i++){
 						</section>						
 						<section>
 							<img src="images/forLoop.png" alt="">
-							<img class="fragment" src="images/forLoopInitiation.png" alt="">
+							<pre class="fragment"><code>
+for(initiation; iteratingCondition; repeatingExpression){
+  repeatingCode;
+}
+							</code></pre>
+							<!-- <img class="fragment" src="images/forLoopInitiation.png" alt=""> -->
 						</section>
 						<!-- <section>
 							<img src="images/forLoopRepeatingCondition.png" alt="">
@@ -863,7 +865,8 @@ li.appendChild(text);
 ul.appendChild(li);
 							</code></pre>
 							<li class="fragment">appendChild faster than setting innerHTML</li>
-							<li class="fragment">if ref passed will move from current parent</li>
+							<!-- <li class="fragment">if ref passed will move from current parent</li> -->
+							<br>
 							<a href="http://glowfilter.com/blog/javascript-performance-testing-innerhtml-vs-appendchild/">createElement</a>, <a href="http://jsperf.com/creating-text-node/3">TextNode</a>, <a href="http://jsperf.com/realistic-innerhtml-vs-appendchild/15">$.append</a>							
 						</section>						
 						<section>
@@ -921,10 +924,6 @@ document.body.appendChild(fragment);</code></pre>
 							<a href="http://www.w3.org/TR/DOM-Level-3-Events/#event-flow">w3: event flow (image)</a>
 						</section>
 						<section>
-							<h2>security guard</h2>
-							<img src="images/security.jpeg" alt="">
-						</section>
-						<section>
 							<h2>event delegate</h2>
 							<pre><code>
 &lt;ul id=&quot;listToDestroy&quot;&gt;
@@ -955,6 +954,7 @@ el.addEventListener('click', function (e) {
 				              <li><a href="#">forth item</a></li>
 				              <li><a href="#">Fifth item</a></li>
 				            </ul>
+				            <br>
 				            <button id="addItem">add item</button>
 				            <script type="text/javascript"> 
 							 document.getElementById('listToDestroy').addEventListener('click', function (e) { 
@@ -982,6 +982,10 @@ el.addEventListener('click', function (e) {
 							</script>
 						</section>
 						<section>
+							<h2>security guard</h2>
+							<img src="images/security.jpeg" alt="">
+						</section>
+						<section>
 							<h1 class="noUppercase">Debounce & Throttle</h1>
 							<h2>Defer</h2>
 							<br/>
@@ -1002,12 +1006,12 @@ el.addEventListener('click', function (e) {
 								<br>								
 								<div class="fragment">
 									<li>appendChild is faster than innerHTML</li>
-									<li>use documentFragment, cloneNode</li>
+									<li>consider using documentFragment</li>
 								</div>
 								<br>
 								<li class="fragment">Minimize layout reflow</li>								
 								<li class="fragment">Delegate Events</li>
-								<li class="fragment">Throttle and debounce</li>
+								<li class="fragment">use throttle and debounce</li>
 								<br>								
 							</ol>
 						</section>						
@@ -1246,7 +1250,7 @@ console.log(start - end +'ms');
 								<br>
 								<div class="fragment">
 									<li>getById, Class, Tag is faster than querySelectorAll</li>
-									<li>use documentFragment, cloneNode</li>
+									<li>use documentFragment</li>
 								</div>
 								<br>
 								<div class="fragment">
