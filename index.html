@@ -221,9 +221,9 @@
 						<section>
 							<h2>Create Array</h2>							
 							<pre><code>
-new Array();
-//or
-[]
+new Array();    //constructor
+
+[];      //literals
 							</code></pre>
 
 							<pre class="fragment"><code>
@@ -328,7 +328,7 @@ for(var i = 0; i &lt; 100; i++){
 							<img src="images/forLoop.png" alt="">
 							<img class="fragment" src="images/forLoopInitiation.png" alt="">
 						</section>
-						<section>
+						<!-- <section>
 							<img src="images/forLoopRepeatingCondition.png" alt="">
 							<img class="fragment" src="images/forLoopRepeatingExpression.png" alt="">
 						</section>
@@ -346,10 +346,10 @@ for( ; ; ){
    console.log(i++);	
    if(i == 5) break;	  
 }</code></pre>
-						</section>						
+						</section>						 -->
 						<section>
-							<h2>initiation;</h2>						
-							<p>would be executed only once</p>
+							<h2>initiation;</h2>			
+							<br>
 							<pre><code>var myArr = [1, 2, 3, 4, 5];
 
 for(var i = 0; i &lt; myArr.length; i++){
@@ -427,7 +427,7 @@ for (var i = 0; i &lt; 1000; i++) {
 							<pre><code>
 var devs = [{ name: 'addy osmani', age: 29}, {name: 'paul irish', age:31}, {name: 'md khan', age: 13}];
 							</code></pre>
-							<pre class="fragment"><code>
+							<pre><code>
 devs.filter(function (el, i, arr) {
     return el.age > 21;
 });
@@ -435,11 +435,11 @@ devs.filter(function (el, i, arr) {
 							<pre class="fragment"><code>
 function filterByForLoop(myArr, num){
     
-    var i, len, output=[];
+    var i, j = 0, len, output=[];
     
     for (i = 0, len = myArr.length; i &lt; len; i += 1) {
         if (myArr[i].age > 10) {
-            output.push(myArr[i]);
+            output[j++]= myArr[i];
         }
      }
      return output;    
@@ -512,9 +512,9 @@ while(l--) {
 								<li>don't measure length in every iteration</li>
 								<li>cache function used in repeatingCode</li>
 								<br>
-								<li>backward for loop is faster than forward</li>
+								<li>simple for loop is faster than filter</li>
 								<br>								
-								<li class="fragment">for-in only when iterating over object</li>
+								<li class="fragment">for-in could be faster</li>
 								<br>
 								<li class="fragment">on array, reverse while is the fastest</li>
 							</ol>
@@ -571,18 +571,19 @@ function b(){
 						</section>
 						<section>
 							<h2>local/function scope</h2>
-							<pre><code>var a = 2; 
-function b(){
+							<pre><code>function b(){
    var d = 21;
-   console.log(a);
+   console.log(d);
 }
-b();							</code></pre>
+b();</code></pre>
+<pre class="fragment"><code>console.log(d); //ReferenceError: d is not defined</code></pre>
 							<div class="fragment">
 								<ol>
 									<li>function call creates execution context (before running any code) </li>
 									<li class="fragment">First thing created is the scope chain</li>								
-									<li class="fragment">All local variables is pushed to the front of the context's scope chain.</li>
-									<li class="fragment">And then, create variable, arguments, determine the value of <code>this</code></li>	
+									<li class="fragment">All local variables is pushed to the front</li>
+									<li class="fragment">create variable, arguments, determine <code>this</code></li>
+									<li class="fragment">execute function</li>
 								</ol>
 							</div>	
 														<br>
@@ -636,6 +637,8 @@ function useLocal() {
 						</section>
 						<section>
 							<h2>summary of scope</h2>
+							<br>
+							<br>
 							<ol>
 								<li>local variables are fastest.</li>
 							</ol>
@@ -655,7 +658,7 @@ function useLocal() {
 						<section>
 							<h2>Summary</h2>
 							<ol>
-								<li class="fragment">primitive is faster than constructor</li>
+								<li class="fragment">primitive (literals) is faster than constructor</li>
 								<li class="fragment">local variable is faster than out-of scope variable</li>
 								<br>
 								<li class="fragment">push can insert multiple </li>
@@ -1307,17 +1310,13 @@ console.log(start - end +'ms');
 							<h6>( Appear Smart in Meetings )</h6>
 						</section>
 						<section>
-							<h2>1. Draw a Venn Diagram</h2>
+							<h3>1. Draw a Venn Diagram</h3>
 							<img src="images/vennDiagram.jpeg" alt="">
-						</section>
-						<section>
-							<ul>
-								<li class="fragment">Ask Presenter to go back a slide</li>
-								<br>
-								<li class="fragment">Ask "Will this scale?" no matter what it is</li>
-							</ul>
+							<li style="list-style:none" class="fragment">2. Ask Presenter to go back a slide</li>
+							<li style="list-style:none" class="fragment">3. Ask "Will this scale?" no matter what it is</li>
+							<br>
 							<a href="https://medium.com/comedy-corner/10-tricks-to-appear-smart-during-meetings-27b489a39d1a">10 tricks to be smart during meetings</a>
-						</section>
+						</section>						
 					</section>
 					<section>
 						<h1>Thank You</h1>
