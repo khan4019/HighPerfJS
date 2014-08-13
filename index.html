@@ -165,7 +165,7 @@
 							<img class="fullScreenImage" src="images/bathroom1.jpg" alt="">
 						</section>
 					</section>	
-					<section>
+					<!-- <section>
 						<section>
 							<h1>How you get a website</h1>
 						</section>						
@@ -185,7 +185,7 @@
 							<img class="fullScreenImage" src="images/lifeOfARequestParts.png" alt="">
 						</section>					
 					</section>					
-					</section>
+					 -->
 					<section>
 						<section>
 							<h2>How to improve Perf</h2>			
@@ -289,10 +289,12 @@ b.indexOf(669);
 
 								<li>Same Type</li>
 								<li>Avoid Pre-allocate (Grow as you Go)</li>
+								<br>
 								<div class="fragment">
 									<li>[] is faster than new Array()</li>
 									<li>a[index] is faster a.push</li>
 								</div>
+								<br>
 								<div class="fragment">
 									<li>push can insert multiple</li>
 									<li>consider fromIndex if possible</li>	
@@ -715,23 +717,23 @@ function useLocal() {
 							</ul>			
 							<a href="http://tech.pro/tutorial/1910/mastering-the-dom-access-100-lines-of-javascript">Mastering DOM access (read it)</a>				
 						</section>
-						<section>
+<!-- 						<section>
 							<h2>querySelectorAll</h2>
 							<br>
 							<li>returns non-live NodeList (not array)</li>
 							<li> using depth-first pre-order traversal</li>
 							<li class="fragment">cant use forEach, map on NodeList</li>
 							<pre class="fragment"><code>
-myArray --> Array.prototype --> Object.prototype --> null
+myArray -> Array.prototype -> Object.prototype -> null
 
-myNodeList --> NodeList.prototype --> Object.prototype --> null
+myNodeList -> NodeList.prototype -> Object.prototype -> null
 							</code></pre>
 							<pre class="fragment"><code>
 //loop and put them in a array
 //or
 var nodesArray = Array.prototype.slice.call(myNodeList);</code></pre>
 							<a href="https://developer.mozilla.org/en-US/docs/Web/API/NodeList">MDN: NodeList</a>, <a href="http://www.w3.org/TR/selectors-api/">W3: selectors-api</a>, <a href="http://www.w3.org/TR/selectors-api2">DOM API level 2</a>
-						</section>
+						</section> -->
 						<section>
 							<h2>What to use</h2>
 							<pre><code>
@@ -748,14 +750,17 @@ var nodesArray = Array.prototype.slice.call(myNodeList);</code></pre>
 						</section>
 						<section class="test">
 							<h2>Cache</h2>
-							<pre><code>var blah = document.getElementById('myID');
-var blah2 = document.getElementById('myID2');
-var blah3 = document.getElementById('myID3');</code></pre>							
-							<pre class="fragment"><code>var doc = document,
-    blah = doc.getElementById('myID'),
-    blah2 = doc.getElementById('myID2'),
-    blah3 = doc.getElementById('myID3');</code></pre>							
-							<pre class="fragment"><code>&lt;div class=&quot;awesome-selector&quot;&gt;<br/>  &lt;div class=&quot;inner-1&quot;&gt;&lt;/div&gt;<br/>  &lt;div class=&quot;inner-2&quot;&gt;&lt;/div&gt;<br/>  &lt;div class=&quot;inner-3&quot;&gt;&lt;/div&gt;<br/>&lt;/div&gt;
+							<pre><code>
+&lt;div class=&quot;awesome-selector&quot;&gt;
+  &lt;div class=&quot;inner-1&quot;&gt; Header - 1 &lt;/div&gt;
+  &lt;div class=&quot;inner-2&quot;&gt; Header - 2 &lt;/div&gt;
+  &lt;div class=&quot;inner-3&quot;&gt; Header - 3 &lt;/div&gt;
+&lt;/div&gt;
+							</code></pre>
+							<pre class="fragment"><code>
+var h1 = document.querySelector('.inner-1');
+var h2 = document.querySelector('.inner-2');
+var h3 = document.querySelector('.inner-3');
 							</code></pre>
 							<pre class="fragment"><code>
 var awesome = document.querySelector('.awesome-selector');
@@ -887,17 +892,12 @@ document.body.appendChild(fragment);</code></pre>
 							<h2>Summary</h2>							
 							<ol>
 								<li>Minimize the size of DOM</li>
-								<li>avoid modifying while traversing</li>
+								<li>cache DOM for multiple query</li>
 								<br>
 								<div class="fragment">
-									<li>Dont ask for size while changing</li>
-									<li>createDocumentFragment, cloneNode</li>
+									<li>avoid reflow while looping</li>
 								</div>
-								<br>
-								<div class="fragment">
-									<li>Minimize reflow and repaint</li>
-									<li>css class vs style attribute</li>
-								</div>
+								<br>								
 							</ol>
 							<br>
 							<br>
@@ -916,6 +916,10 @@ document.body.appendChild(fragment);</code></pre>
 							<img src="images/eventflow.png" alt="">
 							<br>
 							<a href="http://www.w3.org/TR/DOM-Level-3-Events/#event-flow">w3: event flow (image)</a>
+						</section>
+						<section>
+							<h2>security guard</h2>
+							<img src="images/security.jpeg" alt="">
 						</section>
 						<section>
 							<h2>event delegate</h2>
@@ -938,10 +942,6 @@ el.addEventListener('click', function (e) {
 });
 							</code></pre>
 							<a href="http://jsperf.com/events-vanilla-and-jquery/17">js perf delegate</a>
-						</section>
-						<section>
-							<h2>security guard</h2>
-							<img src="images/security.jpeg" alt="">
 						</section>
 						<section>
 							<h2>event delegate (demo)</h2>
@@ -978,6 +978,12 @@ el.addEventListener('click', function (e) {
 							 });
 							</script>
 						</section>
+						<section>
+							<h1 class="noUppercase">Debounce & Throttle</h1>
+							<h2>Defer</h2>
+							<br/>
+							<a href="http://jhankarmahbub.com/presentations/debounce.html">Debounce: Example</a>
+						</section>
 					</section>
 					<section>
 						<section>
@@ -998,6 +1004,7 @@ el.addEventListener('click', function (e) {
 								<br>
 								<li class="fragment">Minimize layout reflow</li>								
 								<li class="fragment">Delegate Events</li>
+								<li class="fragment">Throttle and debounce</li>
 								<br>								
 							</ol>
 						</section>						
@@ -1142,175 +1149,6 @@ el.cloneNode(true);
 					</section>
 					<section>
 						<section>
-							<h1>animation</h1>
-						</section>	
-						<section>
-						<h1>Jank</h1>						
-						<br/>						
-						<br/>						
-						<br/>												
-						<br/>
-						<a href="http://jakearchibald.github.io/jank-invaders/">Jank Invaders</a>
-					</section>
-						<section>
-							<h4>how things are animated?</h4>
-							<pre><code>function animateFn(){/* some fancy animation */ }
-var timeId = setInterval(animationFunction, 10);
-//when done clearTimeId
-clearInterval(timeId);</code></pre>
-							<pre class="fragment"><code>
-function move(elem) {
-  var left = 0;
-
-  function frame() {
-    left++;
-    elem.style.left = left + 'px';
-
-    if (left == 100)
-      clearInterval(timeId)
-  }
-
-  var timeId = setInterval(frame, 10); // draw every 10ms
-}
-							</code></pre>
-							<div id="animateEl" class="animate_block"></div>
-							<script>
-								function move(elem) {
-								  var left = 0;
-								  function frame() {
-								    left +=1;
-								    elem.style.left = left + 'px';
-								    if (left == 100)
-								      clearInterval(timeId)
-								  }
-								  var timeId = setInterval(frame, 10);
-								}
-								document.getElementById('animateEl').addEventListener('click', function(){
-									move(this);
-								})
-							</script>
-							<a href="http://css-tricks.com/controlling-css-animations-transitions-javascript/">controlling js animation</a>
-						</section>
-						<section>
-							<h2>animate with minimum reflow</h2>
-						</section>					
-						<section>
-							<h2>animations perf</h2>							
-							<ol>
-								<li>by default, elements have position: static</li>
-								<li>animation cause reflow (expensive)</li>
-								<br>
-								<div class="fragment">
-									<li>Try to avoid reflow (smoother, less CPU)</li>
-									<li>position: absolute/ fixed for Elements to animated</li>									
-								</div>								
-								<br>
-								<br>
-								<li class="fragment">put multiple animation in same timer (same loop)</li>
-							</ol>		
-							<br>
-							<br>					
-							<a href="https://docs.google.com/presentation/d/19R_E5B__kdE55L1bTpS6IFKbYbHq-PQKKky4do5Yc6A/preview?sle=true#slide=id.g105c64d69_170">performance tooling</a>, <a href="http://www.html5rocks.com/en/tutorials/speed/high-performance-animations/">high perf animation</a>,
-							<a href="http://jankfree.org/">Jank Free</a>
-							<br>
-							<a href="http://css-tricks.com/myth-busting-css-animations-vs-javascript/">css vs js animation</a>,
-							<a href="http://www.youtube.com/watch?v=mSK70FwUz2A">Debug-Fix Jank</a>
-						</section>						
-						<section>
-							<h2>requestAnimationFrame</h2>
-							<br>
-							<ol>
-								<li>browser optimize for smoother animations</li>
-								<li>dynamically adjust to keep frame rate normal</li>
-								<br>
-								<div class="fragment">
-									<li>inactive tabs will not animate  (save CPU)</li>
-									<li>More battery-friendly</li>
-								</div>
-							</ol>
-							<br>
-							<br>
-							<li class="fragment">Decouple events from animation</li>
-							
-							
-							<br>
-							<a href="http://creativejs.com/resources/requestanimationframe/">raf: tutorial</a>,
-							<a href="http://updates.html5rocks.com/2012/05/requestAnimationFrame-API-now-with-sub-millisecond-precision">sub millisecond precision</a>
-						</section>												
-					</section>		
-					<section>
-						<section>
-							<h1>Scroll</h1>
-							<img src="images/scroll.jpg" alt="">
-						</section>
-						<section>
-							<h2>scroll, scrollTO</h2>
-							<pre><code>
-//scroll down 100 pixels
-scroll(0, 100);
-
-scrollTo(x-coord,y-coord );
-
-//repeated scroll
-scrollBy(0, 100);
-							</code></pre>
-							<pre class="fragment"><code>
-window.onscroll = function(e) {
-   // do something on scroll 	 
-}
-							</code></pre>
-						</section>											
-						<section>
-							<h1 class="noUppercase">Debounce & Throttle</h1>
-							<h2>Defer</h2>
-							<br/>
-							<a href="http://jhankarmahbub.com/presentations/debounce.html">Debounce: Example</a>
-						</section>											
-						<section>
-							<h2>External effect</h2>
-							<h6>(Demo: <a href="http://jankfree.org/examples/hover.html">Something else make Scroll bad!</a>)</h6>
-							<div class="fragment">
-								<p style="text-align:left; text-decoration:underline;">Unnecessary repaint:</p>
-								<ol>
-									<li>position:fixed</li>
-									<li>overflow:scroll</li>
-									<div class="fragment">
-										<li>:hover effect</li>
-										<li>touch listeners</li>
-									</div>								
-								</ol>
-							</div>
-							<div class="fragment">
-								<p style="text-align:left; text-decoration:underline;">long paint:</p>
-								<li>visually complex css</li>
-								<li>Image resize</li>
-							</div>
-							<br>							
-							<a href="http://jankfree.org/jank-busters-cssconf/template.html#15">painful repaint</a>
-						</section>
-					</section>
-					<section>
-						<section>
-							<h1>so far</h1>
-							<img src="images/summary.JPG" alt="">
-						</section>
-						<section>
-							<h2>summary</h2>
-							<ol>
-								<div>
-									<li>requestAnimationFrame optimize animation</li>
-									<li>window.onscroll try to avoid event handler with</li>
-								</div>
-								<br>
-								<div class="fragment">
-									<li>native vs JQuery (browser support)</li>
-									<li>Do u really need full Jquery or some module</li>
-								</div>
-							</ol>
-						</section>						
-					</section>
-					<section>
-						<section>
 							<h1>Performance Test</h1>
 							<img src="images/test.jpg" alt="">														
 						</section>
@@ -1397,7 +1235,8 @@ console.log(start - end +'ms');
 							<h1>Recap</h1>
 						</section>
 						<section>
-							<h2>runtime performance</h2>							
+							<h2>High Perf JavaScript</h2>							
+							<br>
 							<ol>
 								<li>local variable is faster than out-of scope variable</li>
 								<li>reverse while is the fastest to iterate array</li>
@@ -1409,17 +1248,13 @@ console.log(start - end +'ms');
 								<br>
 								<div class="fragment">
 									<li>Delegate Events</li>
-									<li>repaint is faster than reflow</li>
+									<li>consider throttle and debounce</li>
 								</div>
 								<br>
 								<div class="fragment">
-									<li>Don't hold unnecessary object (garbage it)</li>
 									<li>Do u really need full Jquery or some module?</li>
-								</div>
-								<br>
-								<div class="fragment">
-									<li>devTool- audit, profile, timeline, console</li>									
-								</div>
+									<li>devTool- audit, profile, timeline, console</li>
+								</div>								
 							</ol>
 						</section>
 						<!-- <section>
@@ -1492,12 +1327,12 @@ console.log(start - end +'ms');
 						<br/>
 						<a href="http://jhankarmahbub.com">MD Khan</a> / <a href="http://twitter.com/mdkhan005">@mdkhan005</a>
 						<br>
-						<h6>www.thatjsdude.com</h6>
+						<h6>www.thatJsDude.com</h6>
 					</section>
 					<section>
 						<img src="images/question.jpg" alt="">
 						<br>
-						<h5>www.thatjsdude.com</h5>
+						<h5>www.thatJsDude.com</h5>
 						<a href="http://goo.gl/0JIpFe">goo.gl/0JIpFe</a> (<a href="http://jhankarmahbub.com">MD Khan</a> / <a href="http://twitter.com/mdkhan005">@mdkhan005</a>)
 					</section>
 				</div>
