@@ -95,7 +95,7 @@
 						<section>
 							<h1>High Perf JS</h1>					
 							<br/>
-							<!-- <h2 class="fragment"><a href="http://goo.gl/0JIpFe">goo.gl/0JIpFe</a> </h2> -->
+							<h2 class="fragment"><a href="http://goo.gl/0JIpFe">goo.gl/0JIpFe</a> </h2>
 							<br>
 							<br>
 							<br/>
@@ -142,12 +142,15 @@
 						<section>
 							<h2 class="upholdHeader">Performance improvement</h2>
 							<img class="fullScreenImage" src="images/underConstruction3.jpg" alt="">
-						</section>	
+						</section>
 						<section>
 							<img src="images/fixTire.jpg" alt="">
 						</section>
 						<section>
 							<img src="images/internet4.jpg" alt="">
+						</section>
+						<section>
+							<img src="images/subjective.jpg" alt="">
 						</section>
 						<section>
 							<img src="images/solution.jpg" alt="">
@@ -199,7 +202,7 @@
 								<li class="fragment">Is it a performance/ design problem?</li>
 								<br>
 								<li class="fragment">Don't blindly go for blog/ talk/ boss</li>
-								<li class="fragment">Or some random guy in that conference</li>
+								<li class="fragment">Or some random guy in a conference</li>
 								<br>
 								<li class="fragment">Measure it (before, after)</li>
 								<li class="fragment">Make sure u understand after 6 months</li>								
@@ -318,9 +321,9 @@ for(var i = 0; i &lt; 100; i++){
 }
 							</code></pre>
 						</section>
-						<section>
+						<!-- <section>
 							<img class="fullScreenImage" src="images/loop6.jpg" alt="">
-						</section>						
+						</section> -->
 						<section>
 							<img src="images/forLoop.png" alt="">
 							<pre class="fragment"><code>
@@ -370,13 +373,13 @@ for(var i = 0, len = myArr.length; i &lt; len; i++){
 							<h2>cache outside for loop</h2>						
 							<pre><code>
 for(var i = 0; i &lt; 10; i++) {
-   var container = document.getElementById('container'); 
+   var container = document.getElementsByClassName('container'); 
    console.log(container[i].innerText);
 }
 							</code></pre>		
 							<h4 class="fragment">when value doesnt change</h4>
 							<pre class="fragment"><code>
-var container = document.getElementById('container');  
+var container = document.getElementsByClassName('container');  
 
 for(var i = 0; i &lt; 10; i++) {
    console.log(container[i].innerText);
@@ -454,7 +457,7 @@ function filterByForLoop(myArr, num){
 var myArr = [1, 2, 3, 4, 5, ... ];
 
 //faster
-for(var i =0; i &lt; 1000; i++){
+for(var i = 0; i &lt; 1000; i++){
  console.log(myArr[i]);
 }
 
@@ -524,155 +527,6 @@ while(l--) {
 					</section>
 					<section>
 						<section>
-							<h1 class="upholdHeader">Scope</h1>							
-						</section>
-						<section>
-							<h2>JavaScript Scope</h2>
-							<br>
-							<br>
-							<ul class="fragment">
-									<li>Global scope</li>
-									<br>
-									<li class="fragment">local scope</li>	
-								
-							</ul>
-						</section>
-
-						<section>
-							<img src="images/my Drawing/globe.png" alt="">
-						</section>
-
-						<section>
-							<img src="images/my Drawing/globeJackie.jpg" alt="">
-						</section>						
-						<section><img src="images/jackie.jpg" alt=""></section>	
-						<section><img src="images/newYear.jpg" alt=""></section>		
-						<section>
-							<img src="images/my Drawing/globeStars.jpg" alt="">
-						</section>						
-						
-						<section>
-							<h2>global scope</h2>
-							<pre><code>var a = 2; 
-function b(){
-   console.log(a);
-}							</code></pre>
-							<img class="fragment" src="images/globalscope.png" alt="">
-						</section>
-						<section>
-							<h1>Local Scope</h1>
-						</section>
-						<section>
-							<img  class="fullScreenImage" src="images/my Drawing/gglMap.jpg" alt="">
-						</section>	
-						<section>
-							<img src="images/kd.jpg" alt="">
-						</section>					
-						<section>
-							<img  class="fullScreenImage" src="images/localStar.jpg" alt="">
-						</section>
-						<section>
-							<h2>local/function scope</h2>
-							<pre><code>function b(){
-   var d = 21;
-   console.log(d);
-}
-b();</code></pre>
-<pre class="fragment"><code>console.log(d); //ReferenceError: d is not defined</code></pre>
-							<div class="fragment">
-								<ol>
-									<li>function call creates execution context (before running any code) </li>
-									<li class="fragment">First thing created is the scope chain</li>								
-									<li class="fragment">All local variables is pushed to the front</li>
-									<li class="fragment">create variable, arguments, determine <code>this</code></li>
-									<li class="fragment">execute function</li>
-								</ol>
-							</div>	
-														<br>
-							<a href="http://davidshariff.com/blog/javascript-scope-chain-and-closures/">JS scope chain</a>
-						</section>
-						<section>
-							<img src="images/localScope.png" alt="">
-						</section>
-						<section>
-							<h2>multi execution context</h2>
-							<pre><code>var a = 2; 
-function b(){ console.log(a); }
-function c(){ console.log(a); }
-b();						
-c();</code></pre>
-							<img class="fragment" src="images/multiScope.png" alt="">						
-						</section>
-						<section>
-							<h2>local events</h2>
-							<img src="images/football.jpg" alt="">
-						</section>					
-						<section>
-							<img  class="fullScreenImage" src="images/localEvents.jpg" alt="">
-						</section>
-						<section>
-							<h2>nested function (closure)</h2>
-											<img class="fragment" src="images/closureScope.png" alt="">
-						</section>
-						<section>
-							<h2>store out of scope variable</h2>
-							<pre><code>
-var myArr = [0, 1, 2, 3, 4, 5, 	...];
-
-function useGlobal() {
-    
-    for (j = 0; j &lt; 1000; j++){
-        console.log(myArr[j]);
-    }
-}
-							</code></pre>
-							<pre class="fragment"><code>
-function useLocal() {
-    var localArr = myArr;
-
-    for (var k = 0; k &lt; 1000; k++){
-        console.log(localArr[k]);
-    }
-}
-							</code></pre>
-							<a href="http://jsperf.com/global/17">local vs global variable</a>
-						</section>
-						<section>
-							<h2>summary of scope</h2>
-							<br>
-							<br>
-							<ol>
-								<li>local variables are fastest.</li>
-							</ol>
-						</section>
-					</section>					
-					<section>
-						<section>
-							<h1>so far</h1>
-							<img src="images/sleeping3.jpg" alt="">
-						</section>
-						<section>
-							<img src="images/sleeping.jpg" alt="">
-						</section>
-						<section>
-							<img src="images/sleeping6.jpg" alt="">
-						</section>
-						<section>
-							<h2>Summary</h2>
-							<ol>
-								<li class="fragment">primitive (literals) is faster than constructor</li>
-								<li class="fragment">local variable is faster than out-of scope variable</li>
-								<br>
-								<li class="fragment">push can insert multiple </li>
-								<li class="fragment">consider fromIndex while using indexOf</li>
-								<br>
-								<li class="fragment">simple for loop is faster than built in filter</li>
-								<li class="fragment">reverse while is the fastest to iterate array</li>
-							</ol>
-						</section>						
-					</section>	
-					<section>
-						<section>
 							<h2>is it hard to</h2>
 							<h1>Improve</h1>
 							<h2>Performance?</h2>
@@ -719,7 +573,9 @@ function useLocal() {
 									<li>querySelector</li>
 									<li>querySelectorAll</li>
 								</div>
-							</ul>			
+							</ul>
+							<br>
+							<br>
 							<a href="http://tech.pro/tutorial/1910/mastering-the-dom-access-100-lines-of-javascript">Mastering DOM access (read it)</a>				
 						</section>
 <!-- 						<section>
@@ -938,8 +794,8 @@ document.body.appendChild(fragment);</code></pre>
 var el = document.getElementById('listToDestroy');
 
 el.addEventListener('click', function (e) {
-    var elm = e.target.parentNode;
-    elm.parentNode.removeChild(elm);
+    var list = e.target.parentNode;
+    list.parentNode.removeChild(list);
     e.preventDefault();
 });
 							</code></pre>
@@ -958,8 +814,8 @@ el.addEventListener('click', function (e) {
 				            <button id="addItem">add item</button>
 				            <script type="text/javascript"> 
 							 document.getElementById('listToDestroy').addEventListener('click', function (e) { 
-							    var elm = e.target.parentNode; 
-							    elm.parentNode.removeChild(elm);
+							    var list = e.target.parentNode; 
+							    list.parentNode.removeChild(list);
 							    e.preventDefault();
 							 });
 							 document.getElementById('addItem').addEventListener('click', function (e) { 
@@ -1068,8 +924,9 @@ el.classList.contains('hide');
 $(el).hide();
 $(el).show();
 
-el.style.display='';
-el.style.display = 'none';</code></pre>
+el.style.display = 'none';
+el.style.display = '';
+</code></pre>
 						<pre class="fragment"><code>
 $(el).html();
 $(el).html(setString);
@@ -1090,7 +947,7 @@ el.textContent;</code></pre>
 $(el).on(eventName, eventHandler);
 
 $(el).on('click', function(e){
-	console.log(e.target);	
+    console.log(e.target);	
 })
 
 //remove event
@@ -1099,9 +956,10 @@ $(el).off(eventName, eventHandler);
 							<pre class="fragment"><code>
 //IE9+
 el.addEventListener(eventName, eventHandler);
-
+							</code></pre>
+							<pre class="fragment"><code>
 el.addEventListener('click', function(e){
-	console.log(e.target);
+    console.log(e.target);
 });
 
 el.removeEventListener(eventName, eventHandler);
@@ -1152,7 +1010,7 @@ el.cloneNode(true);
 							<br>
 							<br>
 							<h3 class="fragment">Decide based on your situation</h3>
-						</section>						
+						</section>
 					</section>
 					<section>
 						<section>
@@ -1163,9 +1021,9 @@ el.cloneNode(true);
 							<h2>Ways to test</h2>
 							<ol>
 								<li>chrome task manager (shift + Esc)</li>
-								<li>devtool - audit, network</li>
-								<li>jsPerf.com <a href="http://jsperf.com/">show popular</a></li>
-								<li>Devtool- Console, timeline, profile</li>
+								<li class="fragment">devtool - audit, network</li>
+								<li class="fragment">jsPerf.com <a href="http://jsperf.com/">show popular</a></li>
+								<li class="fragment">Devtool- Console, timeline, profile</li>
 							</ol>
 						</section>
 						<section>
