@@ -215,6 +215,9 @@
 						<section>
 							<img src="images/useOnlyWhatYouNeed.jpg" alt="">
 						</section>
+						<section>
+							<img src="images/electricity.gif" alt="">
+						</section>
 					</section>																
 					<section>
 						<section>
@@ -287,13 +290,9 @@ b.indexOf(669);
 							<h2>Array summary</h2>
 							<ul>
 
-								<li>Same Type</li>
-								<li>Avoid Pre-allocate (Grow as you Go)</li>
+								<li>[] is faster than new Array()</li>
+								<li>a[index] is faster a.push</li>
 								<br>
-								<div class="fragment">
-									<li>[] is faster than new Array()</li>
-									<li>a[index] is faster a.push</li>
-								</div>
 								<br>
 								<div class="fragment">
 									<li>push can insert multiple</li>
@@ -530,7 +529,65 @@ while(l--) {
 					</section>
 					<section>
 						<section>
-							<h1>scope</h1>
+							<h1 class="upholdHeader">Scope</h1>
+							<img src="images/scope.jpg" alt="">
+						</section>
+						<section>
+							<h2>JavaScript Scope</h2>
+							<br>
+							<br>
+							<ul class="fragment">
+									<li>Global scope</li>
+									<br>
+									<li class="fragment">local scope</li>
+							</ul>
+						</section>
+
+						<section>
+							<img src="images/my Drawing/globe.png" alt="">
+						</section>
+
+						<section>
+							<img src="images/my Drawing/globeJackie.jpg" alt="">
+						</section>
+						<section><img src="images/jackie.jpg" alt=""></section>
+						<section><img src="images/newYear.jpg" alt=""></section>
+						<section>
+							<img src="images/my Drawing/globeStars.jpg" alt="">
+						</section>
+						<section>
+							<h2>global scope</h2>
+							<pre><code>var a = 2;
+function b(){
+   console.log(a);
+}							</code></pre>
+							<img class="fragment" src="images/globalscope.png" alt="">
+						</section>
+						<section>
+							<h1>Local Scope</h1>
+						</section>
+						<section>
+							<img  class="fullScreenImage" src="images/my Drawing/gglMap.jpg" alt="">
+						</section>
+						<section>
+							<img src="images/kd.jpg" alt="">
+						</section>
+						<section>
+							<img  class="fullScreenImage" src="images/localStar.jpg" alt="">
+						</section>
+						<section>
+							<h2>local/function scope</h2>
+							<pre><code>function b(){
+   var d = 21;
+   console.log(d);
+}
+b();</code></pre>
+<pre class="fragment"><code>
+console.log(d); //ReferenceError: d is not defined
+								</code></pre>
+							<br>
+														<br>
+							<a href="http://davidshariff.com/blog/javascript-scope-chain-and-closures/">JS scope chain</a>
 						</section>
 						<section>
 							<img src="images/localScope.png" alt="">
@@ -568,10 +625,16 @@ function useLocal() {
 							<img src="images/redBullWings.jpeg" alt="">
 						</section>
 						<section>
-							<img  class="fullScreenImage"  src="images/developerSecret.jpg">
+							<img src="images/funny/seriousness1.jpg" alt="" class="fullScreenImage">
+						</section>
+						<section>
+							<img src="images/funny/seriousness2.jpg" alt="" class="fullScreenImage">
 						</section>
 						<section>
 							<img src="images/funny/seriousness.jpg" alt="" class="fullScreenImage">
+						</section>
+						<section>
+							<img  class="fullScreenImage"  src="images/developerSecret.jpg">
 						</section>
 						<section>
 							<img class="fullScreenImage" src="images/badBoss.jpg">
@@ -939,6 +1002,24 @@ document.onreadystatechange = function () {
 }</code></pre>
 							<h4 class="fragment">Copy ready: function from JQuery</h4>
 							<a href="http://flippinawesome.org/2013/05/06/5-things-you-should-stop-doing-with-jquery/">5-things-you-should-stop-doing-with-jquery</a>
+						</section>
+						<section>
+							<h2>$</h2>
+							<pre><code>
+$('#myId');
+$('.myClass');
+$('div p');
+</code></pre>		
+							<pre class="fragment"><code>
+document.querySelectorAll('#myId');
+document.querySelectorAll('.myClass');
+document.querySelectorAll('div p');
+							</code></pre>
+							<h4 class="fragment">querySelctorAll dont have map, each, filter</h4>
+							<pre class="fragment"><code>
+document.querySelector('#myId');
+document.querySelector('.myClass');
+document.querySelector('div p');</code></pre>
 						</section>						
 						<section>
 							<h2>deal with class</h2>
@@ -1096,7 +1177,14 @@ porfileEnd('myProfile');
 						</section>
 						<section>
 							<h2>More Console</h2>
-							<pre><code>
+							<pre class="fragment"><code>
+console.time("Array initialize");
+
+//your code
+
+console.timeEnd("Array initialize");
+							</code></pre>
+							<pre class="fragment"><code>
 console.time("Array initialize");
 
 var array= new Array(1000000);
@@ -1129,12 +1217,12 @@ console.log(start - end +'ms');
 							<a href="http://www.youtube.com/watch?v=hqotCdm6Cx4">Effective Memory management</a>
 							<br/>
 							<a href="https://code.google.com/p/leak-finder-for-javascript/">Leak Finder</a>
-						</section>
-						<section>
-							<h2 class="noUppercase">chrome://tracing</h2>
-							<a href="https://www.youtube.com/watch?v=bMZZOzuJCgk">Tracing paint operations</a>
-							<br/>
-							<a href="http://www.html5rocks.com/en/tutorials/games/abouttracing/">Tracing Flag</a>
+							<div class="fragment">
+								<h3 class="noUppercase">chrome://tracing</h3>
+								<a href="https://www.youtube.com/watch?v=bMZZOzuJCgk">Tracing paint operations</a>
+								<br/>
+								<a href="http://www.html5rocks.com/en/tutorials/games/abouttracing/">Tracing Flag</a>
+							</div>
 						</section>
 					</section>										
 					<section>
@@ -1196,9 +1284,14 @@ console.log(start - end +'ms');
 						<section>
 							<img src="images/knowWhy.jpg" alt="">
 						</section>
-						<!-- <section>
-							<img src="images/password.jpg" alt="">
-						</section> -->
+						<section>
+							<h2>use framework</h2>
+							<img src="images/funny/fun/fly.jpg" alt="">
+						</section>
+						<section>
+							<h2>be smartly lazy</h2>
+							<img src="images/funny/fun/lawnMower.jpg" alt="">
+						</section>
 						<section>
 							<h2>blame framework but take credit</h2>
 							<img class="fragment" src="images/keys.jpg" alt="">
@@ -1211,24 +1304,38 @@ console.log(start - end +'ms');
 							<br>
 							<br>
 							<br>
-							<h6>( Appear Smart in Meetings )</h6>
+							
 						</section>
 						<section>
-							<h3>1. Draw a Venn Diagram</h3>
-							<img src="images/vennDiagram.jpeg" alt="">
+							<h2>Look Busy at Work</h2>
+							<ol>
+								<li class="fragment">Ctrl + 1 when big brother is around</li>
+								<li class="fragment">Use headphone or mute</li>
+								<br>
+								<li class="fragment">Always carry extra bag and print out</li>
+								<li class="fragment">do ur personal work, but leave after ur manager</li>
+								<br>
+								<li class="fragment">Dont use the same rest room in a row</li>
+								<li class="fragment">Do lunch at your desk not break room</li>
+								<br>
+								<li class="fragment">always leave a extra jacket on your chair</li>
+								<li class="fragment">compose email during office hours, send it midnight or weekends</li>
+							</ol>
+							<br>
+							<br>
+							<br>
+							<a href="http://www.wikihow.com/Look-Busy-at-Work-Without-Really-Working">Look busy</a>
+						</section>
+						<section>
+							<h3>Appear Smart in Meetings</h3>
+							<div class="fragment">
+								<h4>1. Draw a Venn Diagram</h4>
+								<img src="images/vennDiagram.jpeg" alt="">
+							</div>
 							<li style="list-style:none" class="fragment">2. Ask Presenter to go back a slide</li>
 							<li style="list-style:none" class="fragment">3. Ask "Will this scale?" no matter what it is</li>
 							<br>
 							<a href="https://medium.com/comedy-corner/10-tricks-to-appear-smart-during-meetings-27b489a39d1a">10 tricks to be smart during meetings</a>
-						</section>
-						<section>
-							<img src="images/candy1.jpg" alt="">
-						</section>
-						<section>
-							<img src="images/candy2.jpg" alt="">
-						</section>
-						<section>
-							<img src="images/rehab.jpg" alt="">
 						</section>
 					</section>
 					<section>
@@ -1242,10 +1349,13 @@ console.log(start - end +'ms');
 						<h6>www.thatJsDude.com</h6>
 					</section>
 					<section>
-						<img src="images/question.jpg" alt="">
+						<img src="images/question1.jpg" alt="">
 						<br>
 						<h5>www.thatJsDude.com</h5>
-						<a href="http://goo.gl/0JIpFe">goo.gl/0JIpFe</a> (<a href="http://jhankarmahbub.com">MD Khan</a> / <a href="http://twitter.com/mdkhan005">@mdkhan005</a>)
+						<a href="http://goo.gl/0JIpFe">goo.gl/0JIpFe</a> 
+						<br>
+						<br>
+						(<a href="http://jhankarmahbub.com">MD Khan</a> / <a href="http://twitter.com/mdkhan005">@mdkhan005</a>)
 					</section>
 				</div>
 
