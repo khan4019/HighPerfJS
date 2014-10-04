@@ -226,7 +226,7 @@
 						</section>
 						<section>
 							<h2>Create Array</h2>							
-							<pre><code>new Array();    //constructor</code></pre>
+							<pre><code>new Array();    //[]</code></pre>
 
 							<pre class="fragment"><code>
 var a = new Array(5); 
@@ -282,21 +282,22 @@ var b = [1, 2, 3, 4, 5, ...];
 
 b.indexOf(669);
 								</code></pre>
-								<pre class="fragment"><code>b.indexOf(669, 500);</code></pre>
+								<pre class="fragment"><code>
+b.indexOf(669, 500);
+								</code></pre>
 								<a href="http://jsperf.com/indexof-fromindex">test: fromIndex</a>
 							</div>
 						</section>
 						<section>
 							<h2>Array summary</h2>
 							<ul>
-
 								<li>[] is faster than new Array()</li>
 								<li>a[index] is faster a.push</li>
 								<br>
 								<br>
 								<div class="fragment">
 									<li>push can insert multiple</li>
-									<li>consider fromIndex if possible</li>	
+									<li>consider fromIndex if possible</li>
 								</div>
 							</ul>
 						</section>						
@@ -357,7 +358,8 @@ for( ; ; ){
 						<section>
 							<h2>initiation;</h2>			
 							<br>
-							<pre><code>var myArr = [1, 2, 3, 4, 5];
+							<pre><code>
+var myArr = [1, 2, 3, 4, 5];
 
 for(var i = 0; i &lt; myArr.length; i++){
   console.log(myArr[i]);
@@ -411,7 +413,7 @@ for(var i = len; i--; ){
 							<br>
 							<a href="http://stackoverflow.com/a/3551216/1535443">why backward is fast</a>
 						</section>
-						<section>
+						<!-- <section>
 							<h2>cache function</h2>
 							<pre><code>
 var arr = [];
@@ -428,11 +430,11 @@ for (var i = 0; i &lt; 1000; i++) {
 }
 							</code></pre>
 							<a href="http://jsperf.com/function-in-the-loop">function caching for loop</a>
-						</section>
+						</section> -->
 						<section>
 							<h2>filter vs if</h2>
 							<pre><code>
-var devs = [{ name: 'addy osmani', age: 29}, {name: 'paul irish', age:31}, {name: 'md khan', age: 13}];
+var devs = [{ name: 'addy osmani', age: 29}, {name: 'paul irish', age:31}, {name: 'js dude', age: 13}];
 							</code></pre>
 							<pre><code>
 devs.filter(function (el, i, arr) {
@@ -458,14 +460,14 @@ function filterByForLoop(myArr, num){
 							<pre><code>
 var myArr = [1, 2, 3, 4, 5, ... ];
 
+for(var j in myArr){
+  console.log(myArr[j]);
+}
+							</code></pre>
+							<pre class="fragment"><code>
 //faster
 for(var i = 0; i &lt; 1000; i++){
  console.log(myArr[i]);
-}
-
-//than
-for(var j in myArr){
-  console.log(myArr[j]);
 }
 							</code></pre>
 							<br>
@@ -581,7 +583,8 @@ function b(){
    var d = 21;
    console.log(d);
 }
-b();</code></pre>
+b(); //21
+							</code></pre>
 <pre class="fragment"><code>
 console.log(d); //ReferenceError: d is not defined
 								</code></pre>
@@ -609,7 +612,33 @@ function useLocal() {
         console.log(localArr[k]);
 }
 							</code></pre>
-							<a href="http://jsperf.com/global/17">local vs global variable</a>							
+							<a href="http://jsperf.com/global/17">local vs global variable</a>
+						</section>
+					</section>
+					<section>
+						<section>
+							<h1>Come back with me</h1>
+						</section>
+						<section>
+							<h3>Summary</h3>
+							<ol>
+								<li>[] is faster than new Array()</li>
+								<li>a[index] is faster a.push</li>	
+								<br>
+								<div class="fragment">
+									<li>push can insert multiple</li>
+									<li>consider fromIndex if possible</li>
+								</div>
+								<br>
+								<div class="fragment">
+									<li>simple for loop is faster than filter</li>
+									<li>for-in could be faster</li>
+								</div>
+								<br>
+								<li class="fragment">on array, reverse while is the fastest</li>
+								<br>
+								<li class="fragment">local variable is faster than out-of scope variable</li>
+							</ol>
 						</section>
 					</section>
 					<section>
@@ -621,11 +650,12 @@ function useLocal() {
 						<section>
 							<img src="images/redBull.jpg" alt="">
 						</section>
-						<section>
+						<!-- <section>
 							<img src="images/redBullWings.jpeg" alt="">
-						</section>
+						</section> -->
 						<section>
-							<img src="images/funny/seriousness1.jpg" alt="" class="fullScreenImage">
+							<h2>Tissue paper life cycle</h2>
+							<img src="images/funny/seriousness1.jpg" alt="" class="fullScreenImage fragment">
 						</section>
 						<section>
 							<img src="images/funny/seriousness2.jpg" alt="" class="fullScreenImage">
@@ -765,7 +795,7 @@ var h3 = awesome.querySelector('.inner-3');
 &lt;section class=&quot;mySection&quot;&gt;
   &lt;div class=&quot;myDiv&quot;&gt;
        &lt;div&gt;
-	    &lt;span data-control=&quot;true&quot;&gt;Something, Darkside&lt;/span&gt;
+	    &lt;span data-control=&quot;true&quot;&gt;Something Text&lt;/span&gt;
        &lt;/div&gt;
   &lt;/div&gt;
 &lt;/section&gt;
@@ -789,7 +819,7 @@ function getElementByAttributeValue(attribute)
     }
 							</code></pre> -->							
 							<pre class="fragment"><code>
-&lt;div&gt;<br/>  &lt;span class=&quot;data-control&quot; data-control=&quot;true&quot;&gt; Something, Darkside   &lt;/span&gt;<br/>&lt;/div&gt;
+&lt;div&gt;<br/>  &lt;span class=&quot;data-control&quot; data-control=&quot;true&quot;&gt; Some Text&lt;/span&gt;<br/>&lt;/div&gt;
 							</code></pre>
 							<pre class="fragment"><code>
 document.getElementsByClassName('data-control');
@@ -806,12 +836,12 @@ document.getElementsByClassName('data-control');
 							<pre><code>
 var ul = document.getElementById('myList');
 
-el.innerHTML = '&lt;li&gt;Only one item&lt;/li&gt;';
+el.innerHTML = '&lt;li&gt;my awesome item&lt;/li&gt;';
 							</code></pre>							
 							<h6 class="fragment">remove all elements, parse string, assign as children</h5>
 							<pre class="fragment"><code>
 var li = document.createElement("li");
-var text = document.createTextNode('Only one Item');
+var text = document.createTextNode('my awesome item');
 
 li.appendChild(text);
 ul.appendChild(li);
@@ -970,10 +1000,11 @@ el.addEventListener('click', function (e) {
 									<li>consider using documentFragment</li>
 								</div>
 								<br>
-								<li class="fragment">Minimize layout reflow</li>								
-								<li class="fragment">Delegate Events</li>
+								<li class="fragment">minimize layout reflow</li>								
+								<li class="fragment">delegate Events</li>
+								<br>
 								<li class="fragment">use throttle and debounce</li>
-								<br>								
+																
 							</ol>
 						</section>						
 					</section>
@@ -1009,7 +1040,7 @@ document.onreadystatechange = function () {
 $('#myId');
 $('.myClass');
 $('div p');
-</code></pre>		
+							</code></pre>		
 							<pre class="fragment"><code>
 document.querySelectorAll('#myId');
 document.querySelectorAll('.myClass');
@@ -1019,7 +1050,8 @@ document.querySelectorAll('div p');
 							<pre class="fragment"><code>
 document.querySelector('#myId');
 document.querySelector('.myClass');
-document.querySelector('div p');</code></pre>
+document.querySelector('div p');
+							</code></pre>
 						</section>						
 						<section>
 							<h2>deal with class</h2>
@@ -1116,7 +1148,7 @@ el.cloneNode(true);
 							</code></pre>
 						</section>
 						<section>
-							<h2>Is JQuery is Dead?</h2>
+							<h2>is JQuery Dead?</h2>
 							<br>
 							<ol class="fragment">
 								<li>Older Browser</li>
@@ -1242,7 +1274,7 @@ console.log(start - end +'ms');
 								</div>
 								<br>
 								<div class="fragment">
-									<li>Delegate Events</li>
+									<li>delegate Events</li>
 									<li>consider throttle and debounce</li>
 								</div>
 								<br>
@@ -1270,8 +1302,8 @@ console.log(start - end +'ms');
 							<br/>
 
 							<br/><br/>
-							<a href="http://www.youtube.com/watch?v=MFtijdklZDo">Break All the Rules</a><br/>	
-						</section>						
+							<a href="http://www.youtube.com/watch?v=MFtijdklZDo">Break All the Rules</a><br/>
+						</section>
 						<section>
 							<h2 class="upholdHeader">Final Take Away</h2>
 							<ul>
@@ -1279,14 +1311,14 @@ console.log(start - end +'ms');
 							</ul>
 							<h1 style="color:red" class="fragment">trust Tools, <span class="lineThrough">not Rules<span></h1>
 							<br/>
-							<a href="http://www.youtube.com/watch?v=MFtijdklZDo">Angus Croll: Break all the rules</a>							
+							<a href="http://www.youtube.com/watch?v=MFtijdklZDo">Angus Croll: Break all the rules</a>
 						</section>
 						<section>
 							<img src="images/knowWhy.jpg" alt="">
 						</section>
 						<section>
 							<h2>use framework</h2>
-							<img src="images/funny/fun/fly.jpg" alt="">
+							<img class="fragment" src="images/funny/fun/fly.jpg" alt="">
 						</section>
 						<section>
 							<h2>be smartly lazy</h2>
@@ -1296,21 +1328,16 @@ console.log(start - end +'ms');
 							<h2>blame framework but take credit</h2>
 							<img class="fragment" src="images/keys.jpg" alt="">
 						</section>
-					</section>					
+					</section>
 					<section>
 						<section>
 							<h1>Free Tips</h1>
-							<br>
-							<br>
-							<br>
-							<br>
-							
 						</section>
 						<section>
-							<h2>Look Busy at Work</h2>
+							<h2>Appear Busy at Work</h2>
 							<ol>
 								<li class="fragment">Ctrl + 1 when big brother is around</li>
-								<li class="fragment">Use headphone or mute</li>
+
 								<br>
 								<li class="fragment">Always carry extra bag and print out</li>
 								<li class="fragment">do ur personal work, but leave after ur manager</li>
@@ -1321,8 +1348,6 @@ console.log(start - end +'ms');
 								<li class="fragment">always leave a extra jacket on your chair</li>
 								<li class="fragment">compose email during office hours, send it midnight or weekends</li>
 							</ol>
-							<br>
-							<br>
 							<br>
 							<a href="http://www.wikihow.com/Look-Busy-at-Work-Without-Really-Working">Look busy</a>
 						</section>
@@ -1352,7 +1377,7 @@ console.log(start - end +'ms');
 						<img src="images/question1.jpg" alt="">
 						<br>
 						<h5>www.thatJsDude.com</h5>
-						<a href="http://goo.gl/0JIpFe">goo.gl/0JIpFe</a> 
+						<a href="http://goo.gl/0JIpFe">goo.gl/0JIpFe</a>
 						<br>
 						<br>
 						(<a href="http://jhankarmahbub.com">MD Khan</a> / <a href="http://twitter.com/mdkhan005">@mdkhan005</a>)
