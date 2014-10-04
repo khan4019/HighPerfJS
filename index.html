@@ -226,7 +226,7 @@
 						</section>
 						<section>
 							<h2>Create Array</h2>							
-							<pre><code>new Array();    //constructor</code></pre>
+							<pre><code>new Array();    //[]</code></pre>
 
 							<pre class="fragment"><code>
 var a = new Array(5); 
@@ -291,14 +291,13 @@ b.indexOf(669, 500);
 						<section>
 							<h2>Array summary</h2>
 							<ul>
-
 								<li>[] is faster than new Array()</li>
 								<li>a[index] is faster a.push</li>
 								<br>
 								<br>
 								<div class="fragment">
 									<li>push can insert multiple</li>
-									<li>consider fromIndex if possible</li>	
+									<li>consider fromIndex if possible</li>
 								</div>
 							</ul>
 						</section>						
@@ -359,7 +358,8 @@ for( ; ; ){
 						<section>
 							<h2>initiation;</h2>			
 							<br>
-							<pre><code>var myArr = [1, 2, 3, 4, 5];
+							<pre><code>
+var myArr = [1, 2, 3, 4, 5];
 
 for(var i = 0; i &lt; myArr.length; i++){
   console.log(myArr[i]);
@@ -434,7 +434,7 @@ for (var i = 0; i &lt; 1000; i++) {
 						<section>
 							<h2>filter vs if</h2>
 							<pre><code>
-var devs = [{ name: 'addy osmani', age: 29}, {name: 'paul irish', age:31}, {name: 'md khan', age: 13}];
+var devs = [{ name: 'addy osmani', age: 29}, {name: 'paul irish', age:31}, {name: 'js dude', age: 13}];
 							</code></pre>
 							<pre><code>
 devs.filter(function (el, i, arr) {
@@ -583,7 +583,8 @@ function b(){
    var d = 21;
    console.log(d);
 }
-b();</code></pre>
+b(); //21
+							</code></pre>
 <pre class="fragment"><code>
 console.log(d); //ReferenceError: d is not defined
 								</code></pre>
@@ -611,7 +612,33 @@ function useLocal() {
         console.log(localArr[k]);
 }
 							</code></pre>
-							<a href="http://jsperf.com/global/17">local vs global variable</a>							
+							<a href="http://jsperf.com/global/17">local vs global variable</a>
+						</section>
+					</section>
+					<section>
+						<section>
+							<h1>Come back with me</h1>
+						</section>
+						<section>
+							<h3>Summary</h3>
+							<ol>
+								<li>[] is faster than new Array()</li>
+								<li>a[index] is faster a.push</li>	
+								<br>
+								<div class="fragment">
+									<li>push can insert multiple</li>
+									<li>consider fromIndex if possible</li>
+								</div>
+								<br>
+								<div class="fragment">
+									<li>simple for loop is faster than filter</li>
+									<li>for-in could be faster</li>
+								</div>
+								<br>
+								<li class="fragment">on array, reverse while is the fastest</li>
+								<br>
+								<li class="fragment">local variable is faster than out-of scope variable</li>
+							</ol>
 						</section>
 					</section>
 					<section>
@@ -627,8 +654,8 @@ function useLocal() {
 							<img src="images/redBullWings.jpeg" alt="">
 						</section> -->
 						<section>
-							<h2>software lifey cycle</h2>
-							<img src="images/funny/seriousness1.jpg" alt="" class="fullScreenImage">
+							<h2>Tissue paper life cycle</h2>
+							<img src="images/funny/seriousness1.jpg" alt="" class="fullScreenImage fragment">
 						</section>
 						<section>
 							<img src="images/funny/seriousness2.jpg" alt="" class="fullScreenImage">
@@ -768,7 +795,7 @@ var h3 = awesome.querySelector('.inner-3');
 &lt;section class=&quot;mySection&quot;&gt;
   &lt;div class=&quot;myDiv&quot;&gt;
        &lt;div&gt;
-	    &lt;span data-control=&quot;true&quot;&gt;Something, Darkside&lt;/span&gt;
+	    &lt;span data-control=&quot;true&quot;&gt;Something Text&lt;/span&gt;
        &lt;/div&gt;
   &lt;/div&gt;
 &lt;/section&gt;
@@ -792,7 +819,7 @@ function getElementByAttributeValue(attribute)
     }
 							</code></pre> -->							
 							<pre class="fragment"><code>
-&lt;div&gt;<br/>  &lt;span class=&quot;data-control&quot; data-control=&quot;true&quot;&gt; Something, Darkside   &lt;/span&gt;<br/>&lt;/div&gt;
+&lt;div&gt;<br/>  &lt;span class=&quot;data-control&quot; data-control=&quot;true&quot;&gt; Some Text&lt;/span&gt;<br/>&lt;/div&gt;
 							</code></pre>
 							<pre class="fragment"><code>
 document.getElementsByClassName('data-control');
@@ -1121,7 +1148,7 @@ el.cloneNode(true);
 							</code></pre>
 						</section>
 						<section>
-							<h2>Is JQuery is Dead?</h2>
+							<h2>is JQuery Dead?</h2>
 							<br>
 							<ol class="fragment">
 								<li>Older Browser</li>
