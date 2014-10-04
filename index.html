@@ -274,7 +274,6 @@ a.push(3, 4, 5);
 a; // [1, 2, 3, 4, 5]
 							</code></pre>
 							<br>
-							<br>
 							<div class="fragment">
 								<h4>indexOf Extra Parameter</h4>
 								<pre><code>
@@ -284,6 +283,9 @@ b.indexOf(669);
 								</code></pre>
 								<pre class="fragment"><code>
 b.indexOf(669, 500);
+								</code></pre>
+								<pre class="fragment"><code>
+b.lastIndexOf(169, 500);
 								</code></pre>
 								<a href="http://jsperf.com/indexof-fromindex">test: fromIndex</a>
 							</div>
@@ -305,12 +307,6 @@ b.indexOf(669, 500);
 					<section>
 						<section>
 							<h1>loop</h1>
-							<img src="images/cereal.jpg" alt="">
-						</section>
-						<section>
-							<img class="halfScreenImage" src="images/loop3.jpg" alt="">
-						</section>
-						<section>
 							<img class="fullScreenImage" src="images/loop1.jpg" alt="">
 						</section>
 						<section>
@@ -408,7 +404,8 @@ for(var i = len; i--; ){
   console.log(myArr[k]);
 }								
 							</code></pre>
-							<p>dont worry about it for a smaller array</p>
+							<p class="fragment">dont worry about it for a smaller array</p>
+							<br>
 							<a href="http://jsperf.com/for-loop-backward-perf">js perf: backward test</a> or <a href="http://stackoverflow.com/a/13136778/1535443">for loop backward</a>
 							<br>
 							<a href="http://stackoverflow.com/a/3551216/1535443">why backward is fast</a>
@@ -444,10 +441,10 @@ devs.filter(function (el, i, arr) {
 							<pre class="fragment"><code>
 function filterByForLoop(myArr, num){
     
-    var i, j = 0, len, output=[];
+    var i = 0, j = 0, len, output=[];
     
-    for (i = 0, len = myArr.length; i &lt; len; i += 1) {
-        if (myArr[i].age > 10) {
+    for (i = 0, len = myArr.length; i &lt; len; i ++) {
+        if (myArr[i].age > 21) {
             output[j++]= myArr[i];
         }
      }
@@ -496,7 +493,7 @@ for(var j in arr){
 						<section>
 							<h3>while, do while</h3>
 							<pre><code>
-var myArr = [1,2,3,4,5,6,7,8,9], 
+var myArr = [1, 2, 3, 4, 5, 6, 7, 8, 9], 
     len = myArr.length,
     i = 0;
 
@@ -511,6 +508,8 @@ while(l--) {
   someFn(arr[l]);
 }
 							</code></pre>
+							<br>
+							<br>
 							<a href="http://jsperf.com/fastest-array-loops-in-javascript/32">fastest way to traverse array</a>
 							<br>
 							<a href="https://blogs.oracle.com/greimer/resource/loop-test.html">different looping</a>
@@ -519,12 +518,11 @@ while(l--) {
 							<h2>summary of looping</h2>
 							<ol>
 								<li>don't measure length in every iteration</li>
-								<li>cache function used in repeatingCode</li>
+								<li>do as less as possible inside loop</li>
 								<br>
-								<li>simple for loop is faster than filter</li>
+								<li class="fragment">simple for loop is faster than filter</li>
 								<br>								
 								<li class="fragment">for-in could be faster</li>
-								<br>
 								<li class="fragment">on array, reverse while is the fastest</li>
 							</ol>
 						</section>
@@ -579,13 +577,15 @@ function b(){
 						</section>
 						<section>
 							<h2>local/function scope</h2>
-							<pre><code>function b(){
+							<pre><code>
+function foo(){
    var d = 21;
    console.log(d);
 }
-b(); //21
+foo(); //21
 							</code></pre>
-<pre class="fragment"><code>
+							<br>
+							<pre class="fragment"><code>
 console.log(d); //ReferenceError: d is not defined
 								</code></pre>
 							<br>
@@ -601,15 +601,17 @@ console.log(d); //ReferenceError: d is not defined
 var myArr = [0, 1, 2,3 4, 5 ...];
 
 function useGlobal() {
-    for (j = 0; j &lt; 1000; j++)
+    for (j = 0; j &lt; 10000; j++){
         console.log(myArr[j]);
+    }
 }
 							</code></pre>
 							<pre class="fragment"><code>
 function useLocal() {
     var localArr = myArr;
-    for (var k = 0; k &lt; 1000; k++)
+    for (var k = 0; k &lt; 10000; k++){
         console.log(localArr[k]);
+    }
 }
 							</code></pre>
 							<a href="http://jsperf.com/global/17">local vs global variable</a>
@@ -617,7 +619,8 @@ function useLocal() {
 					</section>
 					<section>
 						<section>
-							<h1>Come back with me</h1>
+							<h1>Sleeping !!!</h1>
+							<h4>Please dont snore.</h4>
 						</section>
 						<section>
 							<h3>Summary</h3>
@@ -662,6 +665,7 @@ function useLocal() {
 						</section>
 						<section>
 							<img src="images/funny/seriousness.jpg" alt="" class="fullScreenImage">
+							<p class="fragment">Software Life Cycle</p>
 						</section>
 						<section>
 							<img  class="fullScreenImage"  src="images/developerSecret.jpg">
@@ -684,9 +688,9 @@ function useLocal() {
 							<h1>DOM query</h1>
 							<img class="halfScreenImage" src="images/query.jpg" alt="">														
 						</section>
-						<section>
+						<!-- <section>
 							<img class="halfScreenImage" src="images/query1.jpg" alt="">
-						</section>
+						</section>f -->
 						<section>
 							<h2>DOM query</h2>
 							<br>
@@ -729,35 +733,15 @@ var nodesArray = Array.prototype.slice.call(myNodeList);</code></pre>
 							<br>
 							<ol class="fragment">
 								<li>getElementById('myId') is the fastest</li>
-								<li>querySelectorAll('#myId')[0] is the slowest</li>
+								<li class="fragment">getElementsByClassName('myClass')[0]</li>
+								<br>
+								<li class="fragment">getElementsByTagName('span')[0]</li>
+								<li class="fragment">querySelectorAll('#myId')[0] is the slowest</li>
 							</ol>
 							<br>
 							<br>
 							<a href="http://jsperf.com/queryselectorall-vs-others-selectors">selector api comparison</a>
 						</section>
-						<section class="test">
-							<h2>Cache</h2>
-							<pre><code>
-&lt;div class=&quot;awesome-selector&quot;&gt;
-  &lt;div class=&quot;inner-1&quot;&gt; Header - 1 &lt;/div&gt;
-  &lt;div class=&quot;inner-2&quot;&gt; Header - 2 &lt;/div&gt;
-  &lt;div class=&quot;inner-3&quot;&gt; Header - 3 &lt;/div&gt;
-&lt;/div&gt;
-							</code></pre>
-							<pre class="fragment"><code>
-var h1 = document.querySelector('.inner-1');
-var h2 = document.querySelector('.inner-2');
-var h3 = document.querySelector('.inner-3');
-							</code></pre>
-							<pre class="fragment"><code>
-var awesome = document.querySelector('.awesome-selector');
-var h1 = awesome.querySelector('.inner-1');
-var h2 = awesome.querySelector('.inner-2');
-var h3 = awesome.querySelector('.inner-3');
-							</code></pre>
-							<a href="http://jsperf.com/caching-document-with-var-vs-without/2">jsPerf:caching</a>,
-							<a href="http://jsperf.com/caching-queryselector">cache query selector</a>
-						</section>						
 						<section>
 							<h2>need for speed</h2>
 							<img src="images/ambulence.jpg">
@@ -788,6 +772,29 @@ var h3 = awesome.querySelector('.inner-3');
 							<li class="fragment">think again about crazy long selector</li>							
 							<br/>
 							<a href="http://www.youtube.com/watch?v=a2_6bGNZ7bA">Faster HTML and CSS</a>
+						</section>
+						<section>
+							<h2>Cache</h2>
+							<pre><code>
+&lt;div class=&quot;awesome-selector&quot;&gt;
+  &lt;div class=&quot;inner-1&quot;&gt; Header - 1 &lt;/div&gt;
+  &lt;div class=&quot;inner-2&quot;&gt; Header - 2 &lt;/div&gt;
+  &lt;div class=&quot;inner-3&quot;&gt; Header - 3 &lt;/div&gt;
+&lt;/div&gt;
+							</code></pre>
+							<pre class="fragment"><code>
+var h1 = document.querySelector('.inner-1');
+var h2 = document.querySelector('.inner-2');
+var h3 = document.querySelector('.inner-3');
+							</code></pre>
+							<pre class="fragment"><code>
+var awesome = document.querySelector('.awesome-selector');
+var h1 = awesome.querySelector('.inner-1');
+var h2 = awesome.querySelector('.inner-2');
+var h3 = awesome.querySelector('.inner-3');
+							</code></pre>
+							<a href="http://jsperf.com/caching-document-with-var-vs-without/2">jsPerf:caching</a>,
+							<a href="http://jsperf.com/caching-queryselector">cache query selector</a>
 						</section>
 						<section>
 							<h3>select by attribute value</h3>
@@ -854,7 +861,7 @@ ul.appendChild(li);
 						<section>
 							<h2>more changes</h2>
 							<pre><code>
-var list = ['foo', 'bar', 'baz'],
+var list = ['foo', 'bar', 'baz', ...],
     li, text;
 
 for (var i = 0; i &lt; list.length; i++) {
@@ -865,7 +872,7 @@ for (var i = 0; i &lt; list.length; i++) {
 }</code></pre>
 							<pre class="fragment"><code>
 var fragment = document.createDocumentFragment(),
-    list = ['foo', 'bar', 'baz'],
+    list = ['foo', 'bar', 'baz', ...],
     el, text;
 for (var i = 0; i &lt; list.length; i++) {
     el = document.createElement('li');
@@ -1048,9 +1055,10 @@ document.querySelectorAll('div p');
 							</code></pre>
 							<h4 class="fragment">querySelctorAll dont have map, each, filter</h4>
 							<pre class="fragment"><code>
-document.querySelector('#myId');
-document.querySelector('.myClass');
-document.querySelector('div p');
+var nodes = document.querySelector('.myClass');
+
+//convert nodeList to array
+var nodesArray = [].slice.call(nodes);
 							</code></pre>
 						</section>						
 						<section>
@@ -1103,19 +1111,19 @@ $(el).on(eventName, eventHandler);
 
 $(el).on('click', function(e){
     console.log(e.target);	
-})
-
-//remove event
-$(el).off(eventName, eventHandler);
+});
 							</code></pre>
 							<pre class="fragment"><code>
 //IE9+
 el.addEventListener(eventName, eventHandler);
-							</code></pre>
-							<pre class="fragment"><code>
+
 el.addEventListener('click', function(e){
     console.log(e.target);
 });
+							</code></pre>
+							<pre class="fragment"><code>
+//remove event
+$(el).off(eventName, eventHandler);
 
 el.removeEventListener(eventName, eventHandler);
 							</code></pre>
@@ -1154,14 +1162,15 @@ el.cloneNode(true);
 								<li>Older Browser</li>
 								<li><a href="https://docs.google.com/document/d/1LPaPA30bLUB_publLIMF0RlhdnPx_ePXm7oW02iiT6o/edit#">Browser Bugs</a></li>
 								<br>
-								<li class="fragment">use modular (sizzling)</li>
+	<!-- 							<li class="fragment">use modular (sizzling)</li>
 								<li class="fragment">querySelctorAll dont have map, each, filter</li>
 								<br>
-								<li class="fragment">Angular, Backbone uses Jquery</li>
+	 -->							<li class="fragment">Angular, Backbone uses Jquery</li>
 								<li class="fragment">lazy (dont want to learn new framework)</li>
 								<br>
 								<li class="fragment"><a href="http://flippinawesome.org/2014/03/10/is-jquery-too-big-for-mobile/">Is JQuery too big for mobile device</a></li>
 							</ol>
+							<br>
 							<br>
 							<br>
 							<h3 class="fragment">Decide based on your situation</h3>
@@ -1185,14 +1194,6 @@ el.cloneNode(true);
 							<h2>Console API</h2>
 							<pre><code>
 console.assert(myArray.length >5, "More than 5 elements");
-
-//trace
-console.trace();
-							</code></pre>
-							<pre class="fragment"><code>
-profile('myProfile');
-
-porfileEnd('myProfile');
 							</code></pre>
 							<pre class="fragment"><code>
  function foo(){
@@ -1203,19 +1204,20 @@ porfileEnd('myProfile');
  foo(); // fooed: 2
  foo(); // fooed: 3 
  							</code></pre>
-							<a href="https://developers.google.com/chrome-developer-tools/docs/console">Using the console</a>
-							<br/>
-							<a href="https://developers.google.com/chrome-developer-tools/docs/console-api">Console API</a>
-						</section>
-						<section>
-							<h2>More Console</h2>
-							<pre class="fragment"><code>
+ 							<pre class="fragment"><code>
 console.time("Array initialize");
 
 //your code
 
 console.timeEnd("Array initialize");
 							</code></pre>
+							<a href="https://developers.google.com/chrome-developer-tools/docs/console">Using the console</a>
+							<br/>
+							<a href="https://developers.google.com/chrome-developer-tools/docs/console-api">Console API</a>
+						</section>
+						<!--<section>
+							<h2>More Console</h2>
+							
 							<pre class="fragment"><code>
 console.time("Array initialize");
 
@@ -1227,7 +1229,7 @@ for (var i = array.length - 1; i >= 0; i--) {
 
 console.timeEnd("Array initialize");
 							</code></pre>
-							<!-- <pre class="fragment"><code contenteditable>
+							 <pre class="fragment"><code contenteditable>
 var start = performance.now();
 
 //execute your function
@@ -1236,9 +1238,9 @@ foobar();
 var end = performance.now();
 
 console.log(start - end +'ms');
-							</code></pre>  -->
+							</code></pre>  
 							<a href="https://www.codeschool.com/courses/discover-devtools">CodeSchool: Discover Dev Tools</a>
-						</section>												
+						</section>-->
 						<section>
 							<h2>Memory Profiling</h2>
 							<a href="https://www.youtube.com/watch?v=0xx_dkv9DEY">must watch: advanced performance tooling</a>
@@ -1351,7 +1353,7 @@ console.log(start - end +'ms');
 							<br>
 							<a href="http://www.wikihow.com/Look-Busy-at-Work-Without-Really-Working">Look busy</a>
 						</section>
-						<section>
+						<!-- <section>
 							<h3>Appear Smart in Meetings</h3>
 							<div class="fragment">
 								<h4>1. Draw a Venn Diagram</h4>
@@ -1361,7 +1363,7 @@ console.log(start - end +'ms');
 							<li style="list-style:none" class="fragment">3. Ask "Will this scale?" no matter what it is</li>
 							<br>
 							<a href="https://medium.com/comedy-corner/10-tricks-to-appear-smart-during-meetings-27b489a39d1a">10 tricks to be smart during meetings</a>
-						</section>
+						</section> -->
 					</section>
 					<section>
 						<h1>Thank You</h1>
