@@ -401,7 +401,7 @@ for(var j = 0; j &lt; len; j++){
 							<pre class="fragment"><code>
 //backward
 for(var i = len; i--; ){
-  console.log(myArr[k]);
+  console.log(myArr[i]);
 }								
 							</code></pre>
 							<p class="fragment">dont worry about it for a smaller array</p>
@@ -601,7 +601,7 @@ console.log(d); //ReferenceError: d is not defined
 var myArr = [0, 1, 2,3 4, 5 ...];
 
 function useGlobal() {
-    for (j = 0; j &lt; 10000; j++){
+    for (var j = 0; j &lt; 10000; j++){
         console.log(myArr[j]);
     }
 }
