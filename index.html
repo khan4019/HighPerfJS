@@ -1048,17 +1048,22 @@ el.addEventListener('click', function (e) {
 							<h2>summary</h2>
 							<br>
 							<ol>
-								<li>getById, Class, Tag is faster than querySelectorAll</li>
-								<li>use efficient css selector</li>
+								<!-- <li>getById, Class, Tag is faster than querySelectorAll</li>
+								<li>use efficient css selector</li> -->
+								<li>a[index] is faster a.push</li>
+								<li>push can insert multiple</li>
+								<br>
+								<div class="fragment">
+									<li>consider fromIndex if possible</li>
+								</div>
 								<br>								
 								<div class="fragment">
-									<li>appendChild is faster than innerHTML</li>
-									<li>consider using documentFragment</li>
+									<li>reverse while is the fastest to iterate array</li>
+									<li>local variable is faster than out-of scope variable</li>
 								</div>
-								<br>
-								<li class="fragment">minimize layout reflow</li>								
+								<br>								
 								<li class="fragment">delegate Events</li>
-								<br>
+								
 								<li class="fragment">use throttle and debounce</li>
 																
 							</ol>
