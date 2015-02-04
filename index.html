@@ -152,7 +152,7 @@
 						<section>
 							<img src="images/subjective.jpg" alt="">
 						</section>
-						<!-- <section>
+						 <section>
 							<img src="images/solution.jpg" alt="">
 						</section>
 						<section>
@@ -166,7 +166,7 @@
 						</section>
 						<section>
 							<img class="fullScreenImage" src="images/bathroom1.jpg" alt="">
-						</section> -->
+						</section>
 					</section>	
 					<!-- <section>
 						<section>
@@ -218,31 +218,36 @@
 						<section>
 							<img src="images/electricity.gif" alt="">
 						</section>
-					</section>																
+					</section>
+					<section>
+						<h1>Where to start</h1>
+					</section>			
 					<section>
 						<section>
-							<h1>Where to start</h1>
+							<h1>Quantitative</h1>
 						</section>
 						<section>
-							<h2>How much you are sending</h2>
+							<h2>response</h2>
 							<img src="images/transferSize.png" alt="">
 							<br>
 							<ul class="fragment">
 								<li>gZip</li>
 								<li>CDN</li>
 							</ul>
+							<br>
+							<a href="http://httparchive.org/">httpArchive.org</a>
 						</section>
 						<section>
-							<h2>what you are sending</h2>
+							<h2>content type</h2>
 							<img src="images/content.png" alt="">
 							<br>
-							<ul class="fragment">
+							<ol class="fragment">
 								<li>compress</li>
 								<li class="fragment">sprite</li>
 								<li class="fragment">lazy loading</li>
 								<li class="fragment">font-icon, css icon</li>
 								<li class="fragment">svg, Data</li>
-							</ul>
+							</ol>
 						</section>
 						<section>
 							<h2>scripts and styles</h2>
@@ -250,8 +255,8 @@
 								<li>Minify</li>
 								<li class="fragment">Combine</li>
 								<li class="fragment">cache</li>
-								<li class="fragment">dynamic loading</li>
 								<li class="fragment">async and defer</li>
+								<li class="fragment">dynamic loading</li>
 								<li class="fragment"></li>
 							</ul>
 						</section>
@@ -262,6 +267,9 @@
 								<li class="fragment">page speed</li>
 							</ul>
 						</section>
+					</section>
+					<section>
+						<h1>Qualitative</h1>
 					</section>
 					<section>
 						<section>
@@ -276,15 +284,15 @@
 var a = new Array(5); 
 //[undefined, undefined, undefined, undefined, undefined]
 
-var b = new Array(5, 6);// [5,6]
+var b = new Array(5, 6, 7);// [5, 6, 7]
 							</code></pre>
 							<small class="fragment">constructor is a function call plus execution, argument check</small>
 							<pre class="fragment"><code>[];   //literals</code></pre>
 							<pre class="fragment"><code>
 var c = [];
-c[0] = 1; 
-c[1] = 2;
-c[2] = 3;</code></pre>
+c[0] = 5; 
+c[1] = 6;
+c[2] = 7;</code></pre>
 							<pre class="fragment"><code>
 var d = [1, 2, 3, 4]; 
 							</code></pre>
@@ -549,7 +557,7 @@ while (i &lt; len) {
 var l = arr.length;
 
 while(l--) {
-  someFn(arr[l]);
+  console.log(arr[l]);
 }
 							</code></pre>
 							<br>
@@ -561,10 +569,8 @@ while(l--) {
 						<section>
 							<h2>summary of looping</h2>
 							<ol>
-								<li>don't measure length in every iteration</li>
 								<li>do as less as possible inside loop</li>
-								<br>
-								<li class="fragment">simple for loop is faster than filter</li>
+			 					<li class="fragment">simple for loop is faster than filter</li>
 								<br>								
 								<li class="fragment">for-in could be faster</li>
 								<li class="fragment">on array, reverse while is the fastest</li>
@@ -595,10 +601,10 @@ while(l--) {
 							<img src="images/my Drawing/globeJackie.jpg" alt="">
 						</section>
 						<section><img src="images/jackie.jpg" alt=""></section>
-						<section><img src="images/newYear.jpg" alt=""></section>
+						<!-- <section><img src="images/newYear.jpg" alt=""></section>
 						<section>
 							<img src="images/my Drawing/globeStars.jpg" alt="">
-						</section>
+						</section> -->
 						<section>
 							<h2>global scope</h2>
 							<pre><code>var a = 2;
@@ -661,7 +667,7 @@ function useLocal() {
 							<a href="http://jsperf.com/global/17">local vs global variable</a>
 						</section>
 					</section>
-					<section>
+					<!-- <section>
 						<section>
 							<h1>Sleeping !!!</h1>
 							<h4>Please dont snore.</h4>
@@ -688,18 +694,15 @@ function useLocal() {
 							</ol>
 						</section>
 					</section>
-					<section>
+					 --><section>
 						<section>
 							<h2>is it hard to</h2>
 							<h1>Improve</h1>
 							<h2>Performance?</h2>
 						</section>		
-						<section>
-							<img src="images/redBull.jpg" alt="">
-						</section>
 						<!-- <section>
 							<img src="images/redBullWings.jpeg" alt="">
-						</section> -->
+						</section> 
 						<section>
 							<h2>Tissue paper life cycle</h2>
 							<img src="images/funny/seriousness1.jpg" alt="" class="fullScreenImage fragment">
@@ -710,7 +713,11 @@ function useLocal() {
 						<section>
 							<img src="images/funny/seriousness.jpg" alt="" class="fullScreenImage">
 							<p class="fragment">Software Life Cycle</p>
+						</section>-->
+						<section>
+							<img src="images/redBull.jpg" alt="">
 						</section>
+						
 						<section>
 							<img  class="fullScreenImage"  src="images/developerSecret.jpg">
 						</section>
@@ -720,21 +727,19 @@ function useLocal() {
 						<section>
 							<img src="images/manageDeveloper.jpg" alt="" class="fullScreenImage">
 						</section>
-					</section>																					
-					<section>
+					</section>
+					<!--<section>
 						<section>
 							<h1>DOM</h1>
 							<img src="images/htmlTree.png" alt="">
-						</section>						
-					</section>
-					<section>
+						</section>
 						<section>
 							<h1>DOM query</h1>
-							<img class="halfScreenImage" src="images/query.jpg" alt="">														
+							<img class="halfScreenImage" src="images/query.jpg" alt="">		
 						</section>
-						<!-- <section>
+						 <section>
 							<img class="halfScreenImage" src="images/query1.jpg" alt="">
-						</section>f -->
+						</section>
 						<section>
 							<h2>DOM query</h2>
 							<br>
@@ -752,7 +757,7 @@ function useLocal() {
 							<br>
 							<a href="http://tech.pro/tutorial/1910/mastering-the-dom-access-100-lines-of-javascript">Mastering DOM access (read it)</a>				
 						</section>
-<!-- 						<section>
+ 						<section>
 							<h2>querySelectorAll</h2>
 							<br>
 							<li>returns non-live NodeList (not array)</li>
@@ -768,7 +773,7 @@ myNodeList -> NodeList.prototype -> Object.prototype -> null
 //or
 var nodesArray = Array.prototype.slice.call(myNodeList);</code></pre>
 							<a href="https://developer.mozilla.org/en-US/docs/Web/API/NodeList">MDN: NodeList</a>, <a href="http://www.w3.org/TR/selectors-api/">W3: selectors-api</a>, <a href="http://www.w3.org/TR/selectors-api2">DOM API level 2</a>
-						</section> -->
+						</section> 
 						<section>
 							<h2>What to use</h2>
 							<pre><code>
@@ -786,7 +791,7 @@ var nodesArray = Array.prototype.slice.call(myNodeList);</code></pre>
 							<br>
 							<a href="http://jsperf.com/queryselectorall-vs-others-selectors">selector api comparison</a>
 						</section>
-							<!-- <section>
+							 <section>
 								<h2>need for speed</h2>
 								<img src="images/ambulence.jpg">
 							</section>
@@ -816,7 +821,7 @@ var nodesArray = Array.prototype.slice.call(myNodeList);</code></pre>
 								<li class="fragment">think again about crazy long selector</li>							
 								<br/>
 								<a href="http://www.youtube.com/watch?v=a2_6bGNZ7bA">Faster HTML and CSS</a>
-							</section> -->
+							</section>
 						<section>
 							<h2>Cache</h2>
 							<pre><code>
@@ -854,7 +859,7 @@ var h3 = awesome.querySelector('.inner-3');
 							<pre class="fragment"><code>
 document.querySelectorAll('.mySection .myDiv [data-control]')
 							</code></pre>
-							<!-- <pre class="fragment"><code>
+							 <pre class="fragment"><code>
 getElementByAttributeValue('data-control');
 
 function getElementByAttributeValue(attribute)
@@ -868,7 +873,7 @@ function getElementByAttributeValue(attribute)
         }
       }
     }
-							</code></pre> -->							
+							</code></pre> 							
 							<pre class="fragment"><code>
 &lt;div&gt;<br/>  &lt;span class=&quot;data-control&quot; data-control=&quot;true&quot;&gt; Some Text&lt;/span&gt;<br/>&lt;/div&gt;
 							</code></pre>
@@ -898,7 +903,7 @@ li.appendChild(text);
 ul.appendChild(li);
 							</code></pre>
 							<li class="fragment">appendChild faster than setting innerHTML</li>
-							<!-- <li class="fragment">if ref passed will move from current parent</li> -->
+							 <li class="fragment">if ref passed will move from current parent</li> 
 							<br>
 							<a href="http://glowfilter.com/blog/javascript-performance-testing-innerhtml-vs-appendchild/">createElement</a>, <a href="http://jsperf.com/creating-text-node/3">TextNode</a>, <a href="http://jsperf.com/realistic-innerhtml-vs-appendchild/15">$.append</a>							
 						</section>						
@@ -942,7 +947,7 @@ document.body.appendChild(fragment);</code></pre>
 							<br>
 							<a href="http://blog.korynunn.com/javascript/the-dom-isnt-slow-you-are/">Dom isnt slow you are</a>
 						</section>
-					</section>										
+					</section>-->										
 					<section>
 						<section>
 							<h1>Events</h1>		
