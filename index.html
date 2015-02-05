@@ -101,7 +101,7 @@
 							<br/>
 							<p>
 								<h3>
-									<a href="http://jhankarmahbub.com">MD Khan</a> / <a href="http://twitter.com/mdkhan005">@mdkhan005</a>
+									<a href="http://thatjsdude.com">JS Dude</a> / <a href="http://twitter.com/mdkhan005">@mdkhan005</a>
 
 								</h3>
 							</p>
@@ -257,14 +257,7 @@
 								<li class="fragment">cache</li>
 								<li class="fragment">async and defer</li>
 								<li class="fragment">dynamic loading</li>
-								<li class="fragment"></li>
-							</ul>
-						</section>
-						<section>
-							<h2>Use tool like</h2>
-							<ul>
-								<li>webpagetest.org</li>
-								<li class="fragment">page speed</li>
+								<li class="fragment">CDN</li>
 							</ul>
 						</section>
 					</section>
@@ -294,7 +287,7 @@ c[0] = 5;
 c[1] = 6;
 c[2] = 7;</code></pre>
 							<pre class="fragment"><code>
-var d = [1, 2, 3, 4]; 
+var d = [5, 6, 7]; 
 							</code></pre>
 							<a href="http://stackoverflow.com/questions/7375120/why-is-arr-faster-than-arr-new-array">why [] faster</a>, 					
 							<a href="http://jsperf.com/literal-vs-new-23/2">literal vs new</a>
@@ -342,7 +335,7 @@ b.lastIndexOf(169, 500);
 								<a href="http://jsperf.com/indexof-fromindex">test: fromIndex</a>
 							</div>
 						</section>
-						<section>
+						<!--<section>
 							<h2>Array summary</h2>
 							<ul>
 								<li>[] is faster than new Array()</li>
@@ -372,7 +365,7 @@ for(var i = 0; i &lt; 100; i++){
 }
 							</code></pre>
 						</section>
-						<!-- <section>
+						 <section>
 							<img class="fullScreenImage" src="images/loop6.jpg" alt="">
 						</section> 
 						<section>
@@ -568,8 +561,18 @@ while(l--) {
 						</section>						
 						<section>
 							<h2>summary of looping</h2>
+							<ul>
+								<li>[] is faster than new Array()</li>
+								<li>a[index] is faster a.push</li>
+								<br>
+								<br>
+								<div class="fragment">
+									<li>push can insert multiple</li>
+									<li>consider fromIndex if possible</li>
+								</div>
+							</ul>
 							<ol>
-								<li>do as less as possible inside loop</li>
+								<li class="fragment">do as less as possible inside loop</li>
 			 					<li class="fragment">simple for loop is faster than filter</li>
 								<br>								
 								<li class="fragment">for-in could be faster</li>
@@ -719,7 +722,7 @@ function useLocal() {
 						</section>
 						
 						<section>
-							<img  class="fullScreenImage"  src="images/developerSecret.jpg">
+							<img src="images/developerSecret.jpg">
 						</section>
 						<section>
 							<img class="fullScreenImage" src="images/badBoss.jpg">
@@ -1109,7 +1112,7 @@ document.querySelectorAll('div p');
 							</code></pre>
 							<h4 class="fragment">querySelctorAll dont have map, each, filter</h4>
 							<pre class="fragment"><code>
-var nodes = document.querySelector('.myClass');
+var nodes = document.querySelectorAll('.myClass');
 
 //convert nodeList to array
 var nodesArray = [].slice.call(nodes);
@@ -1233,8 +1236,20 @@ el.cloneNode(true);</code></pre>
 						</section>
 						<section>
 							<h2>Angular</h2>
+							<ol>
+								<li>Cache DOM / template</li>
+								<li class="fragment">careful about watch</li>
+								<li class="fragment">simplify watch expression(remove filter)</li>
+								<li class="fragment">optimize digest cycle</li>
+								<li class="fragment">one time binding: &lt;h1&gt;{{ ::title }}&lt;/h1&gt;</li>
+								<li class="fragment">Avoid ng-repeat where possible</li>
+							</ol>
+							<br>
+							<a href="http://www.binpress.com/tutorial/speeding-up-angular-js-with-simple-optimizations/135">speed up angular app</a>
+							<br>
+							<a href="http://bahmutov.calepin.co/improving-angular-web-app-performance-example.html">angular web app perf</a>
 						</section>
-						<section>
+						<!-- <section>
 							<h2></h2>
 						</section>
 						<section>
@@ -1242,7 +1257,7 @@ el.cloneNode(true);</code></pre>
 						</section>
 						<section>
 							<h2></h2>
-						</section>
+						</section> -->
 					</section>
 					<section>
 						<section>
@@ -1311,9 +1326,16 @@ var end = performance.now();
 console.log(start - end +'ms');
 							</code></pre>  
 							<a href="https://www.codeschool.com/courses/discover-devtools">CodeSchool: Discover Dev Tools</a>
-						</section>-->
+						</section>
 						<section>
 							<h2>Memory leak and other tabs</h2>
+						</section>-->
+						<section>
+							<h2>Use tool like</h2>
+							<ul>
+								<li>webpagetest.org</li>
+								<li class="fragment">page speed</li>
+							</ul>
 						</section>
 						<section>
 							<h2>Memory Profiling</h2>
@@ -1344,10 +1366,10 @@ console.log(start - end +'ms');
 								<li>local variable is faster than out-of scope variable</li>
 								<li>reverse while is the fastest to iterate array</li>
 								<br>
-								<div class="fragment">
+								<!-- <div class="fragment">
 									<li>getById, Class, Tag is faster than querySelectorAll</li>
 									<li>use documentFragment</li>
-								</div>
+								</div> -->
 								<br>
 								<div class="fragment">
 									<li>delegate Events</li>
@@ -1392,7 +1414,7 @@ console.log(start - end +'ms');
 						<section>
 							<img src="images/knowWhy.jpg" alt="">
 						</section>
-						<section>
+						<!-- <section>
 							<h2>use framework</h2>
 							<img class="fragment" src="images/funny/fun/fly.jpg" alt="">
 						</section>
@@ -1403,7 +1425,7 @@ console.log(start - end +'ms');
 						<section>
 							<h2>blame framework but take credit</h2>
 							<img class="fragment" src="images/keys.jpg" alt="">
-						</section>
+						</section> -->
 					</section>
 					<section>
 						<section>
@@ -1445,18 +1467,17 @@ console.log(start - end +'ms');
 						<h2><a href="http://goo.gl/0JIpFe">goo.gl/0JIpFe</a> </h2>
 						<br/>
 						<br/>
-						<a href="http://jhankarmahbub.com">MD Khan</a> / <a href="http://twitter.com/mdkhan005">@mdkhan005</a>
+						<a href="http://thatjsdude.com">JS Dude</a> / <a href="http://twitter.com/mdkhan005">@mdkhan005</a>
 						<br>
 						<h6>www.thatJsDude.com</h6>
 					</section>
 					<section>
+						<a href="http://goo.gl/0JIpFe">goo.gl/0JIpFe</a>
 						<img src="images/question.jpg" alt="">
 						<br>
 						<h5>www.thatJsDude.com</h5>
-						<a href="http://goo.gl/0JIpFe">goo.gl/0JIpFe</a>
 						<br>
-						<br>
-						(<a href="http://jhankarmahbub.com">MD Khan</a> / <a href="http://twitter.com/mdkhan005">@mdkhan005</a>)
+						(<a href="http://thatjsdude.com">JS Dude</a> / <a href="http://twitter.com/mdkhan005">@mdkhan005</a>)
 					</section>
 				</div>
 
