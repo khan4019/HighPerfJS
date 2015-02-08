@@ -1,0 +1,1515 @@
+	<!doctype html>
+	<html lang="en">
+
+		<head>
+			<meta charset="utf-8">
+
+			<title>High Perf JS</title>
+
+			<meta name="description" content="An intermediate to advanced tips and tricks for High Performance JavaScript and CSS">
+			<meta name="author" content="Md Khan">
+
+			<meta name="apple-mobile-web-app-capable" content="yes" />
+			<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+			<link rel="stylesheet" href="css/reveal.css">
+			<link rel="stylesheet" href="css/theme/custom.css" id="theme">
+			<!-- <link rel="stylesheet" type="text/css" href="css/print/pdf.css"> -->
+
+			<!-- For syntax highlighting -->
+			<link rel="stylesheet" href="lib/css/zenburn.css">
+			<style type="text/css">
+				.noUppercase
+				{
+					text-transform: none !important;
+				}
+				.fullScreenImage
+				{
+					width: 100%;
+					height: 90%;
+				}
+				.halfScreenImage
+				{
+					width: 80%;
+					height: 60%;
+				}
+				.reveal h1.upholdHeader, h2.upholdHeader{
+				  margin-top: -50px;
+				  margin-left: -15%;
+				  width: 130%;
+				}
+				.mediumFont{
+					font-size: 2em;
+				}
+
+				.reveal code.largeCode {
+					max-height: 600px;
+				}
+
+				.greenBold{
+					color: green;
+					font-weight: bold !important;
+				}
+				.lineThrough{
+					text-decoration: line-through;					
+				}
+				.redBoldText{
+					font-weight: bold !important;
+					color: red !important;
+				}
+				.purpleBold{
+					font-weight: bold;
+					color:purple;
+				}				
+				.animate_block {
+					position: absolute;
+					background-color: blue;
+					width: 50px;
+					height: 40px;
+					padding-top: 10px;
+					text-align: center;
+					color: #fff;
+					font-size: 10px;
+					white-space: nowrap;
+					left:0px;
+				}
+			</style>
+			<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+			<script>
+				document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+			</script>
+
+			<!--[if lt IE 9]>
+			<script src="lib/js/html5shiv.js"></script>
+			<![endif]-->
+		</head>
+
+		<body>
+
+			<div class="reveal">
+
+				<!-- Any section element inside of this container is displayed as a slide -->
+				<div class="slides">
+<!-- start of intro -->
+					<section>
+						<section>
+							<h1>High Perf JS</h1>					
+							<br/>
+							<h2 class="fragment"><a href="http://goo.gl/0JIpFe">goo.gl/0JIpFe</a> </h2>
+							<br>
+							<br>
+							<br/>
+							<p>
+								<h3>
+									<a href="http://thatjsdude.com">JS Dude</a> / <a href="http://twitter.com/mdkhan005">@mdkhan005</a>
+
+								</h3>
+							</p>
+							<h4>www.thatJSdude.com</h4>
+							<small>(youtube.com/user/khanLearning)</small>
+						</section>
+						<!-- <section>
+							<h1>Request</h1>
+							<br>
+							<br>
+							<ul>
+								<li class="fragment">4 questions during presentation</li>
+								<li class="fragment">1 question per person</li>
+								<li class="fragment">Save your questions</li>
+								<li class="fragment">Please pay attention</li>
+							</ul>
+						</section>
+						<section>
+							<h2>Kiss on the floor</h2>
+							<img class="fragment" src="images/keys2.jpg" alt="">
+							<img class="fragment" src="images/keys.jpg" alt="">
+						</section> -->
+					</section>
+					<section>
+						<section>
+							<h1>why performance</h1>							
+						</section>
+						<section>
+							<img src="images/spinner.gif" alt="">
+							<!-- <div class="fragment">
+								<h6>you hate spinner,</h6>
+								<h6> so does your client</h6>
+							</div> -->
+						</section>
+						<!-- <section>
+							<img src="images/spinner2.jpg" alt="">
+						</section> -->
+						<section>
+							<h2 class="upholdHeader">Performance improvement</h2>
+							<img class="fullScreenImage" src="images/underConstruction3.jpg" alt="">
+						</section>
+						<section>
+							<img src="images/fixTire.jpg" alt="">
+						</section>
+						<section>
+							<img src="images/internet4.jpg" alt="">
+						</section>
+						<section>
+							<img src="images/subjective.jpg" alt="">
+						</section>
+						 <section>
+							<img src="images/solution.jpg" alt="">
+						</section>
+						<section>
+							<img src="images/snake.jpg" alt="">
+						</section>
+						<section>
+							<img src="images/motivation1.png" alt="">
+						</section>
+						<section>
+							<img src="images/motivation.png" alt="">
+						</section>
+						<section>
+							<img class="fullScreenImage" src="images/bathroom1.jpg" alt="">
+						</section>
+					</section>	
+					<!-- <section>
+						<section>
+							<h1>How you get a website</h1>
+						</section>						
+						<section>
+							<img class="fullScreenImage" src="images/internet2.jpg" alt="">
+						</section>
+						<section>
+							<h1>Websites</h1>
+							<img src="images/clientServer.png" alt="">
+						</section>												
+						<section>							
+							<h2>Network breakdown</h2>
+							<img class="fullScreenImage" src="images/lifeOfARequest.png" alt="">
+						</section>
+						<section>							
+							<h2>Network breakdown</h2>
+							<img class="fullScreenImage" src="images/lifeOfARequestParts.png" alt="">
+						</section>					
+					</section>					
+					 -->
+					<section>
+						<section>
+							<h2>How to improve Perf</h2>			
+							<img src="images/alone.jpg" alt="">
+						</section>						
+						<section>
+							<h2>Strategy?</h2>
+							<br>
+							<ol>
+								<li>Understand the situation/ use case</li>
+								<li class="fragment">Is it a performance/ design problem?</li>
+								<br>
+								<li class="fragment">Don't blindly go for blog/ talk/ boss</li>
+								<li class="fragment">Or some random guy in a conference</li>
+								<br>
+								<li class="fragment">Measure it (before, after)</li>
+								<li class="fragment">Make sure u understand after 6 months</li>								
+							</0l>
+						</section>
+						<section>
+						<h4>how many colors are there?</h4>
+							<img src="images/colors.jpg" alt="">
+						</section>						
+						<section>
+							<img src="images/useOnlyWhatYouNeed.jpg" alt="">
+						</section>
+						<section>
+							<img src="images/electricity.gif" alt="">
+						</section>
+					</section>
+					<section>
+						<h1>Where to start</h1>
+					</section>			
+					<section>
+						<section>
+							<h1>Quantitative</h1>
+						</section>
+						<section>
+							<h2>response</h2>
+							<img src="images/transferSize.png" alt="">
+							<br>
+							<ul class="fragment">
+								<li>gZip</li>
+								<li>CDN</li>
+							</ul>
+							<br>
+							<a href="http://httparchive.org/">httpArchive.org</a>
+						</section>
+						<section>
+							<h2>content type</h2>
+							<img src="images/content.png" alt="">
+							<br>
+							<ol class="fragment">
+								<li>compress</li>
+								<li class="fragment">sprite</li>
+								<li class="fragment">lazy loading</li>
+								<li class="fragment">font-icon, css icon</li>
+								<li class="fragment">svg, Data</li>
+							</ol>
+						</section>
+						<section>
+							<h2>scripts and styles</h2>
+							<ul>
+								<li>Minify</li>
+								<li class="fragment">Combine</li>
+								<li class="fragment">cache</li>
+								<li class="fragment">async and defer</li>
+								<li class="fragment">dynamic loading</li>
+								<li class="fragment">CDN</li>
+							</ul>
+						</section>
+					</section>
+					<section>
+						<h1>Qualitative</h1>
+					</section>
+					<section>
+						<section>
+							<h1>Array</h1>
+							<img src="images/array.jpg" alt="">							
+						</section>
+						<section>
+							<h2>Create Array</h2>							
+							<pre><code>new Array();    //[]</code></pre>
+
+							<pre class="fragment"><code>
+var a = new Array(5); 
+//[undefined, undefined, undefined, undefined, undefined]
+
+var b = new Array(5, 6, 7);// [5, 6, 7]
+							</code></pre>
+							<small class="fragment">constructor is a function call plus execution, argument check</small>
+							<pre class="fragment"><code>[];   //literals</code></pre>
+							<pre class="fragment"><code>
+var c = [];
+c[0] = 5; 
+c[1] = 6;
+c[2] = 7;</code></pre>
+							<pre class="fragment"><code>
+var d = [5, 6, 7]; 
+							</code></pre>
+							<a href="http://stackoverflow.com/questions/7375120/why-is-arr-faster-than-arr-new-array">why [] faster</a>, 					
+							<a href="http://jsperf.com/literal-vs-new-23/2">literal vs new</a>
+						</section>
+						<section>
+							<h2>push vs assign</h2>
+							<pre><code>
+var a = [];
+
+for (var i = 0; i &lt; 10000; i++){
+   a.push(i);
+}
+							</code></pre>
+							<br>
+							<pre class="fragment"><code>
+var b = [];
+
+for (var i = 0; i &lt; 10000; i++){
+   b[i] = i;
+}
+							</code></pre>
+							<a href="http://jsperf.com/zero-filled-array-creation">test: push vs assign</a>
+						</section>
+						<section>
+							<h2>Push multiple</h2>
+							<pre><code>
+var a = [1, 2];
+a.push(3, 4, 5); 
+a; // [1, 2, 3, 4, 5]
+							</code></pre>
+							<br>
+							<div class="fragment">
+								<h4>indexOf Extra Parameter</h4>
+								<pre><code>
+var b = [1, 2, 3, 4, 5, ...];
+
+b.indexOf(669);
+								</code></pre>
+								<pre class="fragment"><code>
+b.indexOf(669, 500);
+								</code></pre>
+								<pre class="fragment"><code>
+b.lastIndexOf(169, 500);
+								</code></pre>
+								<a href="http://jsperf.com/indexof-fromindex">test: fromIndex</a>
+							</div>
+						</section>
+						<!--<section>
+							<h2>Array summary</h2>
+							<ul>
+								<li>[] is faster than new Array()</li>
+								<li>a[index] is faster a.push</li>
+								<br>
+								<br>
+								<div class="fragment">
+									<li>push can insert multiple</li>
+									<li>consider fromIndex if possible</li>
+								</div>
+							</ul>
+						</section>						
+					</section>					
+					<section>
+						<section>
+							<h1>loop</h1>
+							<img class="fullScreenImage" src="images/loop1.jpg" alt="">
+						</section>
+						<section>
+							<h2>Loop in childhood memory</h2>
+							<br>
+							<br>
+							<br>
+							<pre class="fragment"><code>
+for(var i = 0; i &lt; 100; i++){
+   console.log('I will not throw paper airplanes in class');
+}
+							</code></pre>
+						</section>
+						 <section>
+							<img class="fullScreenImage" src="images/loop6.jpg" alt="">
+						</section> 
+						<section>
+							<img src="images/forLoop.png" alt="">
+							<pre class="fragment"><code>
+for(initiation; iteratingCondition; repeatingExpression){
+  repeatingCode;
+}
+							</code></pre>
+							 <img class="fragment" src="images/forLoopInitiation.png" alt=""> 
+						</section>
+						<section>
+							<img src="images/forLoopRepeatingCondition.png" alt="">
+							<img class="fragment" src="images/forLoopRepeatingExpression.png" alt="">
+						</section>
+						<section>
+							<img src="images/forLoopRepeatingCode.png" alt="">
+							<pre class="fragment"><code>
+for(initiation; iteratingCondition; repeatingExpression){
+  repeatingCode;
+}
+							</code></pre>
+							<h4 class="fragment">all parts are optional</h4>
+							<pre class="fragment"><code>
+var i = 0;
+for( ; ; ){
+   console.log(i++);	
+   if(i == 5) break;	  
+}</code></pre>
+						</section>						 
+						<section>
+							<h2>initiation;</h2>			
+							<br>
+							<pre><code>
+var myArr = [1, 2, 3, 4, 5];
+
+for(var i = 0; i &lt; myArr.length; i++){
+  console.log(myArr[i]);
+}
+							</code></pre>
+							<pre class="fragment"><code>
+//length is calculated once
+
+for(var i = 0, len = myArr.length; i &lt; len; i++){
+  console.log(myArr[i]);
+}
+							</code></pre>														
+						</section>
+						<section>
+							<h2>cache outside for loop</h2>						
+							<pre><code>
+for(var i = 0; i &lt; 10; i++) {
+   var container = document.getElementsByClassName('container'); 
+   console.log(container[i].innerText);
+}
+							</code></pre>		
+							<h4 class="fragment">when value doesnt change</h4>
+							<pre class="fragment"><code>
+var container = document.getElementsByClassName('container');  
+
+for(var i = 0; i &lt; 10; i++) {
+   console.log(container[i].innerText);
+}
+							</code></pre>
+							<a href="http://jsperf.com/property-access-vs-variable-caching">property access vs variable cache</a>
+						</section>						
+						<section>
+							<h2>forward or backward</h2>
+							<pre><code>
+var myArr = [0,1,2,3,4,5 ...],
+    len = myArr.length;
+
+//forward
+for(var j = 0; j &lt; len; j++){
+  console.log(myArr[j]);
+}
+							</code></pre>
+							<pre class="fragment"><code>
+//backward
+for(var i = len; i--; ){
+  console.log(myArr[i]);
+}								
+							</code></pre>
+							<p class="fragment">dont worry about it for a smaller array</p>
+							<br>
+							<a href="http://jsperf.com/for-loop-backward-perf">js perf: backward test</a> or <a href="http://stackoverflow.com/a/13136778/1535443">for loop backward</a>
+							<br>
+							<a href="http://stackoverflow.com/a/3551216/1535443">why backward is fast</a>
+						</section>
+						<section>
+							<h2>cache function</h2>
+							<pre><code>
+var arr = [];
+for (var i = 0; i &lt; 1000; i++) {
+  arr.push([1, 2, 3].map(function (x) { return x * x; }));
+}
+							</code></pre>
+							<pre class="fragment"><code>
+var arr = [];
+var sq = function (x) { return x * x; };
+
+for (var i = 0; i &lt; 1000; i++) {
+  arr.push([1, 2, 3].map(sq));
+}
+							</code></pre>
+							<a href="http://jsperf.com/function-in-the-loop">function caching for loop</a>
+						</section> -->
+						<section>
+							<h2>filter vs if</h2>
+							<pre><code>
+var devs = [{ name: 'addy osmani', age: 29}, {name: 'paul irish', age:31}, {name: 'js dude', age: 13}];
+							</code></pre>
+							<pre><code>
+devs.filter(function (el, i, arr) {
+    return el.age > 21;
+});
+							</code></pre>
+							<pre class="fragment"><code>
+function filterByForLoop(myArr, num){
+    
+    var i = 0, j = 0, len, output=[];
+    
+    for (i = 0, len = myArr.length; i &lt; len; i ++) {
+        if (myArr[i].age > 21) {
+            output[j++]= myArr[i];
+        }
+     }
+     return output;    
+}</code></pre>
+							<a href="http://jsperf.com/array-filter-vs-simple-loop/2">filter vs simple loop</a>							
+						</section>
+												<section>
+							<h2>for vs for-in</h2>							
+							<pre><code>
+var myArr = [1, 2, 3, 4, 5, ... ];
+
+for(var j in myArr){
+  console.log(myArr[j]);
+}
+							</code></pre>
+							<pre class="fragment"><code>
+//faster
+for(var i = 0; i &lt; 1000; i++){
+ console.log(myArr[i]);
+}
+							</code></pre>
+							<br>
+							<p class="fragment">dont use for-in while traversing on an array</p>
+							<br>
+							<!-- <p>Repeat. 
+Let P be the name of the next property of obj whose [[Enumerable]] attribute is true. If there is no such property, return (normal, V, empty).</p> -->
+							<a href="http://jsperf.com/for-vs-forintest">for vs for-in</a>, <a href="http://www.ecma-international.org/publications/files/ECMA-ST/Ecma-262.pdf">spec: 12.6.4</a>
+						</section>
+						<section>
+							<h2>for in could be faster</h2>
+							<pre><code>
+var arr = [0];
+arr[999] = 999;
+
+for(var i = 0, len = arr.length; i &lt; len; i++){
+   console.log(arr[i]);
+}
+							</code></pre>
+							<pre class="fragment"><code>
+for(var j in arr){
+  console.log(arr[j]);
+}
+							</code></pre>
+						</section>
+						<section>
+							<h3>while, do while</h3>
+							<pre><code>
+var myArr = [1, 2, 3, 4, 5, 6, 7, 8, 9], 
+    len = myArr.length,
+    i = 0;
+
+while (i &lt; len) {
+  console.log(myArr[i++]);
+}
+							</code></pre>
+							<pre class="fragment"><code>
+var l = arr.length;
+
+while(l--) {
+  console.log(arr[l]);
+}
+							</code></pre>
+							<br>
+							<br>
+							<a href="http://jsperf.com/fastest-array-loops-in-javascript/32">fastest way to traverse array</a>
+							<br>
+							<a href="https://blogs.oracle.com/greimer/resource/loop-test.html">different looping</a>
+						</section>						
+						<section>
+							<h2>summary of looping</h2>
+							<ul>
+								<li>[] is faster than new Array()</li>
+								<li>a[index] is faster a.push</li>
+								<br>
+								<br>
+								<div class="fragment">
+									<li>push can insert multiple</li>
+									<li>consider fromIndex if possible</li>
+								</div>
+							</ul>
+							<ol>
+								<li class="fragment">do as less as possible inside loop</li>
+			 					<li class="fragment">simple for loop is faster than filter</li>
+								<br>								
+								<li class="fragment">for-in could be faster</li>
+								<li class="fragment">on array, reverse while is the fastest</li>
+							</ol>
+						</section>
+					</section>
+					<section>
+						<section>
+							<h1 class="upholdHeader">Scope</h1>
+							<img src="images/scope.jpg" alt="">
+						</section>
+						<section>
+							<h2>JavaScript Scope</h2>
+							<br>
+							<br>
+							<ul class="fragment">
+									<li>Global scope</li>
+									<br>
+									<li class="fragment">local scope</li>
+							</ul>
+						</section>
+
+						<section>
+							<img src="images/my Drawing/globe.png" alt="">
+						</section>
+
+						<section>
+							<img src="images/my Drawing/globeJackie.jpg" alt="">
+						</section>
+						<section><img src="images/jackie.jpg" alt=""></section>
+						<!-- <section><img src="images/newYear.jpg" alt=""></section>
+						<section>
+							<img src="images/my Drawing/globeStars.jpg" alt="">
+						</section> -->
+						<section>
+							<h2>global scope</h2>
+							<pre><code>var a = 2;
+function b(){
+   console.log(a);
+}							</code></pre>
+							<img class="fragment" src="images/globalscope.png" alt="">
+						</section>
+						<section>
+							<h1>Local Scope</h1>
+						</section>
+						<section>
+							<img  class="fullScreenImage" src="images/my Drawing/gglMap.jpg" alt="">
+						</section>
+						<section>
+							<img src="images/kd.jpg" alt="">
+						</section>
+						<section>
+							<img  class="fullScreenImage" src="images/localStar.jpg" alt="">
+						</section>
+						<section>
+							<h2>local/function scope</h2>
+							<pre><code>
+function foo(){
+   var d = 21;
+   console.log(d);
+}
+foo(); //21
+							</code></pre>
+							<br>
+							<pre class="fragment"><code>
+console.log(d); //ReferenceError: d is not defined
+								</code></pre>
+							<br>
+														<br>
+							<a href="http://davidshariff.com/blog/javascript-scope-chain-and-closures/">JS scope chain</a>
+						</section>
+						<section>
+							<img src="images/localScope.png" alt="">
+						</section>
+						<section>
+							<h2>store out of scope variable</h2>
+							<pre><code>
+var myArr = [0, 1, 2,3 4, 5 ...];
+
+function useGlobal() {
+    for (var j = 0; j &lt; 10000; j++){
+        console.log(myArr[j]);
+    }
+}
+							</code></pre>
+							<pre class="fragment"><code>
+function useLocal() {
+    var localArr = myArr;
+    for (var k = 0; k &lt; 10000; k++){
+        console.log(localArr[k]);
+    }
+}
+							</code></pre>
+							<a href="http://jsperf.com/global/17">local vs global variable</a>
+						</section>
+					</section>
+					<!-- <section>
+						<section>
+							<h1>Sleeping !!!</h1>
+							<h4>Please dont snore.</h4>
+						</section>
+						<section>
+							<h3>Summary</h3>
+							<ol>
+								<li>[] is faster than new Array()</li>
+								<li>a[index] is faster a.push</li>	
+								<br>
+								<div class="fragment">
+									<li>push can insert multiple</li>
+									<li>consider fromIndex if possible</li>
+								</div>
+								<br>
+								<div class="fragment">
+									<li>simple for loop is faster than filter</li>
+									<li>for-in could be faster</li>
+								</div>
+								<br>
+								<li class="fragment">on array, reverse while is the fastest</li>
+								<br>
+								<li class="fragment">local variable is faster than out-of scope variable</li>
+							</ol>
+						</section>
+					</section>
+					 --><section>
+						<section>
+							<h2>is it hard to</h2>
+							<h1>Improve</h1>
+							<h2>Performance?</h2>
+						</section>		
+						<!-- <section>
+							<img src="images/redBullWings.jpeg" alt="">
+						</section> 
+						<section>
+							<h2>Tissue paper life cycle</h2>
+							<img src="images/funny/seriousness1.jpg" alt="" class="fullScreenImage fragment">
+						</section>
+						<section>
+							<img src="images/funny/seriousness2.jpg" alt="" class="fullScreenImage">
+						</section>
+						<section>
+							<img src="images/funny/seriousness.jpg" alt="" class="fullScreenImage">
+							<p class="fragment">Software Life Cycle</p>
+						</section>-->
+						<section>
+							<img src="images/redBull.jpg" alt="">
+						</section>
+						
+						<section>
+							<img src="images/developerSecret.jpg">
+						</section>
+						<section>
+							<img class="fullScreenImage" src="images/badBoss.jpg">
+						</section>
+						<section>
+							<img src="images/manageDeveloper.jpg" alt="" class="fullScreenImage">
+						</section>
+					</section>
+					<!--<section>
+						<section>
+							<h1>DOM</h1>
+							<img src="images/htmlTree.png" alt="">
+						</section>
+						<section>
+							<h1>DOM query</h1>
+							<img class="halfScreenImage" src="images/query.jpg" alt="">		
+						</section>
+						 <section>
+							<img class="halfScreenImage" src="images/query1.jpg" alt="">
+						</section>
+						<section>
+							<h2>DOM query</h2>
+							<br>
+							<ul>
+								<li>getElementById</li>
+								<li>getElementsByClassName</li>								
+								<li>getElementsbyTagName</li>
+								<br>								
+								<div class="fragment">
+									<li>querySelector</li>
+									<li>querySelectorAll</li>
+								</div>
+							</ul>
+							<br>
+							<br>
+							<a href="http://tech.pro/tutorial/1910/mastering-the-dom-access-100-lines-of-javascript">Mastering DOM access (read it)</a>				
+						</section>
+ 						<section>
+							<h2>querySelectorAll</h2>
+							<br>
+							<li>returns non-live NodeList (not array)</li>
+							<li> using depth-first pre-order traversal</li>
+							<li class="fragment">cant use forEach, map on NodeList</li>
+							<pre class="fragment"><code>
+myArray -> Array.prototype -> Object.prototype -> null
+
+myNodeList -> NodeList.prototype -> Object.prototype -> null
+							</code></pre>
+							<pre class="fragment"><code>
+//loop and put them in a array
+//or
+var nodesArray = Array.prototype.slice.call(myNodeList);</code></pre>
+							<a href="https://developer.mozilla.org/en-US/docs/Web/API/NodeList">MDN: NodeList</a>, <a href="http://www.w3.org/TR/selectors-api/">W3: selectors-api</a>, <a href="http://www.w3.org/TR/selectors-api2">DOM API level 2</a>
+						</section> 
+						<section>
+							<h2>What to use</h2>
+							<pre><code>
+&lt;div&gt;<br/>    &lt;article&gt;<br/>        &lt;p&gt;some unnecessary text&lt;/p&gt;<br/>    &lt;/article&gt;<br/>    &lt;article &gt;<br/>        &lt;span id=&quot;myId&quot; class=&quot;myClass&quot;&gt;my span not spam&lt;/span&gt;<br/>    &lt;/article&gt;<br/>&lt;/div&gt;
+							</code></pre>							
+							<br>
+							<ol class="fragment">
+								<li>getElementById('myId') is the fastest</li>
+								<li class="fragment">getElementsByClassName('myClass')[0]</li>
+								<br>
+								<li class="fragment">getElementsByTagName('span')[0]</li>
+								<li class="fragment">querySelectorAll('#myId')[0] is the slowest</li>
+							</ol>
+							<br>
+							<br>
+							<a href="http://jsperf.com/queryselectorall-vs-others-selectors">selector api comparison</a>
+						</section>
+							 <section>
+								<h2>need for speed</h2>
+								<img src="images/ambulence.jpg">
+							</section>
+							<section>
+								<h2>query speed (desc)</h2>
+								<br>
+								<ul>
+									<li>ID - #myID</li>
+									<li class="fragment">Class – .myClass</li>
+									<li class="fragment">Tag – div</li>
+									<li class="fragment">Sibling – div + p, div ~ p</li>
+									<li class="fragment">Child – div > p</li>
+								</ul>	
+								<br>		
+								<br>				
+								<a href="http://realityonweb.com/cascading-style-sheet-css/performance-improvement-by-writing-efficient-css-selector/">Efficient CSS Selector</a>	
+							</section>
+							<section>
+								<h2>Speed getting slower</h2>
+								<br>
+								<ul>
+									<li>Descendant – div p</li>
+									<li class="fragment">Universal – *</li>
+									<li class="fragment">Attribute – input[type="checkbox"]</li>
+									<li class="fragment">Pseudo – p:first-child</li>
+								</ul>
+								<li class="fragment">think again about crazy long selector</li>							
+								<br/>
+								<a href="http://www.youtube.com/watch?v=a2_6bGNZ7bA">Faster HTML and CSS</a>
+							</section>
+						<section>
+							<h2>Cache</h2>
+							<pre><code>
+&lt;div class=&quot;awesome-selector&quot;&gt;
+  &lt;div class=&quot;inner-1&quot;&gt; Header - 1 &lt;/div&gt;
+  &lt;div class=&quot;inner-2&quot;&gt; Header - 2 &lt;/div&gt;
+  &lt;div class=&quot;inner-3&quot;&gt; Header - 3 &lt;/div&gt;
+&lt;/div&gt;
+							</code></pre>
+							<pre class="fragment"><code>
+var h1 = document.querySelector('.inner-1');
+var h2 = document.querySelector('.inner-2');
+var h3 = document.querySelector('.inner-3');
+							</code></pre>
+							<pre class="fragment"><code>
+var awesome = document.querySelector('.awesome-selector');
+var h1 = awesome.querySelector('.inner-1');
+var h2 = awesome.querySelector('.inner-2');
+var h3 = awesome.querySelector('.inner-3');
+							</code></pre>
+							<a href="http://jsperf.com/caching-document-with-var-vs-without/2">jsPerf:caching</a>,
+							<a href="http://jsperf.com/caching-queryselector">cache query selector</a>
+						</section>
+						<section>
+							<h3>select by attribute value</h3>
+							<pre><code>
+&lt;section class=&quot;mySection&quot;&gt;
+  &lt;div class=&quot;myDiv&quot;&gt;
+       &lt;div&gt;
+	    &lt;span data-control=&quot;true&quot;&gt;Something Text&lt;/span&gt;
+       &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/section&gt;
+							</code></pre>
+							<pre class="fragment"><code>
+document.querySelectorAll('.mySection .myDiv [data-control]')
+							</code></pre>
+							 <pre class="fragment"><code>
+getElementByAttributeValue('data-control');
+
+function getElementByAttributeValue(attribute)
+    {
+      var allElements = document.getElementsByTagName('*');
+      for (var i = 0; i &lt; allElements.length; i++)
+       {
+        if (allElements[i].getAttribute(attribute))
+        {
+          return allElements[i];
+        }
+      }
+    }
+							</code></pre> 							
+							<pre class="fragment"><code>
+&lt;div&gt;<br/>  &lt;span class=&quot;data-control&quot; data-control=&quot;true&quot;&gt; Some Text&lt;/span&gt;<br/>&lt;/div&gt;
+							</code></pre>
+							<pre class="fragment"><code>
+document.getElementsByClassName('data-control');
+							</code></pre>
+							<a href="http://jsperf.com/class-vs-attribute-selector-performance/4">select by attribute value</a>
+						</section>						
+					</section>
+					<section>
+						<section>
+							<h1 class="">Create DOM</h1>							
+						</section>						
+						<section>
+							<h2>ways to create DOM</h2>
+							<pre><code>
+var ul = document.getElementById('myList');
+
+el.innerHTML = '&lt;li&gt;my awesome item&lt;/li&gt;';
+							</code></pre>							
+							<h6 class="fragment">remove all elements, parse string, assign as children</h5>
+							<pre class="fragment"><code>
+var li = document.createElement("li");
+var text = document.createTextNode('my awesome item');
+
+li.appendChild(text);
+ul.appendChild(li);
+							</code></pre>
+							<li class="fragment">appendChild faster than setting innerHTML</li>
+							 <li class="fragment">if ref passed will move from current parent</li> 
+							<br>
+							<a href="http://glowfilter.com/blog/javascript-performance-testing-innerhtml-vs-appendchild/">createElement</a>, <a href="http://jsperf.com/creating-text-node/3">TextNode</a>, <a href="http://jsperf.com/realistic-innerhtml-vs-appendchild/15">$.append</a>							
+						</section>						
+						<section>
+							<h2>more changes</h2>
+							<pre><code>
+var list = ['foo', 'bar', 'baz', ...],
+    li, text;
+
+for (var i = 0; i &lt; list.length; i++) {
+    li = document.createElement('li');
+    text = document.createTextNode(list[i]);
+    li.appendChild(text);
+    document.body.appendChild(li);
+}</code></pre>
+							<pre class="fragment"><code>
+var fragment = document.createDocumentFragment(),
+    list = ['foo', 'bar', 'baz', ...],
+    el, text;
+for (var i = 0; i &lt; list.length; i++) {
+    el = document.createElement('li');
+    text = document.createTextNode(list[i]);
+    el.appendChild(text);
+    fragment.appendChild(el);
+}
+document.body.appendChild(fragment);</code></pre>
+							<a href="https://developer.mozilla.org/en-US/docs/Web/API/document.createDocumentFragment">createDocumentFragment</a>
+						</section>
+						<section>
+							<h2>Summary</h2>							
+							<ol>
+								<li>Minimize the size of DOM</li>
+								<li>cache DOM for multiple query</li>
+								<br>
+								<div class="fragment">
+									<li>avoid reflow while looping</li>
+								</div>
+								<br>								
+							</ol>
+							<br>
+							<br>
+							<a href="http://blog.korynunn.com/javascript/the-dom-isnt-slow-you-are/">Dom isnt slow you are</a>
+						</section>
+					</section>-->										
+					<section>
+						<section>
+							<h1>Events</h1>		
+							<img src="images/event.jpg" alt="">					
+						</section>
+						<section>
+							<img src="images/table.jpg" alt="">
+						</section>
+						<section>							
+							<img src="images/eventflow.png" alt="">
+							<br>
+							<a href="http://www.w3.org/TR/DOM-Level-3-Events/#event-flow">w3: event flow (image)</a>
+						</section>
+						<section>
+							<h2>security guard</h2>
+							<img src="images/security.jpeg" alt="">
+						</section>
+						<section>
+							<h2>event delegate</h2>
+							<pre><code>
+&lt;ul id=&quot;listToDestroy&quot;&gt;
+    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;first item&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;second item&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;third item&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;forth item&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Fifth item&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+							</code></pre>
+							<pre class="fragment"><code>
+var el = document.getElementById('listToDestroy');
+
+el.addEventListener('click', function (e) {
+    var list = e.target.parentNode;
+    list.parentNode.removeChild(list);
+    e.preventDefault();
+});
+							</code></pre>
+							<a href="http://jsperf.com/events-vanilla-and-jquery/17">js perf delegate</a>
+						</section>
+						<section>
+							<h2>event delegate (demo)</h2>
+							<ul id="listToDestroy">
+				              <li><a href="#">first item</a></li>
+				              <li><a href="#">second item</a></li>
+				              <li><a href="#">third item</a></li>
+				              <li><a href="#">forth item</a></li>
+				              <li><a href="#">Fifth item</a></li>
+				            </ul>
+				            <br>
+				            <button id="addItem">add item</button>
+				            <script type="text/javascript"> 
+							 document.getElementById('listToDestroy').addEventListener('click', function (e) { 
+							    var list = e.target.parentNode; 
+							    list.parentNode.removeChild(list);
+							    e.preventDefault();
+							 });
+							 document.getElementById('addItem').addEventListener('click', function (e) { 
+							    var list = document.getElementById('listToDestroy'); 
+							    var li = document.createElement('li');
+							    var a = document.createElement('a');
+							    a.setAttribute('href', '#');
+							    a.classList.add('roll');
+
+							    var span = document.createElement('span');
+							    span.setAttribute('data-title', 'New Item');
+							    var text = document.createTextNode('New Item');
+							    span.appendChild(text);
+							    a.appendChild(span);
+							    li.appendChild(a);
+							    list.appendChild(li);
+							    
+							    e.preventDefault();
+							 });
+							</script>
+						</section>
+						<section>
+							<h1 class="noUppercase">Debounce & Throttle</h1>
+							<h2>Defer</h2>
+							<br/>
+							<a href="http://jhankarmahbub.com/presentations/debounce.html">Debounce: Example</a>
+						</section>
+					</section>
+					<section>
+						<section>
+							<h1>so far</h1>
+							<img src="images/summary7.jpg" alt="">
+						</section>
+						<section>
+							<img src="images/sleeping3.jpg" alt="">
+						</section>
+						<section>
+							<img src="images/sleeping.jpg" alt="">
+						</section>
+						<section>
+							<img src="images/sleeping6.jpg" alt="">
+						</section>
+						<section>
+							<h2>summary</h2>
+							<br>
+							<ol>
+								<!-- <li>getById, Class, Tag is faster than querySelectorAll</li>
+								<li>use efficient css selector</li> -->
+								<li>a[index] is faster a.push</li>
+								<li>push can insert multiple</li>
+								<br>
+								<div class="fragment">
+									<li>consider fromIndex if possible</li>
+								</div>
+								<br>								
+								<div class="fragment">
+									<li>reverse while is the fastest to iterate array</li>
+									<li>local variable is faster than out-of scope variable</li>
+								</div>
+								<br>								
+								<li class="fragment">delegate Events</li>
+								
+								<li class="fragment">use throttle and debounce</li>
+																
+							</ol>
+						</section>						
+					</section>
+					<section>
+						<section>
+							<h2>You might not need</h2>
+							<h1>JQuery</h1>
+						</section>
+						<section>
+							<h2>Are you ready?</h2>
+							<pre><code>
+$(document).ready(function () {
+   console.log('document is ready. I can sleep now');            
+});</code></pre>
+							<h5 class="fragment">Script as Last Tag of body</h5>							
+							<pre class="fragment"><code>
+document.addEventListener('DOMContentLoaded', function(){
+   console.log('document is ready. I can sleep now'); 
+});
+							</code></pre>
+							<pre class="fragment"><code>
+document.onreadystatechange = function () {  
+  if (document.readyState == "complete") {
+    console.log('document is ready. I can sleep now');
+  }
+}</code></pre>
+							<h4 class="fragment">Copy ready: function from JQuery</h4>
+							<a href="http://flippinawesome.org/2013/05/06/5-things-you-should-stop-doing-with-jquery/">5-things-you-should-stop-doing-with-jquery</a>
+						</section>
+						<section>
+							<h2>$</h2>
+							<pre><code>
+$('#myId');
+$('.myClass');
+$('div p');
+							</code></pre>		
+							<pre class="fragment"><code>
+document.querySelectorAll('#myId');
+document.querySelectorAll('.myClass');
+document.querySelectorAll('div p');
+							</code></pre>
+							<h4 class="fragment">querySelctorAll dont have map, each, filter</h4>
+							<pre class="fragment"><code>
+var nodes = document.querySelectorAll('.myClass');
+
+//convert nodeList to array
+var nodesArray = [].slice.call(nodes);
+							</code></pre>
+						</section>						
+						<section>
+							<h2>deal with class</h2>
+							<pre><code>
+$(el).addClass('hide');
+
+$(el).removeClass('hide');
+
+$(el).toggleClass('hide');
+
+$(el).hasClass('hide');
+							</code></pre>
+							<pre class="fragment"><code>
+//IE9+
+el.classList.add('hide');
+el.classList.remove('hide');
+el.classList.toggle('hide'); 
+el.classList.contains('hide');
+							</code></pre>
+							<a href="https://developer.mozilla.org/en-US/docs/Web/API/Element.classList">MDN: classList</a>
+						</section>
+						<section>
+							<h2>jQuery helpers</h2>
+							<pre><code>
+$(el).hide();
+$(el).show();
+
+el.style.display = 'none';
+el.style.display = '';
+</code></pre>
+						<pre class="fragment"><code>
+$(el).html();
+$(el).html(setString);
+$(el).empty();
+
+
+el.innerHTML;
+el.innerHTML = setString;
+el.innerHTML = '';</code></pre>
+						<pre class="fragment"><code>
+$(el).text();
+el.textContent;</code></pre>
+							<a href="http://youmightnotneedjquery.com/">you might not need jQuery</a>
+						</section>											
+						<section>
+							<h2>event listener</h2>
+							<pre><code>
+$(el).on(eventName, eventHandler);
+
+$(el).on('click', function(e){
+    console.log(e.target);	
+});
+							</code></pre>
+							<pre class="fragment"><code>
+//IE9+
+el.addEventListener(eventName, eventHandler);
+
+el.addEventListener('click', function(e){
+    console.log(e.target);
+});
+							</code></pre>
+							<pre class="fragment"><code>
+//remove event
+$(el).off(eventName, eventHandler);
+
+el.removeEventListener(eventName, eventHandler);
+							</code></pre>
+						</section>
+						<section>
+							<h2>DOM manipulation</h2>
+							<pre><code>
+$(el).parent();
+$(el).children();
+
+el.parentNode;
+el.children;</code></pre>
+							<pre class="fragment"><code>
+$(el).next();
+$(el).prev();
+
+el.nextElementSibling;
+el.previousElementSibling</code></pre>
+							<pre class="fragment"><code>
+$(parent).append(el);
+$(el).remove();
+
+parent.appendChild(el);
+el.parentNode.removeChild(el);</code></pre>
+							<pre class="fragment"><code>
+$(el).clone();
+el.cloneNode(true);</code></pre>
+						</section>
+						<section>
+							<h2>is JQuery Dead?</h2>
+							<br>
+							<ol class="fragment">
+								<li>Older Browser</li>
+								<li><a href="https://docs.google.com/document/d/1LPaPA30bLUB_publLIMF0RlhdnPx_ePXm7oW02iiT6o/edit#">Browser Bugs</a></li>
+								<br>
+	<!-- 							<li class="fragment">use modular (sizzling)</li>
+								<li class="fragment">querySelctorAll dont have map, each, filter</li>
+								<br>
+	 -->							<li class="fragment">Angular, Backbone uses Jquery</li>
+								<li class="fragment">lazy (dont want to learn new framework)</li>
+								<br>
+								<li class="fragment"><a href="http://flippinawesome.org/2014/03/10/is-jquery-too-big-for-mobile/">Is JQuery too big for mobile device</a></li>
+							</ol>
+							<br>
+							<br>
+							<br>
+							<h3 class="fragment">Decide based on your situation</h3>
+						</section>
+					</section>
+					<section>
+						<section>
+							<h1>Frameworks</h1>
+						</section>
+						<section>
+							<h2>Angular</h2>
+							<ol>
+								<li>Cache DOM / template</li>
+								<li class="fragment">careful about watch</li>
+								<li class="fragment">simplify watch expression(remove filter)</li>
+								<li class="fragment">optimize digest cycle</li>
+								<li class="fragment">one time binding: &lt;h1&gt;{{ ::title }}&lt;/h1&gt;</li>
+								<li class="fragment">Avoid ng-repeat where possible</li>
+							</ol>
+							<br>
+							<a href="http://www.binpress.com/tutorial/speeding-up-angular-js-with-simple-optimizations/135">speed up angular app</a>
+							<br>
+							<a href="http://bahmutov.calepin.co/improving-angular-web-app-performance-example.html">angular web app perf</a>
+						</section>
+						<!-- <section>
+							<h2></h2>
+						</section>
+						<section>
+							<h2></h2>
+						</section>
+						<section>
+							<h2></h2>
+						</section> -->
+					</section>
+					<section>
+						<section>
+							<h1>Performance Test</h1>
+							<!-- <img src="images/bend1.jpg" alt=""> -->
+						</section>
+						<!-- <section>
+							<img src="images/bend2.jpg" alt="">
+						</section> -->
+						<section>
+							<h2>Ways to test</h2>
+							<ol>
+								<li>chrome task manager (shift + Esc)</li>
+								<li class="fragment">devtool - audit, network</li>
+								<li class="fragment">jsPerf.com <a href="http://jsperf.com/">show popular</a></li>
+								<li class="fragment">Devtool- Console, timeline, profile</li>
+							</ol>
+						</section>
+						<section>
+							<h2>Console API</h2>
+							<pre><code>
+console.assert(myArray.length >5, "More than 5 elements");
+							</code></pre>
+							<pre class="fragment"><code>
+ function foo(){
+    console.count('fooed');
+ }
+
+ foo(); // fooed: 1
+ foo(); // fooed: 2
+ foo(); // fooed: 3 
+ 							</code></pre>
+ 							<pre class="fragment"><code>
+console.time("Array initialize");
+
+//your code
+
+console.timeEnd("Array initialize");
+							</code></pre>
+							<a href="https://developers.google.com/chrome-developer-tools/docs/console">Using the console</a>
+							<br/>
+							<a href="https://developers.google.com/chrome-developer-tools/docs/console-api">Console API</a>
+						</section>
+						<!--<section>
+							<h2>More Console</h2>
+							
+							<pre class="fragment"><code>
+console.time("Array initialize");
+
+var array= new Array(1000000);
+
+for (var i = array.length - 1; i >= 0; i--) {
+    array[i] = new Object();
+};
+
+console.timeEnd("Array initialize");
+							</code></pre>
+							 <pre class="fragment"><code contenteditable>
+var start = performance.now();
+
+//execute your function
+foobar();
+
+var end = performance.now();
+
+console.log(start - end +'ms');
+							</code></pre>  
+							<a href="https://www.codeschool.com/courses/discover-devtools">CodeSchool: Discover Dev Tools</a>
+						</section>
+						<section>
+							<h2>Memory leak and other tabs</h2>
+						</section>-->
+						<section>
+							<h2>Use tool like</h2>
+							<ul>
+								<li>webpagetest.org</li>
+								<li class="fragment">page speed</li>
+							</ul>
+						</section>
+						<section>
+							<h2>Memory Profiling</h2>
+							<a href="https://www.youtube.com/watch?v=0xx_dkv9DEY">must watch: advanced performance tooling</a>
+							<a href="https://developers.google.com/chrome-developer-tools/docs/javascript-memory-profiling">JS Memory Profiling</a>
+							<br/>
+							<a href="http://updates.html5rocks.com/2013/02/Profiling-Long-Paint-Times-with-DevTools-Continuous-Painting-Mode">Long paint times profiling</a>
+							<br/>
+							<a href="http://www.youtube.com/watch?v=hqotCdm6Cx4">Effective Memory management</a>
+							<br/>
+							<a href="https://code.google.com/p/leak-finder-for-javascript/">Leak Finder</a>
+							<div class="fragment">
+								<h3 class="noUppercase">chrome://tracing</h3>
+								<a href="https://www.youtube.com/watch?v=bMZZOzuJCgk">Tracing paint operations</a>
+								<br/>
+								<a href="http://www.html5rocks.com/en/tutorials/games/abouttracing/">Tracing Flag</a>
+							</div>
+						</section>
+					</section>										
+					<section>
+						<section>
+							<h1>Recap</h1>
+						</section>
+						<section>
+							<h2>High Perf JavaScript</h2>							
+							<br>
+							<ol>
+								<li>local variable is faster than out-of scope variable</li>
+								<li>reverse while is the fastest to iterate array</li>
+								<br>
+								<!-- <div class="fragment">
+									<li>getById, Class, Tag is faster than querySelectorAll</li>
+									<li>use documentFragment</li>
+								</div> -->
+								<br>
+								<div class="fragment">
+									<li>delegate Events</li>
+									<li>consider throttle and debounce</li>
+								</div>
+								<br>
+								<div class="fragment">
+									<li>Do u really need full Jquery or some module?</li>
+									<li>devTool- audit, profile, timeline, console</li>
+								</div>								
+							</ol>
+						</section>
+						<!-- <section>
+							<h2>When optimizing</h2>
+							<li>focus on the big things (first)</li>							
+							<li>decide what works for you and your team</li>
+							<li>review your code: <a href="https://groups.google.com/forum/?fromgroups#!forum/jsmentors">JSMentors</a>, <a href="http://codereview.stackexchange.com/">Code Review</a></li>
+						</section> -->						
+					</section>										
+					<section>
+						<section>
+							<h1 class="upholdHeader">Break Everything</h1>
+							<br/>
+							<h3>I have said</h3>
+							<p>\</p>
+							<p>/</p>
+							<p>Build you own rules, and update old ones.</p>
+							<br/>
+
+							<br/><br/>
+							<a href="http://www.youtube.com/watch?v=MFtijdklZDo">Break All the Rules</a><br/>
+						</section>
+						<section>
+							<h2 class="upholdHeader">Final Take Away</h2>
+							<ul>
+								<li class="fragment">Nothing is absolutely right</li>
+							</ul>
+							<h1 style="color:red" class="fragment">trust Tools, <span class="lineThrough">not Rules<span></h1>
+							<br/>
+							<a href="http://www.youtube.com/watch?v=MFtijdklZDo">Angus Croll: Break all the rules</a>
+						</section>
+						<section>
+							<img src="images/knowWhy.jpg" alt="">
+						</section>
+						<!-- <section>
+							<h2>use framework</h2>
+							<img class="fragment" src="images/funny/fun/fly.jpg" alt="">
+						</section>
+						<section>
+							<h2>be smartly lazy</h2>
+							<img src="images/funny/fun/lawnMower.jpg" alt="">
+						</section>
+						<section>
+							<h2>blame framework but take credit</h2>
+							<img class="fragment" src="images/keys.jpg" alt="">
+						</section> -->
+					</section>
+					<section>
+						<section>
+							<h1>Free Tips</h1>
+						</section>
+						<section>
+							<h2>Appear Busy at Work</h2>
+							<ol>
+								<li class="fragment">Ctrl + 1 when big brother is around</li>
+
+								<br>
+								<li class="fragment">Always carry extra bag and print out</li>
+								<li class="fragment">don't leave before ur manager</li>
+								<br>
+								<li class="fragment">Dont use the same rest room in a row</li>
+								<li class="fragment">Do lunch at your desk not break room</li>
+								<br>
+								<li class="fragment">always leave a extra jacket on your chair</li>
+								<li class="fragment">compose email during office hours, send it midnight or weekends</li>
+							</ol>
+							<br>
+							<a href="http://www.wikihow.com/Look-Busy-at-Work-Without-Really-Working">Look busy</a>
+						</section>
+						<!-- <section>
+							<h3>Appear Smart in Meetings</h3>
+							<div class="fragment">
+								<h4>1. Draw a Venn Diagram</h4>
+								<img src="images/vennDiagram.jpeg" alt="">
+							</div>
+							<li style="list-style:none" class="fragment">2. Ask Presenter to go back a slide</li>
+							<li style="list-style:none" class="fragment">3. Ask "Will this scale?" no matter what it is</li>
+							<br>
+							<a href="https://medium.com/comedy-corner/10-tricks-to-appear-smart-during-meetings-27b489a39d1a">10 tricks to be smart during meetings</a>
+						</section> -->
+					</section>
+					<section>
+						<h1>Thank You</h1>
+						<br/>
+						<h2><a href="http://goo.gl/0JIpFe">goo.gl/0JIpFe</a> </h2>
+						<br/>
+						<br/>
+						<a href="http://thatjsdude.com">JS Dude</a> / <a href="http://twitter.com/mdkhan005">@mdkhan005</a>
+						<br>
+						<h6>www.thatJsDude.com</h6>
+					</section>
+					<section>
+						<a href="http://goo.gl/0JIpFe">goo.gl/0JIpFe</a>
+						<img src="images/question.jpg" alt="">
+						<br>
+						<h5>www.thatJsDude.com</h5>
+						<br>
+						(<a href="http://thatjsdude.com">JS Dude</a> / <a href="http://twitter.com/mdkhan005">@mdkhan005</a>)
+					</section>
+				</div>
+
+			</div>
+
+			<script src="lib/js/head.min.js"></script>
+			<script src="js/reveal.min.js"></script>
+
+			<script>
+
+				// Full list of configuration options available here:
+				// https://github.com/hakimel/reveal.js#configuration
+				Reveal.initialize({
+					controls: true,
+					progress: true,
+					history: true,
+
+					theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+					transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/none
+
+					// Optional libraries used to extend on reveal.js
+					dependencies: [
+						{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+						{ src: 'plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+						{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+						{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+						{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+						{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+					]
+				});
+
+			</script>
+
+		</body>
+	</html>
