@@ -152,7 +152,7 @@
 						<section>
 							<img src="images/subjective.jpg" alt="">
 						</section>
-						 <section>
+						<!-- <section>
 							<img src="images/solution.jpg" alt="">
 						</section>
 						<section>
@@ -166,7 +166,7 @@
 						</section>
 						<section>
 							<img class="fullScreenImage" src="images/bathroom1.jpg" alt="">
-						</section>
+						</section> -->
 					</section>	
 					<!-- <section>
 						<section>
@@ -189,36 +189,6 @@
 						</section>					
 					</section>					
 					 -->
-					<section>
-						<section>
-							<h2>How to improve Perf</h2>			
-							<img src="images/alone.jpg" alt="">
-						</section>						
-						<section>
-							<h2>Strategy?</h2>
-							<br>
-							<ol>
-								<li>Understand the situation/ use case</li>
-								<li class="fragment">Is it a performance/ design problem?</li>
-								<br>
-								<li class="fragment">Don't blindly go for blog/ talk/ boss</li>
-								<li class="fragment">Or some random guy in a conference</li>
-								<br>
-								<li class="fragment">Measure it (before, after)</li>
-								<li class="fragment">Make sure u understand after 6 months</li>								
-							</0l>
-						</section>
-						<!-- <section>
-						<h4>how many colors are there?</h4>
-							<img src="images/colors.jpg" alt="">
-						</section> -->						
-						<section>
-							<img src="images/useOnlyWhatYouNeed.jpg" alt="">
-						</section>
-						<section>
-							<img src="images/electricity.gif" alt="">
-						</section>
-					</section>
 					<section>
 						<h1>Where to start</h1>
 					</section>			
@@ -263,7 +233,7 @@
 					</section>
 					<section>
 						<section>
-							<h1>Run time</h1>
+							<h1>Development</h1>
 						</section>
 						<section>
 							<h2>use framework</h2>
@@ -298,7 +268,7 @@
 							<li class="fragment">input with ng-model becomes angular directive</li>
 							<li class="fragment">Setup a keydown listener to input</li>
 						<pre class="fragment"><code>
-&lt;h1&gt;{{name}}&lt;/h1&gt;
+{{name}}
 						</code></pre>
 							<li class="fragment">Something in angular named: $interpolation</li>
 							<li class="fragment">interpolation: markup with expression => string </li>
@@ -330,13 +300,18 @@
 					<section>
 						<img src="images/angularEvent.png" alt="">
 					</section>
+					<section>
+						<h2>There is no Magic</h2>
+						<ul>
+							<li class="fragment">Productive hinders performance</li>
+							<li class="fragment">Don't be amazed by magic</li>
+							<li class="fragment">Do you really magic?</li>
+							<li class="fragment">What is the cost of magic?</li>
+							<li class="fragment">Is it worth to take the overhead?</li>
+						</ul>
+					</section>
 				</section>
 				
-					<section>
-						<section>
-							<h2>There is no magic</h2>
-						</section>
-					</section>
 					<section>
 						<section>
 							<h1>Array</h1>
@@ -346,7 +321,7 @@
 							<h2>Create Array</h2>
 							<pre class="fragment"><code>
 var a = new Array();    //[]
-var b = new Array(2);//[undefined, undefined]
+var b = new Array(3);//[undefined, undefined, undefined]
 var c = new Array(5, 6, 7);// [5, 6, 7]
 							</code></pre>
 							<small class="fragment">constructor is a function call plus execution, argument check</small>
@@ -791,10 +766,10 @@ function useLocal() {
 							<img src="images/developerSecret.jpg">
 						</section>
 						<section>
-							<img class="fullScreenImage" src="images/badBoss.jpg">
+							<img class="" src="images/badBoss.jpg">
 						</section>
 						<section>
-							<img src="images/manageDeveloper.jpg" alt="" class="fullScreenImage">
+							<img src="images/manageDeveloper.jpg" alt="" class="">
 						</section>
 					</section>
 					<!--<section>
@@ -1031,10 +1006,6 @@ document.body.appendChild(fragment);</code></pre>
 							<a href="http://www.w3.org/TR/DOM-Level-3-Events/#event-flow">w3: event flow (image)</a>
 						</section>
 						<section>
-							<h2>security guard</h2>
-							<img src="images/security.jpeg" alt="">
-						</section>
-						<section>
 							<h2>event delegate</h2>
 							<pre><code>
 &lt;ul id=&quot;listToDestroy&quot;&gt;
@@ -1093,50 +1064,15 @@ el.addEventListener('click', function (e) {
 							</script>
 						</section>
 						<section>
+							<h2>security guard</h2>
+							<img src="images/security.jpeg" alt="">
+						</section>
+						<section>
 							<h1 class="noUppercase">Debounce & Throttle</h1>
 							<h2>Defer</h2>
 							<br/>
 							<a href="http://jhankarmahbub.com/presentations/debounce.html">Debounce: Example</a>
 						</section>
-					</section>
-					<section>
-						<section>
-							<h1>so far</h1>
-							<img src="images/summary7.jpg" alt="">
-						</section>
-						<section>
-							<img src="images/sleeping3.jpg" alt="">
-						</section>
-						<section>
-							<img src="images/sleeping.jpg" alt="">
-						</section>
-						<section>
-							<img src="images/sleeping6.jpg" alt="">
-						</section>
-						<section>
-							<h2>summary</h2>
-							<br>
-							<ol>
-								<!-- <li>getById, Class, Tag is faster than querySelectorAll</li>
-								<li>use efficient css selector</li> -->
-								<li>a[index] is faster a.push</li>
-								<li>push can insert multiple</li>
-								<br>
-								<div class="fragment">
-									<li>consider fromIndex if possible</li>
-								</div>
-								<br>								
-								<div class="fragment">
-									<li>reverse while is the fastest to iterate array</li>
-									<li>local variable is faster than out-of scope variable</li>
-								</div>
-								<br>								
-								<li class="fragment">delegate Events</li>
-								
-								<li class="fragment">use throttle and debounce</li>
-																
-							</ol>
-						</section>						
 					</section>
 					<section>
 						<section>
@@ -1317,6 +1253,7 @@ el.cloneNode(true);</code></pre>
 								<li>No two way bindings</li>
 								<li class="fragment">use virtual DOM</li>
 								<li class="fragment">difference algorithm</li>
+								<li class="fragment">update only the changes</li>
 								<li class="fragment">ng-react</li>
 							</ul>
 						</section>
@@ -1327,6 +1264,37 @@ el.cloneNode(true);</code></pre>
 							<h2></h2>
 						</section> -->
 					</section>
+					<section>
+						<section>
+							<h2>How to improve Perf</h2>			
+							<img src="images/alone.jpg" alt="">
+						</section>						
+						<section>
+							<h2>Strategy?</h2>
+							<br>
+							<ol>
+								<li>Understand the situation/ use case</li>
+								<li class="fragment">Is it a performance/ design problem?</li>
+								<br>
+								<li class="fragment">Don't blindly go for blog/ talk/ boss</li>
+								<li class="fragment">Or some random guy in a conference</li>
+								<br>
+								<li class="fragment">Measure it (before, after)</li>
+								<li class="fragment">Make sure u understand after 6 months</li>								
+							</0l>
+						</section>
+						<!-- <section>
+						<h4>how many colors are there?</h4>
+							<img src="images/colors.jpg" alt="">
+						</section> -->						
+						<section>
+							<img src="images/useOnlyWhatYouNeed.jpg" alt="">
+						</section>
+						<section>
+							<img src="images/electricity.gif" alt="">
+						</section>
+					</section>
+					
 					<section>
 						<section>
 							<h1>Performance Test</h1>
@@ -1340,7 +1308,7 @@ el.cloneNode(true);</code></pre>
 							<ol>
 								<li>chrome task manager (shift + Esc)</li>
 								<li class="fragment">devtool - audit, network</li>
-								<li class="fragment">jsPerf.com <a href="http://jsperf.com/">show popular</a></li>
+								<li class="fragment">jsPerf.com <a href="http://jsperf.com/popular#all-time">show popular</a></li>
 								<li class="fragment">Devtool- Console, timeline, profile</li>
 							</ol>
 						</section>
@@ -1425,7 +1393,17 @@ console.log(start - end +'ms');
 					</section>										
 					<section>
 						<section>
-							<h1>Recap</h1>
+							<h1>so far</h1>
+							<img src="images/summary7.jpg" alt="">
+						</section>
+						<section>
+							<img src="images/sleeping3.jpg" alt="">
+						</section>
+						<section>
+							<img src="images/sleeping.jpg" alt="">
+						</section>
+						<section>
+							<img src="images/sleeping6.jpg" alt="">
 						</section>
 						<section>
 							<h2>High Perf JavaScript</h2>							
